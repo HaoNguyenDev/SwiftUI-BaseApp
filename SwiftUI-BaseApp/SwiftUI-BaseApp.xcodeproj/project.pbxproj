@@ -10,7 +10,11 @@
 		DA5CC2872E22B28F000C5F18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2812E22B28F000C5F18 /* Preview Assets.xcassets */; };
 		DA5CC2882E22B28F000C5F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2832E22B28F000C5F18 /* Assets.xcassets */; };
 		DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2842E22B28F000C5F18 /* ContentView.swift */; };
-		DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseAppApp.swift */; };
+		DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseApp.swift */; };
+		DA5CC28E2E22B47A000C5F18 /* NavRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC28D2E22B47A000C5F18 /* NavRouter.swift */; };
+		DA5CC2902E22B485000C5F18 /* NavRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC28F2E22B485000C5F18 /* NavRouterProtocol.swift */; };
+		DA5CC2922E22B490000C5F18 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2912E22B490000C5F18 /* Route.swift */; };
+		DA5CC2942E22B4EC000C5F18 /* ScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,7 +22,11 @@
 		DA5CC2812E22B28F000C5F18 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DA5CC2832E22B28F000C5F18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA5CC2842E22B28F000C5F18 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_BaseAppApp.swift; sourceTree = "<group>"; };
+		DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_BaseApp.swift; sourceTree = "<group>"; };
+		DA5CC28D2E22B47A000C5F18 /* NavRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavRouter.swift; sourceTree = "<group>"; };
+		DA5CC28F2E22B485000C5F18 /* NavRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavRouterProtocol.swift; sourceTree = "<group>"; };
+		DA5CC2912E22B490000C5F18 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +70,21 @@
 				DA5CC2822E22B28F000C5F18 /* Preview Content */,
 				DA5CC2832E22B28F000C5F18 /* Assets.xcassets */,
 				DA5CC2842E22B28F000C5F18 /* ContentView.swift */,
-				DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseAppApp.swift */,
+				DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseApp.swift */,
+				DA5CC28C2E22B458000C5F18 /* Router */,
 			);
 			path = "SwiftUI-BaseApp";
+			sourceTree = "<group>";
+		};
+		DA5CC28C2E22B458000C5F18 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DA5CC28F2E22B485000C5F18 /* NavRouterProtocol.swift */,
+				DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */,
+				DA5CC28D2E22B47A000C5F18 /* NavRouter.swift */,
+				DA5CC2912E22B490000C5F18 /* Route.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +161,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */,
-				DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseAppApp.swift in Sources */,
+				DA5CC28E2E22B47A000C5F18 /* NavRouter.swift in Sources */,
+				DA5CC2942E22B4EC000C5F18 /* ScreenCoordinator.swift in Sources */,
+				DA5CC2902E22B485000C5F18 /* NavRouterProtocol.swift in Sources */,
+				DA5CC2922E22B490000C5F18 /* Route.swift in Sources */,
+				DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
