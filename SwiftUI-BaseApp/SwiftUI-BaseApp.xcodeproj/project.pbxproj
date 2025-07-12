@@ -15,6 +15,66 @@
 		DA5CC2902E22B485000C5F18 /* NavRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC28F2E22B485000C5F18 /* NavRouterProtocol.swift */; };
 		DA5CC2922E22B490000C5F18 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2912E22B490000C5F18 /* Route.swift */; };
 		DA5CC2942E22B4EC000C5F18 /* ScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */; };
+		DA748D482E22B8A000B1B226 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */; };
+		DA748D492E22B8A000B1B226 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */; };
+		DA748D4A2E22B8A000B1B226 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D442E22B8A000B1B226 /* Nunito-Light.ttf */; };
+		DA748D4B2E22B8A000B1B226 /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D452E22B8A000B1B226 /* Nunito-Medium.ttf */; };
+		DA748D4C2E22B8A000B1B226 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D462E22B8A000B1B226 /* Nunito-Regular.ttf */; };
+		DA748D4D2E22B8A000B1B226 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D472E22B8A000B1B226 /* Nunito-SemiBold.ttf */; };
+		DA748D822E22B8B900B1B226 /* Bike.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D522E22B8B900B1B226 /* Bike.json */; };
+		DA748D832E22B8B900B1B226 /* ic_profile_delete_account_confirm_animate.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA748D662E22B8B900B1B226 /* ic_profile_delete_account_confirm_animate.gif */; };
+		DA748D842E22B8B900B1B226 /* Plus.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D712E22B8B900B1B226 /* Plus.json */; };
+		DA748D852E22B8B900B1B226 /* Sad.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D742E22B8B900B1B226 /* Sad.json */; };
+		DA748D862E22B8B900B1B226 /* ChallangeEarn.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D582E22B8B900B1B226 /* ChallangeEarn.json */; };
+		DA748D872E22B8B900B1B226 /* LoadingCar.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D6A2E22B8B900B1B226 /* LoadingCar.json */; };
+		DA748D882E22B8B900B1B226 /* QR.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D722E22B8B900B1B226 /* QR.json */; };
+		DA748D892E22B8B900B1B226 /* Error.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D602E22B8B900B1B226 /* Error.json */; };
+		DA748D8A2E22B8B900B1B226 /* Bike_roadmap.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D542E22B8B900B1B226 /* Bike_roadmap.json */; };
+		DA748D8B2E22B8B900B1B226 /* colorHour.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D5A2E22B8B900B1B226 /* colorHour.json */; };
+		DA748D8C2E22B8B900B1B226 /* swipe-left-right.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D782E22B8B900B1B226 /* swipe-left-right.json */; };
+		DA748D8D2E22B8B900B1B226 /* WifiDisconect.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D7F2E22B8B900B1B226 /* WifiDisconect.json */; };
+		DA748D8E2E22B8B900B1B226 /* Three_users.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D792E22B8B900B1B226 /* Three_users.json */; };
+		DA748D8F2E22B8B900B1B226 /* WinTOP.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D812E22B8B900B1B226 /* WinTOP.json */; };
+		DA748D902E22B8B900B1B226 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = DA748D6B2E22B8B900B1B226 /* Localizable.xcstrings */; };
+		DA748D912E22B8B900B1B226 /* WalkFast.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D7B2E22B8B900B1B226 /* WalkFast.json */; };
+		DA748D922E22B8B900B1B226 /* Coin.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D592E22B8B900B1B226 /* Coin.json */; };
+		DA748D932E22B8B900B1B226 /* Walking_roadmap.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA748D7C2E22B8B900B1B226 /* Walking_roadmap.gif */; };
+		DA748D942E22B8B900B1B226 /* RoadLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D732E22B8B900B1B226 /* RoadLoading.json */; };
+		DA748D952E22B8B900B1B226 /* DownloadColor.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D5D2E22B8B900B1B226 /* DownloadColor.json */; };
+		DA748D962E22B8B900B1B226 /* Cup.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D5C2E22B8B900B1B226 /* Cup.json */; };
+		DA748D972E22B8B900B1B226 /* ic_logout_animate.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA748D652E22B8B900B1B226 /* ic_logout_animate.gif */; };
+		DA748D982E22B8B900B1B226 /* later.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D692E22B8B900B1B226 /* later.json */; };
+		DA748D992E22B8B900B1B226 /* Finish.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D612E22B8B900B1B226 /* Finish.json */; };
+		DA748D9A2E22B8B900B1B226 /* Bike.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA748D512E22B8B900B1B226 /* Bike.gif */; };
+		DA748D9B2E22B8B900B1B226 /* swipe-left-right.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA748D772E22B8B900B1B226 /* swipe-left-right.gif */; };
+		DA748D9C2E22B8B900B1B226 /* WaitingPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D7A2E22B8B900B1B226 /* WaitingPhone.json */; };
+		DA748D9D2E22B8B900B1B226 /* Bike_roadmap.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA748D532E22B8B900B1B226 /* Bike_roadmap.gif */; };
+		DA748D9E2E22B8B900B1B226 /* WaveHand.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D7E2E22B8B900B1B226 /* WaveHand.json */; };
+		DA748D9F2E22B8B900B1B226 /* NoHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D6F2E22B8B900B1B226 /* NoHistory.json */; };
+		DA748DA02E22B8B900B1B226 /* Achivement.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA748D4E2E22B8B900B1B226 /* Achivement.gif */; };
+		DA748DA12E22B8B900B1B226 /* Walking_roadmap.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D7D2E22B8B900B1B226 /* Walking_roadmap.json */; };
+		DA748DA22E22B8B900B1B226 /* CarBike.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D552E22B8B900B1B226 /* CarBike.json */; };
+		DA748DA32E22B8B900B1B226 /* Achivement.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D4F2E22B8B900B1B226 /* Achivement.json */; };
+		DA748DA42E22B8B900B1B226 /* Basket.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D502E22B8B900B1B226 /* Basket.json */; };
+		DA748DA52E22B8B900B1B226 /* ChallangeCommunity.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D572E22B8B900B1B226 /* ChallangeCommunity.json */; };
+		DA748DA62E22B8B900B1B226 /* Earn Medal.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA748D5E2E22B8B900B1B226 /* Earn Medal.gif */; };
+		DA748DA72E22B8B900B1B226 /* ChallangeCombat.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D562E22B8B900B1B226 /* ChallangeCombat.json */; };
+		DA748DA82E22B8B900B1B226 /* Congrats.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D5B2E22B8B900B1B226 /* Congrats.json */; };
+		DA748DA92E22B8B900B1B226 /* Info.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D682E22B8B900B1B226 /* Info.json */; };
+		DA748DAA2E22B8B900B1B226 /* Maintenance.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D6D2E22B8B900B1B226 /* Maintenance.json */; };
+		DA748DAB2E22B8B900B1B226 /* SuccessCircle.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D752E22B8B900B1B226 /* SuccessCircle.json */; };
+		DA748DAC2E22B8B900B1B226 /* Immediate.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D672E22B8B900B1B226 /* Immediate.json */; };
+		DA748DAD2E22B8B900B1B226 /* Win.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D802E22B8B900B1B226 /* Win.json */; };
+		DA748DAE2E22B8B900B1B226 /* ic_boost_loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA748D642E22B8B900B1B226 /* ic_boost_loading.gif */; };
+		DA748DAF2E22B8B900B1B226 /* swipe_tutorial.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA748D762E22B8B900B1B226 /* swipe_tutorial.gif */; };
+		DA748DB02E22B8B900B1B226 /* lot_lucky_draw.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D6C2E22B8B900B1B226 /* lot_lucky_draw.json */; };
+		DA748DB12E22B8B900B1B226 /* Earn Medal.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D5F2E22B8B900B1B226 /* Earn Medal.json */; };
+		DA748DB22E22B8B900B1B226 /* Medal.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D6E2E22B8B900B1B226 /* Medal.json */; };
+		DA748DB32E22B8B900B1B226 /* person.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D702E22B8B900B1B226 /* person.json */; };
+		DA748DB42E22B8B900B1B226 /* gift_boots.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D622E22B8B900B1B226 /* gift_boots.json */; };
+		DA748DB52E22B8B900B1B226 /* Handsake.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D632E22B8B900B1B226 /* Handsake.json */; };
+		DA748DBB2E22BA0200B1B226 /* Font+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DBA2E22BA0200B1B226 /* Font+Additional.swift */; };
+		DA748DBD2E22BA4C00B1B226 /* Text+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DBC2E22BA4C00B1B226 /* Text+Additional.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +87,67 @@
 		DA5CC28F2E22B485000C5F18 /* NavRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavRouterProtocol.swift; sourceTree = "<group>"; };
 		DA5CC2912E22B490000C5F18 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCoordinator.swift; sourceTree = "<group>"; };
+		DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
+		DA748D442E22B8A000B1B226 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		DA748D452E22B8A000B1B226 /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
+		DA748D462E22B8A000B1B226 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		DA748D472E22B8A000B1B226 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		DA748D4E2E22B8B900B1B226 /* Achivement.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Achivement.gif; sourceTree = "<group>"; };
+		DA748D4F2E22B8B900B1B226 /* Achivement.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Achivement.json; sourceTree = "<group>"; };
+		DA748D502E22B8B900B1B226 /* Basket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Basket.json; sourceTree = "<group>"; };
+		DA748D512E22B8B900B1B226 /* Bike.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Bike.gif; sourceTree = "<group>"; };
+		DA748D522E22B8B900B1B226 /* Bike.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Bike.json; sourceTree = "<group>"; };
+		DA748D532E22B8B900B1B226 /* Bike_roadmap.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Bike_roadmap.gif; sourceTree = "<group>"; };
+		DA748D542E22B8B900B1B226 /* Bike_roadmap.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Bike_roadmap.json; sourceTree = "<group>"; };
+		DA748D552E22B8B900B1B226 /* CarBike.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CarBike.json; sourceTree = "<group>"; };
+		DA748D562E22B8B900B1B226 /* ChallangeCombat.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChallangeCombat.json; sourceTree = "<group>"; };
+		DA748D572E22B8B900B1B226 /* ChallangeCommunity.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChallangeCommunity.json; sourceTree = "<group>"; };
+		DA748D582E22B8B900B1B226 /* ChallangeEarn.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChallangeEarn.json; sourceTree = "<group>"; };
+		DA748D592E22B8B900B1B226 /* Coin.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Coin.json; sourceTree = "<group>"; };
+		DA748D5A2E22B8B900B1B226 /* colorHour.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = colorHour.json; sourceTree = "<group>"; };
+		DA748D5B2E22B8B900B1B226 /* Congrats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Congrats.json; sourceTree = "<group>"; };
+		DA748D5C2E22B8B900B1B226 /* Cup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Cup.json; sourceTree = "<group>"; };
+		DA748D5D2E22B8B900B1B226 /* DownloadColor.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DownloadColor.json; sourceTree = "<group>"; };
+		DA748D5E2E22B8B900B1B226 /* Earn Medal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Earn Medal.gif"; sourceTree = "<group>"; };
+		DA748D5F2E22B8B900B1B226 /* Earn Medal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Earn Medal.json"; sourceTree = "<group>"; };
+		DA748D602E22B8B900B1B226 /* Error.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Error.json; sourceTree = "<group>"; };
+		DA748D612E22B8B900B1B226 /* Finish.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Finish.json; sourceTree = "<group>"; };
+		DA748D622E22B8B900B1B226 /* gift_boots.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gift_boots.json; sourceTree = "<group>"; };
+		DA748D632E22B8B900B1B226 /* Handsake.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Handsake.json; sourceTree = "<group>"; };
+		DA748D642E22B8B900B1B226 /* ic_boost_loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ic_boost_loading.gif; sourceTree = "<group>"; };
+		DA748D652E22B8B900B1B226 /* ic_logout_animate.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ic_logout_animate.gif; sourceTree = "<group>"; };
+		DA748D662E22B8B900B1B226 /* ic_profile_delete_account_confirm_animate.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ic_profile_delete_account_confirm_animate.gif; sourceTree = "<group>"; };
+		DA748D672E22B8B900B1B226 /* Immediate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Immediate.json; sourceTree = "<group>"; };
+		DA748D682E22B8B900B1B226 /* Info.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Info.json; sourceTree = "<group>"; };
+		DA748D692E22B8B900B1B226 /* later.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = later.json; sourceTree = "<group>"; };
+		DA748D6A2E22B8B900B1B226 /* LoadingCar.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoadingCar.json; sourceTree = "<group>"; };
+		DA748D6B2E22B8B900B1B226 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		DA748D6C2E22B8B900B1B226 /* lot_lucky_draw.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lot_lucky_draw.json; sourceTree = "<group>"; };
+		DA748D6D2E22B8B900B1B226 /* Maintenance.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Maintenance.json; sourceTree = "<group>"; };
+		DA748D6E2E22B8B900B1B226 /* Medal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Medal.json; sourceTree = "<group>"; };
+		DA748D6F2E22B8B900B1B226 /* NoHistory.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoHistory.json; sourceTree = "<group>"; };
+		DA748D702E22B8B900B1B226 /* person.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = person.json; sourceTree = "<group>"; };
+		DA748D712E22B8B900B1B226 /* Plus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Plus.json; sourceTree = "<group>"; };
+		DA748D722E22B8B900B1B226 /* QR.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QR.json; sourceTree = "<group>"; };
+		DA748D732E22B8B900B1B226 /* RoadLoading.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RoadLoading.json; sourceTree = "<group>"; };
+		DA748D742E22B8B900B1B226 /* Sad.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Sad.json; sourceTree = "<group>"; };
+		DA748D752E22B8B900B1B226 /* SuccessCircle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SuccessCircle.json; sourceTree = "<group>"; };
+		DA748D762E22B8B900B1B226 /* swipe_tutorial.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = swipe_tutorial.gif; sourceTree = "<group>"; };
+		DA748D772E22B8B900B1B226 /* swipe-left-right.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "swipe-left-right.gif"; sourceTree = "<group>"; };
+		DA748D782E22B8B900B1B226 /* swipe-left-right.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "swipe-left-right.json"; sourceTree = "<group>"; };
+		DA748D792E22B8B900B1B226 /* Three_users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Three_users.json; sourceTree = "<group>"; };
+		DA748D7A2E22B8B900B1B226 /* WaitingPhone.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WaitingPhone.json; sourceTree = "<group>"; };
+		DA748D7B2E22B8B900B1B226 /* WalkFast.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WalkFast.json; sourceTree = "<group>"; };
+		DA748D7C2E22B8B900B1B226 /* Walking_roadmap.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Walking_roadmap.gif; sourceTree = "<group>"; };
+		DA748D7D2E22B8B900B1B226 /* Walking_roadmap.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Walking_roadmap.json; sourceTree = "<group>"; };
+		DA748D7E2E22B8B900B1B226 /* WaveHand.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WaveHand.json; sourceTree = "<group>"; };
+		DA748D7F2E22B8B900B1B226 /* WifiDisconect.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WifiDisconect.json; sourceTree = "<group>"; };
+		DA748D802E22B8B900B1B226 /* Win.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Win.json; sourceTree = "<group>"; };
+		DA748D812E22B8B900B1B226 /* WinTOP.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WinTOP.json; sourceTree = "<group>"; };
+		DA748DB62E22B8F300B1B226 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DA748DBA2E22BA0200B1B226 /* Font+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Additional.swift"; sourceTree = "<group>"; };
+		DA748DBC2E22BA4C00B1B226 /* Text+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Additional.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +188,13 @@
 		DA5CC2862E22B28F000C5F18 /* SwiftUI-BaseApp */ = {
 			isa = PBXGroup;
 			children = (
+				DA748DB62E22B8F300B1B226 /* Info.plist */,
 				DA5CC2822E22B28F000C5F18 /* Preview Content */,
 				DA5CC2832E22B28F000C5F18 /* Assets.xcassets */,
 				DA5CC2842E22B28F000C5F18 /* ContentView.swift */,
 				DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseApp.swift */,
+				DA748D3F2E22B87D00B1B226 /* Resources */,
+				DA748DB72E22B9BA00B1B226 /* Extensions */,
 				DA5CC28C2E22B458000C5F18 /* Router */,
 			);
 			path = "SwiftUI-BaseApp";
@@ -85,6 +209,96 @@
 				DA5CC2912E22B490000C5F18 /* Route.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		DA748D3F2E22B87D00B1B226 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA748D412E22B88C00B1B226 /* Animation */,
+				DA748D402E22B88600B1B226 /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DA748D402E22B88600B1B226 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */,
+				DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */,
+				DA748D442E22B8A000B1B226 /* Nunito-Light.ttf */,
+				DA748D452E22B8A000B1B226 /* Nunito-Medium.ttf */,
+				DA748D462E22B8A000B1B226 /* Nunito-Regular.ttf */,
+				DA748D472E22B8A000B1B226 /* Nunito-SemiBold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		DA748D412E22B88C00B1B226 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				DA748D4E2E22B8B900B1B226 /* Achivement.gif */,
+				DA748D4F2E22B8B900B1B226 /* Achivement.json */,
+				DA748D502E22B8B900B1B226 /* Basket.json */,
+				DA748D512E22B8B900B1B226 /* Bike.gif */,
+				DA748D522E22B8B900B1B226 /* Bike.json */,
+				DA748D532E22B8B900B1B226 /* Bike_roadmap.gif */,
+				DA748D542E22B8B900B1B226 /* Bike_roadmap.json */,
+				DA748D552E22B8B900B1B226 /* CarBike.json */,
+				DA748D562E22B8B900B1B226 /* ChallangeCombat.json */,
+				DA748D572E22B8B900B1B226 /* ChallangeCommunity.json */,
+				DA748D582E22B8B900B1B226 /* ChallangeEarn.json */,
+				DA748D592E22B8B900B1B226 /* Coin.json */,
+				DA748D5A2E22B8B900B1B226 /* colorHour.json */,
+				DA748D5B2E22B8B900B1B226 /* Congrats.json */,
+				DA748D5C2E22B8B900B1B226 /* Cup.json */,
+				DA748D5D2E22B8B900B1B226 /* DownloadColor.json */,
+				DA748D5E2E22B8B900B1B226 /* Earn Medal.gif */,
+				DA748D5F2E22B8B900B1B226 /* Earn Medal.json */,
+				DA748D602E22B8B900B1B226 /* Error.json */,
+				DA748D612E22B8B900B1B226 /* Finish.json */,
+				DA748D622E22B8B900B1B226 /* gift_boots.json */,
+				DA748D632E22B8B900B1B226 /* Handsake.json */,
+				DA748D642E22B8B900B1B226 /* ic_boost_loading.gif */,
+				DA748D652E22B8B900B1B226 /* ic_logout_animate.gif */,
+				DA748D662E22B8B900B1B226 /* ic_profile_delete_account_confirm_animate.gif */,
+				DA748D672E22B8B900B1B226 /* Immediate.json */,
+				DA748D682E22B8B900B1B226 /* Info.json */,
+				DA748D692E22B8B900B1B226 /* later.json */,
+				DA748D6A2E22B8B900B1B226 /* LoadingCar.json */,
+				DA748D6B2E22B8B900B1B226 /* Localizable.xcstrings */,
+				DA748D6C2E22B8B900B1B226 /* lot_lucky_draw.json */,
+				DA748D6D2E22B8B900B1B226 /* Maintenance.json */,
+				DA748D6E2E22B8B900B1B226 /* Medal.json */,
+				DA748D6F2E22B8B900B1B226 /* NoHistory.json */,
+				DA748D702E22B8B900B1B226 /* person.json */,
+				DA748D712E22B8B900B1B226 /* Plus.json */,
+				DA748D722E22B8B900B1B226 /* QR.json */,
+				DA748D732E22B8B900B1B226 /* RoadLoading.json */,
+				DA748D742E22B8B900B1B226 /* Sad.json */,
+				DA748D752E22B8B900B1B226 /* SuccessCircle.json */,
+				DA748D762E22B8B900B1B226 /* swipe_tutorial.gif */,
+				DA748D772E22B8B900B1B226 /* swipe-left-right.gif */,
+				DA748D782E22B8B900B1B226 /* swipe-left-right.json */,
+				DA748D792E22B8B900B1B226 /* Three_users.json */,
+				DA748D7A2E22B8B900B1B226 /* WaitingPhone.json */,
+				DA748D7B2E22B8B900B1B226 /* WalkFast.json */,
+				DA748D7C2E22B8B900B1B226 /* Walking_roadmap.gif */,
+				DA748D7D2E22B8B900B1B226 /* Walking_roadmap.json */,
+				DA748D7E2E22B8B900B1B226 /* WaveHand.json */,
+				DA748D7F2E22B8B900B1B226 /* WifiDisconect.json */,
+				DA748D802E22B8B900B1B226 /* Win.json */,
+				DA748D812E22B8B900B1B226 /* WinTOP.json */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		DA748DB72E22B9BA00B1B226 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DA748DBA2E22BA0200B1B226 /* Font+Additional.swift */,
+				DA748DBC2E22BA4C00B1B226 /* Text+Additional.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +362,64 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA748D482E22B8A000B1B226 /* Nunito-Bold.ttf in Resources */,
+				DA748D822E22B8B900B1B226 /* Bike.json in Resources */,
+				DA748D832E22B8B900B1B226 /* ic_profile_delete_account_confirm_animate.gif in Resources */,
+				DA748D842E22B8B900B1B226 /* Plus.json in Resources */,
+				DA748D852E22B8B900B1B226 /* Sad.json in Resources */,
+				DA748D862E22B8B900B1B226 /* ChallangeEarn.json in Resources */,
+				DA748D872E22B8B900B1B226 /* LoadingCar.json in Resources */,
+				DA748D882E22B8B900B1B226 /* QR.json in Resources */,
+				DA748D892E22B8B900B1B226 /* Error.json in Resources */,
+				DA748D8A2E22B8B900B1B226 /* Bike_roadmap.json in Resources */,
+				DA748D8B2E22B8B900B1B226 /* colorHour.json in Resources */,
+				DA748D8C2E22B8B900B1B226 /* swipe-left-right.json in Resources */,
+				DA748D8D2E22B8B900B1B226 /* WifiDisconect.json in Resources */,
+				DA748D8E2E22B8B900B1B226 /* Three_users.json in Resources */,
+				DA748D8F2E22B8B900B1B226 /* WinTOP.json in Resources */,
+				DA748D902E22B8B900B1B226 /* Localizable.xcstrings in Resources */,
+				DA748D912E22B8B900B1B226 /* WalkFast.json in Resources */,
+				DA748D922E22B8B900B1B226 /* Coin.json in Resources */,
+				DA748D932E22B8B900B1B226 /* Walking_roadmap.gif in Resources */,
+				DA748D942E22B8B900B1B226 /* RoadLoading.json in Resources */,
+				DA748D952E22B8B900B1B226 /* DownloadColor.json in Resources */,
+				DA748D962E22B8B900B1B226 /* Cup.json in Resources */,
+				DA748D972E22B8B900B1B226 /* ic_logout_animate.gif in Resources */,
+				DA748D982E22B8B900B1B226 /* later.json in Resources */,
+				DA748D992E22B8B900B1B226 /* Finish.json in Resources */,
+				DA748D9A2E22B8B900B1B226 /* Bike.gif in Resources */,
+				DA748D9B2E22B8B900B1B226 /* swipe-left-right.gif in Resources */,
+				DA748D9C2E22B8B900B1B226 /* WaitingPhone.json in Resources */,
+				DA748D9D2E22B8B900B1B226 /* Bike_roadmap.gif in Resources */,
+				DA748D9E2E22B8B900B1B226 /* WaveHand.json in Resources */,
+				DA748D9F2E22B8B900B1B226 /* NoHistory.json in Resources */,
+				DA748DA02E22B8B900B1B226 /* Achivement.gif in Resources */,
+				DA748DA12E22B8B900B1B226 /* Walking_roadmap.json in Resources */,
+				DA748DA22E22B8B900B1B226 /* CarBike.json in Resources */,
+				DA748DA32E22B8B900B1B226 /* Achivement.json in Resources */,
+				DA748DA42E22B8B900B1B226 /* Basket.json in Resources */,
+				DA748DA52E22B8B900B1B226 /* ChallangeCommunity.json in Resources */,
+				DA748DA62E22B8B900B1B226 /* Earn Medal.gif in Resources */,
+				DA748DA72E22B8B900B1B226 /* ChallangeCombat.json in Resources */,
+				DA748DA82E22B8B900B1B226 /* Congrats.json in Resources */,
+				DA748DA92E22B8B900B1B226 /* Info.json in Resources */,
+				DA748DAA2E22B8B900B1B226 /* Maintenance.json in Resources */,
+				DA748DAB2E22B8B900B1B226 /* SuccessCircle.json in Resources */,
+				DA748DAC2E22B8B900B1B226 /* Immediate.json in Resources */,
+				DA748DAD2E22B8B900B1B226 /* Win.json in Resources */,
+				DA748DAE2E22B8B900B1B226 /* ic_boost_loading.gif in Resources */,
+				DA748DAF2E22B8B900B1B226 /* swipe_tutorial.gif in Resources */,
+				DA748DB02E22B8B900B1B226 /* lot_lucky_draw.json in Resources */,
+				DA748DB12E22B8B900B1B226 /* Earn Medal.json in Resources */,
+				DA748DB22E22B8B900B1B226 /* Medal.json in Resources */,
+				DA748DB32E22B8B900B1B226 /* person.json in Resources */,
+				DA748DB42E22B8B900B1B226 /* gift_boots.json in Resources */,
+				DA748DB52E22B8B900B1B226 /* Handsake.json in Resources */,
+				DA748D492E22B8A000B1B226 /* Nunito-Italic.ttf in Resources */,
+				DA748D4A2E22B8A000B1B226 /* Nunito-Light.ttf in Resources */,
+				DA748D4B2E22B8A000B1B226 /* Nunito-Medium.ttf in Resources */,
+				DA748D4C2E22B8A000B1B226 /* Nunito-Regular.ttf in Resources */,
+				DA748D4D2E22B8A000B1B226 /* Nunito-SemiBold.ttf in Resources */,
 				DA5CC2872E22B28F000C5F18 /* Preview Assets.xcassets in Resources */,
 				DA5CC2882E22B28F000C5F18 /* Assets.xcassets in Resources */,
 			);
@@ -161,11 +433,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */,
+				DA748DBD2E22BA4C00B1B226 /* Text+Additional.swift in Sources */,
 				DA5CC28E2E22B47A000C5F18 /* NavRouter.swift in Sources */,
 				DA5CC2942E22B4EC000C5F18 /* ScreenCoordinator.swift in Sources */,
 				DA5CC2902E22B485000C5F18 /* NavRouterProtocol.swift in Sources */,
 				DA5CC2922E22B490000C5F18 /* Route.swift in Sources */,
 				DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseApp.swift in Sources */,
+				DA748DBB2E22BA0200B1B226 /* Font+Additional.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +575,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-BaseApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-BaseApp/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -329,6 +604,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-BaseApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-BaseApp/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
