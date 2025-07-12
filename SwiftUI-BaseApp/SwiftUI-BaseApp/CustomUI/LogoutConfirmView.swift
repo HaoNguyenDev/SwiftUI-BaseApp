@@ -1,0 +1,87 @@
+//
+//  LogoutConfirmView.swift
+//  SwiftUI-BaseApp
+//
+//  Created by Hao Nguyen on 12/7/25.
+//
+
+
+import SwiftUI
+import SDWebImageSwiftUI
+
+struct LogoutConfirmView: View {
+    private let kDragDismissThreshold: CGFloat = 100
+    private let kMaxOffset: CGFloat = 400
+    
+    @State private var isShow: Bool = false
+    @State private var offset: CGFloat = 400
+    @State private var opacity: CGFloat = 0
+    
+    let onDismiss: VoidResult?
+    let onLogout: VoidResult?
+    
+    var body: some View {
+        VStack {
+            VStack(spacing: 16) {
+                AnimatedImage(name: "ic_logout_animate.gif")
+                    .resizable()
+                    .frame(width: 120, height: 120)
+                
+                Text("Log out?")
+                    .font(mainFont.bold(24))
+                    .foregroundColor(Color(hex: "#333333"))
+                
+                Text("You’ll be logged out of the app but can log back in anytime.")
+                    .font(mainFont.regular(14))
+                    .foregroundColor(Color(hex: "#8E8E93"))
+                
+                Button {
+                    onLogout?()
+                } label: {
+                    Text("Log out")
+                        .frame(height: 48)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(PrimaryButtonStyle())
+                
+                Button {
+                    onDismiss?()
+                } label: {
+                    Text("Cancel")
+                        .frame(height: 48)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(SecondaryButtonBlackStyleBig())
+            }
+            .padding(EdgeInsets(top: 40, leading: 32, bottom: 40, trailing: 32))
+            .frame(maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color.white)
+            )
+            .offset(y: offset)
+            .opacity(opacity)
+        }
+        .multilineTextAlignment(.center)
+        .padding(.horizontal, 16)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        .setDefaultBackground()
+        .animation(.easeOut(duration: 0.2), value: offset)
+        .animation(.easeOut(duration: 0.2), value: opacity)
+        .onChange(of: isShow) { newValue in
+            offset = newValue ? 0 : kMaxOffset
+            opacity = newValue ? 1 : 0
+        }
+        .onAppear {
+            // Add a slight delay to ensure the view is fully rendered
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                isShow = true
+            }
+        }
+        .toolbar(.hidden, for: .navigationBar)
+    }
+}
+
+#Preview {
+    LogoutConfirmView(onDismiss: nil, onLogout: nil)
+}

@@ -1,7 +1,58 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@\nis in development" : {
+
+    },
+    "Allright" : {
+
+    },
+    "Cancel" : {
+
+    },
     "Hello, world!" : {
+
+    },
+    "Log out" : {
+
+    },
+    "Log out?" : {
+
+    },
+    "Please update the app to continue using it" : {
+
+    },
+    "Please wait a moment..." : {
+
+    },
+    "Skip" : {
+
+    },
+    "SPLASH SCREEN" : {
+
+    },
+    "Swipe down to exit" : {
+
+    },
+    "The system is under maintenance" : {
+
+    },
+    "This is a sample view!" : {
+
+    },
+    "Update" : {
+
+    },
+    "Update the app now to enjoy an improved experience with enhanced features, better performance, and the latest updates tailored to your needs." : {
+
+    },
+    "We are working hard to bring you the best experience. Please check back later." : {
+
+    },
+    "You’ll be logged out of the app but can log back in anytime." : {
+
+    },
+    "Your device is restricted and not secure!" : {
 
     }
   },
