@@ -175,8 +175,7 @@ struct MainTabControllerView: View {
     func viewForRoute(route: Router.MainTab) -> some View {
         switch route {
         case .profile:
-//            ProfileViewCoordinator(navRouter: navRouter)
-            PlaceholderViewCoordinator(navRouter: navRouter, title: "Profile")
+            ProfileViewCoordinator(navRouter: navRouter)
         case .settings:
             SettingsCoordinator(navRouter: navRouter)
         case .subview1:

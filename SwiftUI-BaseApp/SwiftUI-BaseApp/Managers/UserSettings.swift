@@ -11,6 +11,12 @@ import UIKit
 final class UserSettings: ObservableObject {
     static let shared = UserSettings()
     
+    @Published var colorSchemeOption: ColorSchemeOption {
+        didSet {
+            Preferences[.colorSchemeOption] = colorSchemeOption
+        }
+    }
+    
     private init() {
         colorSchemeOption = Preferences[.colorSchemeOption]
     }
@@ -46,17 +52,10 @@ final class UserSettings: ObservableObject {
         }
     }
     
-    @Published var colorSchemeOption: ColorSchemeOption {
-        didSet {
-            Preferences[.colorSchemeOption] = colorSchemeOption
-        }
-    }
-    
     func logout() {
         username = nil
         token = nil
         referralCode = nil
-        
 //        NotificationCenter.default.post(
 //            name: AppNotification.LOGOUT, object: nil
 //        )

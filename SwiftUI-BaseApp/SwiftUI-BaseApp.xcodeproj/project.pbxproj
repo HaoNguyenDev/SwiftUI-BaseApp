@@ -128,6 +128,8 @@
 		DA890F7F2E23D1E40005D9DB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F7E2E23D1E40005D9DB /* SettingsView.swift */; };
 		DA890F812E23D2500005D9DB /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F802E23D2500005D9DB /* SettingsCoordinator.swift */; };
 		DA890F882E23D4260005D9DB /* ThemeChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F872E23D4260005D9DB /* ThemeChangeView.swift */; };
+		DA890F8B2E23D73C0005D9DB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F8A2E23D73C0005D9DB /* ProfileView.swift */; };
+		DA890F8D2E23D7850005D9DB /* ProfileViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F8C2E23D7850005D9DB /* ProfileViewCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -250,6 +252,8 @@
 		DA890F7E2E23D1E40005D9DB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DA890F802E23D2500005D9DB /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		DA890F872E23D4260005D9DB /* ThemeChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChangeView.swift; sourceTree = "<group>"; };
+		DA890F8A2E23D73C0005D9DB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DA890F8C2E23D7850005D9DB /* ProfileViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,6 +438,7 @@
 		DA748DCB2E22BE5800B1B226 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA890F892E23D7240005D9DB /* Profile */,
 				DA890F862E23D4120005D9DB /* ThemeChange */,
 				DA890F7D2E23D16A0005D9DB /* Settings */,
 				DA890F782E23D0150005D9DB /* Account */,
@@ -598,6 +603,15 @@
 				DA890F872E23D4260005D9DB /* ThemeChangeView.swift */,
 			);
 			path = ThemeChange;
+			sourceTree = "<group>";
+		};
+		DA890F892E23D7240005D9DB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DA890F8C2E23D7850005D9DB /* ProfileViewCoordinator.swift */,
+				DA890F8A2E23D73C0005D9DB /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -780,12 +794,14 @@
 				DA748E102E22C5A600B1B226 /* AppVersion.swift in Sources */,
 				DA748DC42E22BC9800B1B226 /* ColorSet.swift in Sources */,
 				DA748DCA2E22BD0700B1B226 /* ColorSchemeOption.swift in Sources */,
+				DA890F8B2E23D73C0005D9DB /* ProfileView.swift in Sources */,
 				DA748E1C2E22C65400B1B226 /* AppErrorCode.swift in Sources */,
 				DA890F732E23B3080005D9DB /* HomeViewCoordinator.swift in Sources */,
 				DA748DFC2E22C28F00B1B226 /* LottieHelperView.swift in Sources */,
 				DA5CC2922E22B490000C5F18 /* Router.swift in Sources */,
 				DA748E162E22C5DC00B1B226 /* PlaceholderViewCoordinator.swift in Sources */,
 				DA748F972E23A8CC00B1B226 /* MainTabControllerView.swift in Sources */,
+				DA890F8D2E23D7850005D9DB /* ProfileViewCoordinator.swift in Sources */,
 				DA748F922E23A2F600B1B226 /* LoginModel.swift in Sources */,
 				DA748E122E22C5C200B1B226 /* UserMessageState.swift in Sources */,
 				DA748DFE2E22C29B00B1B226 /* Closures.swift in Sources */,
