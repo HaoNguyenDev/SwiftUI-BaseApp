@@ -35,7 +35,7 @@ struct UserInformView: View {
                         .resizable()
                         .frame(width: 120, height: 120)
                 } else if message.animation != nil {
-                    LoadingView(hideText: true)
+                    LoadingView(hideText: true, loadingOnSubview: true)
                         .frame(width: 100, height: 100)
 //                    LottieHelperView(fileName: animation.name, playLoopMode: animation.loop)
 //                        .frame(width: 120, height: 120)

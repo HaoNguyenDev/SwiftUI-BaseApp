@@ -10,6 +10,9 @@
     "Cancel" : {
 
     },
+    "Forgot Password" : {
+
+    },
     "Hello, world!" : {
 
     },
@@ -19,10 +22,19 @@
     "Log out?" : {
 
     },
+    "Login" : {
+
+    },
+    "Login View" : {
+
+    },
     "Please update the app to continue using it" : {
 
     },
     "Please wait a moment..." : {
+
+    },
+    "Register" : {
 
     },
     "Skip" : {
