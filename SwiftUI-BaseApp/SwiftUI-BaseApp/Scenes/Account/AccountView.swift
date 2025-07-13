@@ -1,0 +1,88 @@
+//
+//  AccountView.swift
+//  SwiftUI-BaseApp
+//
+//  Created by Hao Nguyen on 13/7/25.
+//
+
+
+import SwiftUI
+
+struct AccountView: View {
+    @EnvironmentObject private var themeManager: ThemeManager
+    @EnvironmentObject private var userSettings: UserSettings
+    @State private var showLoading: Bool = false
+    
+    var gotoSettings: (() -> Void)?
+    var gotoProfile: (() -> Void)?
+    
+    var body: some View {
+        VStack {
+            if showLoading {
+                loadingView
+            } else {
+                content
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea(.all)
+        .setDefaultBackground()
+    }
+}
+
+extension AccountView {
+    @ViewBuilder
+    private var content: some View {
+        VStack(spacing: 20) {
+            Text("Account View")
+                .font(mainFont.bold(32))
+                .foregroundStyle(themeManager.color.textColor)
+            
+            Spacer()
+                .frame(height: 30)
+            
+            Button {
+                processGotoSubview(subview: 1)
+            } label: {
+                Text("Settings")
+                    .font(mainFont.bold(20))
+                    .foregroundStyle(themeManager.color.textColor)
+                    .frame(width: 200, height: 50)
+            }
+            .buttonStyle(SecondaryButtonStyle())
+            
+            Button {
+                processGotoSubview(subview: 2)
+            } label: {
+                Text("Profile")
+                    .font(mainFont.bold(20))
+                    .foregroundStyle(themeManager.color.textColor)
+                    .frame(width: 200, height: 50)
+            }
+            .buttonStyle(SecondaryButtonStyle())
+        }
+    }
+    
+    @ViewBuilder
+    private var loadingView: some View {
+        VStack {
+            LoadingView()
+        }
+    }
+    
+    private func processGotoSubview(subview: Int) {
+        showLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if subview == 1 {
+                gotoSettings?()
+            } else {
+                gotoProfile?()
+            }
+            showLoading = false
+        }
+    }
+}
+
+#Preview {
+    AccountView()
+}

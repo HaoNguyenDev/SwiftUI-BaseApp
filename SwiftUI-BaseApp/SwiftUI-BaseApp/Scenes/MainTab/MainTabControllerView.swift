@@ -9,17 +9,17 @@ import SwiftUI
 
 enum TabType: Int, CaseIterable {
     case home = 0
-    case promotion = 1
-    case empty = 2
+    case empty1 = 1
+    case empty2 = 2
     case account = 3
     
-    static let allTabs: [TabType] = [.home, .promotion, .empty, .account]
+    static let allTabs: [TabType] = [.home, .empty1, .empty2, .account]
 
     var title: String {
         switch self {
         case .home: return "Home"
-        case .promotion: return "Promotion"
-        case .empty: return "Empty"
+        case .empty1: return "Empty 1"
+        case .empty2: return "Empty 2"
         case .account: return "Account"
         }
     }
@@ -27,8 +27,8 @@ enum TabType: Int, CaseIterable {
     var icon: Image {
         switch self {
         case .home: return Image(systemName: "house")
-        case .promotion: return Image(systemName: "pedal.accelerator")
-        case .empty: return Image(systemName: "text.rectangle.page")
+        case .empty1: return Image(systemName: "pedal.accelerator")
+        case .empty2: return Image(systemName: "text.rectangle.page")
         case .account: return Image(systemName: "person.crop.circle")
         }
     }
@@ -36,8 +36,8 @@ enum TabType: Int, CaseIterable {
     var iconSelected: Image {
         switch self {
         case .home: return Image(systemName: "house.fill")
-        case .promotion: return Image(systemName: "pedal.accelerator.fill")
-        case .empty: return Image(systemName: "text.rectangle.page.fill")
+        case .empty1: return Image(systemName: "pedal.accelerator.fill")
+        case .empty2: return Image(systemName: "text.rectangle.page.fill")
         case .account: return Image(systemName: "person.crop.circle.fill")
         }
     }
@@ -91,9 +91,9 @@ struct MainTabControllerView: View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 HomeViewCoordinator(navRouter: navRouter).tag(0)
-                PlaceholderViewCoordinator(navRouter: navRouter, title: "Promotion").tag(1)
+                PlaceholderViewCoordinator(navRouter: navRouter, title: "This feature").tag(1)
                 PlaceholderViewCoordinator(navRouter: navRouter, title: "This feature").tag(2)
-                PlaceholderViewCoordinator(navRouter: navRouter, title: "Account").tag(3)
+                AccountViewCoordinator(navRouter: navRouter).tag(3)
             }
             tabBar()
         }
