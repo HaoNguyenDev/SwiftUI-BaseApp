@@ -125,6 +125,8 @@
 		DA890F772E23B38F0005D9DB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F762E23B38F0005D9DB /* HeaderView.swift */; };
 		DA890F7A2E23D0230005D9DB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F792E23D0230005D9DB /* AccountView.swift */; };
 		DA890F7C2E23D02A0005D9DB /* AccountViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F7B2E23D02A0005D9DB /* AccountViewCoordinator.swift */; };
+		DA890F7F2E23D1E40005D9DB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F7E2E23D1E40005D9DB /* SettingsView.swift */; };
+		DA890F812E23D2500005D9DB /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F802E23D2500005D9DB /* SettingsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -244,6 +246,8 @@
 		DA890F762E23B38F0005D9DB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		DA890F792E23D0230005D9DB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		DA890F7B2E23D02A0005D9DB /* AccountViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewCoordinator.swift; sourceTree = "<group>"; };
+		DA890F7E2E23D1E40005D9DB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DA890F802E23D2500005D9DB /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +432,7 @@
 		DA748DCB2E22BE5800B1B226 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA890F7D2E23D16A0005D9DB /* Settings */,
 				DA890F782E23D0150005D9DB /* Account */,
 				DA890F752E23B3860005D9DB /* HeaderView */,
 				DA890F6F2E23B2F20005D9DB /* Home */,
@@ -573,6 +578,15 @@
 				DA890F792E23D0230005D9DB /* AccountView.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		DA890F7D2E23D16A0005D9DB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DA890F802E23D2500005D9DB /* SettingsCoordinator.swift */,
+				DA890F7E2E23D1E40005D9DB /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -725,6 +739,7 @@
 				DA748DE82E22C12B00B1B226 /* LoadingView.swift in Sources */,
 				DA748E002E22C2DA00B1B226 /* View+Additional.swift in Sources */,
 				DA748DEA2E22C14200B1B226 /* ButtonStyle.swift in Sources */,
+				DA890F7F2E23D1E40005D9DB /* SettingsView.swift in Sources */,
 				DA890F7A2E23D0230005D9DB /* AccountView.swift in Sources */,
 				DA748DE22E22C0EE00B1B226 /* LogoutConfirmView.swift in Sources */,
 				DA748E0D2E22C59700B1B226 /* AppSettings.swift in Sources */,
@@ -739,6 +754,7 @@
 				DA748E1F2E22C67400B1B226 /* Preferences.swift in Sources */,
 				DA748DDB2E22C0C300B1B226 /* BackgroundAnimation.swift in Sources */,
 				DA748E1A2E22C60A00B1B226 /* String+Additional.swift in Sources */,
+				DA890F812E23D2500005D9DB /* SettingsCoordinator.swift in Sources */,
 				DA748E242E22C75500B1B226 /* ErrorHandler.swift in Sources */,
 				DA748DC82E22BCD500B1B226 /* DarkColorSet.swift in Sources */,
 				DA5CC28E2E22B47A000C5F18 /* NavRouter.swift in Sources */,

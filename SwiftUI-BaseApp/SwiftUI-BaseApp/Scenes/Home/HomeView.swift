@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var themeManager: ThemeManager
+    @EnvironmentObject var theme: ThemeManager
     var onShowProfile: VoidResult?
     var gotoSubview1: (() -> Void)?
     var gotoSubview2: (() -> Void)?
@@ -40,7 +40,7 @@ extension HomeView {
         VStack(spacing: 20) {
             Text("Home View")
                 .font(mainFont.bold(32))
-                .foregroundStyle(themeManager.color.textColor)
+                .foregroundStyle(theme.color.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -50,7 +50,7 @@ extension HomeView {
             } label: {
                 Text("Go to sub view 1")
                     .font(mainFont.bold(20))
-                    .foregroundStyle(themeManager.color.textColor)
+                    .foregroundStyle(theme.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -60,7 +60,7 @@ extension HomeView {
             } label: {
                 Text("Go to sub view 2")
                     .font(mainFont.bold(20))
-                    .foregroundStyle(themeManager.color.textColor)
+                    .foregroundStyle(theme.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())

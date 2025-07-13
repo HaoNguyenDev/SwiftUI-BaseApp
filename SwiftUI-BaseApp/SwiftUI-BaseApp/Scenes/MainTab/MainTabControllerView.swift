@@ -178,8 +178,7 @@ struct MainTabControllerView: View {
 //            ProfileViewCoordinator(navRouter: navRouter)
             PlaceholderViewCoordinator(navRouter: navRouter, title: "Profile")
         case .settings:
-//            SettingsCoordinator(navRouter: navRouter)
-            PlaceholderViewCoordinator(navRouter: navRouter, title: "Settings")
+            SettingsCoordinator(navRouter: navRouter)
         case .subview1:
             PlaceholderViewCoordinator(navRouter: navRouter, title: "Subview 1")
             case .subview2:

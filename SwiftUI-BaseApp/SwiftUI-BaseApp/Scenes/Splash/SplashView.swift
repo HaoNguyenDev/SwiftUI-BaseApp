@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SplashView: View {
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var themeManager: ThemeManager
+    @EnvironmentObject var theme: ThemeManager
     var onSkipUpdate: VoidResult?
     @State var showLoading: Bool = false
     var body: some View {
@@ -44,11 +44,11 @@ extension SplashView {
                    
                     VStack(spacing: 12) {
                         Text("SPLASH SCREEN")
-                            .set(font: mainFont.bold(50), and: themeManager.color.textColor)
+                            .set(font: mainFont.bold(50), and: theme.color.textColor)
                         Text("Please update the app to continue using it")
-                            .set(font: mainFont.bold(32), and: themeManager.color.textColor)
+                            .set(font: mainFont.bold(32), and: theme.color.textColor)
                         Text("Update the app now to enjoy an improved experience with enhanced features, better performance, and the latest updates tailored to your needs.")
-                            .set(font: mainFont.regular(14), and: themeManager.color.textColor)
+                            .set(font: mainFont.regular(14), and: theme.color.textColor)
                     }
                     .multilineTextAlignment(.center)
                 }
@@ -59,7 +59,7 @@ extension SplashView {
                         updateAppProcess()
                     }, label: {
                         Text("Update")
-                            .foregroundStyle(themeManager.color.textColor)
+                            .foregroundStyle(theme.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
@@ -69,7 +69,7 @@ extension SplashView {
                         onSkipUpdate?()
                     }, label: {
                         Text("Skip")
-                            .foregroundStyle(themeManager.color.textColor)
+                            .foregroundStyle(theme.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })

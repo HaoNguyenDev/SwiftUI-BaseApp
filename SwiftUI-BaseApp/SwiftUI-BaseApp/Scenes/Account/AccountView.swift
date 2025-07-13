@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct AccountView: View {
-    @EnvironmentObject private var themeManager: ThemeManager
+    @EnvironmentObject private var theme: ThemeManager
     @EnvironmentObject private var userSettings: UserSettings
     @State private var showLoading: Bool = false
     
@@ -36,7 +36,7 @@ extension AccountView {
         VStack(spacing: 20) {
             Text("Account View")
                 .font(mainFont.bold(32))
-                .foregroundStyle(themeManager.color.textColor)
+                .foregroundStyle(theme.color.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -46,7 +46,7 @@ extension AccountView {
             } label: {
                 Text("Settings")
                     .font(mainFont.bold(20))
-                    .foregroundStyle(themeManager.color.textColor)
+                    .foregroundStyle(theme.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -56,7 +56,7 @@ extension AccountView {
             } label: {
                 Text("Profile")
                     .font(mainFont.bold(20))
-                    .foregroundStyle(themeManager.color.textColor)
+                    .foregroundStyle(theme.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
