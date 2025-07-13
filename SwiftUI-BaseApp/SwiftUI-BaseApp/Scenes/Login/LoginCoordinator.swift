@@ -35,7 +35,7 @@ struct LoginCoordinator: View, ScreenCoordinator {
     func getView() -> some View {
         LoginView(loginModel: loginModel, loginSuccess: { loginResult in
             print(loginResult)
-//            navRouter.push(Router.homeRoute, animate: true)
+            navRouter.push(Router.homeRouter, animate: true)
         }, forgotPassword: {
             navRouter.push(ScreenRouter.forgotPassword, animate: true)
         }, register: {
@@ -49,7 +49,7 @@ struct LoginCoordinator: View, ScreenCoordinator {
         switch router {
         case .forgotPassword:
 //            AccountViewCoordinator(navRouter: navRouter)
-            PlaceholderViewCoordinator(navRouter: navRouter)
+            PlaceholderViewCoordinator(navRouter: navRouter, title: "Forgot Password")
         case .register:
             PlaceholderViewCoordinator(navRouter: navRouter, title: "Register")
         }

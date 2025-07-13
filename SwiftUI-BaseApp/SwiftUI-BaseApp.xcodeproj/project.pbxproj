@@ -120,6 +120,9 @@
 		DA748F922E23A2F600B1B226 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F912E23A2F600B1B226 /* LoginModel.swift */; };
 		DA748F942E23A30100B1B226 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F932E23A30100B1B226 /* LoginCoordinator.swift */; };
 		DA748F972E23A8CC00B1B226 /* MainTabControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F962E23A8C500B1B226 /* MainTabControllerView.swift */; };
+		DA890F712E23B2FF0005D9DB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F702E23B2FF0005D9DB /* HomeView.swift */; };
+		DA890F732E23B3080005D9DB /* HomeViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F722E23B3080005D9DB /* HomeViewCoordinator.swift */; };
+		DA890F772E23B38F0005D9DB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F762E23B38F0005D9DB /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,6 +237,9 @@
 		DA748F912E23A2F600B1B226 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		DA748F932E23A30100B1B226 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		DA748F962E23A8C500B1B226 /* MainTabControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabControllerView.swift; sourceTree = "<group>"; };
+		DA890F702E23B2FF0005D9DB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DA890F722E23B3080005D9DB /* HomeViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCoordinator.swift; sourceTree = "<group>"; };
+		DA890F762E23B38F0005D9DB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,9 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				DA5CC2862E22B28F000C5F18 /* SwiftUI-BaseApp */,
-				DA748DF82E22C1FD00B1B226 /* AppError */,
-				DA748DD62E22C00800B1B226 /* Managers */,
-				DA748DCB2E22BE5800B1B226 /* Scenes */,
 				DA5CC2712E22B254000C5F18 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -294,6 +297,9 @@
 				DA748D3F2E22B87D00B1B226 /* Resources */,
 				DA748DB72E22B9BA00B1B226 /* Extensions */,
 				DA748DFA2E22C27C00B1B226 /* Components */,
+				DA748DF82E22C1FD00B1B226 /* AppError */,
+				DA748DD62E22C00800B1B226 /* Managers */,
+				DA748DCB2E22BE5800B1B226 /* Scenes */,
 			);
 			path = "SwiftUI-BaseApp";
 			sourceTree = "<group>";
@@ -418,6 +424,8 @@
 		DA748DCB2E22BE5800B1B226 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA890F752E23B3860005D9DB /* HeaderView */,
+				DA890F6F2E23B2F20005D9DB /* Home */,
 				DA748F952E23A7E500B1B226 /* MainTab */,
 				DA748F8E2E23A2D000B1B226 /* Login */,
 				DA748E032E22C3B000B1B226 /* Splash */,
@@ -534,6 +542,23 @@
 				DA748F962E23A8C500B1B226 /* MainTabControllerView.swift */,
 			);
 			path = MainTab;
+			sourceTree = "<group>";
+		};
+		DA890F6F2E23B2F20005D9DB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA890F722E23B3080005D9DB /* HomeViewCoordinator.swift */,
+				DA890F702E23B2FF0005D9DB /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DA890F752E23B3860005D9DB /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				DA890F762E23B38F0005D9DB /* HeaderView.swift */,
+			);
+			path = HeaderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -679,6 +704,7 @@
 				DA748E172E22C5E100B1B226 /* SampleView.swift in Sources */,
 				DA748DBF2E22BBF500B1B226 /* Color+Additional.swift in Sources */,
 				DA748DC62E22BCB800B1B226 /* LightColorSet.swift in Sources */,
+				DA890F712E23B2FF0005D9DB /* HomeView.swift in Sources */,
 				DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */,
 				DA748F902E23A2EC00B1B226 /* LoginView.swift in Sources */,
 				DA748E092E22C4E800B1B226 /* Notification+Additional.swift in Sources */,
@@ -711,6 +737,7 @@
 				DA748DC42E22BC9800B1B226 /* ColorSet.swift in Sources */,
 				DA748DCA2E22BD0700B1B226 /* ColorSchemeOption.swift in Sources */,
 				DA748E1C2E22C65400B1B226 /* AppErrorCode.swift in Sources */,
+				DA890F732E23B3080005D9DB /* HomeViewCoordinator.swift in Sources */,
 				DA748DFC2E22C28F00B1B226 /* LottieHelperView.swift in Sources */,
 				DA5CC2922E22B490000C5F18 /* Router.swift in Sources */,
 				DA748E162E22C5DC00B1B226 /* PlaceholderViewCoordinator.swift in Sources */,
@@ -725,6 +752,7 @@
 				DA748E112E22C5BE00B1B226 /* UserMessageItem.swift in Sources */,
 				DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseApp.swift in Sources */,
 				DA748DBB2E22BA0200B1B226 /* Font+Additional.swift in Sources */,
+				DA890F772E23B38F0005D9DB /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

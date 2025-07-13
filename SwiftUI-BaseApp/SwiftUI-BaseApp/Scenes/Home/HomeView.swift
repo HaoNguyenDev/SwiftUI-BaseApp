@@ -1,0 +1,83 @@
+//
+//  HomeView.swift
+//  SwiftUI-BaseApp
+//
+//  Created by Hao Nguyen on 13/7/25.
+//
+
+
+import SwiftUI
+
+struct HomeView: View {
+    @EnvironmentObject var themeManager: ThemeManager
+    var onShowProfile: VoidResult?
+    var gotoSubview1: (() -> Void)?
+    var gotoSubview2: (() -> Void)?
+    
+    var body: some View {
+        ZStack {
+            VStack {
+                headerView
+                    .padding(.horizontal, 20)
+                content
+            }
+           
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .setDefaultBackground()
+    }
+}
+
+extension HomeView {
+    
+    @ViewBuilder
+    private var headerView: some View {
+        HeaderView(onShowProfile: onShowProfile)
+    }
+    
+    @ViewBuilder
+    private var content: some View {
+        VStack(spacing: 20) {
+            Text("Home View")
+                .font(mainFont.bold(32))
+                .foregroundStyle(themeManager.color.textColor)
+            
+            Spacer()
+                .frame(height: 30)
+            
+            Button {
+                processGotoSubview(subview: 1)
+            } label: {
+                Text("Go to sub view 1")
+                    .font(mainFont.bold(20))
+                    .foregroundStyle(themeManager.color.textColor)
+                    .frame(width: 200, height: 50)
+            }
+            .buttonStyle(SecondaryButtonStyle())
+            
+            Button {
+                processGotoSubview(subview: 2)
+            } label: {
+                Text("Go to sub view 2")
+                    .font(mainFont.bold(20))
+                    .foregroundStyle(themeManager.color.textColor)
+                    .frame(width: 200, height: 50)
+            }
+            .buttonStyle(SecondaryButtonStyle())
+        }
+    }
+    
+    private func processGotoSubview(subview: Int) {
+        if subview == 1 {
+            gotoSubview1?()
+        } else {
+            gotoSubview2?()
+        }
+    }
+    
+}
+
+#Preview {
+    HomeView()
+        .environmentObject(ThemeManager())
+}
