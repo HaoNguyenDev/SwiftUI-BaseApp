@@ -4,6 +4,12 @@
     "%@\nis in development" : {
 
     },
+    "👋 Hi, %@" : {
+
+    },
+    "100.000.000" : {
+
+    },
     "Allright" : {
 
     },
@@ -13,7 +19,16 @@
     "Forgot Password" : {
 
     },
+    "Go to sub view 1" : {
+
+    },
+    "Go to sub view 2" : {
+
+    },
     "Hello, world!" : {
+
+    },
+    "Home View" : {
 
     },
     "Log out" : {
