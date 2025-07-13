@@ -47,8 +47,7 @@ struct SplashCoordinator: View, ScreenCoordinator {
         case .login:
             LoginCoordinator(navRouter: navRouter)
         case .home:
-            PlaceholderViewCoordinator(navRouter: navRouter)
-//            MainTabControllerView(navRouter: navRouter)
+            MainTabControllerView(navRouter: navRouter)
         }
     }
 }
