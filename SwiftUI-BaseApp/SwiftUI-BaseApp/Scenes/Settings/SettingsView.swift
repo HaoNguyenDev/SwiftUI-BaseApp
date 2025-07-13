@@ -32,9 +32,9 @@ struct SettingsView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .setDefaultBackground()
         .sheet(isPresented: $showChangeThemeModeView) {
-//            ThemeChangeView()
-//                .presentationDetents([.height(410)])
-//                .presentationBackground(.clear)
+            ThemeChangeView()
+                .presentationDetents([.height(410)])
+                .presentationBackground(.clear)
             /* TitleListView(title: "Choose theme mode",
              items: ThemeMode.allCases,
              onDismiss: {
@@ -52,10 +52,10 @@ struct SettingsView: View {
         }) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Change theme mode").set(font: mainFont.bold(14), and: theme.color.textSubviewColor)
+                    Text("Change theme mode").set(font: mainFont.bold(14), and: theme.color.textOnSubviewColor)
                 }
                 Spacer()
-                Image(systemName: "chevron.right").tint(theme.color.textSubviewColor)
+                Image(systemName: "chevron.right").tint(theme.color.textOnSubviewColor)
             }
             .padding(.horizontal, 24)
             .frame(height: 75)
@@ -71,11 +71,11 @@ struct SettingsView: View {
         }) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Change language").set(font: mainFont.bold(14), and: theme.color.textSubviewColor)
+                    Text("Change language").set(font: mainFont.bold(14), and: theme.color.textOnSubviewColor)
                 }
                 Spacer()
                 Image(systemName: "chevron.right")
-                    .tint(theme.color.textSubviewColor)
+                    .tint(theme.color.textOnSubviewColor)
             }
             .padding(.horizontal, 24)
             .frame(height: 75)

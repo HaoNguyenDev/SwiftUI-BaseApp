@@ -35,7 +35,7 @@ struct LoadingView: View {
         ZStack {
             ForEach(0..<dotCount, id: \.self) { index in
                 Circle()
-                    .fill(loadingOnSubview ? theme.color.textSubviewColor : theme.color.textColor)
+                    .fill(loadingOnSubview ? theme.color.textOnSubviewColor : theme.color.textColor)
                     .frame(width: 10, height: 10)
                     .offset(x: radius)
                     .rotationEffect(.degrees(Double(index) / Double(dotCount) * 360))

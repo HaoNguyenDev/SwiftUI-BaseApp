@@ -10,7 +10,7 @@ import SwiftUI
 struct LightColorSet: ColorSet {
     let bgColor = Color(hex: "#ffffff")
     let subviewBgColor = Color(hex: "#666666")
-    var textSubviewColor = Color(hex: "#ffffff")
+    var textOnSubviewColor = Color(hex: "#ffffff")
     let gradientBgColors = [Color(hex: "#ffffff"), Color(hex: "#4C4CFF")]
     let textColor = Color(hex: "#333333")
     let buttonBgColor = Color(hex: "#007AFF")
