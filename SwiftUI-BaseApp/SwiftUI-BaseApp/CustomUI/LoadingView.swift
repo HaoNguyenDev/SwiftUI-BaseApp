@@ -29,12 +29,13 @@ struct LoadingView: View {
     private let dotCount = 6
     private let radius: CGFloat = 30
     var hideText: Bool = false
+    var loadingOnSubview: Bool = false
 
     var body: some View {
         ZStack {
             ForEach(0..<dotCount, id: \.self) { index in
                 Circle()
-                    .fill(theme.color.textSubviewColor)
+                    .fill(loadingOnSubview ? theme.color.textSubviewColor : theme.color.textColor)
                     .frame(width: 10, height: 10)
                     .offset(x: radius)
                     .rotationEffect(.degrees(Double(index) / Double(dotCount) * 360))

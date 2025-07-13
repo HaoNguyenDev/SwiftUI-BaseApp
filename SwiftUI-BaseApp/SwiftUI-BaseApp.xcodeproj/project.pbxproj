@@ -116,6 +116,9 @@
 		DA748E1C2E22C65400B1B226 /* AppErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748E1B2E22C65400B1B226 /* AppErrorCode.swift */; };
 		DA748E1F2E22C67400B1B226 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748E1E2E22C67400B1B226 /* Preferences.swift */; };
 		DA748E242E22C75500B1B226 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748E232E22C75100B1B226 /* ErrorHandler.swift */; };
+		DA748F902E23A2EC00B1B226 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F8F2E23A2EC00B1B226 /* LoginView.swift */; };
+		DA748F922E23A2F600B1B226 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F912E23A2F600B1B226 /* LoginModel.swift */; };
+		DA748F942E23A30100B1B226 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F932E23A30100B1B226 /* LoginCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,6 +229,9 @@
 		DA748E1B2E22C65400B1B226 /* AppErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorCode.swift; sourceTree = "<group>"; };
 		DA748E1E2E22C67400B1B226 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		DA748E232E22C75100B1B226 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		DA748F8F2E23A2EC00B1B226 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DA748F912E23A2F600B1B226 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		DA748F932E23A30100B1B226 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -410,6 +416,7 @@
 		DA748DCB2E22BE5800B1B226 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA748F8E2E23A2D000B1B226 /* Login */,
 				DA748E032E22C3B000B1B226 /* Splash */,
 				DA748DD02E22BEBB00B1B226 /* Placeholder */,
 				DA748DCC2E22BE6D00B1B226 /* Sample */,
@@ -506,6 +513,16 @@
 				DA748E1E2E22C67400B1B226 /* Preferences.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DA748F8E2E23A2D000B1B226 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DA748F932E23A30100B1B226 /* LoginCoordinator.swift */,
+				DA748F912E23A2F600B1B226 /* LoginModel.swift */,
+				DA748F8F2E23A2EC00B1B226 /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -652,6 +669,7 @@
 				DA748DBF2E22BBF500B1B226 /* Color+Additional.swift in Sources */,
 				DA748DC62E22BCB800B1B226 /* LightColorSet.swift in Sources */,
 				DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */,
+				DA748F902E23A2EC00B1B226 /* LoginView.swift in Sources */,
 				DA748E092E22C4E800B1B226 /* Notification+Additional.swift in Sources */,
 				DA748DE82E22C12B00B1B226 /* LoadingView.swift in Sources */,
 				DA748E002E22C2DA00B1B226 /* View+Additional.swift in Sources */,
@@ -677,6 +695,7 @@
 				DA748DE02E22C0D400B1B226 /* UserInformView.swift in Sources */,
 				DA748E142E22C5D000B1B226 /* SplashView.swift in Sources */,
 				DA748E132E22C5CC00B1B226 /* SplashCoordinator.swift in Sources */,
+				DA748F942E23A30100B1B226 /* LoginCoordinator.swift in Sources */,
 				DA748E102E22C5A600B1B226 /* AppVersion.swift in Sources */,
 				DA748DC42E22BC9800B1B226 /* ColorSet.swift in Sources */,
 				DA748DCA2E22BD0700B1B226 /* ColorSchemeOption.swift in Sources */,
@@ -684,6 +703,7 @@
 				DA748DFC2E22C28F00B1B226 /* LottieHelperView.swift in Sources */,
 				DA5CC2922E22B490000C5F18 /* Router.swift in Sources */,
 				DA748E162E22C5DC00B1B226 /* PlaceholderViewCoordinator.swift in Sources */,
+				DA748F922E23A2F600B1B226 /* LoginModel.swift in Sources */,
 				DA748E122E22C5C200B1B226 /* UserMessageState.swift in Sources */,
 				DA748DFE2E22C29B00B1B226 /* Closures.swift in Sources */,
 				DA748DE62E22C10C00B1B226 /* CustomAlertView.swift in Sources */,
