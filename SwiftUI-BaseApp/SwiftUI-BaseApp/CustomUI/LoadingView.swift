@@ -10,12 +10,13 @@ import SwiftUI
 
 #Preview {
     TestLoadingView()
+        .environmentObject(ThemeManager())
 }
 
 struct TestLoadingView: View {
     var body: some View {
         VStack {
-            LoadingView()
+            LoadingView(hideText: false)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .setDefaultBackground()
@@ -27,12 +28,13 @@ struct LoadingView: View {
     @State private var isAnimating = false
     private let dotCount = 6
     private let radius: CGFloat = 30
+    var hideText: Bool = false
 
     var body: some View {
         ZStack {
             ForEach(0..<dotCount, id: \.self) { index in
                 Circle()
-                    .fill(theme.color.textColor)
+                    .fill(theme.color.textSubviewColor)
                     .frame(width: 10, height: 10)
                     .offset(x: radius)
                     .rotationEffect(.degrees(Double(index) / Double(dotCount) * 360))
@@ -45,15 +47,19 @@ struct LoadingView: View {
                         value: isAnimating
                     )
             }
+            
+            if !hideText {
+                VStack {
+                    Text("Please wait a moment...")
+                        .font(mainFont.bold(17))
+                        .foregroundColor(theme.color.textColor)
+                        .frame(maxWidth: .infinity)
+                }
+                .padding(.top, 120)
+            }
         }
-        Spacer()
-            .frame(height: 40)
-        VStack {
-            Text("Please wait a moment...")
-                .font(mainFont.bold(17))
-                .foregroundColor(theme.color.textColor)
-                .frame(maxWidth: .infinity)
-        }
+        
+        
         .onAppear {
             isAnimating = true
         }

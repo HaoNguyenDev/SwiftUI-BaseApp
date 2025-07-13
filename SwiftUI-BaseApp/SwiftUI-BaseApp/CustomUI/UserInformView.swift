@@ -13,7 +13,7 @@ struct InformAction {
 }
 
 struct UserInformView: View {
-    
+    @EnvironmentObject private var theme: ThemeManager
     let message: UserMessageItem
     
     @State private var isShow: Bool = false
@@ -34,20 +34,22 @@ struct UserInformView: View {
                     Image(uiImage: icon)
                         .resizable()
                         .frame(width: 120, height: 120)
-                } else if let animation = message.animation {
-                    LottieHelperView(fileName: animation.name, playLoopMode: animation.loop)
-                        .frame(width: 120, height: 120)
+                } else if message.animation != nil {
+                    LoadingView(hideText: true)
+                        .frame(width: 100, height: 100)
+//                    LottieHelperView(fileName: animation.name, playLoopMode: animation.loop)
+//                        .frame(width: 120, height: 120)
                 }
                 
                 VStack(spacing: 16) {
                     if let title = message.title {
                         Text(title)
-                            .font(mainFont.bold(24))
+                            .set(font: mainFont.bold(24), and: theme.color.textSubviewColor)
                             .foregroundStyle(message.type.color)
                     }
                     if let message = message.message {
                         Text(message)
-                            .font(mainFont.regular(14))
+                            .set(font: mainFont.regular(14), and: theme.color.textSubviewColor)
                             .fixedSize(horizontal: false, vertical: true)
                     } else if let attributeMessage = message.attributeMessage {
                         Text(attributeMessage)
@@ -62,6 +64,7 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(primaryAction.title)
+                                    .set(font: mainFont.regular(14), and: theme.color.textSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                             }).buttonStyle(PrimaryButtonStyle())
@@ -74,20 +77,20 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(secondaryAction.title)
+                                    .set(font: mainFont.regular(14), and: theme.color.textSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                             }).buttonStyle(SecondaryButtonBlackStyleBig())
                         }
                     }
                 }
-                .foregroundStyle(Color(hex: "#333333"))
                 .multilineTextAlignment(.center)
             }
             .padding(.horizontal, 32)
             .padding(.vertical, 40)
             .frame(maxWidth: .infinity)
             .background(
-                Color.white
+                theme.color.subviewBgColor
                     .clipShape(RoundedRectangle(cornerRadius: 40))
                     .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 4)
             )
@@ -104,6 +107,11 @@ struct UserInformView: View {
 }
 
 #Preview {
-    UserInformView(message: UserMessageItem(message: "Welcome to Gooo community. Enjoy your trip and earn more gifts."),
+//    UserInformView(message: UserMessageItem(message: "Welcome to the app. Enjoy your trip and earn more gifts."),
+//                   primaryAction: InformAction(title: "test", callback: {}))
+//    .environmentObject(ThemeManager())
+    
+    UserInformView(message: UserMessageItem(message: "Welcome to the app. Enjoy your trip and earn more gifts."),
                    primaryAction: InformAction(title: "test", callback: {}))
+    .environmentObject(ThemeManager())
 }

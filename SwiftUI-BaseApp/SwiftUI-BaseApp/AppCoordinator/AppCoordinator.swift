@@ -157,5 +157,8 @@ extension AppCoordinator {
 
 #Preview {
     AppCoordinator()
+        .environmentObject(AppSettings.shared)
+        .environmentObject(AppState())
+        .environmentObject(ThemeManager())
 }
 
