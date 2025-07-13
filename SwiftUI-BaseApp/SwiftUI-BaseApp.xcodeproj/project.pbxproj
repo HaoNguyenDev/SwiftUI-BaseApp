@@ -123,6 +123,8 @@
 		DA890F712E23B2FF0005D9DB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F702E23B2FF0005D9DB /* HomeView.swift */; };
 		DA890F732E23B3080005D9DB /* HomeViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F722E23B3080005D9DB /* HomeViewCoordinator.swift */; };
 		DA890F772E23B38F0005D9DB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F762E23B38F0005D9DB /* HeaderView.swift */; };
+		DA890F7A2E23D0230005D9DB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F792E23D0230005D9DB /* AccountView.swift */; };
+		DA890F7C2E23D02A0005D9DB /* AccountViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F7B2E23D02A0005D9DB /* AccountViewCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -240,6 +242,8 @@
 		DA890F702E23B2FF0005D9DB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DA890F722E23B3080005D9DB /* HomeViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCoordinator.swift; sourceTree = "<group>"; };
 		DA890F762E23B38F0005D9DB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		DA890F792E23D0230005D9DB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		DA890F7B2E23D02A0005D9DB /* AccountViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,6 +428,7 @@
 		DA748DCB2E22BE5800B1B226 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA890F782E23D0150005D9DB /* Account */,
 				DA890F752E23B3860005D9DB /* HeaderView */,
 				DA890F6F2E23B2F20005D9DB /* Home */,
 				DA748F952E23A7E500B1B226 /* MainTab */,
@@ -559,6 +564,15 @@
 				DA890F762E23B38F0005D9DB /* HeaderView.swift */,
 			);
 			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		DA890F782E23D0150005D9DB /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				DA890F7B2E23D02A0005D9DB /* AccountViewCoordinator.swift */,
+				DA890F792E23D0230005D9DB /* AccountView.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -711,6 +725,7 @@
 				DA748DE82E22C12B00B1B226 /* LoadingView.swift in Sources */,
 				DA748E002E22C2DA00B1B226 /* View+Additional.swift in Sources */,
 				DA748DEA2E22C14200B1B226 /* ButtonStyle.swift in Sources */,
+				DA890F7A2E23D0230005D9DB /* AccountView.swift in Sources */,
 				DA748DE22E22C0EE00B1B226 /* LogoutConfirmView.swift in Sources */,
 				DA748E0D2E22C59700B1B226 /* AppSettings.swift in Sources */,
 				DA748DDD2E22C0CB00B1B226 /* UserMessageView.swift in Sources */,
@@ -731,6 +746,7 @@
 				DA5CC2902E22B485000C5F18 /* NavRouterProtocol.swift in Sources */,
 				DA748DE02E22C0D400B1B226 /* UserInformView.swift in Sources */,
 				DA748E142E22C5D000B1B226 /* SplashView.swift in Sources */,
+				DA890F7C2E23D02A0005D9DB /* AccountViewCoordinator.swift in Sources */,
 				DA748E132E22C5CC00B1B226 /* SplashCoordinator.swift in Sources */,
 				DA748F942E23A30100B1B226 /* LoginCoordinator.swift in Sources */,
 				DA748E102E22C5A600B1B226 /* AppVersion.swift in Sources */,
