@@ -44,12 +44,12 @@ struct UserInformView: View {
                 VStack(spacing: 16) {
                     if let title = message.title {
                         Text(title)
-                            .set(font: mainFont.bold(24), and: theme.color.textSubviewColor)
+                            .set(font: mainFont.bold(24), and: theme.color.textOnSubviewColor)
                             .foregroundStyle(message.type.color)
                     }
                     if let message = message.message {
                         Text(message)
-                            .set(font: mainFont.regular(14), and: theme.color.textSubviewColor)
+                            .set(font: mainFont.regular(14), and: theme.color.textOnSubviewColor)
                             .fixedSize(horizontal: false, vertical: true)
                     } else if let attributeMessage = message.attributeMessage {
                         Text(attributeMessage)
@@ -64,7 +64,7 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(primaryAction.title)
-                                    .set(font: mainFont.regular(14), and: theme.color.textSubviewColor)
+                                    .set(font: mainFont.regular(14), and: theme.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                             }).buttonStyle(PrimaryButtonStyle())
@@ -77,7 +77,7 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(secondaryAction.title)
-                                    .set(font: mainFont.regular(14), and: theme.color.textSubviewColor)
+                                    .set(font: mainFont.regular(14), and: theme.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                             }).buttonStyle(SecondaryButtonBlackStyleBig())

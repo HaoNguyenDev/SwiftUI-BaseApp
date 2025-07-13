@@ -84,7 +84,7 @@ struct UserMessageView: View {
                 }
             }
             .multilineTextAlignment(.leading)
-            .foregroundStyle(theme.color.textSubviewColor)
+            .foregroundStyle(theme.color.textOnSubviewColor)
             .padding(16)
             .background(theme.color.subviewBgColor, in: .rect(cornerRadius: 20))
             .opacity(opacity)

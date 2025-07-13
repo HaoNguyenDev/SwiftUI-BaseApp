@@ -47,11 +47,11 @@ struct HeaderView: View {
                 HStack(alignment: .center, spacing: 5) {
                         Text("100.000.000")
                             .font(mainFont.bold(14))
-                            .foregroundStyle(theme.color.textSubviewColor)
+                            .foregroundStyle(theme.color.textOnSubviewColor)
                             .fixedSize(horizontal: true, vertical: false)
                         Image(systemName: "bitcoinsign.ring")
                             .resizable()
-                            .foregroundStyle(theme.color.textSubviewColor)
+                            .foregroundStyle(theme.color.textOnSubviewColor)
                             .frame(width: 14, height: 14)
                             
                     }

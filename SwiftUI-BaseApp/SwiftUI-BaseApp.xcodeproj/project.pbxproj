@@ -127,6 +127,7 @@
 		DA890F7C2E23D02A0005D9DB /* AccountViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F7B2E23D02A0005D9DB /* AccountViewCoordinator.swift */; };
 		DA890F7F2E23D1E40005D9DB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F7E2E23D1E40005D9DB /* SettingsView.swift */; };
 		DA890F812E23D2500005D9DB /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F802E23D2500005D9DB /* SettingsCoordinator.swift */; };
+		DA890F882E23D4260005D9DB /* ThemeChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F872E23D4260005D9DB /* ThemeChangeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -248,6 +249,7 @@
 		DA890F7B2E23D02A0005D9DB /* AccountViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewCoordinator.swift; sourceTree = "<group>"; };
 		DA890F7E2E23D1E40005D9DB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DA890F802E23D2500005D9DB /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		DA890F872E23D4260005D9DB /* ThemeChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChangeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +434,7 @@
 		DA748DCB2E22BE5800B1B226 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA890F862E23D4120005D9DB /* ThemeChange */,
 				DA890F7D2E23D16A0005D9DB /* Settings */,
 				DA890F782E23D0150005D9DB /* Account */,
 				DA890F752E23B3860005D9DB /* HeaderView */,
@@ -587,6 +590,14 @@
 				DA890F7E2E23D1E40005D9DB /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		DA890F862E23D4120005D9DB /* ThemeChange */ = {
+			isa = PBXGroup;
+			children = (
+				DA890F872E23D4260005D9DB /* ThemeChangeView.swift */,
+			);
+			path = ThemeChange;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -756,6 +767,7 @@
 				DA748E1A2E22C60A00B1B226 /* String+Additional.swift in Sources */,
 				DA890F812E23D2500005D9DB /* SettingsCoordinator.swift in Sources */,
 				DA748E242E22C75500B1B226 /* ErrorHandler.swift in Sources */,
+				DA890F882E23D4260005D9DB /* ThemeChangeView.swift in Sources */,
 				DA748DC82E22BCD500B1B226 /* DarkColorSet.swift in Sources */,
 				DA5CC28E2E22B47A000C5F18 /* NavRouter.swift in Sources */,
 				DA5CC2942E22B4EC000C5F18 /* ScreenCoordinator.swift in Sources */,

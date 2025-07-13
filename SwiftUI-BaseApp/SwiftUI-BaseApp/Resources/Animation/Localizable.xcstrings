@@ -25,6 +25,12 @@
     "Change theme mode" : {
 
     },
+    "Choose Theme" : {
+
+    },
+    "Current Theme: %@" : {
+
+    },
     "Forgot Password" : {
 
     },
