@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Router {
     enum AccountView {
-        case subview
+        case none
     }
 }
 
@@ -22,14 +22,14 @@ struct AccountViewCoordinator: View, ScreenCoordinator {
     }
     
     var body: some View {
-        getView()
+        accountView()
             .navigationDestination(for: ScreenRouter.self) { router in
                 viewForRouter(router: router)
             }
     }
     
     @ViewBuilder
-    func getView() -> some View {
+    func accountView() -> some View {
         AccountView(gotoSettings: {
             navRouter.push(Router.MainTab.settings, animate: true)
         }, gotoProfile: {
@@ -41,8 +41,8 @@ struct AccountViewCoordinator: View, ScreenCoordinator {
     @ViewBuilder
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
-        case .subview:
-            EmptyView()
+        case .none:
+            PlaceholderViewCoordinator(navRouter: navRouter)
         }
     }
 }

@@ -60,7 +60,7 @@ struct ThemeChangeView: View {
   
     private func updateTheme(scheme: ColorSchemeOption) {
         themeManager.colorSchemeOption = scheme
-//        themeManager.updateTheme(scheme, systemColorScheme: systemColorScheme)
+        themeManager.updateTheme(scheme, systemColorScheme: systemColorScheme)
     }
 }
 
