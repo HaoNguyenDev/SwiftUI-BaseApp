@@ -142,7 +142,7 @@ struct MainTabControllerView: View {
                     tabIcon(tab: tab, isSelected: isSelected)
                     if tab != .home {
                         Text(tab.title)
-                            .font(mainFont.regular(10))
+                            .font(isSelected ? mainFont.bold(10) : mainFont.regular(10))
                             .foregroundStyle(
                                 isSelected ? theme.color.mainTabSelectedTextColor : theme.color.mainTabUnselectedTextColor)
                     }
@@ -160,13 +160,18 @@ struct MainTabControllerView: View {
     private func tabIcon(tab: TabType, isSelected: Bool) -> some View {
         if isSelected {
             tab.iconSelected
-            .resizable()
-            .frame(width: 24, height: 24)
+                .font(mainFont.regular(24))
+                .symbolRenderingMode(.monochrome)
+//                .symbolEffect(.wiggle, options: .repeat(.bitWidth))
+                .symbolEffect(.bounce.up.wholeSymbol, options: .nonRepeating)
+//            .resizable()
+//            .frame(width: 24, height: 24)
             .foregroundColor(theme.color.mainTabSelectedTextColor)
         } else {
             tab.icon
-            .resizable()
-            .frame(width: 24, height: 24)
+                .font(mainFont.regular(24))
+//            .resizable()
+//            .frame(width: 24, height: 24)
             .foregroundColor(theme.color.mainTabUnselectedTextColor)
         }
     }

@@ -12,12 +12,17 @@ struct ThemeChangeView: View {
     @EnvironmentObject var themeManager: ThemeManager
     @Environment(\.colorScheme) var systemColorScheme
     @Namespace private var animation
-    
+    private var isDarkMode: Bool = false
     var body: some View {
         VStack(spacing: 15) {
             Text("Choose Theme")
                 .font(mainFont.bold(25))
                 .foregroundStyle(themeManager.color.textOnSubviewColor)
+            
+            Image(systemName: "moon.fill")
+                .resizable()
+                .frame(width: 80, height: 80)
+                .foregroundColor(themeManager.color.textOnSubviewColor)
             
             Text("Current Theme: \(themeManager.colorSchemeOption.title)")
                 .font(mainFont.regular(17))
@@ -55,6 +60,8 @@ struct ThemeChangeView: View {
         .background(themeManager.color.subviewBgColor)
         .clipShape(RoundedRectangle(cornerRadius: 30))
         .padding(.horizontal, 10)
+        .onAppear {
+        }
         
     }
   

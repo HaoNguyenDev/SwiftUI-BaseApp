@@ -17,6 +17,7 @@ struct HeaderView: View {
     var avatar: String? {
         ""
     }
+    @State var hasNewNotification: Bool = false
     var body: some View {
         HStack(spacing: 24) {
             HStack(spacing: 4) {
@@ -39,21 +40,22 @@ struct HeaderView: View {
 //                        NotificationCenter.default.post(name: .showNotificationScreen, object: nil)
                     },
                     label: {
-                        Image(systemName: "bell")
+                        Image(systemName: hasNewNotification ? "bell.badge" : "bell")
+                            .symbolRenderingMode(.monochrome)
+                            .symbolEffect(.wiggle, options: .repeat(.bitWidth))
                             .foregroundStyle(theme.color.textColor)
+                            .font(mainFont.semibold(18))
                     })
-                
                     
                 HStack(alignment: .center, spacing: 5) {
                         Text("100.000.000")
                             .font(mainFont.bold(14))
                             .foregroundStyle(theme.color.textOnSubviewColor)
                             .fixedSize(horizontal: true, vertical: false)
-                        Image(systemName: "bitcoinsign.ring")
-                            .resizable()
+                        Image(systemName: "bitcoinsign.circle")
+//                            .resizable()
+                            .font(mainFont.semibold(18))
                             .foregroundStyle(theme.color.textOnSubviewColor)
-                            .frame(width: 14, height: 14)
-                            
                     }
                 
                 .padding(.horizontal, 8)
