@@ -14,6 +14,6 @@ struct DarkColorSet: ColorSet {
     let gradientBgColors = [Color(hex: "#4c4c4c"), Color(hex: "#000000")]
     let textColor = Color(hex: "#ffffff")
     let buttonBgColor = Color(hex: "#FFD700")
-    let mainTabSelectedTextColor: Color = Color(hex: "#000000")
+    let mainTabSelectedTextColor: Color = Color(hex: "#ffffff")
     let mainTabUnselectedTextColor: Color = Color(hex: "#AEAEB2")
 }

@@ -19,11 +19,12 @@ struct PlaceholderView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            Image(systemName: "hammer.circle.fill")
+            Image(systemName: "hammer")
                 .resizable()
                 .scaledToFit()
+                .symbolEffect(.wiggle)
                 .frame(width: 80, height: 80)
-                .foregroundColor(.orange)
+                .foregroundColor(theme.color.textColor)
 
             if let newTitle = newTitle {
                 Text("\(newTitle)\nis in development")

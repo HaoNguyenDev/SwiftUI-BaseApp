@@ -32,7 +32,7 @@ extension HomeView {
     
     @ViewBuilder
     private var headerView: some View {
-        HeaderView(onShowProfile: onShowProfile)
+        HeaderView(onShowProfile: onShowProfile, hasNewNotification: true)
     }
     
     @ViewBuilder
