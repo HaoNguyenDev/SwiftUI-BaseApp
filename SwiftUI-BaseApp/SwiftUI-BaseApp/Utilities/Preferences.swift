@@ -17,6 +17,9 @@ extension Defaults {
     static let point = DefaultsKey<Double?>("point", nil)
     static let lastShowCheckin = DefaultsKey<Date?>("lastShowCheckin", nil)
     static let colorSchemeOption = DefaultsKey<ColorSchemeOption>("colorSchemeOption", .system)
+    static let userLanguage = DefaultsKey<Language>("userLanguage",
+                                                    LanguageCode.english.getLanguage())
+    static let languageVersion = DefaultsKey<Int>("languageVersion", 0)
 }
 
 let Preferences = UserDefaults.standard
@@ -155,3 +158,18 @@ extension UserDefaults {
     }
 }
 
+extension UserDefaults {
+    subscript(key: DefaultsKey<Language>) -> Language {
+        get {
+            if let data = value(forKey: key.key) as? Data,
+                let lang = try? PropertyListDecoder().decode(Language.self, from: data) {
+                return lang
+            } else {
+                return key.defaultValue
+            }
+        }
+        set {
+            set(try? PropertyListEncoder().encode(newValue), forKey: key.key)
+        }
+    }
+}
