@@ -15,7 +15,7 @@ struct ThemeChangeView: View {
     private var isDarkMode: Bool = false
     var body: some View {
         VStack(spacing: 15) {
-            Text("Choose Theme")
+            Text("choose_theme".localized())
                 .font(mainFont.bold(25))
                 .foregroundStyle(themeManager.color.textOnSubviewColor)
             
@@ -24,7 +24,7 @@ struct ThemeChangeView: View {
                 .frame(width: 80, height: 80)
                 .foregroundColor(themeManager.color.textOnSubviewColor)
             
-            Text("Current Theme: \(themeManager.colorSchemeOption.title)")
+            Text("\("current_theme".localized()) \(themeManager.colorSchemeOption.title)")
                 .font(mainFont.regular(17))
                 .foregroundStyle(themeManager.color.textOnSubviewColor)
             

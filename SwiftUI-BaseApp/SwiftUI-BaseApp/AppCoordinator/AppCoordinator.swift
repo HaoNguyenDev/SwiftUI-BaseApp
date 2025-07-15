@@ -47,7 +47,7 @@ struct AppCoordinator: View {
     
     @ViewBuilder
     var blockingView: some View {
-        Text("Your device is restricted and not secure!")
+        Text("device_restricted".localized())
             .font(mainFont.bold(20))
             .foregroundStyle(theme.color.textColor)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -84,10 +84,10 @@ struct AppCoordinator: View {
             VStack {
                 VStack(spacing: 32) {
                     VStack(spacing: 12) {
-                        Text("The system is under maintenance")
+                        Text("system_maintenance".localized())
                             .font(mainFont.semibold(32))
                             .foregroundStyle(theme.color.textColor)
-                        Text("We are working hard to bring you the best experience. Please check back later.")
+                        Text("maintenance_message".localized())
                             .font(mainFont.regular())
                             .foregroundStyle(theme.color.textColor)
                     }
@@ -107,8 +107,8 @@ extension AppCoordinator {
     @ViewBuilder
     private var loadingView: UserInformView {
         let loadingMessage = UserMessageItem(animationName: "ic_boost_loading",
-                                             title: "Loading...",
-                                             message: "It may take a while. Thank you for your patient. You are amazing.")
+                                             title: "loading".localized(),
+                                             message: "loading_message".localized())
         UserInformView(message: loadingMessage)
     }
     
@@ -139,7 +139,7 @@ extension AppCoordinator {
     private func alertView(_ message: UserMessageItem?) -> some View {
         Group {
             if let message  {
-                let action = InformAction(title: message.actionTitle ?? "Close",
+                let action = InformAction(title: message.actionTitle ?? "close".localized(),
                                           callback: {
                     appState.userMessageState.hideAlert()
                     if message.code == .sectionExpired {

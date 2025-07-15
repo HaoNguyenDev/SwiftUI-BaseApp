@@ -53,7 +53,7 @@ struct PlaceholderView: View {
                     Button {
                         onClose?()
                     } label: {
-                        Text("Allright")
+                        Text("all_right".localized())
                             .font(mainFont.bold(18))
                             .foregroundStyle(theme.color.textColor)
                     }

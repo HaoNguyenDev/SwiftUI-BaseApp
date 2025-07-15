@@ -21,7 +21,7 @@ public struct LanguageJsonModel: Codable {
 }
 
 enum LanguageCode: Int, CaseIterable, TitleItem {
-    case english = 1
+    case english = 0
     case china
     case vietnam
     

@@ -38,7 +38,7 @@ extension HomeView {
     @ViewBuilder
     private var content: some View {
         VStack(spacing: 20) {
-            Text("Home View")
+            Text("home_view".localized())
                 .font(mainFont.bold(32))
                 .foregroundStyle(theme.color.textColor)
             
@@ -48,7 +48,7 @@ extension HomeView {
             Button {
                 processGotoSubview(subview: 1)
             } label: {
-                Text("Go to sub view 1")
+                Text("\("go_to_sub_view".localized()) 1")
                     .font(mainFont.bold(20))
                     .foregroundStyle(theme.color.textColor)
                     .frame(width: 200, height: 50)
@@ -58,7 +58,7 @@ extension HomeView {
             Button {
                 processGotoSubview(subview: 2)
             } label: {
-                Text("Go to sub view 2")
+                Text("\("go_to_sub_view".localized()) 2")
                     .font(mainFont.bold(20))
                     .foregroundStyle(theme.color.textColor)
                     .frame(width: 200, height: 50)

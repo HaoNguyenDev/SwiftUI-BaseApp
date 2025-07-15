@@ -107,11 +107,11 @@ struct UserInformView: View {
 }
 
 #Preview {
-//    UserInformView(message: UserMessageItem(message: "Welcome to the app. Enjoy your trip and earn more gifts."),
+//    UserInformView(message: UserMessageItem(message: "welcome_message".localized()),
 //                   primaryAction: InformAction(title: "test", callback: {}))
 //    .environmentObject(ThemeManager())
     
-    UserInformView(message: UserMessageItem(message: "Welcome to the app. Enjoy your trip and earn more gifts."),
+    UserInformView(message: UserMessageItem(message: "welcome_message".localized()),
                    primaryAction: InformAction(title: "test", callback: {}))
     .environmentObject(ThemeManager())
 }

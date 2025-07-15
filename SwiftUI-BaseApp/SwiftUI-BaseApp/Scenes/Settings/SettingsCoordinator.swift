@@ -46,7 +46,7 @@ struct SettingsCoordinator: View, ScreenCoordinator {
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
         case .changeLanguage:
-            PlaceholderViewCoordinator(navRouter: navRouter, title: "Change Language")
+            PlaceholderViewCoordinator(navRouter: navRouter, title: "change_language_title".localized())
         }
     }
 }

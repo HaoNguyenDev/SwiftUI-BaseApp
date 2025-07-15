@@ -52,6 +52,6 @@ extension String {
 // Extension for get language
 extension String {
     func localized() -> String {
-        return LanguageManager.shared.valueForKey(self)
+        return LanguageManager.shared.valueForKey(self.lowercased())
     }
 }

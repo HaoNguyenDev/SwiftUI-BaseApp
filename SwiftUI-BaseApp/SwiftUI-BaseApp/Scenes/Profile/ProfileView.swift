@@ -8,7 +8,7 @@
 import SwiftUI
 
 class ProfileViewModel: ObservableObject {
-    @Published var username: String = UserSettings.shared.username ?? "Anonymous"
+    @Published var username: String = UserSettings.shared.username ?? "anonymous".localized()
 }
 
 struct ProfileView: View {
@@ -46,10 +46,10 @@ struct ProfileView: View {
         HStack {
             VStack(alignment: .leading) {
                 Image(systemName: "gear")
-                Text("Settings")
+                Text("settings".localized())
                     .font(mainFont.bold(14))
                     
-                Text("You can chage your password and other settings")
+                Text("settings_description".localized())
                     .font(mainFont.regular(10))
             }
             
