@@ -48,7 +48,7 @@ extension LoginView {
     @ViewBuilder
     private var content: some View {
         VStack {
-            Text("Login View")
+            Text("login_view".localized())
                 .font(mainFont.bold(32))
                 .foregroundStyle(theme.color.textColor)
             
@@ -60,7 +60,7 @@ extension LoginView {
                     await processLogin()
                 }
             } label: {
-                Text("Login")
+                Text("login".localized())
                     .font(mainFont.bold(20))
                     .frame(width: 200, height: 50)
                     .foregroundStyle(theme.color.textColor)
@@ -70,7 +70,7 @@ extension LoginView {
             Button {
                 gotoRegister?()
             } label: {
-                Text("Register")
+                Text("register".localized())
                     .font(mainFont.bold(20))
                     .frame(width: 200, height: 50)
                     .foregroundStyle(theme.color.textColor)
@@ -80,7 +80,7 @@ extension LoginView {
             Button {
                 gotoForgotPassword?()
             } label: {
-                Text("Forgot Password")
+                Text("forgot_password".localized())
                     .font(mainFont.bold(20))
                     .frame(width: 200, height: 50)
                     .foregroundStyle(theme.color.textColor)

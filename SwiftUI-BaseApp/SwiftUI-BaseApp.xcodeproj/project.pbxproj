@@ -130,6 +130,13 @@
 		DA890F882E23D4260005D9DB /* ThemeChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F872E23D4260005D9DB /* ThemeChangeView.swift */; };
 		DA890F8B2E23D73C0005D9DB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F8A2E23D73C0005D9DB /* ProfileView.swift */; };
 		DA890F8D2E23D7850005D9DB /* ProfileViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F8C2E23D7850005D9DB /* ProfileViewCoordinator.swift */; };
+		DA8910412E2639610005D9DB /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8910402E2639610005D9DB /* LanguageManager.swift */; };
+		DA8910442E2639A80005D9DB /* LanguageCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8910432E2639A80005D9DB /* LanguageCode.swift */; };
+		DA8910462E263A9C0005D9DB /* FileManager+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8910452E263A930005D9DB /* FileManager+Additional.swift */; };
+		DA89104A2E263B0D0005D9DB /* lang_cn.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8910482E263B0D0005D9DB /* lang_cn.json */; };
+		DA89104B2E263B0D0005D9DB /* lang_en.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8910492E263B0D0005D9DB /* lang_en.json */; };
+		DA89104D2E263C470005D9DB /* AppSetupUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89104C2E263C470005D9DB /* AppSetupUtilities.swift */; };
+		DA89104F2E263FFF0005D9DB /* lang_vi.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89104E2E263FFF0005D9DB /* lang_vi.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -254,6 +261,13 @@
 		DA890F872E23D4260005D9DB /* ThemeChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChangeView.swift; sourceTree = "<group>"; };
 		DA890F8A2E23D73C0005D9DB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DA890F8C2E23D7850005D9DB /* ProfileViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewCoordinator.swift; sourceTree = "<group>"; };
+		DA8910402E2639610005D9DB /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		DA8910432E2639A80005D9DB /* LanguageCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCode.swift; sourceTree = "<group>"; };
+		DA8910452E263A930005D9DB /* FileManager+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Additional.swift"; sourceTree = "<group>"; };
+		DA8910482E263B0D0005D9DB /* lang_cn.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lang_cn.json; sourceTree = "<group>"; };
+		DA8910492E263B0D0005D9DB /* lang_en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lang_en.json; sourceTree = "<group>"; };
+		DA89104C2E263C470005D9DB /* AppSetupUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetupUtilities.swift; sourceTree = "<group>"; };
+		DA89104E2E263FFF0005D9DB /* lang_vi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lang_vi.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,7 +312,6 @@
 		DA5CC2862E22B28F000C5F18 /* SwiftUI-BaseApp */ = {
 			isa = PBXGroup;
 			children = (
-				DA748E1D2E22C66D00B1B226 /* Utilities */,
 				DA748DB62E22B8F300B1B226 /* Info.plist */,
 				DA5CC2822E22B28F000C5F18 /* Preview Content */,
 				DA5CC2832E22B28F000C5F18 /* Assets.xcassets */,
@@ -307,6 +320,7 @@
 				DA748DD32E22BF7C00B1B226 /* AppCoordinator */,
 				DA5CC28C2E22B458000C5F18 /* Router */,
 				DA748DC02E22BC3C00B1B226 /* Theme */,
+				DA748E1D2E22C66D00B1B226 /* Utilities */,
 				DA748DD92E22C08900B1B226 /* CustomUI */,
 				DA748D3F2E22B87D00B1B226 /* Resources */,
 				DA748DB72E22B9BA00B1B226 /* Extensions */,
@@ -332,6 +346,7 @@
 		DA748D3F2E22B87D00B1B226 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA8910472E263B010005D9DB /* Languages */,
 				DA748D412E22B88C00B1B226 /* Animation */,
 				DA748D402E22B88600B1B226 /* Font */,
 			);
@@ -383,7 +398,6 @@
 				DA748D682E22B8B900B1B226 /* Info.json */,
 				DA748D692E22B8B900B1B226 /* later.json */,
 				DA748D6A2E22B8B900B1B226 /* LoadingCar.json */,
-				DA748D6B2E22B8B900B1B226 /* Localizable.xcstrings */,
 				DA748D6C2E22B8B900B1B226 /* lot_lucky_draw.json */,
 				DA748D6D2E22B8B900B1B226 /* Maintenance.json */,
 				DA748D6E2E22B8B900B1B226 /* Medal.json */,
@@ -413,6 +427,7 @@
 		DA748DB72E22B9BA00B1B226 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DA8910452E263A930005D9DB /* FileManager+Additional.swift */,
 				DA748E192E22C60800B1B226 /* String+Additional.swift */,
 				DA748E082E22C4E700B1B226 /* Notification+Additional.swift */,
 				DA748DFF2E22C2D900B1B226 /* View+Additional.swift */,
@@ -482,11 +497,13 @@
 		DA748DD62E22C00800B1B226 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				DA89104C2E263C470005D9DB /* AppSetupUtilities.swift */,
 				DA748E0B2E22C57A00B1B226 /* AppVersion.swift */,
 				DA748E0A2E22C56100B1B226 /* Env.swift */,
 				DA748E072E22C49500B1B226 /* UserSettings.swift */,
 				DA748DD72E22C01B00B1B226 /* AppSettings.swift */,
 				DA748DD82E22C04C00B1B226 /* AppState.swift */,
+				DA8910422E2639A10005D9DB /* LanguageManager */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -614,6 +631,26 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		DA8910422E2639A10005D9DB /* LanguageManager */ = {
+			isa = PBXGroup;
+			children = (
+				DA8910402E2639610005D9DB /* LanguageManager.swift */,
+				DA8910432E2639A80005D9DB /* LanguageCode.swift */,
+			);
+			path = LanguageManager;
+			sourceTree = "<group>";
+		};
+		DA8910472E263B010005D9DB /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				DA8910482E263B0D0005D9DB /* lang_cn.json */,
+				DA8910492E263B0D0005D9DB /* lang_en.json */,
+				DA89104E2E263FFF0005D9DB /* lang_vi.json */,
+				DA748D6B2E22B8B900B1B226 /* Localizable.xcstrings */,
+			);
+			path = Languages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -708,6 +745,7 @@
 				DA748D962E22B8B900B1B226 /* Cup.json in Resources */,
 				DA748D972E22B8B900B1B226 /* ic_logout_animate.gif in Resources */,
 				DA748D982E22B8B900B1B226 /* later.json in Resources */,
+				DA89104F2E263FFF0005D9DB /* lang_vi.json in Resources */,
 				DA748D992E22B8B900B1B226 /* Finish.json in Resources */,
 				DA748D9A2E22B8B900B1B226 /* Bike.gif in Resources */,
 				DA748D9B2E22B8B900B1B226 /* swipe-left-right.gif in Resources */,
@@ -720,6 +758,8 @@
 				DA748DA22E22B8B900B1B226 /* CarBike.json in Resources */,
 				DA748DA32E22B8B900B1B226 /* Achivement.json in Resources */,
 				DA748DA42E22B8B900B1B226 /* Basket.json in Resources */,
+				DA89104A2E263B0D0005D9DB /* lang_cn.json in Resources */,
+				DA89104B2E263B0D0005D9DB /* lang_en.json in Resources */,
 				DA748DA52E22B8B900B1B226 /* ChallangeCommunity.json in Resources */,
 				DA748DA62E22B8B900B1B226 /* Earn Medal.gif in Resources */,
 				DA748DA72E22B8B900B1B226 /* ChallangeCombat.json in Resources */,
@@ -758,6 +798,7 @@
 				DA748DBF2E22BBF500B1B226 /* Color+Additional.swift in Sources */,
 				DA748DC62E22BCB800B1B226 /* LightColorSet.swift in Sources */,
 				DA890F712E23B2FF0005D9DB /* HomeView.swift in Sources */,
+				DA8910462E263A9C0005D9DB /* FileManager+Additional.swift in Sources */,
 				DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */,
 				DA748F902E23A2EC00B1B226 /* LoginView.swift in Sources */,
 				DA748E092E22C4E800B1B226 /* Notification+Additional.swift in Sources */,
@@ -772,6 +813,7 @@
 				DA748DBD2E22BA4C00B1B226 /* Text+Additional.swift in Sources */,
 				DA748E182E22C5E500B1B226 /* SampleViewCoordinator.swift in Sources */,
 				DA748E0C2E22C59100B1B226 /* UserSettings.swift in Sources */,
+				DA89104D2E263C470005D9DB /* AppSetupUtilities.swift in Sources */,
 				DA748E152E22C5D800B1B226 /* PlaceholderView.swift in Sources */,
 				DA748DEC2E22C15100B1B226 /* BackButton.swift in Sources */,
 				DA748E0F2E22C5A100B1B226 /* Env.swift in Sources */,
@@ -789,10 +831,12 @@
 				DA748DE02E22C0D400B1B226 /* UserInformView.swift in Sources */,
 				DA748E142E22C5D000B1B226 /* SplashView.swift in Sources */,
 				DA890F7C2E23D02A0005D9DB /* AccountViewCoordinator.swift in Sources */,
+				DA8910442E2639A80005D9DB /* LanguageCode.swift in Sources */,
 				DA748E132E22C5CC00B1B226 /* SplashCoordinator.swift in Sources */,
 				DA748F942E23A30100B1B226 /* LoginCoordinator.swift in Sources */,
 				DA748E102E22C5A600B1B226 /* AppVersion.swift in Sources */,
 				DA748DC42E22BC9800B1B226 /* ColorSet.swift in Sources */,
+				DA8910412E2639610005D9DB /* LanguageManager.swift in Sources */,
 				DA748DCA2E22BD0700B1B226 /* ColorSchemeOption.swift in Sources */,
 				DA890F8B2E23D73C0005D9DB /* ProfileView.swift in Sources */,
 				DA748E1C2E22C65400B1B226 /* AppErrorCode.swift in Sources */,
