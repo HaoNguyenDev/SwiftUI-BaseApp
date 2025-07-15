@@ -9,6 +9,8 @@
         "login_view": "Giao diện Đăng nhập",
         "login": "Đăng nhập",
         "register": "Đăng ký",
-        "forgot_password": "Quên Mật khẩu"
+        "forgot_password": "Quên Mật khẩu",
+        "swipe_down_to_exit": "Vuốt xuống để thoát",
+        "change_language_title": "Thay đổi Ngôn ngữ"
     }
 }

@@ -41,6 +41,7 @@ final class LanguageManager {
     
     private init() {
         language = Preferences[.userLanguage]
+//        language = LanguageCode.vietnam.getLanguage()
         localVersion = localModel?.version ?? 0
     }
     

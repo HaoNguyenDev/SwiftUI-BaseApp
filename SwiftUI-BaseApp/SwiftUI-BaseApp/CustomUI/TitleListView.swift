@@ -12,6 +12,7 @@ protocol TitleItem {
 }
 
 struct TitleListView: View {
+    @EnvironmentObject private var theme: ThemeManager
     private let kDragDismissThreshold: CGFloat = 100
     private let kMaxOffset: CGFloat = 400
     
@@ -27,16 +28,16 @@ struct TitleListView: View {
     var body: some View {
         VStack(spacing: 16) {
             VStack {
-                Text("Swipe down to exit")
-                    .set(font: mainFont.regular(12), and: .white)
+                Text("swipe_down_to_exit".localized())
+                    .set(font: mainFont.regular(14), and: theme.color.textColor)
                 VStack(spacing: 16) {
                     Text(title)
-                        .set(font: mainFont.bold(24), and: Color(hex: "#333333"))
+                        .set(font: mainFont.bold(24), and: theme.color.textOnSubviewColor)
 
                     VStack(spacing: 16) {
                         ForEach(items.indices, id: \.self) { idx in
                             Text(items[idx].title)
-                                .set(font: mainFont.regular(16), and: Color(hex: "#333333"))
+                                .set(font: mainFont.regular(16), and: theme.color.textOnSubviewColor)
                                 .frame(maxWidth: .infinity)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
@@ -44,6 +45,7 @@ struct TitleListView: View {
                                 }
                             if idx < items.count - 1 {
                                 Divider()
+                                    .background(theme.color.textOnSubviewColor)
                             }
                         }
                     }
@@ -52,16 +54,16 @@ struct TitleListView: View {
                 }
                 .padding(EdgeInsets(top: 40, leading: 32, bottom: 40, trailing: 32))
                 .frame(maxWidth: .infinity)
-                .background(Color.white, in: .rect(cornerRadius: 40))
+                .background(theme.color.subviewBgColor, in: .rect(cornerRadius: 40))
             }
             .offset(y: offset)
             .opacity(opacity)
             .gesture(createDismissGesture())
         }
         .multilineTextAlignment(.center)
-        .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-        .setDefaultBackground()
+        .padding(.horizontal, 10)
+//        .background(theme.color.subviewBgColor)
         .animation(.easeOut(duration: 0.2), value: offset)
         .animation(.easeOut(duration: 0.2), value: opacity)
         .onChange(of: isShow) { newValue in
@@ -73,7 +75,7 @@ struct TitleListView: View {
         }
         .onAppear {
             // Add a slight delay to ensure the view is fully rendered
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                 isShow = true
             }
         }
@@ -95,3 +97,8 @@ struct TitleListView: View {
     }
 }
 
+#Preview {
+    TitleListView(title: "List View", items: LanguageCode.allCases)
+        .environmentObject(ThemeManager())
+    
+}

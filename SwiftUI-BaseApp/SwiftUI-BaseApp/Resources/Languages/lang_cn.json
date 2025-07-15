@@ -9,6 +9,8 @@
         "login_view": "登录界面",
         "login": "登录",
         "register": "注册",
-        "forgot_password": "忘记密码"
+        "forgot_password": "忘记密码",
+        "swipe_down_to_exit": "向下滑动以退出",
+        "change_language_title": "更改语言"
     }
 }
