@@ -12,6 +12,7 @@ struct SettingsView: View {
     @EnvironmentObject var userSettings: UserSettings
     @EnvironmentObject var theme: ThemeManager
     @State private var showChangeThemeModeView: Bool = false
+    @State private var showChangeLanguageView: Bool = false
     @State private var currentColorScheme: ColorScheme?
     var gotoChangeLanguageView: VoidResult?
     
@@ -44,6 +45,19 @@ struct SettingsView: View {
              showChangeThemeModeView = false
              })*/
         }
+        .sheet(isPresented: $showChangeLanguageView) {
+            TitleListView(title: "change_language_title".localized(),
+                          items: LanguageCode.allCases,
+             onDismiss: {
+                showChangeLanguageView = false
+             }, onSelectItem: { idx, item in
+                 print("\(idx), \(item)")
+                 updateLanguage(value: idx)
+                 showChangeLanguageView = false
+             })
+            .presentationDetents([.height(410)])
+            .presentationBackground(.clear)
+        }
     }
     
     var changeThemeModeRow: some View {
@@ -67,7 +81,8 @@ struct SettingsView: View {
     
     var changeLanguageRow: some View {
         Button(action: {
-            gotoChangeLanguageView?()
+//            gotoChangeLanguageView?()
+            showChangeLanguageView = true
         }) {
             HStack {
                 VStack(alignment: .leading) {
@@ -83,6 +98,10 @@ struct SettingsView: View {
             .clipShape(RoundedRectangle(cornerRadius: 32))
         }
         .padding(.horizontal, 24)
+    }
+    
+    private func updateLanguage(value: Int) {
+        LanguageManager.shared.setLanguage(language: LanguageCode(rawValue: value)?.getLanguage() ?? LanguageCode.english.getLanguage())
     }
 }
 
