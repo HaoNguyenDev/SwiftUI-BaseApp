@@ -21,7 +21,7 @@ struct SampleView: View {
 extension SampleView {
     @ViewBuilder
     func contentView() -> some View {
-        Text("This is a sample view!")
+        Text("sample_view".localized())
     }
 }
 

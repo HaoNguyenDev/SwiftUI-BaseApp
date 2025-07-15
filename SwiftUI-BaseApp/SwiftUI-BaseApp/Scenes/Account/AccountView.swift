@@ -34,7 +34,7 @@ extension AccountView {
     @ViewBuilder
     private var content: some View {
         VStack(spacing: 20) {
-            Text("Account View")
+            Text("account_view".localized())
                 .font(mainFont.bold(32))
                 .foregroundStyle(theme.color.textColor)
             
@@ -44,7 +44,7 @@ extension AccountView {
             Button {
                 processGotoSubview(subview: 1)
             } label: {
-                Text("Settings")
+                Text("settings".localized())
                     .font(mainFont.bold(20))
                     .foregroundStyle(theme.color.textColor)
                     .frame(width: 200, height: 50)
@@ -54,7 +54,7 @@ extension AccountView {
             Button {
                 processGotoSubview(subview: 2)
             } label: {
-                Text("Profile")
+                Text("profile".localized())
                     .font(mainFont.bold(20))
                     .foregroundStyle(theme.color.textColor)
                     .frame(width: 200, height: 50)

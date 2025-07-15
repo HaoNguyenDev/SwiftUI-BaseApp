@@ -94,7 +94,7 @@ extension SplashView {
                 try await Task.sleep(for: .seconds(2))
                 showLoading = false
                 await appState.hideLoading()
-                appState.showToast(item: UserMessageItem(message: "Welcome to App. Enjoy your trip and earn more gifts."))
+                appState.showToast(item: UserMessageItem(message: "welcome_message_app".localized()))
                 onSkipUpdate?()
             } catch {
                 // TODO: Handle later

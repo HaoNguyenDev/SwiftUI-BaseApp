@@ -27,18 +27,18 @@ struct LogoutConfirmView: View {
                     .resizable()
                     .frame(width: 120, height: 120)
                 
-                Text("Log out?")
+                Text("logout_prompt".localized())
                     .font(mainFont.bold(24))
                     .foregroundColor(Color(hex: "#333333"))
                 
-                Text("You’ll be logged out of the app but can log back in anytime.")
+                Text("logout_message".localized())
                     .font(mainFont.regular(14))
                     .foregroundColor(Color(hex: "#8E8E93"))
                 
                 Button {
                     onLogout?()
                 } label: {
-                    Text("Log out")
+                    Text("logout".localized())
                         .frame(height: 48)
                         .frame(maxWidth: .infinity)
                 }
@@ -47,7 +47,7 @@ struct LogoutConfirmView: View {
                 Button {
                     onDismiss?()
                 } label: {
-                    Text("Cancel")
+                    Text("cancel".localized())
                         .frame(height: 48)
                         .frame(maxWidth: .infinity)
                 }

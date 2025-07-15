@@ -110,8 +110,8 @@ extension LoginView {
                     appState.showToast( item: UserMessageItem(
                         animationName: "SuccessCircle",
                         loopMode: .playOnce,
-                        title: "Login successfully",
-                        message: "Welcome to App. Enjoy your trip and earn more gifts."))
+                        title: "login_success".localized(),
+                        message: "welcome_message_app".localized()))
                 }
                 
             } catch(let error as LoginError) {
@@ -123,8 +123,8 @@ extension LoginView {
                  appState.showToast( item: UserMessageItem(
                  animationName: "SuccessCircle",
                  loopMode: .playOnce,
-                 title: "Login successfully",
-                 message: "Welcome to App. Enjoy your trip and earn more gifts."))*/
+                 title: "login_success".localized(),
+                 message: "welcome_message_app".localized()))*/
             }
             
         }

@@ -25,7 +25,7 @@ struct HeaderView: View {
                     .resizable()
                     .frame(width: 32, height: 32)
                 
-                Text("👋 Hi, \(name ?? "Buddy")")
+                Text("👋 Hi, \(name ?? "buddy".localized())")
                     .foregroundStyle(theme.color.textColor)
                     .font(mainFont.bold(14))
                     .lineLimit(1)

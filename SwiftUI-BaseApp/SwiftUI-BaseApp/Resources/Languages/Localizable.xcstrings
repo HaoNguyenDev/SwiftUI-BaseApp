@@ -4,76 +4,35 @@
     "%@\nis in development" : {
 
     },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@ 1" : {
+
+    },
+    "%@ 2" : {
+
+    },
     "👋 Hi, %@" : {
 
     },
     "100.000.000" : {
 
     },
-    "Account View" : {
-
-    },
-    "Allright" : {
-
-    },
-    "Cancel" : {
-
-    },
-    "Change language" : {
-
-    },
-    "Change theme mode" : {
-
-    },
-    "Choose Theme" : {
-
-    },
-    "Current Theme: %@" : {
-
-    },
-    "Go to sub view 1" : {
-
-    },
-    "Go to sub view 2" : {
-
-    },
     "Hello, world!" : {
-
-    },
-    "Home View" : {
 
     },
     "Log out" : {
 
     },
-    "Log out?" : {
-
-    },
-    "Please wait a moment..." : {
-
-    },
-    "Profile" : {
-
-    },
-    "Settings" : {
-
-    },
-    "The system is under maintenance" : {
-
-    },
-    "This is a sample view!" : {
-
-    },
-    "We are working hard to bring you the best experience. Please check back later." : {
-
-    },
-    "You can chage your password and other settings" : {
-
-    },
     "You’ll be logged out of the app but can log back in anytime." : {
-
-    },
-    "Your device is restricted and not secure!" : {
 
     }
   },

@@ -19,7 +19,7 @@ struct SettingsView: View {
     var body: some View {
         ScrollView(showsIndicators: false, content: {
             VStack(spacing: 24) {
-                Text("Settings").set(font: mainFont.bold(32), and: theme.color.textColor)
+                Text("settings".localized()).set(font: mainFont.bold(32), and: theme.color.textColor)
                 // Settings content
                 VStack(spacing: 16) {
                     changeThemeModeRow
@@ -66,7 +66,7 @@ struct SettingsView: View {
         }) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Change theme mode").set(font: mainFont.bold(14), and: theme.color.textOnSubviewColor)
+                    Text("change_theme_mode".localized()).set(font: mainFont.bold(14), and: theme.color.textOnSubviewColor)
                 }
                 Spacer()
                 Image(systemName: "chevron.right").tint(theme.color.textOnSubviewColor)
@@ -86,7 +86,7 @@ struct SettingsView: View {
         }) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Change language").set(font: mainFont.bold(14), and: theme.color.textOnSubviewColor)
+                    Text("change_language_title".localized()).set(font: mainFont.bold(14), and: theme.color.textOnSubviewColor)
                 }
                 Spacer()
                 Image(systemName: "chevron.right")
@@ -100,6 +100,7 @@ struct SettingsView: View {
         .padding(.horizontal, 24)
     }
     
+    @MainActor
     private func updateLanguage(value: Int) {
         LanguageManager.shared.setLanguage(language: LanguageCode(rawValue: value)?.getLanguage() ?? LanguageCode.english.getLanguage())
     }
