@@ -39,6 +39,8 @@
         "login_success": "Login successfully",
         "welcome_message_app": "Welcome to App. Enjoy your trip and earn more gifts.",
         "all_right": "Allright",
-        "sample_view": "This is a sample view!"
+        "sample_view": "This is a sample view!",
+        "in_development": "In development",
+        "feature_update_soon": "This feature will be updated soon."
     }
 }
