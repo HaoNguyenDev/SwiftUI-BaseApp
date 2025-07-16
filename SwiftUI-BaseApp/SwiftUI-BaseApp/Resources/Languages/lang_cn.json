@@ -39,6 +39,8 @@
         "login_success": "登录成功",
         "welcome_message_app": "欢迎使用应用程序。享受您的旅程并获得更多礼物。",
         "all_right": "好的",
-        "sample_view": "这是一个示例界面！"
+        "sample_view": "这是一个示例界面！",
+        "in_development": "开发中",
+        "feature_update_soon": "此功能将很快更新。"
     }
 }

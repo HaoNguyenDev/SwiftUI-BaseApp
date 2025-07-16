@@ -91,8 +91,8 @@ struct MainTabControllerView: View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 HomeViewCoordinator(navRouter: navRouter).tag(0)
-                PlaceholderViewCoordinator(navRouter: navRouter, title: "This feature").tag(1)
-                PlaceholderViewCoordinator(navRouter: navRouter, title: "This feature").tag(2)
+                PlaceholderViewCoordinator(navRouter: navRouter, title: nil).tag(1)
+                PlaceholderViewCoordinator(navRouter: navRouter, title: nil).tag(2)
                 AccountViewCoordinator(navRouter: navRouter).tag(3)
             }
             tabBar()

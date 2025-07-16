@@ -39,6 +39,8 @@
         "login_success": "Đăng nhập thành công",
         "welcome_message_app": "Chào mừng bạn đến với Ứng dụng. Hãy tận hưởng chuyến đi và nhận thêm quà tặng.",
         "all_right": "Được rồi",
-        "sample_view": "Đây là một giao diện mẫu!"
+        "sample_view": "Đây là một giao diện mẫu!",
+        "in_development": "Đang phát triển",
+        "feature_update_soon": "Tính năng này sẽ được cập nhật sớm."
     }
 }

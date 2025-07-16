@@ -13,8 +13,8 @@ import SwiftUI
 struct PlaceholderView: View {
     @EnvironmentObject var theme: ThemeManager
     var newTitle: String?
-    var defaultTitle: String = "In development"
-    var message: String = "This feature will be updated soon."
+    var defaultTitle: String = "in_development".localized()
+    var message: String = "feature_update_soon".localized()
     var onClose: (() -> Void)?
 
     var body: some View {
@@ -27,7 +27,7 @@ struct PlaceholderView: View {
                 .foregroundColor(theme.color.textColor)
 
             if let newTitle = newTitle {
-                Text("\(newTitle)\nis in development")
+                Text("\(newTitle)\n\(defaultTitle)")
                     .font(mainFont.bold(30))
                     .foregroundStyle(theme.color.textColor)
                     .multilineTextAlignment(.center)
