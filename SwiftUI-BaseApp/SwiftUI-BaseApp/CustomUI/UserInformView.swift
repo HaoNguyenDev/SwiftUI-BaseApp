@@ -98,7 +98,7 @@ struct UserInformView: View {
             .opacity(isShow ? 1 : 0)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-        .setDefaultBackground()
+        .setBlurBackgroundImage()
         .animation(.linear(duration: 0.3), value: isShow)
         .onAppear {
             isShow = true

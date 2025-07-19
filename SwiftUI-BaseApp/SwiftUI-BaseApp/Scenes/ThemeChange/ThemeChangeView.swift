@@ -57,7 +57,7 @@ struct ThemeChangeView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .frame(height: 410)
-        .background(themeManager.color.subviewBgColor)
+        .setBlurBackgroundImage()
         .clipShape(RoundedRectangle(cornerRadius: 30))
         .padding(.horizontal, 10)
         .onAppear {
@@ -74,4 +74,5 @@ struct ThemeChangeView: View {
 #Preview {
     ThemeChangeView()
         .environmentObject(ThemeManager())
+        .colorScheme(.light)
 }

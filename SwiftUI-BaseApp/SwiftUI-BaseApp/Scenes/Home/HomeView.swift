@@ -24,7 +24,7 @@ struct HomeView: View {
            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .setDefaultBackground()
+        .setBlurBackgroundImage()
     }
 }
 

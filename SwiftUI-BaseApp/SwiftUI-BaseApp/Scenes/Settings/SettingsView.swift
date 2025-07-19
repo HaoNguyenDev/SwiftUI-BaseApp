@@ -31,7 +31,7 @@ struct SettingsView: View {
             .frame(maxWidth: .infinity)
         })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .setDefaultBackground()
+        .setBlurBackgroundImage()
         .sheet(isPresented: $showChangeThemeModeView) {
             ThemeChangeView()
                 .presentationDetents([.height(410)])

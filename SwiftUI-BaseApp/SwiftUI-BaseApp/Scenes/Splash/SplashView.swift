@@ -81,7 +81,7 @@ extension SplashView {
         }
         .ignoresSafeArea(.all)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .setDefaultBackground()
+        .setBlurBackgroundImage()
     }
 }
 

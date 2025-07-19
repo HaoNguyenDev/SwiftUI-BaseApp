@@ -40,7 +40,7 @@ struct LoginView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.all)
-        .setDefaultBackground()
+        .setBlurBackgroundImage()
     }
 }
 

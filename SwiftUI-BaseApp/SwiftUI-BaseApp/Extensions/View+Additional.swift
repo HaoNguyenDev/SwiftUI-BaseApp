@@ -15,6 +15,10 @@ extension View {
     func setGradientBackground(rotationColor: Bool = false) -> some View {
         modifier(GradientBackgroundModifier(rotationColor: rotationColor))
     }
+    
+    func setBlurBackgroundImage() -> some View {
+        modifier(BackgroundImageModifier())
+    }
 }
 
 // MARK: Modifiers
@@ -46,5 +50,19 @@ struct GradientBackgroundModifier: ViewModifier {
     
     private func getBackgroundColor(rotationColor: Bool = false) -> [Color] {
         return rotationColor ? theme.color.gradientBgColors.reversed() : theme.color.gradientBgColors
+    }
+}
+
+// MARK: Modifiers
+struct BackgroundImageModifier: ViewModifier {
+    @EnvironmentObject var theme: ThemeManager
+    func body(content: Content) -> some View {
+        content
+            .background(
+                theme.color.subviewBgColor.opacity(0.8) // Lớp màu trong suốt
+                    .overlay(BlurBackgroundView())
+            )
+        
+        
     }
 }

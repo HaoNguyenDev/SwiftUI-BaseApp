@@ -15,6 +15,7 @@
 		DA5CC2902E22B485000C5F18 /* NavRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC28F2E22B485000C5F18 /* NavRouterProtocol.swift */; };
 		DA5CC2922E22B490000C5F18 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2912E22B490000C5F18 /* Router.swift */; };
 		DA5CC2942E22B4EC000C5F18 /* ScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */; };
+		DA623ADD2E2AC7BE007BD9F5 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA623ADC2E2AC7BE007BD9F5 /* BlurView.swift */; };
 		DA748D482E22B8A000B1B226 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */; };
 		DA748D492E22B8A000B1B226 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */; };
 		DA748D4A2E22B8A000B1B226 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D442E22B8A000B1B226 /* Nunito-Light.ttf */; };
@@ -137,6 +138,7 @@
 		DA89104B2E263B0D0005D9DB /* lang_en.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8910492E263B0D0005D9DB /* lang_en.json */; };
 		DA89104D2E263C470005D9DB /* AppSetupUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89104C2E263C470005D9DB /* AppSetupUtilities.swift */; };
 		DA89104F2E263FFF0005D9DB /* lang_vi.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89104E2E263FFF0005D9DB /* lang_vi.json */; };
+		DA983F5A2E2BA0DF0030EEA2 /* BlurBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +151,7 @@
 		DA5CC28F2E22B485000C5F18 /* NavRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavRouterProtocol.swift; sourceTree = "<group>"; };
 		DA5CC2912E22B490000C5F18 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCoordinator.swift; sourceTree = "<group>"; };
+		DA623ADC2E2AC7BE007BD9F5 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
 		DA748D442E22B8A000B1B226 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
@@ -268,6 +271,7 @@
 		DA8910492E263B0D0005D9DB /* lang_en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lang_en.json; sourceTree = "<group>"; };
 		DA89104C2E263C470005D9DB /* AppSetupUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetupUtilities.swift; sourceTree = "<group>"; };
 		DA89104E2E263FFF0005D9DB /* lang_vi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lang_vi.json; sourceTree = "<group>"; };
+		DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,9 +323,9 @@
 				DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseApp.swift */,
 				DA748DD32E22BF7C00B1B226 /* AppCoordinator */,
 				DA5CC28C2E22B458000C5F18 /* Router */,
-				DA748DC02E22BC3C00B1B226 /* Theme */,
 				DA748E1D2E22C66D00B1B226 /* Utilities */,
 				DA748DD92E22C08900B1B226 /* CustomUI */,
+				DA748DC02E22BC3C00B1B226 /* Theme */,
 				DA748D3F2E22B87D00B1B226 /* Resources */,
 				DA748DB72E22B9BA00B1B226 /* Extensions */,
 				DA748DFA2E22C27C00B1B226 /* Components */,
@@ -511,6 +515,8 @@
 		DA748DD92E22C08900B1B226 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */,
+				DA623ADC2E2AC7BE007BD9F5 /* BlurView.swift */,
 				DA748DEB2E22C15000B1B226 /* BackButton.swift */,
 				DA748DE92E22C14100B1B226 /* ButtonStyle.swift */,
 				DA748DE72E22C12B00B1B226 /* LoadingView.swift */,
@@ -819,6 +825,7 @@
 				DA748E0F2E22C5A100B1B226 /* Env.swift in Sources */,
 				DA748E0E2E22C59C00B1B226 /* AppState.swift in Sources */,
 				DA748E1F2E22C67400B1B226 /* Preferences.swift in Sources */,
+				DA623ADD2E2AC7BE007BD9F5 /* BlurView.swift in Sources */,
 				DA748DDB2E22C0C300B1B226 /* BackgroundAnimation.swift in Sources */,
 				DA748E1A2E22C60A00B1B226 /* String+Additional.swift in Sources */,
 				DA890F812E23D2500005D9DB /* SettingsCoordinator.swift in Sources */,
@@ -834,6 +841,7 @@
 				DA8910442E2639A80005D9DB /* LanguageCode.swift in Sources */,
 				DA748E132E22C5CC00B1B226 /* SplashCoordinator.swift in Sources */,
 				DA748F942E23A30100B1B226 /* LoginCoordinator.swift in Sources */,
+				DA983F5A2E2BA0DF0030EEA2 /* BlurBackgroundView.swift in Sources */,
 				DA748E102E22C5A600B1B226 /* AppVersion.swift in Sources */,
 				DA748DC42E22BC9800B1B226 /* ColorSet.swift in Sources */,
 				DA8910412E2639610005D9DB /* LanguageManager.swift in Sources */,
