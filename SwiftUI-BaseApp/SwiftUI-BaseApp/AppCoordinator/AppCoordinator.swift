@@ -51,7 +51,7 @@ struct AppCoordinator: View {
             .font(mainFont.bold(20))
             .foregroundStyle(theme.color.textColor)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .setDefaultBackground()
+            .setBlurBackgroundImage()
     }
     
     @ViewBuilder
@@ -99,7 +99,7 @@ struct AppCoordinator: View {
         }
         .ignoresSafeArea(.all)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .setDefaultBackground()
+        .setBlurBackgroundImage()
     }
 }
 

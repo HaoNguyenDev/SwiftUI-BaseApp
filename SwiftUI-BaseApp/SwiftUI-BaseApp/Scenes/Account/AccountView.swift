@@ -26,7 +26,7 @@ struct AccountView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.all)
-        .setDefaultBackground()
+        .setBlurBackgroundImage()
     }
 }
 

@@ -61,7 +61,7 @@ struct PlaceholderView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .setDefaultBackground()
+        .setBlurBackgroundImage()
     }
 }
 
