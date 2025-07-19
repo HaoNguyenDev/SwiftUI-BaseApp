@@ -54,7 +54,7 @@ extension Router {
 
 struct MainTabControllerView: View {
     var navRouter: any NavRouterProtocol
-    @EnvironmentObject var theme: ThemeManager
+    @EnvironmentObject var settings: UserSettings
     @State var selectedTab = TabType.home.rawValue
     
     init(navRouter: any NavRouterProtocol) {
@@ -126,7 +126,7 @@ struct MainTabControllerView: View {
         .padding(.horizontal, 24)
         .frame(width: 333, height: 72)
         .background(
-            theme.color.subviewBgColor
+            settings.color.subviewBgColor
                 .clipShape(RoundedRectangle(cornerRadius: 36))
                 .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 4)
         )
@@ -144,7 +144,7 @@ struct MainTabControllerView: View {
                         Text(tab.title)
                             .font(isSelected ? mainFont.bold(10) : mainFont.regular(10))
                             .foregroundStyle(
-                                isSelected ? theme.color.mainTabSelectedTextColor : theme.color.mainTabUnselectedTextColor)
+                                isSelected ? settings.color.mainTabSelectedTextColor : settings.color.mainTabUnselectedTextColor)
                     }
                 }
                 if tab == .home {
@@ -166,13 +166,13 @@ struct MainTabControllerView: View {
                 .symbolEffect(.bounce.up.wholeSymbol, options: .nonRepeating)
 //            .resizable()
 //            .frame(width: 24, height: 24)
-            .foregroundColor(theme.color.mainTabSelectedTextColor)
+            .foregroundColor(settings.color.mainTabSelectedTextColor)
         } else {
             tab.icon
                 .font(mainFont.regular(24))
 //            .resizable()
 //            .frame(width: 24, height: 24)
-            .foregroundColor(theme.color.mainTabUnselectedTextColor)
+            .foregroundColor(settings.color.mainTabUnselectedTextColor)
         }
     }
     
@@ -193,5 +193,5 @@ struct MainTabControllerView: View {
 
 #Preview {
     MainTabControllerView(navRouter: NavRouter())
-        .environmentObject(ThemeManager())
+        .environmentObject(UserSettings.shared)
 }

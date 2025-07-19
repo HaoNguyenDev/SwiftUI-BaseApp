@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var theme: ThemeManager
+    @EnvironmentObject var settings: UserSettings
     var onShowProfile: VoidResult?
     var gotoSubview1: (() -> Void)?
     var gotoSubview2: (() -> Void)?
@@ -40,7 +40,7 @@ extension HomeView {
         VStack(spacing: 20) {
             Text("home_view".localized())
                 .font(mainFont.bold(32))
-                .foregroundStyle(theme.color.textColor)
+                .foregroundStyle(settings.color.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -50,7 +50,7 @@ extension HomeView {
             } label: {
                 Text("\("go_to_sub_view".localized()) 1")
                     .font(mainFont.bold(20))
-                    .foregroundStyle(theme.color.textColor)
+                    .foregroundStyle(settings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -60,7 +60,7 @@ extension HomeView {
             } label: {
                 Text("\("go_to_sub_view".localized()) 2")
                     .font(mainFont.bold(20))
-                    .foregroundStyle(theme.color.textColor)
+                    .foregroundStyle(settings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -79,5 +79,5 @@ extension HomeView {
 
 #Preview {
     HomeView()
-        .environmentObject(ThemeManager())
+        .environmentObject(UserSettings.shared)
 }

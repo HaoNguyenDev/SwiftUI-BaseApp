@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SplashView: View {
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var theme: ThemeManager
+    @EnvironmentObject var settings: UserSettings
     var onSkipUpdate: VoidResult?
     @State var showLoading: Bool = false
     var body: some View {
@@ -44,11 +44,11 @@ extension SplashView {
                    
                     VStack(spacing: 12) {
                         Text("splas_screen_title".localized())
-                            .set(font: mainFont.bold(50), and: theme.color.textColor)
+                            .set(font: mainFont.bold(50), and: settings.color.textColor)
                         Text("please_update".localized())
-                            .set(font: mainFont.bold(32), and: theme.color.textColor)
+                            .set(font: mainFont.bold(32), and: settings.color.textColor)
                         Text("update_the_app_now".localized())
-                            .set(font: mainFont.regular(14), and: theme.color.textColor)
+                            .set(font: mainFont.regular(14), and: settings.color.textColor)
                     }
                     .multilineTextAlignment(.center)
                 }
@@ -59,7 +59,7 @@ extension SplashView {
                         updateAppProcess()
                     }, label: {
                         Text("update".localized())
-                            .foregroundStyle(theme.color.textColor)
+                            .foregroundStyle(settings.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
@@ -69,7 +69,7 @@ extension SplashView {
                         onSkipUpdate?()
                     }, label: {
                         Text("skip".localized())
-                            .foregroundStyle(theme.color.textColor)
+                            .foregroundStyle(settings.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
@@ -116,4 +116,6 @@ extension SplashView {
 
 #Preview {
     SplashView()
+        .environmentObject(AppState())
+        .environmentObject(UserSettings.shared)
 }
