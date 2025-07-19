@@ -13,7 +13,7 @@ struct InformAction {
 }
 
 struct UserInformView: View {
-    @EnvironmentObject private var theme: ThemeManager
+    @EnvironmentObject private var settings: UserSettings
     let message: UserMessageItem
     
     @State private var isShow: Bool = false
@@ -44,12 +44,12 @@ struct UserInformView: View {
                 VStack(spacing: 16) {
                     if let title = message.title {
                         Text(title)
-                            .set(font: mainFont.bold(24), and: theme.color.textOnSubviewColor)
+                            .set(font: mainFont.bold(24), and: settings.color.textOnSubviewColor)
                             .foregroundStyle(message.type.color)
                     }
                     if let message = message.message {
                         Text(message)
-                            .set(font: mainFont.regular(14), and: theme.color.textOnSubviewColor)
+                            .set(font: mainFont.regular(14), and: settings.color.textOnSubviewColor)
                             .fixedSize(horizontal: false, vertical: true)
                     } else if let attributeMessage = message.attributeMessage {
                         Text(attributeMessage)
@@ -64,7 +64,7 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(primaryAction.title)
-                                    .set(font: mainFont.regular(14), and: theme.color.textOnSubviewColor)
+                                    .set(font: mainFont.regular(14), and: settings.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                             }).buttonStyle(PrimaryButtonStyle())
@@ -77,7 +77,7 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(secondaryAction.title)
-                                    .set(font: mainFont.regular(14), and: theme.color.textOnSubviewColor)
+                                    .set(font: mainFont.regular(14), and: settings.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                             }).buttonStyle(SecondaryButtonBlackStyleBig())
@@ -90,7 +90,7 @@ struct UserInformView: View {
             .padding(.vertical, 40)
             .frame(maxWidth: .infinity)
             .background(
-                theme.color.subviewBgColor
+                settings.color.subviewBgColor
                     .clipShape(RoundedRectangle(cornerRadius: 40))
                     .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 4)
             )
@@ -113,5 +113,5 @@ struct UserInformView: View {
     
     UserInformView(message: UserMessageItem(message: "welcome_message".localized()),
                    primaryAction: InformAction(title: "test", callback: {}))
-    .environmentObject(ThemeManager())
+    .environmentObject(UserSettings.shared)
 }

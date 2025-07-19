@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct UserMessageView: View {
-    @EnvironmentObject private var theme: ThemeManager
+    @EnvironmentObject private var settings: UserSettings
     private let kShowDuration: Int = 3  // Second
     @State private var opacity: CGFloat = 0
     @State private var isAnimating = false
@@ -84,9 +84,9 @@ struct UserMessageView: View {
                 }
             }
             .multilineTextAlignment(.leading)
-            .foregroundStyle(theme.color.textOnSubviewColor)
+            .foregroundStyle(settings.color.textOnSubviewColor)
             .padding(16)
-            .background(theme.color.subviewBgColor, in: .rect(cornerRadius: 20))
+            .background(settings.color.subviewBgColor, in: .rect(cornerRadius: 20))
             .opacity(opacity)
             Spacer()
         }

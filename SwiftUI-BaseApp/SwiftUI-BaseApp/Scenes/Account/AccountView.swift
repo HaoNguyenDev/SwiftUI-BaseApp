@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct AccountView: View {
-    @EnvironmentObject private var theme: ThemeManager
-    @EnvironmentObject private var userSettings: UserSettings
+    @EnvironmentObject private var settings: UserSettings
     @State private var showLoading: Bool = false
     
     var gotoSettings: (() -> Void)?
@@ -36,7 +35,7 @@ extension AccountView {
         VStack(spacing: 20) {
             Text("account_view".localized())
                 .font(mainFont.bold(32))
-                .foregroundStyle(theme.color.textColor)
+                .foregroundStyle(settings.color.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -46,7 +45,7 @@ extension AccountView {
             } label: {
                 Text("settings".localized())
                     .font(mainFont.bold(20))
-                    .foregroundStyle(theme.color.textColor)
+                    .foregroundStyle(settings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -56,7 +55,7 @@ extension AccountView {
             } label: {
                 Text("profile".localized())
                     .font(mainFont.bold(20))
-                    .foregroundStyle(theme.color.textColor)
+                    .foregroundStyle(settings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
