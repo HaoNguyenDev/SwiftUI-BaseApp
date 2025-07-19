@@ -11,7 +11,7 @@ import SwiftUI
 struct AppCoordinator: View {
     @EnvironmentObject var appSettings: AppSettings
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var theme: ThemeManager
+    @EnvironmentObject var settings: UserSettings
     @Environment(\.colorScheme) var systemColorScheme
     
     @StateObject var rootRouter = NavRouter()
@@ -26,10 +26,10 @@ struct AppCoordinator: View {
             }
         }
         .onChange(of: systemColorScheme) { _, newValue in
-            theme.updateTheme(theme.colorSchemeOption, systemColorScheme: newValue)
+            settings.setColorScheme(settings.colorSchemeOption, systemColorScheme: newValue)
         }
         .onAppear {
-            theme.updateTheme(theme.colorSchemeOption, systemColorScheme: systemColorScheme)
+            settings.setColorScheme(settings.colorSchemeOption, systemColorScheme: systemColorScheme)
         }
         .task { startCheckingApp() }
     }
@@ -49,7 +49,7 @@ struct AppCoordinator: View {
     var blockingView: some View {
         Text("device_restricted".localized())
             .font(mainFont.bold(20))
-            .foregroundStyle(theme.color.textColor)
+            .foregroundStyle(settings.color.textColor)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .setBlurBackgroundImage()
     }
@@ -86,10 +86,10 @@ struct AppCoordinator: View {
                     VStack(spacing: 12) {
                         Text("system_maintenance".localized())
                             .font(mainFont.semibold(32))
-                            .foregroundStyle(theme.color.textColor)
+                            .foregroundStyle(settings.color.textColor)
                         Text("maintenance_message".localized())
                             .font(mainFont.regular())
-                            .foregroundStyle(theme.color.textColor)
+                            .foregroundStyle(settings.color.textColor)
                     }
                     .multilineTextAlignment(.center)
                 }
@@ -157,8 +157,8 @@ extension AppCoordinator {
 
 #Preview {
     AppCoordinator()
+        .environmentObject(UserSettings.shared)
         .environmentObject(AppSettings.shared)
         .environmentObject(AppState())
-        .environmentObject(ThemeManager())
 }
 

@@ -61,13 +61,13 @@ struct Language: Codable {
     var displayName: String
     var languageCode: String
     var flagName: String
-    var remoteFileName: String
+    var fileName: String
     
     init(displayName: String, languageCode: String, flagName: String, fileName: String) {
         self.displayName = displayName
         self.languageCode = languageCode
         self.flagName = flagName
-        self.remoteFileName = fileName
+        self.fileName = fileName
     }
     
     
