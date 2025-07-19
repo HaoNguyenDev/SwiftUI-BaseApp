@@ -7,60 +7,35 @@
 
 import Foundation
 import UIKit
-import SwiftUI
-
-extension UserSettings {
-    // MARK: - Keys
-    private enum Keys {
-        static let username = "username"
-        static let token = "token"
-        static let referralCode = "referralCode"
-        static let colorSchemeOption = "colorSchemeOption"
-        
-        static let launchCount = "launchCount"
-        static let currentUser = "currentUser"
-    }
-}
 
 final class UserSettings: ObservableObject {
     static let shared = UserSettings()
-    private let defaults = UserDefaults.standard
     
-    @Published private(set) var colorSchemeOption: ColorSchemeOption = .system {
+    @Published var colorSchemeOption: ColorSchemeOption {
         didSet {
-            defaults.set(colorSchemeOption.rawValue, forKey: Keys.colorSchemeOption)
-            updateTheme(colorSchemeOption) // Update colorSet
+            Preferences[.colorSchemeOption] = colorSchemeOption
         }
     }
-
-    
-    @Published private(set) var colorSet: ColorSet
     
     private init() {
-        // Load giá trị từ UserDefaults
-        if let rawValue = defaults.string(forKey: Keys.colorSchemeOption),
-           let savedOption = ColorSchemeOption(rawValue: rawValue) {
-            self.colorSchemeOption = savedOption
-        }
-
-        self.username = defaults.string(forKey: Keys.username)
-        self.token = defaults.string(forKey: Keys.token)
-        self.referralCode = defaults.string(forKey: Keys.referralCode)
-
-        colorSet = LightColorSet()
-        self.updateTheme(colorSchemeOption)
+        colorSchemeOption = Preferences[.colorSchemeOption]
     }
-
     
-    @Published var username: String? {
-        didSet {
-            defaults.set(username, forKey: Keys.username)
+    var username: String? {
+        get {
+            Preferences[.username]
+        }
+        set {
+            Preferences[.username] = newValue
         }
     }
     
-    @Published var token: String? {
-        didSet {
-            defaults.set(token, forKey: Keys.token)
+    var token: String? {
+        get {
+            Preferences[.userToken]
+        }
+        set {
+            Preferences[.userToken] = newValue
         }
     }
     
@@ -68,9 +43,12 @@ final class UserSettings: ObservableObject {
         return token != nil
     }
     
-    @Published var referralCode: String? {
-        didSet {
-            defaults.set(referralCode, forKey: Keys.referralCode)
+    var referralCode: String? {
+        get {
+            Preferences[.referralCode]
+        }
+        set {
+            Preferences[.referralCode] = newValue
         }
     }
     
@@ -78,36 +56,9 @@ final class UserSettings: ObservableObject {
         username = nil
         token = nil
         referralCode = nil
-
-        defaults.removeObject(forKey: Keys.username)
-        defaults.removeObject(forKey: Keys.token)
-        defaults.removeObject(forKey: Keys.referralCode)
-        
-        // NotificationCenter.default.post(name: AppNotification.LOGOUT, object: nil)
-    }
-
-    
-}
-
-extension UserSettings {
-    
-    var color: ColorSet {
-        return colorSet
+//        NotificationCenter.default.post(
+//            name: AppNotification.LOGOUT, object: nil
+//        )
     }
     
-    func setColorScheme(_ option: ColorSchemeOption, systemColorScheme: ColorScheme = .light) {
-        self.colorSchemeOption = option
-        self.updateTheme(option, systemColorScheme: systemColorScheme)
-    }
-
-    private func updateTheme(_ option: ColorSchemeOption, systemColorScheme: ColorScheme = .light) {
-        switch option {
-        case .system:
-            colorSet = systemColorScheme == .dark ? DarkColorSet() : LightColorSet()
-        case .light:
-            colorSet = LightColorSet()
-        case .dark:
-            colorSet = DarkColorSet()
-        }
-    }
 }

@@ -40,7 +40,6 @@ final class LanguageManager {
     }()
     
     private init() {
-        print("Init language: \(Preferences[.userLanguage])")
         language = Preferences[.userLanguage]
 //        language = LanguageCode.vietnam.getLanguage()
         localVersion = localModel?.version ?? 0
@@ -56,7 +55,7 @@ final class LanguageManager {
     
     private func getLocalModel() {
         localModel = {
-            guard let defaultLangURL = Bundle.main.url(forAuxiliaryExecutable: language.fileName) else {
+            guard let defaultLangURL = Bundle.main.url(forAuxiliaryExecutable: language.remoteFileName) else {
                 return nil
             }
             return getLangModelByLocalURL(defaultLangURL)

@@ -12,7 +12,7 @@ class ProfileViewModel: ObservableObject {
 }
 
 struct ProfileView: View {
-    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var theme: ThemeManager
     @StateObject var model: ProfileViewModel = ProfileViewModel()
     
     let showSettingsView: VoidResult?
@@ -29,7 +29,7 @@ struct ProfileView: View {
                 .padding(.top, 32)
                 
                 Text(model.username)
-                    .foregroundStyle(settings.color.textColor)
+                    .foregroundStyle(theme.color.textColor)
                     .font(mainFont.bold(32))
                     .lineLimit(1)
                 settingsView
@@ -58,8 +58,8 @@ struct ProfileView: View {
         }
         .padding(.horizontal, 24)
         .frame(height: 107)
-        .background(settings.color.subviewBgColor)
-        .foregroundStyle(settings.color.textOnSubviewColor)
+        .background(theme.color.subviewBgColor)
+        .foregroundStyle(theme.color.textOnSubviewColor)
         .cornerRadius(32)
         .padding(.horizontal, 32)
         .onTapGesture {
@@ -72,10 +72,10 @@ struct ProfileView: View {
         HStack {
             VStack(alignment: .leading) {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
-                    .tint(settings.color.textOnSubviewColor)
+                    .tint(theme.color.textOnSubviewColor)
                 Text("Log out")
                     .font(mainFont.bold(14))
-                    .foregroundColor(settings.color.textOnSubviewColor)
+                    .foregroundColor(theme.color.textOnSubviewColor)
                 
                 Text("You’ll be logged out of the app but can log back in anytime.")
                     .font(mainFont.regular(10))
@@ -87,8 +87,8 @@ struct ProfileView: View {
         }
         .padding(.horizontal, 24)
         .frame(height: 107)
-        .background(settings.color.subviewBgColor)
-        .foregroundStyle(settings.color.textOnSubviewColor)
+        .background(theme.color.subviewBgColor)
+        .foregroundStyle(theme.color.textOnSubviewColor)
         .cornerRadius(32)
         .padding(.horizontal, 32)
         .onTapGesture {
@@ -99,5 +99,5 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView(model: ProfileViewModel(), showSettingsView: nil, showLogoutConfirmView: nil)
-        .environmentObject(UserSettings.shared)
+        .environmentObject(ThemeManager())
 }

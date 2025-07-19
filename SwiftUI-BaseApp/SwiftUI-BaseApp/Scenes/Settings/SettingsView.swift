@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var userSettings: UserSettings
-    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var theme: ThemeManager
     @State private var showChangeThemeModeView: Bool = false
     @State private var showChangeLanguageView: Bool = false
     @State private var currentColorScheme: ColorScheme?
@@ -19,7 +19,7 @@ struct SettingsView: View {
     var body: some View {
         ScrollView(showsIndicators: false, content: {
             VStack(spacing: 24) {
-                Text("settings".localized()).set(font: mainFont.bold(32), and: settings.color.textColor)
+                Text("settings".localized()).set(font: mainFont.bold(32), and: theme.color.textColor)
                 // Settings content
                 VStack(spacing: 16) {
                     changeThemeModeRow
@@ -66,14 +66,14 @@ struct SettingsView: View {
         }) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("change_theme_mode".localized()).set(font: mainFont.bold(14), and: settings.color.textOnSubviewColor)
+                    Text("change_theme_mode".localized()).set(font: mainFont.bold(14), and: theme.color.textOnSubviewColor)
                 }
                 Spacer()
-                Image(systemName: "chevron.right").tint(settings.color.textOnSubviewColor)
+                Image(systemName: "chevron.right").tint(theme.color.textOnSubviewColor)
             }
             .padding(.horizontal, 24)
             .frame(height: 75)
-            .background(settings.color.subviewBgColor)
+            .background(theme.color.subviewBgColor)
             .clipShape(RoundedRectangle(cornerRadius: 32))
         }
         .padding(.horizontal, 24)
@@ -86,15 +86,15 @@ struct SettingsView: View {
         }) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("change_language_title".localized()).set(font: mainFont.bold(14), and: settings.color.textOnSubviewColor)
+                    Text("change_language_title".localized()).set(font: mainFont.bold(14), and: theme.color.textOnSubviewColor)
                 }
                 Spacer()
                 Image(systemName: "chevron.right")
-                    .tint(settings.color.textOnSubviewColor)
+                    .tint(theme.color.textOnSubviewColor)
             }
             .padding(.horizontal, 24)
             .frame(height: 75)
-            .background(settings.color.subviewBgColor)
+            .background(theme.color.subviewBgColor)
             .clipShape(RoundedRectangle(cornerRadius: 32))
         }
         .padding(.horizontal, 24)
@@ -108,5 +108,6 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView(gotoChangeLanguageView: nil)
+        .environmentObject(ThemeManager())
         .environmentObject(UserSettings.shared)
 }

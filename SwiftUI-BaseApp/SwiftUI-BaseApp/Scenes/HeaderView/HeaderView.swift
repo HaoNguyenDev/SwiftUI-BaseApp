@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var theme: ThemeManager
     let onShowProfile: VoidResult?
     var name: String? {
         UserSettings.shared.username
@@ -26,7 +26,7 @@ struct HeaderView: View {
                     .frame(width: 32, height: 32)
                 
                 Text("👋 Hi, \(name ?? "buddy".localized())")
-                    .foregroundStyle(settings.color.textColor)
+                    .foregroundStyle(theme.color.textColor)
                     .font(mainFont.bold(14))
                     .lineLimit(1)
             }
@@ -43,24 +43,24 @@ struct HeaderView: View {
                         Image(systemName: hasNewNotification ? "bell.badge" : "bell")
                             .symbolRenderingMode(.monochrome)
                             .symbolEffect(.wiggle, options: .repeat(.bitWidth))
-                            .foregroundStyle(settings.color.textColor)
+                            .foregroundStyle(theme.color.textColor)
                             .font(mainFont.semibold(18))
                     })
                     
                 HStack(alignment: .center, spacing: 5) {
                         Text("100.000.000")
                             .font(mainFont.bold(14))
-                            .foregroundStyle(settings.color.textOnSubviewColor)
+                            .foregroundStyle(theme.color.textOnSubviewColor)
                             .fixedSize(horizontal: true, vertical: false)
                         Image(systemName: "bitcoinsign.circle")
 //                            .resizable()
                             .font(mainFont.semibold(18))
-                            .foregroundStyle(settings.color.textOnSubviewColor)
+                            .foregroundStyle(theme.color.textOnSubviewColor)
                     }
                 
                 .padding(.horizontal, 8)
                 .frame(height: 32)
-                .background(settings.color.subviewBgColor, in: .rect(cornerRadius: 16))
+                .background(theme.color.subviewBgColor, in: .rect(cornerRadius: 16))
                 .onTapGesture {
 //                    NotificationCenter.default.post(name: .showTransactionHistoryScreen, object: nil)
                 }
@@ -73,5 +73,5 @@ struct HeaderView: View {
 #Preview {
     HeaderView(onShowProfile: nil)
         .setBlurBackgroundImage()
-        .environmentObject(UserSettings.shared)
+        .environmentObject(ThemeManager())
 }

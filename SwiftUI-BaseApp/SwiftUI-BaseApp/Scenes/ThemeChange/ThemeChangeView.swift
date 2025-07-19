@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ThemeChangeView: View {
-    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var themeManager: ThemeManager
     @Environment(\.colorScheme) var systemColorScheme
     @Namespace private var animation
     private var isDarkMode: Bool = false
@@ -17,33 +17,33 @@ struct ThemeChangeView: View {
         VStack(spacing: 15) {
             Text("choose_theme".localized())
                 .font(mainFont.bold(25))
-                .foregroundStyle(settings.color.textOnSubviewColor)
+                .foregroundStyle(themeManager.color.textOnSubviewColor)
             
             Image(systemName: "moon.fill")
                 .resizable()
                 .frame(width: 80, height: 80)
-                .foregroundColor(settings.color.textOnSubviewColor)
+                .foregroundColor(themeManager.color.textOnSubviewColor)
             
-            Text("\("current_theme".localized()) \(settings.colorSchemeOption.title)")
+            Text("\("current_theme".localized()) \(themeManager.colorSchemeOption.title)")
                 .font(mainFont.regular(17))
-                .foregroundStyle(settings.color.textOnSubviewColor)
+                .foregroundStyle(themeManager.color.textOnSubviewColor)
             
             HStack(spacing: 0) {
                 ForEach(ColorSchemeOption.allCases, id: \.self) { theme in
                     Text(theme.rawValue)
                         .font(mainFont.semibold(17))
-                        .foregroundStyle(settings.colorSchemeOption == theme ? settings.color.textColor : settings.color.textOnSubviewColor)
+                        .foregroundStyle(themeManager.colorSchemeOption == theme ? themeManager.color.textColor : themeManager.color.textOnSubviewColor)
                         .padding(.vertical, 10)
                         .frame(width: 100)
                         .background {
                             ZStack {
-                                if settings.colorSchemeOption == theme {
+                                if themeManager.colorSchemeOption == theme {
                                     Capsule()
-                                        .fill(settings.color.bgColor)
+                                        .fill(themeManager.color.bgColor)
                                         .matchedGeometryEffect(id: "ACTIVETAB", in: animation)
                                 }
                             }
-                            .animation(.snappy, value: settings.colorSchemeOption)
+                            .animation(.snappy, value: themeManager.colorSchemeOption)
                         }
                         .contentShape(.rect)
                         .onTapGesture {
@@ -52,7 +52,7 @@ struct ThemeChangeView: View {
                 }
             }
             .padding(5)
-            .background(settings.color.mainTabUnselectedTextColor.opacity(0.3), in: .capsule)
+            .background(themeManager.color.mainTabUnselectedTextColor.opacity(0.3), in: .capsule)
             .padding(.top, 20)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -66,12 +66,13 @@ struct ThemeChangeView: View {
     }
   
     private func updateTheme(scheme: ColorSchemeOption) {
-        settings.setColorScheme(scheme, systemColorScheme: systemColorScheme)
+        themeManager.colorSchemeOption = scheme
+        themeManager.updateTheme(scheme, systemColorScheme: systemColorScheme)
     }
 }
 
 #Preview {
     ThemeChangeView()
-        .environmentObject(UserSettings.shared)
+        .environmentObject(ThemeManager())
         .colorScheme(.light)
 }

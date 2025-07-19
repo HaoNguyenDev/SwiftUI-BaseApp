@@ -10,7 +10,7 @@ import SwiftUI
 
 #Preview {
     TestLoadingView()
-        .environmentObject(UserSettings.shared)
+        .environmentObject(ThemeManager())
 }
 
 struct TestLoadingView: View {
@@ -24,7 +24,7 @@ struct TestLoadingView: View {
 }
 
 struct LoadingView: View {
-    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var theme: ThemeManager
     @State private var isAnimating = false
     private let dotCount = 6
     private let radius: CGFloat = 30
@@ -35,7 +35,7 @@ struct LoadingView: View {
         ZStack {
             ForEach(0..<dotCount, id: \.self) { index in
                 Circle()
-                    .fill(loadingOnSubview ? settings.color.textOnSubviewColor : settings.color.textColor)
+                    .fill(loadingOnSubview ? theme.color.textOnSubviewColor : theme.color.textColor)
                     .frame(width: 10, height: 10)
                     .offset(x: radius)
                     .rotationEffect(.degrees(Double(index) / Double(dotCount) * 360))
@@ -53,7 +53,7 @@ struct LoadingView: View {
                 VStack {
                     Text("please_wait".localized())
                         .font(mainFont.bold(17))
-                        .foregroundColor(settings.color.textColor)
+                        .foregroundColor(theme.color.textColor)
                         .frame(maxWidth: .infinity)
                 }
                 .padding(.top, 120)

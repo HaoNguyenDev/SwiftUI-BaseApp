@@ -11,8 +11,8 @@ import SwiftUI
 struct SwiftUI_BaseApp: App {
     
     @StateObject private var userSettings = UserSettings.shared
-    @StateObject private var appSettings = AppSettings.shared
     @StateObject private var appState = AppState()
+    @StateObject private var themeManager = ThemeManager()
     
     init() {
         setDefaultLanguage()
@@ -21,9 +21,10 @@ struct SwiftUI_BaseApp: App {
     var body: some Scene {
         WindowGroup {
             AppCoordinator()
-                .environmentObject(appState)
-                .environmentObject(appSettings)
+                .environmentObject(AppSettings.shared)
                 .environmentObject(userSettings)
+                .environmentObject(appState)
+                .environmentObject(themeManager)
         }
     }
 }

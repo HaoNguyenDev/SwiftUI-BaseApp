@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var theme: ThemeManager
     @ObservedObject var loginModel: LoginModel
     @State private var showLoading: Bool = false
 
@@ -50,7 +50,7 @@ extension LoginView {
         VStack {
             Text("login_view".localized())
                 .font(mainFont.bold(32))
-                .foregroundStyle(settings.color.textColor)
+                .foregroundStyle(theme.color.textColor)
             
             Spacer()
                 .frame(height: 100)
@@ -63,7 +63,7 @@ extension LoginView {
                 Text("login".localized())
                     .font(mainFont.bold(20))
                     .frame(width: 200, height: 50)
-                    .foregroundStyle(settings.color.textColor)
+                    .foregroundStyle(theme.color.textColor)
             }
             .buttonStyle(SecondaryButtonStyle())
             
@@ -73,7 +73,7 @@ extension LoginView {
                 Text("register".localized())
                     .font(mainFont.bold(20))
                     .frame(width: 200, height: 50)
-                    .foregroundStyle(settings.color.textColor)
+                    .foregroundStyle(theme.color.textColor)
             }
             .buttonStyle(SecondaryButtonStyle())
             
@@ -83,7 +83,7 @@ extension LoginView {
                 Text("forgot_password".localized())
                     .font(mainFont.bold(20))
                     .frame(width: 200, height: 50)
-                    .foregroundStyle(settings.color.textColor)
+                    .foregroundStyle(theme.color.textColor)
             }
             .buttonStyle(SecondaryButtonStyle())
         }
@@ -139,5 +139,5 @@ extension LoginView {
               forgotPassword: nil,
               register: nil)
     .environmentObject(AppState())
-    .environmentObject(UserSettings.shared)
+    .environmentObject(ThemeManager())
 }

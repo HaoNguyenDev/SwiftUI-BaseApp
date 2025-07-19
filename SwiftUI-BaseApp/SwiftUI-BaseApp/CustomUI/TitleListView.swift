@@ -12,7 +12,7 @@ protocol TitleItem {
 }
 
 struct TitleListView: View {
-    @EnvironmentObject private var settings: UserSettings
+    @EnvironmentObject private var theme: ThemeManager
     private let kDragDismissThreshold: CGFloat = 100
     private let kMaxOffset: CGFloat = 400
     
@@ -29,15 +29,15 @@ struct TitleListView: View {
         VStack(spacing: 16) {
             VStack {
                 Text("swipe_down_to_exit".localized())
-                    .set(font: mainFont.regular(14), and: settings.color.textColor)
+                    .set(font: mainFont.regular(14), and: theme.color.textColor)
                 VStack(spacing: 16) {
                     Text(title)
-                        .set(font: mainFont.bold(24), and: settings.color.textOnSubviewColor)
+                        .set(font: mainFont.bold(24), and: theme.color.textOnSubviewColor)
 
                     VStack(spacing: 16) {
                         ForEach(items.indices, id: \.self) { idx in
                             Text(items[idx].title)
-                                .set(font: mainFont.regular(16), and: settings.color.textOnSubviewColor)
+                                .set(font: mainFont.regular(16), and: theme.color.textOnSubviewColor)
                                 .frame(maxWidth: .infinity)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
@@ -45,7 +45,7 @@ struct TitleListView: View {
                                 }
                             if idx < items.count - 1 {
                                 Divider()
-                                    .background(settings.color.textOnSubviewColor)
+                                    .background(theme.color.textOnSubviewColor)
                             }
                         }
                     }
@@ -54,7 +54,7 @@ struct TitleListView: View {
                 }
                 .padding(EdgeInsets(top: 40, leading: 32, bottom: 40, trailing: 32))
                 .frame(maxWidth: .infinity)
-                .background(settings.color.subviewBgColor, in: .rect(cornerRadius: 40))
+                .background(theme.color.subviewBgColor, in: .rect(cornerRadius: 40))
             }
             .offset(y: offset)
             .opacity(opacity)
@@ -99,6 +99,6 @@ struct TitleListView: View {
 
 #Preview {
     TitleListView(title: "List View", items: LanguageCode.allCases)
-        .environmentObject(UserSettings.shared)
+        .environmentObject(ThemeManager())
     
 }
