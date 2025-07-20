@@ -41,6 +41,9 @@
         "all_right": "Được rồi",
         "sample_view": "Đây là một giao diện mẫu!",
         "in_development": "Đang phát triển",
-        "feature_update_soon": "Tính năng này sẽ được cập nhật sớm."
+        "feature_update_soon": "Tính năng này sẽ được cập nhật sớm.",
+        "home": "Trang chủ",
+        "empty": "Trống",
+        "account": "Tài khoản"
     }
 }
