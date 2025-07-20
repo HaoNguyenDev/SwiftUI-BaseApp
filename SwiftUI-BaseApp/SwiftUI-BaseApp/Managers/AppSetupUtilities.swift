@@ -9,7 +9,8 @@ import SwiftUI
 
 class AppSetupUtilities {
     static func setLanguage(_ language: Language) {
-        LanguageManager.shared.setLanguage(language: language)
+        UserSettings.shared.userLanguageCode = language.languageCode
+//        LanguageManager.shared.setLanguage(language: language)
     }
     
     static func setupKzAPI(url: String, token: String, language: String) throws {

@@ -41,6 +41,9 @@
         "all_right": "好的",
         "sample_view": "这是一个示例界面！",
         "in_development": "开发中",
-        "feature_update_soon": "此功能将很快更新。"
+        "feature_update_soon": "此功能将很快更新。",
+        "home": "主页",
+        "empty": "空的",
+        "account": "账户"
     }
 }

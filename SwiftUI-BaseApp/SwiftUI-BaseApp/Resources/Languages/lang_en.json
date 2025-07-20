@@ -41,6 +41,9 @@
         "all_right": "Allright",
         "sample_view": "This is a sample view!",
         "in_development": "In development",
-        "feature_update_soon": "This feature will be updated soon."
+        "feature_update_soon": "This feature will be updated soon.",
+        "home": "Home",
+        "empty": "Empty",
+        "account": "Account"
     }
 }

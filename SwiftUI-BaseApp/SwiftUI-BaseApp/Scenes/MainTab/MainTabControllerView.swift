@@ -17,10 +17,10 @@ enum TabType: Int, CaseIterable {
 
     var title: String {
         switch self {
-        case .home: return "Home"
-        case .empty1: return "Empty 1"
-        case .empty2: return "Empty 2"
-        case .account: return "Account"
+        case .home: return "home".localized()
+        case .empty1: return "empty".localized()
+        case .empty2: return "empty".localized()
+        case .account: return "account".localized()
         }
     }
     

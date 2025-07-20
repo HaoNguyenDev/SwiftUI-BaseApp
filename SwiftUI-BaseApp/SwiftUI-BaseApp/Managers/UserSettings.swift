@@ -14,9 +14,11 @@ extension UserSettings {
     private enum Keys {
         static let username = "username"
         static let token = "token"
+        static let signature = "signature"
+        static let userId = "userId"
         static let referralCode = "referralCode"
+        static let userLanguageCode = "userLanguageCode"
         static let colorSchemeOption = "colorSchemeOption"
-        
         static let launchCount = "launchCount"
         static let currentUser = "currentUser"
     }
@@ -32,25 +34,8 @@ final class UserSettings: ObservableObject {
             updateTheme(colorSchemeOption) // Update colorSet
         }
     }
-
     
     @Published private(set) var colorSet: ColorSet
-    
-    private init() {
-        // Load giá trị từ UserDefaults
-        if let rawValue = defaults.string(forKey: Keys.colorSchemeOption),
-           let savedOption = ColorSchemeOption(rawValue: rawValue) {
-            self.colorSchemeOption = savedOption
-        }
-
-        self.username = defaults.string(forKey: Keys.username)
-        self.token = defaults.string(forKey: Keys.token)
-        self.referralCode = defaults.string(forKey: Keys.referralCode)
-
-        colorSet = LightColorSet()
-        self.updateTheme(colorSchemeOption)
-    }
-
     
     @Published var username: String? {
         didSet {
@@ -64,14 +49,51 @@ final class UserSettings: ObservableObject {
         }
     }
     
-    var hasLogin: Bool {
-        return token != nil
+    @Published var signature: String? {
+        didSet {
+            defaults.set(signature, forKey: Keys.signature)
+        }
+    }
+    
+    @Published var userId: String? {
+        didSet {
+            defaults.set(userId, forKey: Keys.userId)
+        }
     }
     
     @Published var referralCode: String? {
         didSet {
             defaults.set(referralCode, forKey: Keys.referralCode)
         }
+    }
+    
+    @Published var userLanguageCode: String {
+        didSet {
+            DispatchQueue.main.async {
+                self.defaults.set(self.userLanguageCode, forKey: Keys.userLanguageCode)
+            }
+        }
+    }
+    
+    private init() {
+        // Load giá trị từ UserDefaults
+        if let rawValue = defaults.string(forKey: Keys.colorSchemeOption),
+           let savedOption = ColorSchemeOption(rawValue: rawValue) {
+            self.colorSchemeOption = savedOption
+        }
+        
+        self.username = defaults.string(forKey: Keys.username)
+        self.token = defaults.string(forKey: Keys.token)
+        self.referralCode = defaults.string(forKey: Keys.referralCode)
+        self.signature = defaults.string(forKey: Keys.signature)
+        self.userLanguageCode = defaults.string(forKey: Keys.userLanguageCode) ?? "en"
+        
+        colorSet = LightColorSet()
+        updateTheme(colorSchemeOption)
+    }
+    
+    var hasLogin: Bool {
+        return token != nil
     }
     
     func logout() {
@@ -90,7 +112,6 @@ final class UserSettings: ObservableObject {
 }
 
 extension UserSettings {
-    
     var color: ColorSet {
         return colorSet
     }
@@ -111,3 +132,15 @@ extension UserSettings {
         }
     }
 }
+
+extension UserSettings {
+    func getLanguage(_ languageCode: String) -> LanguageCode {
+        switch languageCode {
+        case "eng": return LanguageCode.english
+        case "chs": return LanguageCode.china
+        case "vi": return LanguageCode.vietnam
+        default: return LanguageCode.english
+        }
+    }
+}
+

@@ -42,17 +42,17 @@ enum LanguageCode: Int, CaseIterable, TitleItem {
             return  Language(displayName: "English",
                                languageCode: "eng",
                                flagName: "language_flag_2",
-                               fileName: "lang_en.json")
+                               fileName: "lang_en")
         case .china:
             return Language(displayName: "中文",
                               languageCode: "chs",
                               flagName: "language_flag_1",
-                              fileName: "lang_cn.json")
+                              fileName: "lang_cn")
         case .vietnam:
             return Language(displayName: "Viet Nam",
                               languageCode: "vi",
                               flagName: "language_flag_3",
-                              fileName: "lang_vi.json")
+                              fileName: "lang_vi")
         }
     }
 }

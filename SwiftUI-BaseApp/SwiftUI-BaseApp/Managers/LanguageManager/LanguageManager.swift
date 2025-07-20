@@ -11,74 +11,50 @@ import Foundation
 final class LanguageManager {
     static let shared = LanguageManager()
     
-    var localVersion: Int = 0
-    var currentVersion: Int {
-        get {
-            return Preferences[.languageVersion]
-        }
-        set {
-            Preferences[.languageVersion] = newValue
-        }
-    }
-    
-    let allSupportLanguages = [LanguageCode.english.getLanguage(),
-                               LanguageCode.china.getLanguage(),
-                               LanguageCode.vietnam.getLanguage()]
-    
-    private let fileManager = FileManager.default
-    private let LocalizeBundleName = "Localizable.bundle"
-    private let LanguageFolder       = "languages.lproj"
-    private var localModel: LanguageJsonModel?
-    private(set) var language: Language! {
+    private(set) var language: Language {
         didSet {
-            getLocalModel()
+            loadLocalModel()
         }
     }
     
-    private lazy var bundle: Bundle? = {
-        fileManager.getFolderPath(bundleName: LocalizeBundleName, folderPath: LanguageFolder)
-    }()
+    private var localModel: LanguageJsonModel?
+    var localVersion: Int { localModel?.version ?? 0 }
+
+    let allSupportLanguages = [
+        LanguageCode.english.getLanguage(),
+        LanguageCode.china.getLanguage(),
+        LanguageCode.vietnam.getLanguage()
+    ]
     
     private init() {
-        print("Init language: \(Preferences[.userLanguage])")
-        language = Preferences[.userLanguage]
-//        language = LanguageCode.vietnam.getLanguage()
-        localVersion = localModel?.version ?? 0
+        let languageCode = UserSettings.shared.userLanguageCode
+        language = UserSettings.shared.getLanguage(languageCode).getLanguage()
+        loadLocalModel()
     }
-    
-    public func setLanguage(language: Language) {
-        // Make sure Language save is always right format
-        let language = allSupportLanguages.first(where: { $0.displayName == language.displayName }) ?? language
-        self.language = language
-        Preferences[.userLanguage] = language
-        //TODO: Set language code for NetworkManager here
-    }
-    
-    private func getLocalModel() {
-        localModel = {
-            guard let defaultLangURL = Bundle.main.url(forAuxiliaryExecutable: language.fileName) else {
-                return nil
-            }
-            return getLangModelByLocalURL(defaultLangURL)
-        }()
-    }
-    
-    public func valueForKey(_ key: String) -> String {
-        var value: String? = bundle?.localizedString(forKey: key, value: nil, table: language.languageCode)
-        // In case localizedString not found, search for value by local file's dictionary
-        if value == key {
-            value = localModel?.data[key]
-        }
-        return value ?? key
-    }
-}
 
-private extension LanguageManager {
-    private func getLangModelByLocalURL(_ url: URL) -> LanguageJsonModel? {
-        guard let jsonString = try? String(contentsOf: url, encoding: .utf8),
-              let data = jsonString.data(using: .utf8) else {
-            return nil
+    public func setLanguage(language: Language) {
+        let selectedLanguage = allSupportLanguages.first(where: { $0.languageCode == language.languageCode }) ?? language
+        self.language = selectedLanguage
+        UserSettings.shared.userLanguageCode = selectedLanguage.languageCode
+    }
+
+    public func valueForKey(_ key: String) -> String {
+        return localModel?.data[key] ?? key
+    }
+
+    // MARK: - Private
+    private func loadLocalModel() {
+        guard let url = Bundle.main.url(forResource: language.fileName, withExtension: "json") else {
+            print("❌ File not found for language: \(language.fileName)")
+            localModel = nil
+            return
         }
-        return try? JSONDecoder().decode(LanguageJsonModel.self, from: data)
+        do {
+            let data = try Data(contentsOf: url)
+            localModel = try JSONDecoder().decode(LanguageJsonModel.self, from: data)
+        } catch {
+            print("❌ Failed to load or parse JSON for language \(language.languageCode): \(error)")
+            localModel = nil
+        }
     }
 }
