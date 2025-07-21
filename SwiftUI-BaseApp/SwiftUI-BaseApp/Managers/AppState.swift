@@ -79,6 +79,7 @@ class AppState: ErrorHandler, ObservableObject {
             showAlert(alertData: data)
         default:
             print(data.message.orEmpty)
+            Logger.shared.error(data.message.orEmpty)
         }
     }
     

@@ -14,6 +14,10 @@ struct SwiftUI_BaseApp: App {
     @StateObject private var appSettings = AppSettings.shared
     @StateObject private var appState = AppState()
     
+    init() {
+        setupDefaultSettings()
+    }
+    
     var body: some Scene {
         WindowGroup {
             AppCoordinator()
@@ -21,5 +25,12 @@ struct SwiftUI_BaseApp: App {
                 .environmentObject(appSettings)
                 .environmentObject(userSettings)
         }
+    }
+}
+
+extension SwiftUI_BaseApp {
+    private func setupDefaultSettings() {
+        Logger.shared.isEnabled = true
+        Logger.shared.debug("\(UserSettings.shared.userLanguageCode)")
     }
 }

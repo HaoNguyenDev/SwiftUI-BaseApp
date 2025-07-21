@@ -45,7 +45,7 @@ final class LanguageManager {
     // MARK: - Private
     private func loadLocalModel() {
         guard let url = Bundle.main.url(forResource: language.fileName, withExtension: "json") else {
-            print("❌ File not found for language: \(language.fileName)")
+            Logger.shared.error("❌ File not found for language: \(language.fileName)")
             localModel = nil
             return
         }
@@ -53,7 +53,7 @@ final class LanguageManager {
             let data = try Data(contentsOf: url)
             localModel = try JSONDecoder().decode(LanguageJsonModel.self, from: data)
         } catch {
-            print("❌ Failed to load or parse JSON for language \(language.languageCode): \(error)")
+            Logger.shared.error("❌ Failed to load or parse JSON for language \(language.languageCode): \(error)")
             localModel = nil
         }
     }
