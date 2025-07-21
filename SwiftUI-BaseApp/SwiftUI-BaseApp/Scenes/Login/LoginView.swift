@@ -104,7 +104,7 @@ extension LoginView {
                 let loginResult = try await loginModel.doLogin()
                 
                 if !loginResult.username.isEmpty {
-                    print(loginResult)
+                    Logger.shared.debug("\(loginResult)")
                     loginSuccess?(loginResult)
                     showLoading = false
                     appState.showToast( item: UserMessageItem(
@@ -115,7 +115,7 @@ extension LoginView {
                 }
                 
             } catch(let error as LoginError) {
-                print(error.errorMessage)
+                Logger.shared.error(error.errorMessage)
                 showLoading = false
                 appState.handleError(error: error.errorMessage, action: .toast)
                 /* appState.handleError(error: error,

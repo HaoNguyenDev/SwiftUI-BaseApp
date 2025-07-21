@@ -55,7 +55,7 @@ extension SplashView {
                 Spacer()
                 VStack(spacing: 16) {
                     Button(action: {
-                        print(">>> Update App Now <<<")
+                        Logger.shared.debug("Update App")
                         updateAppProcess()
                     }, label: {
                         Text("update".localized())

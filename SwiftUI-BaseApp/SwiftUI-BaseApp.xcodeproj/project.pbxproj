@@ -114,7 +114,6 @@
 		DA748E182E22C5E500B1B226 /* SampleViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DCE2E22BE9300B1B226 /* SampleViewCoordinator.swift */; };
 		DA748E1A2E22C60A00B1B226 /* String+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748E192E22C60800B1B226 /* String+Additional.swift */; };
 		DA748E1C2E22C65400B1B226 /* AppErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748E1B2E22C65400B1B226 /* AppErrorCode.swift */; };
-		DA748E1F2E22C67400B1B226 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748E1E2E22C67400B1B226 /* Preferences.swift */; };
 		DA748E242E22C75500B1B226 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748E232E22C75100B1B226 /* ErrorHandler.swift */; };
 		DA748F902E23A2EC00B1B226 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F8F2E23A2EC00B1B226 /* LoginView.swift */; };
 		DA748F922E23A2F600B1B226 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F912E23A2F600B1B226 /* LoginModel.swift */; };
@@ -138,6 +137,7 @@
 		DA89104D2E263C470005D9DB /* AppSetupUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89104C2E263C470005D9DB /* AppSetupUtilities.swift */; };
 		DA89104F2E263FFF0005D9DB /* lang_vi.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89104E2E263FFF0005D9DB /* lang_vi.json */; };
 		DA983F5A2E2BA0DF0030EEA2 /* BlurBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */; };
+		DA983F602E2E52D60030EEA2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F5F2E2E52D60030EEA2 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -246,7 +246,6 @@
 		DA748E0B2E22C57A00B1B226 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		DA748E192E22C60800B1B226 /* String+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additional.swift"; sourceTree = "<group>"; };
 		DA748E1B2E22C65400B1B226 /* AppErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorCode.swift; sourceTree = "<group>"; };
-		DA748E1E2E22C67400B1B226 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		DA748E232E22C75100B1B226 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		DA748F8F2E23A2EC00B1B226 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DA748F912E23A2F600B1B226 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -270,6 +269,7 @@
 		DA89104C2E263C470005D9DB /* AppSetupUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetupUtilities.swift; sourceTree = "<group>"; };
 		DA89104E2E263FFF0005D9DB /* lang_vi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lang_vi.json; sourceTree = "<group>"; };
 		DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackgroundView.swift; sourceTree = "<group>"; };
+		DA983F5F2E2E52D60030EEA2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -559,7 +559,7 @@
 		DA748E1D2E22C66D00B1B226 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				DA748E1E2E22C67400B1B226 /* Preferences.swift */,
+				DA983F5F2E2E52D60030EEA2 /* Logger.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -804,6 +804,7 @@
 				DA8910462E263A9C0005D9DB /* FileManager+Additional.swift in Sources */,
 				DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */,
 				DA748F902E23A2EC00B1B226 /* LoginView.swift in Sources */,
+				DA983F602E2E52D60030EEA2 /* Logger.swift in Sources */,
 				DA748E092E22C4E800B1B226 /* Notification+Additional.swift in Sources */,
 				DA748DE82E22C12B00B1B226 /* LoadingView.swift in Sources */,
 				DA748E002E22C2DA00B1B226 /* View+Additional.swift in Sources */,
@@ -821,7 +822,6 @@
 				DA748DEC2E22C15100B1B226 /* BackButton.swift in Sources */,
 				DA748E0F2E22C5A100B1B226 /* Env.swift in Sources */,
 				DA748E0E2E22C59C00B1B226 /* AppState.swift in Sources */,
-				DA748E1F2E22C67400B1B226 /* Preferences.swift in Sources */,
 				DA623ADD2E2AC7BE007BD9F5 /* BlurView.swift in Sources */,
 				DA748DDB2E22C0C300B1B226 /* BackgroundAnimation.swift in Sources */,
 				DA748E1A2E22C60A00B1B226 /* String+Additional.swift in Sources */,

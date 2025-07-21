@@ -51,7 +51,7 @@ struct SettingsView: View {
              onDismiss: {
                 showChangeLanguageView = false
              }, onSelectItem: { idx, item in
-                 print("\(idx), \(item)")
+                 Logger.shared.debug("\(idx), \(item)")
                  updateLanguage(value: idx)
                  showChangeLanguageView = false
              })

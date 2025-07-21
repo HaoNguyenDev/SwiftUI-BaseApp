@@ -34,7 +34,7 @@ struct LoginCoordinator: View, ScreenCoordinator {
     @ViewBuilder
     func getView() -> some View {
         LoginView(loginModel: loginModel, loginSuccess: { loginResult in
-            print(loginResult)
+            Logger.shared.debug("\(loginResult)")
             navRouter.push(Router.homeRouter, animate: true)
         }, forgotPassword: {
             navRouter.push(ScreenRouter.forgotPassword, animate: true)

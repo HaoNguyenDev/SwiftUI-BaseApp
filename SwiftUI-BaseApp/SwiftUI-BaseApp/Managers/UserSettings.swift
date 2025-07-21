@@ -69,7 +69,7 @@ final class UserSettings: ObservableObject {
     
     @Published var userLanguageCode: String {
         didSet {
-            print("userLanguageCode set to: \(userLanguageCode)")
+            Logger.shared.info("userLanguageCode set to: \(userLanguageCode)")
             defaults.set(userLanguageCode, forKey: Keys.userLanguageCode)
         }
     }
