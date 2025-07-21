@@ -69,9 +69,8 @@ final class UserSettings: ObservableObject {
     
     @Published var userLanguageCode: String {
         didSet {
-            DispatchQueue.main.async {
-                self.defaults.set(self.userLanguageCode, forKey: Keys.userLanguageCode)
-            }
+            print("userLanguageCode set to: \(userLanguageCode)")
+            defaults.set(userLanguageCode, forKey: Keys.userLanguageCode)
         }
     }
     

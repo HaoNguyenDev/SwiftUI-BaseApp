@@ -13,8 +13,6 @@ import SwiftUI
 struct PlaceholderView: View {
     @EnvironmentObject var settings: UserSettings
     var newTitle: String?
-    var defaultTitle: String = "in_development".localized()
-    var message: String = "feature_update_soon".localized()
     var onClose: (() -> Void)?
 
     var body: some View {
@@ -27,18 +25,18 @@ struct PlaceholderView: View {
                 .foregroundColor(settings.color.textColor)
 
             if let newTitle = newTitle {
-                Text("\(newTitle)\n\(defaultTitle)")
+                Text("\(newTitle)\n\("in_development".localized())")
                     .font(mainFont.bold(30))
                     .foregroundStyle(settings.color.textColor)
                     .multilineTextAlignment(.center)
             } else {
-                Text(defaultTitle)
+                Text("in_development".localized())
                     .font(mainFont.bold(30))
                     .foregroundStyle(settings.color.textColor)
                     .multilineTextAlignment(.center)
             }
             
-            Text(message)
+            Text("feature_update_soon".localized())
                 .font(mainFont.regular(20))
                 .multilineTextAlignment(.center)
                 .foregroundStyle(settings.color.textColor)

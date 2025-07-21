@@ -57,7 +57,9 @@ struct ThemeChangeView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .frame(height: 410)
-        .setBlurBackgroundImage()
+        .background {
+            settings.color.subviewBgColor
+        }
         .clipShape(RoundedRectangle(cornerRadius: 30))
         .padding(.horizontal, 10)
         .onAppear {
