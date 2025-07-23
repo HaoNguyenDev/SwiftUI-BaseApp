@@ -59,7 +59,7 @@ struct BackgroundImageModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .background(
-                settings.color.subviewBgColor.opacity(0.8) // Lớp màu trong suốt
+                settings.color.subviewBgColor.opacity(0.8) //Transparent color class
                     .overlay(BlurBackgroundView())
             )
         

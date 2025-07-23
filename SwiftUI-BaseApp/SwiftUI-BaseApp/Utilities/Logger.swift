@@ -37,7 +37,7 @@ final class Logger {
         #if DEBUG
         print(logMessage)
         #endif
-        // Có thể ghi vào file nếu muốn ở đây
+        //Can record to log file here
     }
 
     func debug(_ message: @autoclosure () -> String,
