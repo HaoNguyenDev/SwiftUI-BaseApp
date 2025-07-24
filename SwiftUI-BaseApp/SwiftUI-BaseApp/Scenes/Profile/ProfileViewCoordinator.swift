@@ -25,14 +25,7 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
     }
     
     var body: some View {
-        ProfileView(
-            showSettingsView: {
-                navRouter.push(ScreenRouter.settings, animate: true)
-            },
-            showLogoutConfirmView: {
-                navRouter.push(ScreenRouter.logoutConfirm, animate: false)
-            }
-        )
+        profileView()
         .navigationDestination(for: ScreenRouter.self) { router in
             viewForRouter(router: router)
         }
@@ -47,6 +40,17 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
     }
     
     @ViewBuilder
+    private func profileView() -> some View {
+        ProfileView(
+            showSettingsView: {
+                navRouter.push(ScreenRouter.settings, animate: true)
+            },
+            showLogoutConfirmView: {
+                navRouter.push(ScreenRouter.logoutConfirm, animate: false)
+            }
+        )
+    }
+    
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
         case .settings:
@@ -67,6 +71,6 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
 extension ProfileViewCoordinator {
     private func doLogout() {
         UserSettings.shared.logout()
-        navRouter.pop(to: Router.Splash.login)
+        navRouter.pop(to: Router.Splash.login, animate: false)
     }
 }
