@@ -98,7 +98,7 @@ struct UserMessageView: View {
             isAnimating = true
             autoHide(after: kShowDuration)
         }
-        .onChange(of: opacity) { newVal in
+        .onChange(of: opacity) { _, newVal in
             if opacity == 0 && isAnimating {
                 isAnimating = false
                 didHideMessage?(message)
