@@ -66,7 +66,7 @@ struct TitleListView: View {
 //        .background(theme.color.subviewBgColor)
         .animation(.easeOut(duration: 0.2), value: offset)
         .animation(.easeOut(duration: 0.2), value: opacity)
-        .onChange(of: isShow) { newValue in
+        .onChange(of: isShow) { _, newValue in
             offset = newValue ? 0 : kMaxOffset
             opacity = newValue ? 1 : 0
             if !newValue {
