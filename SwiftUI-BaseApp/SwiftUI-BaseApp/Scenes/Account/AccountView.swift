@@ -34,8 +34,7 @@ extension AccountView {
     private var content: some View {
         VStack(spacing: 20) {
             Text("account_view".localized())
-                .font(mainFont.bold(32))
-                .foregroundStyle(settings.color.textColor)
+                .setFont(.bold, size: 32, color: settings.color.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -44,8 +43,7 @@ extension AccountView {
                 processGotoSubview(subview: 1)
             } label: {
                 Text("settings".localized())
-                    .font(mainFont.bold(20))
-                    .foregroundStyle(settings.color.textColor)
+                    .setFont(.bold, size: 20, color: settings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -54,8 +52,7 @@ extension AccountView {
                 processGotoSubview(subview: 2)
             } label: {
                 Text("profile".localized())
-                    .font(mainFont.bold(20))
-                    .foregroundStyle(settings.color.textColor)
+                    .setFont(.bold, size: 20, color: settings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())

@@ -16,23 +16,22 @@ struct ThemeChangeView: View {
     var body: some View {
         VStack(spacing: 15) {
             Text("choose_theme".localized())
-                .font(mainFont.bold(25))
-                .foregroundStyle(settings.color.textOnSubviewColor)
+                .setFont(.bold, size: 25, color: settings.color.textOnSubviewColor)
             
-            Image(systemName: "moon.fill")
+            Image(systemName: settings.colorSchemeOption == .dark ? "moon.fill" : "sun.max.fill")
                 .resizable()
                 .frame(width: 80, height: 80)
-                .foregroundColor(settings.color.textOnSubviewColor)
+                .foregroundColor(settings.color.bgColor)
             
             Text("\("current_theme".localized()) \(settings.colorSchemeOption.title)")
-                .font(mainFont.regular(17))
-                .foregroundStyle(settings.color.textOnSubviewColor)
+                .setFont(.regular, size: 17, color: settings.color.textOnSubviewColor)
+            Text("choose_theme".localized())
+                .setFont(.regular, size: 17, color: settings.color.textOnSubviewColor)
             
             HStack(spacing: 0) {
                 ForEach(ColorSchemeOption.allCases, id: \.self) { theme in
                     Text(theme.rawValue)
-                        .font(mainFont.semibold(17))
-                        .foregroundStyle(settings.colorSchemeOption == theme ? settings.color.textColor : settings.color.textOnSubviewColor)
+                        .setFont(.semibold, size: 17, color: settings.colorSchemeOption == theme ? settings.color.textColor : settings.color.textOnSubviewColor)
                         .padding(.vertical, 10)
                         .frame(width: 100)
                         .background {

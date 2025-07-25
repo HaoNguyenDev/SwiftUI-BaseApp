@@ -59,7 +59,7 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
             LoginCoordinator(navRouter: navRouter)
         case .logoutConfirm:
             LogoutConfirmView {
-                navRouter.pop(to: Router.homeRouter)
+                navRouter.pop(animate: false)
             } onLogout: {
                 doLogout()
             }

@@ -34,6 +34,7 @@ struct SplashCoordinator: View, ScreenCoordinator {
     func getView() -> some View {
         SplashView(onSkipUpdate: {
             if UserSettings.shared.hasLogin {
+                navRouter.push(ScreenRouter.login, animate: false)
                 navRouter.push(ScreenRouter.home, animate: true)
             } else {
                 navRouter.push(ScreenRouter.login, animate: true)

@@ -142,9 +142,7 @@ struct MainTabControllerView: View {
                     tabIcon(tab: tab, isSelected: isSelected)
                     if tab != .home {
                         Text(tab.title)
-                            .font(isSelected ? mainFont.bold(10) : mainFont.regular(10))
-                            .foregroundStyle(
-                                isSelected ? settings.color.mainTabSelectedTextColor : settings.color.mainTabUnselectedTextColor)
+                            .setFont(isSelected ? .bold : .regular, size: 10, color: isSelected ? settings.color.mainTabSelectedTextColor : settings.color.mainTabUnselectedTextColor)
                     }
                 }
                 if tab == .home {

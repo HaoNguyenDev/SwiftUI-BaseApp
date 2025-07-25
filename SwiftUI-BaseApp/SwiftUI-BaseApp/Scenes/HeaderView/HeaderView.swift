@@ -26,8 +26,7 @@ struct HeaderView: View {
                     .frame(width: 32, height: 32)
                 
                 Text("👋 Hi, \(name ?? "buddy".localized())")
-                    .foregroundStyle(settings.color.textColor)
-                    .font(mainFont.bold(14))
+                    .setFont(.bold, size: 14, color: settings.color.textColor)
                     .lineLimit(1)
             }
             .onTapGesture { onShowProfile?() }
@@ -37,7 +36,7 @@ struct HeaderView: View {
             HStack(spacing: 12) {
                 Button(
                     action: {
-//                        NotificationCenter.default.post(name: .showNotificationScreen, object: nil)
+                        //                        NotificationCenter.default.post(name: .showNotificationScreen, object: nil)
                     },
                     label: {
                         Image(systemName: hasNewNotification ? "bell.badge" : "bell")
@@ -46,23 +45,22 @@ struct HeaderView: View {
                             .foregroundStyle(settings.color.textColor)
                             .font(mainFont.semibold(18))
                     })
-                    
+                
                 HStack(alignment: .center, spacing: 5) {
-                        Text("100.000.000")
-                            .font(mainFont.bold(14))
-                            .foregroundStyle(settings.color.textOnSubviewColor)
-                            .fixedSize(horizontal: true, vertical: false)
-                        Image(systemName: "bitcoinsign.circle")
-//                            .resizable()
-                            .font(mainFont.semibold(18))
-                            .foregroundStyle(settings.color.textOnSubviewColor)
-                    }
+                    Text("100.000.000")
+                        .setFont(.bold, size: 14, color: settings.color.textOnSubviewColor)
+                        .fixedSize(horizontal: true, vertical: false)
+                    Image(systemName: "bitcoinsign.circle")
+                    //                            .resizable()
+                        .font(mainFont.semibold(18))
+                        .foregroundStyle(settings.color.textOnSubviewColor)
+                }
                 
                 .padding(.horizontal, 8)
                 .frame(height: 32)
                 .background(settings.color.subviewBgColor, in: .rect(cornerRadius: 16))
                 .onTapGesture {
-//                    NotificationCenter.default.post(name: .showTransactionHistoryScreen, object: nil)
+                    //                    NotificationCenter.default.post(name: .showTransactionHistoryScreen, object: nil)
                 }
             }
         }

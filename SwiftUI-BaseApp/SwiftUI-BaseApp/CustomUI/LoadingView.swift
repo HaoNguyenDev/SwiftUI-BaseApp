@@ -52,8 +52,7 @@ struct LoadingView: View {
             if !hideText {
                 VStack {
                     Text("please_wait".localized())
-                        .font(mainFont.bold(17))
-                        .foregroundColor(settings.color.textColor)
+                        .setFont(.bold, size: 17, color: settings.color.textColor)
                         .frame(maxWidth: .infinity)
                 }
                 .padding(.top, 120)
