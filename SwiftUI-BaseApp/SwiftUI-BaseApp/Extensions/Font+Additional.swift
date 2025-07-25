@@ -67,5 +67,18 @@ struct Nunito: AppFont {
     func semibold(_ size: CGFloat = 17) -> Font {
         Font.custom("Nunito-SemiBold", size: size)
     }
+    
+    enum FontName: String {
+        case regular = "Nunito-Regular"
+        case medium = "Nunito-Medium"
+        case light = "Nunito-Light"
+        case bold = "Nunito-Bold"
+        case italic = "Nunito-Italic"
+        case semibold = "Nunito-SemiBold"
+    }
+    
+    func fontName(_ name: FontName, _ size: CGFloat = 17) -> Font {
+        Font.custom(name.rawValue, size: size)
+    }
 }
 let mainFont = Nunito()

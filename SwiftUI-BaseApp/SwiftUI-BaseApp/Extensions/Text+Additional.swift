@@ -8,24 +8,22 @@
 import SwiftUI
 
 extension Text {
-    func set(font: Font, and color: Color) -> some View {
-        modifier(FontAndColor(font: font, color: color))
+    func setFont(_ font: Nunito.FontName, size: CGFloat, color: Color, alignment: TextAlignment = .leading) -> some View {
+        modifier(FontSizeColorModifier(font: font, size: size, color: color, alignment: alignment))
     }
 }
 
 // MARK: Modifiers
-struct FontAndColor: ViewModifier {
-    let font: Font
-    let color: Color
-    
-    init(font: Font, color: Color) {
-        self.font = font
-        self.color = color
-    }
+struct FontSizeColorModifier: ViewModifier {
+    var font: Nunito.FontName
+    var size: CGFloat
+    var color: Color
+    var alignment: TextAlignment = .leading
     
     func body(content: Content) -> some View {
         content
-            .font(font)
+            .font(mainFont.fontName(font, size))
             .foregroundStyle(color)
+            .multilineTextAlignment(alignment)
     }
 }
