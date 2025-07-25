@@ -19,7 +19,8 @@ struct SettingsView: View {
     var body: some View {
         ScrollView(showsIndicators: false, content: {
             VStack(spacing: 24) {
-                Text("settings".localized()).set(font: mainFont.bold(32), and: settings.color.textColor)
+                Text("settings".localized())
+                    .setFont(.bold, size: 32, color: settings.color.textColor)
                 // Settings content
                 VStack(spacing: 16) {
                     changeThemeModeRow
@@ -66,7 +67,8 @@ struct SettingsView: View {
         }) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("change_theme_mode".localized()).set(font: mainFont.bold(14), and: settings.color.textOnSubviewColor)
+                    Text("change_theme_mode".localized())
+                        .setFont(.bold, size: 14.0, color: settings.color.textOnSubviewColor)
                 }
                 Spacer()
                 Image(systemName: "chevron.right").tint(settings.color.textOnSubviewColor)
@@ -86,7 +88,8 @@ struct SettingsView: View {
         }) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("change_language_title".localized()).set(font: mainFont.bold(14), and: settings.color.textOnSubviewColor)
+                    Text("change_language_title".localized())
+                        .setFont(.bold, size: 14, color: settings.color.textOnSubviewColor)
                 }
                 Spacer()
                 Image(systemName: "chevron.right")

@@ -44,11 +44,11 @@ extension SplashView {
                    
                     VStack(spacing: 12) {
                         Text("splas_screen_title".localized())
-                            .set(font: mainFont.bold(50), and: settings.color.textColor)
+                            .setFont(.bold, size: 50.0, color: settings.color.textColor)
                         Text("please_update".localized())
-                            .set(font: mainFont.bold(32), and: settings.color.textColor)
+                            .setFont(.bold, size: 32.0, color: settings.color.textColor)
                         Text("update_the_app_now".localized())
-                            .set(font: mainFont.regular(14), and: settings.color.textColor)
+                            .setFont(.regular, size: 14.0, color: settings.color.textColor)
                     }
                     .multilineTextAlignment(.center)
                 }

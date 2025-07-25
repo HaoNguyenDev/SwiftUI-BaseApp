@@ -29,15 +29,17 @@ struct TitleListView: View {
         VStack(spacing: 16) {
             VStack {
                 Text("swipe_down_to_exit".localized())
-                    .set(font: mainFont.regular(14), and: settings.color.textColor)
+//                    .set(font: mainFont.regular(14), and: settings.color.textColor)
+                    .setFont(.regular, size: 14, color: settings.color.textColor)
                 VStack(spacing: 16) {
                     Text(title)
-                        .set(font: mainFont.bold(24), and: settings.color.textOnSubviewColor)
+                        .setFont(.bold, size: 24, color: settings.color.textOnSubviewColor)
+//                        .set(font: mainFont.bold(24), and: settings.color.textOnSubviewColor)
 
                     VStack(spacing: 16) {
                         ForEach(items.indices, id: \.self) { idx in
                             Text(items[idx].title)
-                                .set(font: mainFont.regular(16), and: settings.color.textOnSubviewColor)
+                                .setFont(.regular, size: 16, color: settings.color.textOnSubviewColor)
                                 .frame(maxWidth: .infinity)
                                 .contentShape(Rectangle())
                                 .onTapGesture {

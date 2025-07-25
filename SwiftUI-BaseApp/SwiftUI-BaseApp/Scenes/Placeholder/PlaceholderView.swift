@@ -26,20 +26,20 @@ struct PlaceholderView: View {
 
             if let newTitle = newTitle {
                 Text("\(newTitle)\n\("in_development".localized())")
-                    .font(mainFont.bold(30))
-                    .foregroundStyle(settings.color.textColor)
-                    .multilineTextAlignment(.center)
+                    .setFont(.bold, size: 30.0,
+                             color: settings.color.textColor,
+                             alignment: .center)
             } else {
                 Text("in_development".localized())
-                    .font(mainFont.bold(30))
-                    .foregroundStyle(settings.color.textColor)
-                    .multilineTextAlignment(.center)
+                    .setFont(.bold, size: 30.0,
+                             color: settings.color.textColor,
+                             alignment: .center)
             }
             
             Text("feature_update_soon".localized())
-                .font(mainFont.regular(20))
-                .multilineTextAlignment(.center)
-                .foregroundStyle(settings.color.textColor)
+                .setFont(.regular, size: 20.0,
+                         color: settings.color.textColor,
+                         alignment: .center)
             
             Spacer()
                 .frame(height: 20)
@@ -52,8 +52,9 @@ struct PlaceholderView: View {
                         onClose?()
                     } label: {
                         Text("all_right".localized())
-                            .font(mainFont.bold(18))
-                            .foregroundStyle(settings.color.textColor)
+                            .setFont(.bold, size: 18.0,
+                                     color: settings.color.textColor,
+                                     alignment: .center)
                     }
                 )
         }
