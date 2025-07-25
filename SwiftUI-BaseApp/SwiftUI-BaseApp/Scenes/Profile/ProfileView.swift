@@ -29,8 +29,7 @@ struct ProfileView: View {
                 .padding(.top, 32)
                 
                 Text(model.username)
-                    .foregroundStyle(settings.color.textColor)
-                    .font(mainFont.bold(32))
+                    .setFont(.bold, size: 32, color: settings.color.textColor)
                     .lineLimit(1)
                 settingsView
                 logoutView
@@ -47,10 +46,10 @@ struct ProfileView: View {
             VStack(alignment: .leading) {
                 Image(systemName: "gear")
                 Text("settings".localized())
-                    .font(mainFont.bold(14))
+                    .setFont(.bold, size: 14, color: settings.color.textOnSubviewColor)
                     
                 Text("settings_description".localized())
-                    .font(mainFont.regular(10))
+                    .setFont(.regular, size: 10, color: settings.color.textOnSubviewColor)
             }
             
             Spacer()
@@ -74,11 +73,10 @@ struct ProfileView: View {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
                     .tint(settings.color.textOnSubviewColor)
                 Text("Log out")
-                    .font(mainFont.bold(14))
-                    .foregroundColor(settings.color.textOnSubviewColor)
+                    .setFont(.bold, size: 14, color: settings.color.textOnSubviewColor)
                 
                 Text("You’ll be logged out of the app but can log back in anytime.")
-                    .font(mainFont.regular(10))
+                    .setFont(.regular, size: 10, color: settings.color.textOnSubviewColor)
             }
             
             Spacer()

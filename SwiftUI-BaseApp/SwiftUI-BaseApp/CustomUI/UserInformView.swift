@@ -67,7 +67,12 @@ struct UserInformView: View {
                                     .setFont(.regular, size: 14, color: settings.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
-                            }).buttonStyle(PrimaryButtonStyle())
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 24)
+                                            .stroke(lineWidth: 1)
+                                            .foregroundStyle(settings.color.textOnSubviewColor)
+                                    )
+                            })
                         }
                         
                         // Secondary action
@@ -80,7 +85,12 @@ struct UserInformView: View {
                                     .setFont(.regular, size: 14, color: settings.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
-                            }).buttonStyle(SecondaryButtonBlackStyleBig())
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 24)
+                                            .stroke(lineWidth: 1)
+                                            .foregroundStyle(settings.color.textOnSubviewColor)
+                                    )
+                            })
                         }
                     }
                 }

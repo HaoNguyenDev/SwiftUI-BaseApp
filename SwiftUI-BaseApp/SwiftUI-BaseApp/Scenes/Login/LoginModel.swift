@@ -28,9 +28,9 @@ class LoginModel: ObservableObject {
     
     func doLogin() async throws -> LoginResult {
         try? await Task.sleep(for: .seconds(2))
-        let randomNumber = Int.random(in: 1...2)
+//        let randomNumber = Int.random(in: 1...2)
         let username: String = ["haonguyen", "minhhoang", "tuananh", "tuananh123", "tuananh456"].randomElement() ?? "Unknown"
-        if randomNumber == 1 {
+//        if randomNumber == 1 {
             let loginResult: LoginResult = .init(token: "token 1234",
                                                  refreshToken: "refresh token 1234",
                                                  username: username,
@@ -42,8 +42,8 @@ class LoginModel: ObservableObject {
             }
             
             return loginResult
-        } else {
-            throw LoginError.failed
-        }
+//        } else {
+//            throw LoginError.failed
+//        }
     }
 }

@@ -29,12 +29,10 @@ struct TitleListView: View {
         VStack(spacing: 16) {
             VStack {
                 Text("swipe_down_to_exit".localized())
-//                    .set(font: mainFont.regular(14), and: settings.color.textColor)
                     .setFont(.regular, size: 14, color: settings.color.textColor)
                 VStack(spacing: 16) {
                     Text(title)
                         .setFont(.bold, size: 24, color: settings.color.textOnSubviewColor)
-//                        .set(font: mainFont.bold(24), and: settings.color.textOnSubviewColor)
 
                     VStack(spacing: 16) {
                         ForEach(items.indices, id: \.self) { idx in

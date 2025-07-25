@@ -10,6 +10,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct LogoutConfirmView: View {
+    @EnvironmentObject private var settings: UserSettings
     private let kDragDismissThreshold: CGFloat = 100
     private let kMaxOffset: CGFloat = 400
     
@@ -28,36 +29,46 @@ struct LogoutConfirmView: View {
                     .frame(width: 120, height: 120)
                 
                 Text("logout_prompt".localized())
-                    .font(mainFont.bold(24))
-                    .foregroundColor(Color(hex: "#333333"))
+                    .setFont(.bold, size: 24, color: settings.color.textOnSubviewColor)
                 
                 Text("logout_message".localized())
-                    .font(mainFont.regular(14))
-                    .foregroundColor(Color(hex: "#8E8E93"))
+                    .setFont(.regular, size: 14, color: settings.color.textOnSubviewColor)
                 
                 Button {
                     onLogout?()
                 } label: {
                     Text("logout".localized())
+                        .setFont(.bold, size: 17, color: settings.color.textOnSubviewColor)
                         .frame(height: 48)
                         .frame(maxWidth: .infinity)
+                        .background(
+                            RoundedRectangle(cornerRadius: 24)
+                                .stroke(lineWidth: 1)
+                                .foregroundStyle(settings.color.textOnSubviewColor)
+                        )
                 }
-                .buttonStyle(PrimaryButtonStyle())
+                
                 
                 Button {
                     onDismiss?()
                 } label: {
                     Text("cancel".localized())
+                        .setFont(.bold, size: 17, color: settings.color.textOnSubviewColor)
                         .frame(height: 48)
                         .frame(maxWidth: .infinity)
+                        .background(
+                            RoundedRectangle(cornerRadius: 24)
+                                .stroke(lineWidth: 1)
+                                .foregroundStyle(settings.color.textOnSubviewColor)
+                        )
                 }
-                .buttonStyle(SecondaryButtonBlackStyleBig())
+               
             }
             .padding(EdgeInsets(top: 40, leading: 32, bottom: 40, trailing: 32))
             .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.white)
+                    .fill(settings.color.subviewBgColor)
             )
             .offset(y: offset)
             .opacity(opacity)
@@ -65,7 +76,7 @@ struct LogoutConfirmView: View {
         .multilineTextAlignment(.center)
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-        .setDefaultBackground()
+        .setBlurBackgroundImage()
         .animation(.easeOut(duration: 0.2), value: offset)
         .animation(.easeOut(duration: 0.2), value: opacity)
         .onChange(of: isShow) { _, newValue in
@@ -84,4 +95,5 @@ struct LogoutConfirmView: View {
 
 #Preview {
     LogoutConfirmView(onDismiss: nil, onLogout: nil)
+        .environmentObject(UserSettings.shared)
 }

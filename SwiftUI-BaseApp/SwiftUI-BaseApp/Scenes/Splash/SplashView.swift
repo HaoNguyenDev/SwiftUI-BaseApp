@@ -59,7 +59,7 @@ extension SplashView {
                         updateAppProcess()
                     }, label: {
                         Text("update".localized())
-                            .foregroundStyle(settings.color.textColor)
+                            .setFont(.regular, size: 17, color: settings.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
@@ -69,7 +69,7 @@ extension SplashView {
                         onSkipUpdate?()
                     }, label: {
                         Text("skip".localized())
-                            .foregroundStyle(settings.color.textColor)
+                            .setFont(.regular, size: 17, color: settings.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })

@@ -39,8 +39,7 @@ extension HomeView {
     private var content: some View {
         VStack(spacing: 20) {
             Text("home_view".localized())
-                .font(mainFont.bold(32))
-                .foregroundStyle(settings.color.textColor)
+                .setFont(.bold, size: 32, color: settings.color.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -49,8 +48,7 @@ extension HomeView {
                 processGotoSubview(subview: 1)
             } label: {
                 Text("\("go_to_sub_view".localized()) 1")
-                    .font(mainFont.bold(20))
-                    .foregroundStyle(settings.color.textColor)
+                    .setFont(.bold, size: 20, color: settings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -59,8 +57,7 @@ extension HomeView {
                 processGotoSubview(subview: 2)
             } label: {
                 Text("\("go_to_sub_view".localized()) 2")
-                    .font(mainFont.bold(20))
-                    .foregroundStyle(settings.color.textColor)
+                    .setFont(.bold, size: 20, color: settings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
