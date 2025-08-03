@@ -12,7 +12,7 @@ protocol TitleItem {
 }
 
 struct TitleListView: View {
-    @EnvironmentObject private var settings: UserSettings
+    @Environment(UserSettings.self) private var settings
     private let kDragDismissThreshold: CGFloat = 100
     private let kMaxOffset: CGFloat = 400
     
@@ -99,6 +99,6 @@ struct TitleListView: View {
 
 #Preview {
     TitleListView(title: "List View", items: LanguageCode.allCases)
-        .environmentObject(UserSettings.shared)
+        .environment(UserSettings.shared)
     
 }

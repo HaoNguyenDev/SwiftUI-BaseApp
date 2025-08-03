@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var userSettings: UserSettings
-    @EnvironmentObject var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     @State private var showChangeThemeModeView: Bool = false
     @State private var showChangeLanguageView: Bool = false
     @State private var currentColorScheme: ColorScheme?
@@ -111,5 +110,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView(gotoChangeLanguageView: nil)
-        .environmentObject(UserSettings.shared)
+        .environment(UserSettings.shared)
 }

@@ -24,6 +24,7 @@ enum LoginError: Error {
         }
     }
 }
+
 class LoginModel: ObservableObject {
     
     func doLogin() async throws -> LoginResult {

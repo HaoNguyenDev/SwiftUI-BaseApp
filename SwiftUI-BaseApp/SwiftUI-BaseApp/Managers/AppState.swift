@@ -23,24 +23,18 @@ actor LoadingCounter {
     }
 }
 
-class AppState: ErrorHandler, ObservableObject {
+@Observable class AppState: ErrorHandler {
     // MARK: - Loading
-    @Published var isShowLoading = false
+    var isShowLoading = false
     
-    @Published var isShowDrawingCoin = false
+    var isShowDrawingCoin = false
     
     /// ObservationIgnored
     private var loadingCounter = LoadingCounter()
     // MARK: - Message
-    @Published var userMessageState = UserMessageState()
+    var userMessageState = UserMessageState()
     
-    private var allCancelAble: [AnyCancellable] = []
-    
-    init() {
-        allCancelAble.append(userMessageState.objectWillChange.sink { [weak self] (_) in
-            self?.objectWillChange.send()
-        })
-    }
+    init() {}
     
     @MainActor
     func showLoading() async {

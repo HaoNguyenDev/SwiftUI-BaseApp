@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BlurBackgroundView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     
     var body: some View {
         ZStack {

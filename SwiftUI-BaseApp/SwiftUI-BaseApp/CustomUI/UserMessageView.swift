@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct UserMessageView: View {
-    @EnvironmentObject private var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     private let kShowDuration: Int = 3  // Second
     @State private var opacity: CGFloat = 0
     @State private var isAnimating = false

@@ -23,7 +23,7 @@ extension View {
 
 // MARK: Modifiers
 struct BackgroundModifier: ViewModifier {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     func body(content: Content) -> some View {
         content
             .background(
@@ -35,7 +35,7 @@ struct BackgroundModifier: ViewModifier {
 }
 
 struct GradientBackgroundModifier: ViewModifier {
-    @EnvironmentObject var theme: UserSettings
+    @Environment(UserSettings.self) var settings
     var rotationColor: Bool = false
     func body(content: Content) -> some View {
         content
@@ -49,13 +49,13 @@ struct GradientBackgroundModifier: ViewModifier {
     }
     
     private func getBackgroundColor(rotationColor: Bool = false) -> [Color] {
-        return rotationColor ? theme.color.gradientBgColors.reversed() : theme.color.gradientBgColors
+        return rotationColor ? settings.color.gradientBgColors.reversed() : settings.color.gradientBgColors
     }
 }
 
 // MARK: Modifiers
 struct BackgroundImageModifier: ViewModifier {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     func body(content: Content) -> some View {
         content
             .background(

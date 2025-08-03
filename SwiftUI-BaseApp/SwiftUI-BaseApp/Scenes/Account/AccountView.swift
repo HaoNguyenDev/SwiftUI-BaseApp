@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct AccountView: View {
-    @EnvironmentObject private var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     @State private var showLoading: Bool = false
     
     var gotoSettings: (() -> Void)?

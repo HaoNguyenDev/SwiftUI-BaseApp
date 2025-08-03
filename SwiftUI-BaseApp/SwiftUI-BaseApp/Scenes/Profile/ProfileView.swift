@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-class ProfileViewModel: ObservableObject {
-    @Published var username: String = UserSettings.shared.username ?? "anonymous".localized()
+@Observable class ProfileViewModel {
+    var username: String = UserSettings.shared.username ?? "anonymous".localized()
 }
 
 struct ProfileView: View {
-    @EnvironmentObject var settings: UserSettings
-    @StateObject var model: ProfileViewModel = ProfileViewModel()
+    @Environment(UserSettings.self) var settings
+    @State var model: ProfileViewModel = ProfileViewModel()
     
     let showSettingsView: VoidResult?
     let showLogoutConfirmView: VoidResult?
@@ -97,5 +97,5 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView(model: ProfileViewModel(), showSettingsView: nil, showLogoutConfirmView: nil)
-        .environmentObject(UserSettings.shared)
+        .environment(UserSettings.shared)
 }
