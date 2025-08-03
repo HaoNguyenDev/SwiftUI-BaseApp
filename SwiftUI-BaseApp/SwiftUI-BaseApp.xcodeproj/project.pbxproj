@@ -15,6 +15,9 @@
 		DA5CC2902E22B485000C5F18 /* NavRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC28F2E22B485000C5F18 /* NavRouterProtocol.swift */; };
 		DA5CC2922E22B490000C5F18 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2912E22B490000C5F18 /* Router.swift */; };
 		DA5CC2942E22B4EC000C5F18 /* ScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */; };
+		DA5D71772E3FA3B900C78E40 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D71762E3FA3B900C78E40 /* NetworkError.swift */; };
+		DA5D71792E3FA3CC00C78E40 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D71782E3FA3CC00C78E40 /* NetworkManager.swift */; };
+		DA5D717B2E3FA3DE00C78E40 /* NetworkProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D717A2E3FA3DE00C78E40 /* NetworkProtocols.swift */; };
 		DA623ADD2E2AC7BE007BD9F5 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA623ADC2E2AC7BE007BD9F5 /* BlurView.swift */; };
 		DA748D482E22B8A000B1B226 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */; };
 		DA748D492E22B8A000B1B226 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */; };
@@ -150,6 +153,9 @@
 		DA5CC28F2E22B485000C5F18 /* NavRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavRouterProtocol.swift; sourceTree = "<group>"; };
 		DA5CC2912E22B490000C5F18 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCoordinator.swift; sourceTree = "<group>"; };
+		DA5D71762E3FA3B900C78E40 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		DA5D71782E3FA3CC00C78E40 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DA5D717A2E3FA3DE00C78E40 /* NetworkProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocols.swift; sourceTree = "<group>"; };
 		DA623ADC2E2AC7BE007BD9F5 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
@@ -314,6 +320,7 @@
 		DA5CC2862E22B28F000C5F18 /* SwiftUI-BaseApp */ = {
 			isa = PBXGroup;
 			children = (
+				DA5D71752E3FA27D00C78E40 /* Networking */,
 				DA748DB62E22B8F300B1B226 /* Info.plist */,
 				DA5CC2822E22B28F000C5F18 /* Preview Content */,
 				DA5CC2832E22B28F000C5F18 /* Assets.xcassets */,
@@ -343,6 +350,16 @@
 				DA5CC2912E22B490000C5F18 /* Router.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		DA5D71752E3FA27D00C78E40 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DA5D717A2E3FA3DE00C78E40 /* NetworkProtocols.swift */,
+				DA5D71762E3FA3B900C78E40 /* NetworkError.swift */,
+				DA5D71782E3FA3CC00C78E40 /* NetworkManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		DA748D3F2E22B87D00B1B226 /* Resources */ = {
@@ -845,8 +862,11 @@
 				DA748DCA2E22BD0700B1B226 /* ColorSchemeOption.swift in Sources */,
 				DA890F8B2E23D73C0005D9DB /* ProfileView.swift in Sources */,
 				DA748E1C2E22C65400B1B226 /* AppErrorCode.swift in Sources */,
+				DA5D71792E3FA3CC00C78E40 /* NetworkManager.swift in Sources */,
 				DA890F732E23B3080005D9DB /* HomeViewCoordinator.swift in Sources */,
+				DA5D71772E3FA3B900C78E40 /* NetworkError.swift in Sources */,
 				DA748DFC2E22C28F00B1B226 /* LottieHelperView.swift in Sources */,
+				DA5D717B2E3FA3DE00C78E40 /* NetworkProtocols.swift in Sources */,
 				DA5CC2922E22B490000C5F18 /* Router.swift in Sources */,
 				DA748E162E22C5DC00B1B226 /* PlaceholderViewCoordinator.swift in Sources */,
 				DA748F972E23A8CC00B1B226 /* MainTabControllerView.swift in Sources */,
