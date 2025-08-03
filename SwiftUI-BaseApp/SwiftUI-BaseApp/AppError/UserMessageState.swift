@@ -9,10 +9,10 @@ import SwiftUI
 import Lottie
 
 // MARK: - UserMessageState
-final class UserMessageState: ObservableObject {
-    @Published var toastMessages = [UserMessageItem]()
-    @Published var alert: UserMessageItem?
-    @Published var informMessage: UserMessageItem?
+@Observable final class UserMessageState {
+    var toastMessages = [UserMessageItem]()
+    var alert: UserMessageItem?
+    var informMessage: UserMessageItem?
     
     var isShowAlert: Binding<Bool> {
         Binding(

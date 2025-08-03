@@ -24,50 +24,50 @@ extension UserSettings {
     }
 }
 
-final class UserSettings: ObservableObject {
+@Observable final class UserSettings {
     static let shared = UserSettings()
     private let defaults = UserDefaults.standard
     
-    @Published private(set) var colorSchemeOption: ColorSchemeOption = .system {
+    private(set) var colorSchemeOption: ColorSchemeOption = .system {
         didSet {
             defaults.set(colorSchemeOption.rawValue, forKey: Keys.colorSchemeOption)
             updateTheme(colorSchemeOption) // Update colorSet
         }
     }
     
-    @Published private(set) var colorSet: ColorSet
+    private(set) var colorSet: ColorSet
     
-    @Published var username: String? {
+    var username: String? {
         didSet {
             defaults.set(username, forKey: Keys.username)
         }
     }
     
-    @Published var token: String? {
+    var token: String? {
         didSet {
             defaults.set(token, forKey: Keys.token)
         }
     }
     
-    @Published var signature: String? {
+    var signature: String? {
         didSet {
             defaults.set(signature, forKey: Keys.signature)
         }
     }
     
-    @Published var userId: String? {
+    var userId: String? {
         didSet {
             defaults.set(userId, forKey: Keys.userId)
         }
     }
     
-    @Published var referralCode: String? {
+    var referralCode: String? {
         didSet {
             defaults.set(referralCode, forKey: Keys.referralCode)
         }
     }
     
-    @Published var userLanguageCode: String {
+    var userLanguageCode: String {
         didSet {
             Logger.shared.info("userLanguageCode set to: \(userLanguageCode)")
             defaults.set(userLanguageCode, forKey: Keys.userLanguageCode)
@@ -91,6 +91,7 @@ final class UserSettings: ObservableObject {
         updateTheme(colorSchemeOption)
     }
     
+    @ObservationIgnored
     var hasLogin: Bool {
         return token != nil
     }

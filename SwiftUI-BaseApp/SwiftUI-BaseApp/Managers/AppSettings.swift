@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class AppSettings: ObservableObject {
+@Observable final class AppSettings {
     static let shared = AppSettings()
     private init() {}
     

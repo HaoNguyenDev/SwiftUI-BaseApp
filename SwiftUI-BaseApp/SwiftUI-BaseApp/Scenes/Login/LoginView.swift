@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var settings: UserSettings
+    @Environment(AppState.self) var appState
+    @Environment(UserSettings.self) var settings
     @ObservedObject var loginModel: LoginModel
     @State private var showLoading: Bool = false
 
@@ -134,6 +134,6 @@ extension LoginView {
               loginSuccess: nil,
               forgotPassword: nil,
               register: nil)
-    .environmentObject(AppState())
-    .environmentObject(UserSettings.shared)
+    .environment(AppState())
+    .environment(UserSettings.shared)
 }

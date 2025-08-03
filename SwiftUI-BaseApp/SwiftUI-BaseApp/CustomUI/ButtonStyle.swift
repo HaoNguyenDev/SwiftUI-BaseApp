@@ -57,7 +57,7 @@ struct PrimaryButtonStyleCustom: ButtonStyle {
 
 struct SecondaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
-    @EnvironmentObject var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(mainFont.bold(16))

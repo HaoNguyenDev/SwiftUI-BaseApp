@@ -10,9 +10,9 @@ import SwiftUI
 @main
 struct SwiftUI_BaseApp: App {
     
-    @StateObject private var userSettings = UserSettings.shared
-    @StateObject private var appSettings = AppSettings.shared
-    @StateObject private var appState = AppState()
+    @State private var userSettings = UserSettings.shared
+    @State private var appSettings = AppSettings.shared
+    @State private var appState = AppState()
     
     init() {
         setupDefaultSettings()
@@ -21,9 +21,9 @@ struct SwiftUI_BaseApp: App {
     var body: some Scene {
         WindowGroup {
             AppCoordinator()
-                .environmentObject(appState)
-                .environmentObject(appSettings)
-                .environmentObject(userSettings)
+                .environment(appState)
+                .environment(appSettings)
+                .environment(userSettings)
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BackButton: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     var body: some View {
         HStack {
             Image(systemName: "chevron.left")
@@ -27,6 +27,6 @@ struct BackButton: View {
 
 #Preview {
     BackButton()
-        .environmentObject(UserSettings.shared)
+        .environment(UserSettings.shared)
         
 }

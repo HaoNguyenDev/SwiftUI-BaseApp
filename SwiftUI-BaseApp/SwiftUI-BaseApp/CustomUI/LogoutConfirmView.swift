@@ -10,7 +10,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct LogoutConfirmView: View {
-    @EnvironmentObject private var settings: UserSettings
+    @Environment(UserSettings.self) private var settings
     private let kDragDismissThreshold: CGFloat = 100
     private let kMaxOffset: CGFloat = 400
     
@@ -95,5 +95,5 @@ struct LogoutConfirmView: View {
 
 #Preview {
     LogoutConfirmView(onDismiss: nil, onLogout: nil)
-        .environmentObject(UserSettings.shared)
+        .environment(UserSettings.shared)
 }

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     let onShowProfile: VoidResult?
     var name: String? {
         UserSettings.shared.username
@@ -71,5 +71,5 @@ struct HeaderView: View {
 #Preview {
     HeaderView(onShowProfile: nil)
         .setBlurBackgroundImage()
-        .environmentObject(UserSettings.shared)
+        .environment(UserSettings.shared)
 }

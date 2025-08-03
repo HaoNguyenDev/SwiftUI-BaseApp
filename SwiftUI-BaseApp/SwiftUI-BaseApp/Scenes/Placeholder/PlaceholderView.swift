@@ -11,7 +11,7 @@ import SwiftUI
 import SwiftUI
 
 struct PlaceholderView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     var newTitle: String?
     var onClose: (() -> Void)?
 
@@ -67,6 +67,6 @@ struct PlaceholderView: View {
 
 #Preview {
     PlaceholderView()
-        .environmentObject(UserSettings.shared)
+        .environment(UserSettings.shared)
 }
 

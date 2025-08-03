@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct AppCoordinator: View {
-    @EnvironmentObject var appSettings: AppSettings
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var settings: UserSettings
+    @Environment(AppSettings.self) var appSettings
+    @Environment(AppState.self) var appState
+    @Environment(UserSettings.self) var settings
     @Environment(\.colorScheme) var systemColorScheme
     
     @StateObject var rootRouter = NavRouter()
@@ -154,8 +154,8 @@ extension AppCoordinator {
 
 #Preview {
     AppCoordinator()
-        .environmentObject(UserSettings.shared)
-        .environmentObject(AppSettings.shared)
-        .environmentObject(AppState())
+        .environment(UserSettings.shared)
+        .environment(AppSettings.shared)
+        .environment(AppState())
 }
 

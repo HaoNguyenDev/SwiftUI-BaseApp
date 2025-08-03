@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ThemeChangeView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     @Environment(\.colorScheme) var systemColorScheme
     @Namespace private var animation
     private var isDarkMode: Bool = false
@@ -73,6 +73,6 @@ struct ThemeChangeView: View {
 
 #Preview {
     ThemeChangeView()
-        .environmentObject(UserSettings.shared)
+        .environment(UserSettings.shared)
         .colorScheme(.light)
 }

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     var onShowProfile: VoidResult?
     var gotoSubview1: (() -> Void)?
     var gotoSubview2: (() -> Void)?
@@ -76,5 +76,5 @@ extension HomeView {
 
 #Preview {
     HomeView()
-        .environmentObject(UserSettings.shared)
+        .environment(UserSettings.shared)
 }

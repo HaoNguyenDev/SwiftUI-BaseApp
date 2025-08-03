@@ -10,7 +10,7 @@ import SwiftUI
 
 #Preview {
     TestLoadingView()
-        .environmentObject(UserSettings.shared)
+        .environment(UserSettings.shared)
 }
 
 struct TestLoadingView: View {
@@ -24,7 +24,7 @@ struct TestLoadingView: View {
 }
 
 struct LoadingView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Environment(UserSettings.self) var settings
     @State private var isAnimating = false
     private let dotCount = 6
     private let radius: CGFloat = 30

@@ -13,7 +13,7 @@ struct InformAction {
 }
 
 struct UserInformView: View {
-    @EnvironmentObject private var settings: UserSettings
+    @Environment(UserSettings.self) private var settings
     let message: UserMessageItem
     
     @State private var isShow: Bool = false
@@ -123,5 +123,5 @@ struct UserInformView: View {
     
     UserInformView(message: UserMessageItem(message: "welcome_message".localized()),
                    primaryAction: InformAction(title: "test", callback: {}))
-    .environmentObject(UserSettings.shared)
+    .environment(UserSettings.shared)
 }
