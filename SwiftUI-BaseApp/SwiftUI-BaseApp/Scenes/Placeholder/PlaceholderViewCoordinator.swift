@@ -8,8 +8,12 @@
 import SwiftUI
 
 extension Router {
-    enum PlaceholderView {
-        case pop
+    enum PlaceholderView: Routable {
+        case view
+        
+        var id: String {
+            "view"
+        }
     }
 }
 
@@ -51,7 +55,7 @@ struct PlaceholderViewCoordinator: View, ScreenCoordinator {
     @ViewBuilder
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
-        case .pop:
+        case .view:
             ContentView()
         }
     }

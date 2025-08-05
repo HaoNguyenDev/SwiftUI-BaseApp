@@ -7,8 +7,14 @@
 
 import SwiftUI
 extension Router {
-    enum SettingsView: Hashable {
+    enum SettingsView: Routable {
         case changeLanguage
+        var id: String {
+            switch self {
+            case .changeLanguage:
+                return "SettingsView.changeLanguage"
+            }
+        }
     }
 }
 

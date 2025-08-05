@@ -12,7 +12,6 @@ struct SettingsView: View {
     @Environment(UserSettings.self) var settings
     @State private var showChangeThemeModeView: Bool = false
     @State private var showChangeLanguageView: Bool = false
-    @State private var currentColorScheme: ColorScheme?
     var gotoChangeLanguageView: VoidResult?
     
     var body: some View {

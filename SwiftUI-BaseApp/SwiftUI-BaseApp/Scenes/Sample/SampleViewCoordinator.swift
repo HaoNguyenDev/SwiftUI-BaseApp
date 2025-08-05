@@ -8,9 +8,18 @@
 import SwiftUI
 
 extension Router {
-    enum SampleView {
+    enum SampleView: Routable {
         case subview1
         case subview2
+        
+        var id: String {
+            switch self {
+            case .subview1:
+                return "SampleView.subview1"
+            case .subview2:
+                return "SampleView.subview2"
+            }
+        }
     }
 }
 

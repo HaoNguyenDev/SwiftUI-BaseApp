@@ -12,6 +12,7 @@ import SwiftUI
 
 struct PlaceholderView: View {
     @Environment(UserSettings.self) var settings
+    @Environment(\.dismiss) private var dismiss
     var newTitle: String?
     var onClose: (() -> Void)?
 
@@ -49,7 +50,8 @@ struct PlaceholderView: View {
                 .foregroundStyle(settings.color.textColor)
                 .background(
                     Button {
-                        onClose?()
+                        dismiss()
+//                        onClose?()
                     } label: {
                         Text("all_right".localized())
                             .setFont(.bold, size: 18.0,

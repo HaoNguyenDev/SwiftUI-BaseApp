@@ -44,11 +44,20 @@ enum TabType: Int, CaseIterable {
 }
 
 extension Router {
-    enum MainTab: Hashable {
+    enum MainTab: Routable {
         case profile
         case settings
         case subview1
         case subview2
+        
+        var id: String {
+            switch self {
+            case .profile: return "profile"
+            case .settings: return "settings"
+            case .subview1: return "subview1"
+            case .subview2: return "subview2"
+            }
+        }
     }
 }
 

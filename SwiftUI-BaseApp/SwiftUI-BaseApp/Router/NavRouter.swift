@@ -9,8 +9,10 @@
 import SwiftUI
 import Foundation
 
-final class NavRouter: NavRouterProtocol, ObservableObject {
-    @Published var path: NavigationPath = NavigationPath()
+@Observable final class NavRouter: NavRouterProtocol {
+    var path: NavigationPath = NavigationPath()
+    var sheet: RouterView?
+    var fullScreenCover: RouterView?
     private var children: [AnyHashable] = []
 }
 
@@ -19,6 +21,7 @@ extension NavRouter {
     func setRoot(to view: AnyHashable) {
         path = .init()
         path.append(view)
+        children.append(view)
     }
     
     func push<T: Hashable>(_ view: T, animate: Bool = true) {
@@ -72,6 +75,11 @@ extension NavRouter {
     }
     
     func replaceLast(with view: AnyHashable) {
+        guard !children.isEmpty else {
+            path.append(view)
+            children.append(view)
+            return
+        }
         children.removeLast()
         path.removeLast()
         
@@ -81,5 +89,18 @@ extension NavRouter {
     
     func contains(_ subpath: AnyHashable) -> Bool {
         children.last != subpath && children.contains(subpath)
+    }
+    
+    func showSheet(_ view: RouterView) {
+        sheet = view
+    }
+    
+    func showFullScreenCover(_ view: RouterView) {
+        fullScreenCover = view
+    }
+    
+    func dismiss() {
+        sheet = nil
+        fullScreenCover = nil
     }
 }

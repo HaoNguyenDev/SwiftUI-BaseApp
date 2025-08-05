@@ -13,6 +13,8 @@ struct HomeView: View {
     var onShowProfile: VoidResult?
     var gotoSubview1: (() -> Void)?
     var gotoSubview2: (() -> Void)?
+    var showSheet: VoidResult?
+    var showFullScreen: VoidResult?
     
     var body: some View {
         ZStack {
@@ -57,6 +59,24 @@ extension HomeView {
                 processGotoSubview(subview: 2)
             } label: {
                 Text("\("go_to_sub_view".localized()) 2")
+                    .setFont(.bold, size: 20, color: settings.color.textColor)
+                    .frame(width: 200, height: 50)
+            }
+            .buttonStyle(SecondaryButtonStyle())
+            
+            Button {
+                showSheet?()
+            } label: {
+                Text("\("Test Show Sheet")")
+                    .setFont(.bold, size: 20, color: settings.color.textColor)
+                    .frame(width: 200, height: 50)
+            }
+            .buttonStyle(SecondaryButtonStyle())
+            
+            Button {
+                showFullScreen?()
+            } label: {
+                Text("\("Test Show FullScreen")")
                     .setFont(.bold, size: 20, color: settings.color.textColor)
                     .frame(width: 200, height: 50)
             }
