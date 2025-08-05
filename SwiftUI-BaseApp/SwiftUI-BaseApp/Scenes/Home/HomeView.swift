@@ -51,7 +51,8 @@ extension HomeView {
             } label: {
                 Text("\("go_to_sub_view".localized()) 1")
                     .setFont(.bold, size: 20, color: settings.color.textColor)
-                    .frame(width: 200, height: 50)
+                    .padding()
+                    .frame(height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
             
@@ -60,7 +61,8 @@ extension HomeView {
             } label: {
                 Text("\("go_to_sub_view".localized()) 2")
                     .setFont(.bold, size: 20, color: settings.color.textColor)
-                    .frame(width: 200, height: 50)
+                    .padding()
+                    .frame(height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
             
@@ -69,7 +71,8 @@ extension HomeView {
             } label: {
                 Text("\("Test Show Sheet")")
                     .setFont(.bold, size: 20, color: settings.color.textColor)
-                    .frame(width: 200, height: 50)
+                    .padding()
+                    .frame(height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
             
@@ -78,7 +81,8 @@ extension HomeView {
             } label: {
                 Text("\("Test Show FullScreen")")
                     .setFont(.bold, size: 20, color: settings.color.textColor)
-                    .frame(width: 200, height: 50)
+                    .padding()
+                    .frame(height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
         }
