@@ -8,8 +8,15 @@
 import SwiftUI
 
 extension Router {
-    enum AccountView {
+    enum AccountView: Routable {
         case none
+        
+        var id: String {
+            switch self {
+            case .none:
+                return "none"
+            }
+        }
     }
 }
 

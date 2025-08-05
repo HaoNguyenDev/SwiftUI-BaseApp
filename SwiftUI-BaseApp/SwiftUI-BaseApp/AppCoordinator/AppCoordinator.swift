@@ -14,7 +14,7 @@ struct AppCoordinator: View {
     @Environment(UserSettings.self) var settings
     @Environment(\.colorScheme) var systemColorScheme
     
-    @StateObject var rootRouter = NavRouter()
+    @State var rootRouter = NavRouter()
     @State private var isShowBlockingView: Bool = false
     
     var body: some View {
@@ -63,6 +63,13 @@ struct AppCoordinator: View {
                     SplashCoordinator(navRouter: rootRouter)
                 }
                 .ignoresSafeArea(.all)
+                
+                .sheet(item: $rootRouter.sheet) { sheet in
+                    showSheet(routable: sheet.routable)
+                }
+                .fullScreenCover(item: $rootRouter.fullScreenCover) { cover in
+                    showFullScreen(routable: cover.routable)
+                }
             }
             if appState.isShowLoading {
                 // Loading View
@@ -97,6 +104,34 @@ struct AppCoordinator: View {
         .ignoresSafeArea(.all)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .setBlurBackgroundImage()
+    }
+}
+
+extension AppCoordinator {
+    @ViewBuilder
+    func showSheet(routable: any Routable) -> some View {
+        switch routable {
+        case Router.Splash.login:
+            LoginCoordinator(navRouter: rootRouter)
+        case Router.Splash.home:
+            HomeViewCoordinator(navRouter: rootRouter)
+        case Router.PlaceholderView.view:
+            PlaceholderViewCoordinator(navRouter: rootRouter)
+        default: Text("OOPS!\nThis route is not implemented AppCoordinator showSheet function yet.")
+        }
+    }
+    
+    @ViewBuilder
+    func showFullScreen(routable: any Routable) -> some View {
+        switch routable {
+        case Router.Splash.login:
+            LoginCoordinator(navRouter: rootRouter)
+        case Router.Splash.home:
+            HomeViewCoordinator(navRouter: rootRouter)
+        case Router.PlaceholderView.view:
+            PlaceholderViewCoordinator(navRouter: rootRouter)
+        default: Text("OOPS!\nThis route is not implemented at AppCoordinator showFullScreen function yet.")
+        }
     }
 }
 

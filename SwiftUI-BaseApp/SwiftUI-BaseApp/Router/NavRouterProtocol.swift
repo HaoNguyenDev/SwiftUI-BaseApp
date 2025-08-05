@@ -20,4 +20,7 @@ protocol NavRouterProtocol: AnyObject {
     func popToRoot()
     func replaceLast(with view: AnyHashable)
     func contains(_ subpath: AnyHashable) -> Bool
+    func showSheet(_ view: RouterView)
+    func showFullScreenCover(_ view: RouterView)
+    func dismiss()
 }

@@ -8,10 +8,21 @@
 import SwiftUI
 
 extension Router {
-    enum ProfileView: Hashable {
+    enum ProfileView: Routable {
         case login
         case settings
         case logoutConfirm
+        
+        var id: String {
+            switch self {
+            case .login:
+                return "login"
+            case .settings:
+                return "settings"
+            case .logoutConfirm:
+                return "logoutConfirm"
+            }
+        }
     }
 }
 

@@ -344,10 +344,10 @@
 		DA5CC28C2E22B458000C5F18 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				DA5CC28F2E22B485000C5F18 /* NavRouterProtocol.swift */,
-				DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */,
-				DA5CC28D2E22B47A000C5F18 /* NavRouter.swift */,
 				DA5CC2912E22B490000C5F18 /* Router.swift */,
+				DA5CC28F2E22B485000C5F18 /* NavRouterProtocol.swift */,
+				DA5CC28D2E22B47A000C5F18 /* NavRouter.swift */,
+				DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";

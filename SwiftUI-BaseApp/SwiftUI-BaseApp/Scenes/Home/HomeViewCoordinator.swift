@@ -8,8 +8,15 @@
 import SwiftUI
 
 extension Router {
-    enum Home {
+    enum Home: Routable {
         case subview
+        
+        var id: String {
+            switch self {
+            case .subview:
+                return "Home.subview"
+            }
+        }
     }
 }
 
@@ -36,6 +43,10 @@ struct HomeViewCoordinator: View, ScreenCoordinator {
             navRouter.push(Router.MainTab.subview1, animate: true)
         }, gotoSubview2: {
             navRouter.push(Router.MainTab.subview2, animate: true)
+        }, showSheet: {
+            navRouter.showSheet(RouterView.init(routable: Router.PlaceholderView.view))
+        }, showFullScreen: {
+            navRouter.showFullScreenCover((RouterView.init(routable: Router.PlaceholderView.view)))
         })
         .toolbar(.hidden, for: .navigationBar)
     }
