@@ -10,8 +10,8 @@ import SwiftUI
 @main
 struct SwiftUI_BaseApp: App {
     
-    @State private var userSettings = UserSettings.shared
-    @State private var appSettings = AppSettings.shared
+    @State private var userSettings = UserSettings()
+    @State private var appSettings = AppSettings()
     @State private var appState = AppState()
     
     init() {
@@ -31,6 +31,6 @@ struct SwiftUI_BaseApp: App {
 extension SwiftUI_BaseApp {
     private func setupDefaultSettings() {
         Logger.shared.isEnabled = true
-        Logger.shared.debug("\(UserSettings.shared.userLanguageCode)")
+        Logger.shared.debug("\(userSettings.userLanguageCode)")
     }
 }

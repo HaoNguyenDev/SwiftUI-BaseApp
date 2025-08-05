@@ -25,6 +25,7 @@ extension Router {
 }
 
 struct SplashCoordinator: View, ScreenCoordinator {
+    @Environment(UserSettings.self) private var userSettings
     typealias ScreenRouter = Router.Splash
     var navRouter: any NavRouterProtocol
     
@@ -42,7 +43,7 @@ struct SplashCoordinator: View, ScreenCoordinator {
     @ViewBuilder
     func getView() -> some View {
         SplashView(onSkipUpdate: {
-            if UserSettings.shared.hasLogin {
+            if userSettings.hasLogin {
                 navRouter.push(ScreenRouter.login, animate: false)
                 navRouter.push(ScreenRouter.home, animate: true)
             } else {
@@ -55,7 +56,7 @@ struct SplashCoordinator: View, ScreenCoordinator {
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
         case .login:
-            LoginCoordinator(navRouter: navRouter)
+            LoginCoordinator(navRouter: navRouter, userSettings: userSettings)
         case .home:
             MainTabControllerView(navRouter: navRouter)
         }

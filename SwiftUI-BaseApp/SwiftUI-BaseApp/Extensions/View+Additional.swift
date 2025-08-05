@@ -23,19 +23,19 @@ extension View {
 
 // MARK: Modifiers
 struct BackgroundModifier: ViewModifier {
-    @Environment(UserSettings.self) var settings
+    @Environment(UserSettings.self) var userSettings
     func body(content: Content) -> some View {
         content
             .background(
                 ContainerRelativeShape()
-                    .fill(settings.color.bgColor)
+                    .fill(userSettings.color.bgColor)
                     .ignoresSafeArea(edges: .all)
             )
     }
 }
 
 struct GradientBackgroundModifier: ViewModifier {
-    @Environment(UserSettings.self) var settings
+    @Environment(UserSettings.self) var userSettings
     var rotationColor: Bool = false
     func body(content: Content) -> some View {
         content
@@ -49,17 +49,17 @@ struct GradientBackgroundModifier: ViewModifier {
     }
     
     private func getBackgroundColor(rotationColor: Bool = false) -> [Color] {
-        return rotationColor ? settings.color.gradientBgColors.reversed() : settings.color.gradientBgColors
+        return rotationColor ? userSettings.color.gradientBgColors.reversed() : userSettings.color.gradientBgColors
     }
 }
 
 // MARK: Modifiers
 struct BackgroundImageModifier: ViewModifier {
-    @Environment(UserSettings.self) var settings
+    @Environment(UserSettings.self) var userSettings
     func body(content: Content) -> some View {
         content
             .background(
-                settings.color.subviewBgColor.opacity(0.8) //Transparent color class
+                userSettings.color.subviewBgColor.opacity(0.8) //Transparent color class
                     .overlay(BlurBackgroundView())
             )
         

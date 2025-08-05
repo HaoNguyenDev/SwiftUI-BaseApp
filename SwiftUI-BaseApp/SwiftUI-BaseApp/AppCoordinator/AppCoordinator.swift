@@ -11,7 +11,7 @@ import SwiftUI
 struct AppCoordinator: View {
     @Environment(AppSettings.self) var appSettings
     @Environment(AppState.self) var appState
-    @Environment(UserSettings.self) var settings
+    @Environment(UserSettings.self) var userSettings
     @Environment(\.colorScheme) var systemColorScheme
     
     @State var rootRouter = NavRouter()
@@ -26,10 +26,10 @@ struct AppCoordinator: View {
             }
         }
         .onChange(of: systemColorScheme) { _, newValue in
-            settings.setColorScheme(settings.colorSchemeOption, systemColorScheme: newValue)
+            userSettings.setColorScheme(userSettings.colorSchemeOption, systemColorScheme: newValue)
         }
         .onAppear {
-            settings.setColorScheme(settings.colorSchemeOption, systemColorScheme: systemColorScheme)
+            userSettings.setColorScheme(userSettings.colorSchemeOption, systemColorScheme: systemColorScheme)
         }
         .task { startCheckingApp() }
     }
@@ -48,7 +48,7 @@ struct AppCoordinator: View {
     @ViewBuilder
     var blockingView: some View {
         Text("device_restricted".localized())
-            .setFont(.bold, size: 20, color: settings.color.textColor)
+            .setFont(.bold, size: 20, color: userSettings.color.textColor)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .setBlurBackgroundImage()
     }
@@ -91,9 +91,9 @@ struct AppCoordinator: View {
                 VStack(spacing: 32) {
                     VStack(spacing: 12) {
                         Text("system_maintenance".localized())
-                            .setFont(.semibold, size: 32, color: settings.color.textColor)
+                            .setFont(.semibold, size: 32, color: userSettings.color.textColor)
                         Text("maintenance_message".localized())
-                            .setFont(.regular, size: 17, color: settings.color.textColor)
+                            .setFont(.regular, size: 17, color: userSettings.color.textColor)
                     }
                     .multilineTextAlignment(.center)
                 }
@@ -112,7 +112,7 @@ extension AppCoordinator {
     func showSheet(routable: any Routable) -> some View {
         switch routable {
         case Router.Splash.login:
-            LoginCoordinator(navRouter: rootRouter)
+            LoginCoordinator(navRouter: rootRouter, userSettings: userSettings)
         case Router.Splash.home:
             HomeViewCoordinator(navRouter: rootRouter)
         case Router.PlaceholderView.view:
@@ -125,7 +125,7 @@ extension AppCoordinator {
     func showFullScreen(routable: any Routable) -> some View {
         switch routable {
         case Router.Splash.login:
-            LoginCoordinator(navRouter: rootRouter)
+            LoginCoordinator(navRouter: rootRouter, userSettings: userSettings)
         case Router.Splash.home:
             HomeViewCoordinator(navRouter: rootRouter)
         case Router.PlaceholderView.view:
@@ -189,8 +189,8 @@ extension AppCoordinator {
 
 #Preview {
     AppCoordinator()
-        .environment(UserSettings.shared)
-        .environment(AppSettings.shared)
+        .environment(UserSettings())
+        .environment(AppSettings())
         .environment(AppState())
 }
 
