@@ -27,6 +27,7 @@ extension Router {
 }
 
 struct ProfileViewCoordinator: View, ScreenCoordinator {
+    @Environment(UserSettings.self) private var userSettings
     typealias ScreenRouter = Router.ProfileView
     
     var navRouter: any NavRouterProtocol
@@ -67,7 +68,7 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
         case .settings:
             SettingsCoordinator(navRouter: navRouter)
         case .login:
-            LoginCoordinator(navRouter: navRouter)
+            LoginCoordinator(navRouter: navRouter, userSettings: userSettings)
         case .logoutConfirm:
             LogoutConfirmView {
                 navRouter.pop(animate: false)
@@ -81,7 +82,7 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
 
 extension ProfileViewCoordinator {
     private func doLogout() {
-        UserSettings.shared.logout()
+        userSettings.logout()
         navRouter.pop(to: Router.Splash.login, animate: false)
     }
 }

@@ -10,8 +10,8 @@ import SwiftUI
 
 struct LoginView: View {
     @Environment(AppState.self) var appState
-    @Environment(UserSettings.self) var settings
-    @ObservedObject var loginModel: LoginModel
+    @Environment(UserSettings.self) var userSettings
+    @State var loginModel: LoginModel
     @State private var showLoading: Bool = false
 
     var loginSuccess: SingleResult<LoginResult>?
@@ -49,7 +49,7 @@ extension LoginView {
     private var content: some View {
         VStack {
             Text("login_view".localized())
-                .setFont(.bold, size: 32, color: settings.color.textColor)
+                .setFont(.bold, size: 32, color: userSettings.color.textColor)
             
             Spacer()
                 .frame(height: 100)
@@ -60,7 +60,7 @@ extension LoginView {
                 }
             } label: {
                 Text("login".localized())
-                    .setFont(.bold, size: 20, color: settings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -69,7 +69,7 @@ extension LoginView {
                 gotoRegister?()
             } label: {
                 Text("register".localized())
-                    .setFont(.bold, size: 20, color: settings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -78,7 +78,7 @@ extension LoginView {
                 gotoForgotPassword?()
             } label: {
                 Text("forgot_password".localized())
-                    .setFont(.bold, size: 20, color: settings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -130,10 +130,10 @@ extension LoginView {
 }
 
 #Preview {
-    LoginView(loginModel: LoginModel(),
+    LoginView(loginModel: LoginModel(userSettings: UserSettings()),
               loginSuccess: nil,
               forgotPassword: nil,
               register: nil)
     .environment(AppState())
-    .environment(UserSettings.shared)
+    .environment(UserSettings())
 }

@@ -8,8 +8,14 @@
 import SwiftUI
 
 class AppSetupUtilities {
-    static func setLanguage(_ language: Language) {
-        UserSettings.shared.userLanguageCode = language.languageCode
+    private var userSettings: UserSettings
+    
+    init(userSettings: UserSettings) {
+        self.userSettings = userSettings
+    }
+    
+    func setLanguage(_ language: Language) {
+        userSettings.userLanguageCode = language.languageCode
 //        LanguageManager.shared.setLanguage(language: language)
     }
     

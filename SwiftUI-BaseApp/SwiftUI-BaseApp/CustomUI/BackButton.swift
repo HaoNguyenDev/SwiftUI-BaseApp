@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BackButton: View {
-    @Environment(UserSettings.self) var settings
+    @Environment(UserSettings.self) var userSettings
     var body: some View {
         HStack {
             Image(systemName: "chevron.left")
@@ -16,17 +16,17 @@ struct BackButton: View {
                 .background(
                     Circle()
                         .stroke(lineWidth: 1.5)
-                        .fill(settings.color.textColor)
+                        .fill(userSettings.color.textColor)
                         .frame(width: 30, height: 30)
                 )
         }
-        .foregroundColor(settings.color.textColor)
+        .foregroundColor(userSettings.color.textColor)
         .padding(.leading, 10)
     }
 }
 
 #Preview {
     BackButton()
-        .environment(UserSettings.shared)
+        .environment(UserSettings())
         
 }

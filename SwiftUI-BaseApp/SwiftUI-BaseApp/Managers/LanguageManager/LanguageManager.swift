@@ -9,7 +9,8 @@
 import Foundation
 
 final class LanguageManager {
-    static let shared = LanguageManager()
+    static let shared = LanguageManager(userSettings: .init())
+    private let userSettings: UserSettings
     
     private(set) var language: Language {
         didSet {
@@ -26,16 +27,17 @@ final class LanguageManager {
         LanguageCode.vietnam.getLanguage()
     ]
     
-    private init() {
-        let languageCode = UserSettings.shared.userLanguageCode
-        language = UserSettings.shared.getLanguage(languageCode).getLanguage()
+    private init(userSettings: UserSettings) {
+        self.userSettings = userSettings
+        let languageCode = userSettings.userLanguageCode
+        language = userSettings.getLanguage(languageCode).getLanguage()
         loadLocalModel()
     }
 
     public func setLanguage(language: Language) {
         let selectedLanguage = allSupportLanguages.first(where: { $0.languageCode == language.languageCode }) ?? language
         self.language = selectedLanguage
-        UserSettings.shared.userLanguageCode = selectedLanguage.languageCode
+        userSettings.userLanguageCode = selectedLanguage.languageCode
     }
 
     public func valueForKey(_ key: String) -> String {

@@ -8,9 +8,7 @@
 import Foundation
 
 @Observable final class AppSettings {
-    static let shared = AppSettings()
-    private init() {}
-    
+   
     var appVersion: AppVersion?
     
     var isMaintenance: Bool { false }

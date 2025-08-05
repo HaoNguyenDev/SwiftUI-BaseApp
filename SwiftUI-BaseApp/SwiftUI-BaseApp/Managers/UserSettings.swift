@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import Observation
 
 extension UserSettings {
     // MARK: - Keys
@@ -25,7 +26,7 @@ extension UserSettings {
 }
 
 @Observable final class UserSettings {
-    static let shared = UserSettings()
+  
     private let defaults = UserDefaults.standard
     
     private(set) var colorSchemeOption: ColorSchemeOption = .system {
@@ -74,7 +75,7 @@ extension UserSettings {
         }
     }
     
-    private init() {
+    init() {
         // Load giá trị từ UserDefaults
         if let rawValue = defaults.string(forKey: Keys.colorSchemeOption),
            let savedOption = ColorSchemeOption(rawValue: rawValue) {
@@ -91,7 +92,6 @@ extension UserSettings {
         updateTheme(colorSchemeOption)
     }
     
-    @ObservationIgnored
     var hasLogin: Bool {
         return token != nil
     }

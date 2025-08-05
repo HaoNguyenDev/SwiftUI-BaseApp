@@ -27,10 +27,13 @@ struct LoginCoordinator: View, ScreenCoordinator {
     typealias ScreenRouter = Router.Login
     var navRouter: any NavRouterProtocol
     
-    @StateObject var loginModel = LoginModel()
+    // Sử dụng @State thay cho @StateObject với @Observable class
+    @State var loginModel: LoginModel
     
-    init(navRouter: any NavRouterProtocol) {
+    init(navRouter: any NavRouterProtocol, userSettings: UserSettings) {
         self.navRouter = navRouter
+        // Bây giờ userSettings đã có giá trị, nên không còn lỗi nữa.
+        self._loginModel = State(initialValue: LoginModel(userSettings: userSettings))
     }
     
     var body: some View {

@@ -11,7 +11,7 @@ import SwiftUI
 import SwiftUI
 
 struct PlaceholderView: View {
-    @Environment(UserSettings.self) var settings
+    @Environment(UserSettings.self) var userSettings
     @Environment(\.dismiss) private var dismiss
     var newTitle: String?
     var onClose: (() -> Void)?
@@ -23,23 +23,23 @@ struct PlaceholderView: View {
                 .scaledToFit()
                 .symbolEffect(.wiggle)
                 .frame(width: 80, height: 80)
-                .foregroundColor(settings.color.textColor)
+                .foregroundColor(userSettings.color.textColor)
 
             if let newTitle = newTitle {
                 Text("\(newTitle)\n\("in_development".localized())")
                     .setFont(.bold, size: 30.0,
-                             color: settings.color.textColor,
+                             color: userSettings.color.textColor,
                              alignment: .center)
             } else {
                 Text("in_development".localized())
                     .setFont(.bold, size: 30.0,
-                             color: settings.color.textColor,
+                             color: userSettings.color.textColor,
                              alignment: .center)
             }
             
             Text("feature_update_soon".localized())
                 .setFont(.regular, size: 20.0,
-                         color: settings.color.textColor,
+                         color: userSettings.color.textColor,
                          alignment: .center)
             
             Spacer()
@@ -47,7 +47,7 @@ struct PlaceholderView: View {
             Capsule()
                 .stroke(style: StrokeStyle(lineWidth: 2))
                 .frame(width: 100, height: 60, alignment: .center)
-                .foregroundStyle(settings.color.textColor)
+                .foregroundStyle(userSettings.color.textColor)
                 .background(
                     Button {
                         dismiss()
@@ -55,7 +55,7 @@ struct PlaceholderView: View {
                     } label: {
                         Text("all_right".localized())
                             .setFont(.bold, size: 18.0,
-                                     color: settings.color.textColor,
+                                     color: userSettings.color.textColor,
                                      alignment: .center)
                     }
                 )
@@ -69,6 +69,6 @@ struct PlaceholderView: View {
 
 #Preview {
     PlaceholderView()
-        .environment(UserSettings.shared)
+        .environment(UserSettings())
 }
 

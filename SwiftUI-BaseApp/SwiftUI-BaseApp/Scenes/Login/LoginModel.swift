@@ -25,7 +25,12 @@ enum LoginError: Error {
     }
 }
 
-class LoginModel: ObservableObject {
+@Observable class LoginModel {
+    private var userSettings: UserSettings
+    
+    init (userSettings: UserSettings) {
+        self.userSettings = userSettings
+    }
     
     func doLogin() async throws -> LoginResult {
         try? await Task.sleep(for: .seconds(2))
@@ -38,8 +43,8 @@ class LoginModel: ObservableObject {
                                                  referralCode: "1234")
             
             Task { @MainActor in
-                UserSettings.shared.username = loginResult.username
-                UserSettings.shared.token = loginResult.token
+                userSettings.username = loginResult.username
+                userSettings.token = loginResult.token
             }
             
             return loginResult

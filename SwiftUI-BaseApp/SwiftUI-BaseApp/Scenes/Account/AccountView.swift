@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct AccountView: View {
-    @Environment(UserSettings.self) var settings
+    @Environment(UserSettings.self) var userSettings
     @State private var showLoading: Bool = false
     
     var gotoSettings: (() -> Void)?
@@ -34,7 +34,7 @@ extension AccountView {
     private var content: some View {
         VStack(spacing: 20) {
             Text("account_view".localized())
-                .setFont(.bold, size: 32, color: settings.color.textColor)
+                .setFont(.bold, size: 32, color: userSettings.color.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -43,7 +43,7 @@ extension AccountView {
                 processGotoSubview(subview: 1)
             } label: {
                 Text("settings".localized())
-                    .setFont(.bold, size: 20, color: settings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -52,7 +52,7 @@ extension AccountView {
                 processGotoSubview(subview: 2)
             } label: {
                 Text("profile".localized())
-                    .setFont(.bold, size: 20, color: settings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())

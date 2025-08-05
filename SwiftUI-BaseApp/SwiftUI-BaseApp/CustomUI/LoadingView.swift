@@ -10,7 +10,7 @@ import SwiftUI
 
 #Preview {
     TestLoadingView()
-        .environment(UserSettings.shared)
+        .environment(UserSettings())
 }
 
 struct TestLoadingView: View {
@@ -24,7 +24,7 @@ struct TestLoadingView: View {
 }
 
 struct LoadingView: View {
-    @Environment(UserSettings.self) var settings
+    @Environment(UserSettings.self) var userSettings
     @State private var isAnimating = false
     private let dotCount = 6
     private let radius: CGFloat = 30
@@ -35,7 +35,7 @@ struct LoadingView: View {
         ZStack {
             ForEach(0..<dotCount, id: \.self) { index in
                 Circle()
-                    .fill(loadingOnSubview ? settings.color.textOnSubviewColor : settings.color.textColor)
+                    .fill(loadingOnSubview ? userSettings.color.textOnSubviewColor : userSettings.color.textColor)
                     .frame(width: 10, height: 10)
                     .offset(x: radius)
                     .rotationEffect(.degrees(Double(index) / Double(dotCount) * 360))
@@ -52,7 +52,7 @@ struct LoadingView: View {
             if !hideText {
                 VStack {
                     Text("please_wait".localized())
-                        .setFont(.bold, size: 17, color: settings.color.textColor)
+                        .setFont(.bold, size: 17, color: userSettings.color.textColor)
                         .frame(maxWidth: .infinity)
                 }
                 .padding(.top, 120)

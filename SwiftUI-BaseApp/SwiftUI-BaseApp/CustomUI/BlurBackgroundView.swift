@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BlurBackgroundView: View {
-    @Environment(UserSettings.self) var settings
+    @Environment(UserSettings.self) var userSettings
     
     var body: some View {
         ZStack {
@@ -18,7 +18,7 @@ struct BlurBackgroundView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
 
-            BlurView(style: settings.colorSchemeOption == .dark ? .dark : .light) // .light, .dark, .extraLight...
+            BlurView(style: userSettings.colorSchemeOption == .dark ? .dark : .light) // .light, .dark, .extraLight...
                 .ignoresSafeArea()
         }
     }
