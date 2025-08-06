@@ -72,6 +72,6 @@ struct Language: Codable {
     
     
     var isChinaLanguage: Bool {
-        return languageCode == "chs"
+        return languageCode == LanguageCode.eng.rawValue
     }
 }

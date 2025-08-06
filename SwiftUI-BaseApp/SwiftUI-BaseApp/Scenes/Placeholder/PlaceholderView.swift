@@ -42,21 +42,19 @@ struct PlaceholderView: View {
             
             Spacer()
                 .frame(height: 20)
-            Capsule()
-                .stroke(style: StrokeStyle(lineWidth: 2))
-                .frame(width: 100, height: 60, alignment: .center)
-                .foregroundStyle(userSettings.color.textColor)
-                .background(
-                    Button {
-                        dismiss()
-//                        onClose?()
-                    } label: {
-                        Text("all_right".localized())
-                            .setFont(.bold, size: 18.0,
-                                     color: userSettings.color.textColor,
-                                     alignment: .center)
-                    }
-                )
+
+            Button {
+                dismiss()
+                //onClose?()
+            } label: {
+                Text("all_right".localized())
+                    .setFont(.bold, size: 18.0,
+                             color: userSettings.color.textColor,
+                             alignment: .center)
+                    .padding()
+                    .frame(height: 50)
+            }.buttonStyle(SecondaryButtonStyle())
+                
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
