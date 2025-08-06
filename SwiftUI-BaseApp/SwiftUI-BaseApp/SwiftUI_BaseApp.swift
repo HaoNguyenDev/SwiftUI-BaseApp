@@ -32,5 +32,6 @@ extension SwiftUI_BaseApp {
     private func setupDefaultSettings() {
         Logger.shared.isEnabled = true
         Logger.shared.debug("\(userSettings.userLanguageCode)")
+        Logger.shared.debug("\(userSettings.colorSchemeOption)")
     }
 }
