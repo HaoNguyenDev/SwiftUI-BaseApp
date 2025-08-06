@@ -18,7 +18,7 @@ struct ThemeChangeView: View {
             Text("choose_theme".localized())
                 .setFont(.bold, size: 25, color: userSettings.color.textOnSubviewColor)
             
-            Image(systemName: userSettings.colorSchemeOption == .dark ? "moon.fill" : "sun.max.fill")
+            Image(systemName: themeIcon(userSettings.colorSchemeOption))
                 .resizable()
                 .frame(width: 80, height: 80)
                 .foregroundColor(userSettings.color.bgColor)
@@ -64,6 +64,15 @@ struct ThemeChangeView: View {
         .onAppear {
         }
         
+    }
+    
+    
+    private func themeIcon(_ theme: ColorSchemeOption) -> String {
+        switch theme {
+        case .dark: return "moon.fill"
+        case .light: return "sun.max.fill"
+        case .system: return "autostartstop.trianglebadge.exclamationmark"
+        }
     }
   
     private func updateTheme(scheme: ColorSchemeOption) {

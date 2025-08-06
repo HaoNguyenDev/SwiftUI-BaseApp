@@ -69,6 +69,8 @@ struct SettingsView: View {
                         .setFont(.bold, size: 14.0, color: userSettings.color.textOnSubviewColor)
                 }
                 Spacer()
+                Text(currentMode)
+                    .setFont(.bold, size: 14.0, color: userSettings.color.textOnSubviewColor)
                 Image(systemName: "chevron.right").tint(userSettings.color.textOnSubviewColor)
             }
             .padding(.horizontal, 24)
@@ -107,6 +109,11 @@ struct SettingsView: View {
     }
 }
 
+extension SettingsView {
+    var currentMode: String {
+        "\(userSettings.colorSchemeOption.title)"
+    }
+}
 #Preview {
     SettingsView(gotoChangeLanguageView: nil)
         .environment(UserSettings())

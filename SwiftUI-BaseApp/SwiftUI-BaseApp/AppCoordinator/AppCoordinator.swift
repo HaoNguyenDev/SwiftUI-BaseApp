@@ -25,11 +25,11 @@ struct AppCoordinator: View {
                 contentView
             }
         }
-        .onChange(of: systemColorScheme) { _, newValue in
-            userSettings.setColorScheme(userSettings.colorSchemeOption, systemColorScheme: newValue)
-        }
         .onAppear {
             userSettings.setColorScheme(userSettings.colorSchemeOption, systemColorScheme: systemColorScheme)
+        }
+        .onChange(of: systemColorScheme) { _, newValue in
+            userSettings.setColorScheme(userSettings.colorSchemeOption, systemColorScheme: newValue)
         }
         .task { startCheckingApp() }
     }
