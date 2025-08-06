@@ -12,7 +12,7 @@ struct RouterView: Identifiable {
     let routable: any Routable
 }
 
-protocol Routable: Identifiable {
+protocol Routable: Identifiable, Hashable {
     var id: String { get }
 }
 

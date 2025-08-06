@@ -67,6 +67,7 @@ struct AppCoordinator: View {
                 .sheet(item: $rootRouter.sheet) { sheet in
                     showSheet(routable: sheet.routable)
                 }
+                
                 .fullScreenCover(item: $rootRouter.fullScreenCover) { cover in
                     showFullScreen(routable: cover.routable)
                 }
@@ -115,8 +116,8 @@ extension AppCoordinator {
             LoginCoordinator(navRouter: rootRouter, userSettings: userSettings)
         case Router.Splash.home:
             HomeViewCoordinator(navRouter: rootRouter)
-        case Router.PlaceholderView.view:
-            PlaceholderViewCoordinator(navRouter: rootRouter)
+        case Router.PlaceholderView.view(let titleParam):
+            PlaceholderViewCoordinator(navRouter: rootRouter, title: titleParam)
         default: Text("OOPS!\nThis route is not implemented AppCoordinator showSheet function yet.")
         }
     }
@@ -128,8 +129,8 @@ extension AppCoordinator {
             LoginCoordinator(navRouter: rootRouter, userSettings: userSettings)
         case Router.Splash.home:
             HomeViewCoordinator(navRouter: rootRouter)
-        case Router.PlaceholderView.view:
-            PlaceholderViewCoordinator(navRouter: rootRouter)
+        case Router.PlaceholderView.view(let titleParam):
+            PlaceholderViewCoordinator(navRouter: rootRouter, title: titleParam)
         default: Text("OOPS!\nThis route is not implemented at AppCoordinator showFullScreen function yet.")
         }
     }

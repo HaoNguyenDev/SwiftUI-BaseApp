@@ -14,7 +14,7 @@ extension UserSettings {
     // MARK: - Keys
     private enum Keys {
         static let username = "username"
-        static let token = "token"
+        static let token = ""
         static let signature = "signature"
         static let userId = "userId"
         static let referralCode = "referralCode"
@@ -99,7 +99,7 @@ extension UserSettings {
     }
     
     var hasLogin: Bool {
-        return token != nil
+        return token != nil && token != ""
     }
     
     func logout() {

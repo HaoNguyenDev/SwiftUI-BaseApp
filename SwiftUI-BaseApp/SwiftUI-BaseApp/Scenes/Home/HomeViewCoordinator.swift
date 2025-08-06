@@ -40,13 +40,13 @@ struct HomeViewCoordinator: View, ScreenCoordinator {
         HomeView(onShowProfile: {
             navRouter.push(Router.MainTab.profile, animate: true)
         }, gotoSubview1: {
-            navRouter.push(Router.MainTab.subview1, animate: true)
+            navRouter.push(Router.MainTab.subview1(info: "data 11111111"), animate: true)
         }, gotoSubview2: {
-            navRouter.push(Router.MainTab.subview2, animate: true)
+            navRouter.push(Router.MainTab.subview2(info: "data 22222222"), animate: true)
         }, showSheet: {
-            navRouter.showSheet(RouterView.init(routable: Router.PlaceholderView.view))
+            navRouter.showSheet(RouterView.init(routable: Router.PlaceholderView.view(title: "Test title of sheet parameter")))
         }, showFullScreen: {
-            navRouter.showFullScreenCover((RouterView.init(routable: Router.PlaceholderView.view)))
+            navRouter.showFullScreenCover(RouterView.init(routable: Router.PlaceholderView.view(title: "Test title of fullScreen parameter")))
         })
         .toolbar(.hidden, for: .navigationBar)
     }

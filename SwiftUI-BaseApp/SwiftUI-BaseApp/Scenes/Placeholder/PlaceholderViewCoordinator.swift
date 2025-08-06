@@ -9,10 +9,13 @@ import SwiftUI
 
 extension Router {
     enum PlaceholderView: Routable {
-        case view
+        case view(title: String)
         
         var id: String {
-            "view"
+            switch self {
+            case .view(title: let title):
+                return title + UUID().uuidString
+            }
         }
     }
 }
@@ -32,8 +35,8 @@ struct PlaceholderViewCoordinator: View, ScreenCoordinator {
             .navigationDestination(for: ScreenRouter.self) { route in
                 viewForRouter(router: route)
             }
-        //            .toolbar(.hidden, for: .bottomBar)
-        //            .toolbar(.hidden, for: .tabBar)
+        //        .toolbar(.hidden, for: .bottomBar)
+        //        .toolbar(.hidden, for: .tabBar)
         //        .toolbar(.hidden, for: .navigationBar)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: Button(action: {

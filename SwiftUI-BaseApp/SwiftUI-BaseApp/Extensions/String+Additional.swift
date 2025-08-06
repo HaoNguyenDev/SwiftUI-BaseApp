@@ -19,6 +19,12 @@ extension Optional where Wrapped == String {
     }
 }
 
+extension String {
+    var isNotEmpty: Bool {
+        return !isEmpty
+    }
+}
+
 // Extension for String to compare version numbers
 extension String {
     func versionCompare(_ otherVersion: String) -> ComparisonResult {

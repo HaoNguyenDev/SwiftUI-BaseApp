@@ -12,7 +12,6 @@ protocol ScreenCoordinator {
     associatedtype Screen: View
 
     var navRouter: NavRouterProtocol { get set }
-    
     @ViewBuilder
     func viewForRouter(router: ScreenRouter) -> Screen
 }

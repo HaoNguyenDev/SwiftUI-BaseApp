@@ -8,11 +8,11 @@
 import SwiftUI
 extension Router {
     enum SettingsView: Routable {
-        case changeLanguage
+        case view
         var id: String {
             switch self {
-            case .changeLanguage:
-                return "SettingsView.changeLanguage"
+            case .view:
+                return "view"
             }
         }
     }
@@ -45,14 +45,14 @@ struct SettingsCoordinator: View, ScreenCoordinator {
     @ViewBuilder
     private func settingsView() -> some View {
         SettingsView(gotoChangeLanguageView: {
-            navRouter.push(ScreenRouter.changeLanguage, animate: true)
+            navRouter.push(ScreenRouter.view, animate: true)
         })
     }
 
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
-        case .changeLanguage:
-            PlaceholderViewCoordinator(navRouter: navRouter, title: "change_language_title".localized())
+        case .view:
+            PlaceholderViewCoordinator(navRouter: navRouter)
         }
     }
 }
