@@ -50,7 +50,7 @@ struct SettingsView: View {
              onDismiss: {
                 showChangeLanguageView = false
              }, onSelectItem: { idx, item in
-                 Logger.shared.debug("\(idx), \(item)")
+                 Logger.shared.info("\(idx), \(item)")
                  updateLanguage(LanguageCode(rawValue: "\(item)"))
                  showChangeLanguageView = false
              })
@@ -110,6 +110,8 @@ struct SettingsView: View {
         if let languageCode = languageCode {
             LanguageManager.shared.setLanguage(language: languageCode.getLanguage())
             userSettings.languageCode = "\(languageCode)"
+        } else {
+            userSettings.languageCode = LanguageCode.eng.rawValue
         }
     }
 }
@@ -120,7 +122,7 @@ extension SettingsView {
     }
     
     var currentLanguageTitle: String {
-        guard let title = LanguageCode(rawValue: userSettings.languageCode)?.title else {
+        guard let title = LanguageCode(rawValue: userSettings.languageCode ?? LanguageCode.eng.rawValue)?.title else {
             return "Unknown"
         }
         return title

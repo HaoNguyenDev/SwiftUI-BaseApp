@@ -36,9 +36,9 @@ extension UserSettings {
         }
     }
     
-    var languageCode: String {
+    var languageCode: String? {
         didSet {
-            Logger.shared.info("languageCode set to: \(languageCode)")
+            Logger.shared.info("languageCode set to: \(languageCode ?? "nil")")
             defaults.set(languageCode, forKey: Keys.languageCode)
         }
     }
@@ -80,18 +80,20 @@ extension UserSettings {
         if let rawValue = defaults.string(forKey: Keys.colorSchemeOption),
            let savedOption = ColorSchemeOption(rawValue: rawValue) {
             self.colorSchemeOption = savedOption
+        } else {
+            self.colorSchemeOption = .system
         }
         
         self.username = defaults.string(forKey: Keys.username)
         self.token = defaults.string(forKey: Keys.token)
         self.referralCode = defaults.string(forKey: Keys.referralCode)
         self.signature = defaults.string(forKey: Keys.signature)
-        self.languageCode = defaults.string(forKey: Keys.languageCode) ?? "en"
+        self.languageCode = defaults.string(forKey: Keys.languageCode)
         
         colorSet = LightColorSet()
         updateTheme(colorSchemeOption)
         
-        if let languageCode = LanguageCode(rawValue: languageCode)?.getLanguage() {
+        if let languageCode = LanguageCode(rawValue: languageCode ?? LanguageCode.eng.rawValue)?.getLanguage() {
             LanguageManager.shared.setLanguage(language: languageCode)
         }
     }

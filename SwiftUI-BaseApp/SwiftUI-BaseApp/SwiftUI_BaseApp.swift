@@ -33,7 +33,7 @@ struct SwiftUI_BaseApp: App {
 extension SwiftUI_BaseApp {
     private func setupDefaultSettings() {
         Logger.shared.isEnabled = true
-        Logger.shared.info("Language: \(userSettings.languageCode)")
+        Logger.shared.info("Language: \(userSettings.languageCode ?? "")")
         Logger.shared.info("Theme mode: \(userSettings.colorSchemeOption)")
     }
 }
