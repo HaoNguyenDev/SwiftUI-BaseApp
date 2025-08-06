@@ -137,7 +137,6 @@
 		DA8910462E263A9C0005D9DB /* FileManager+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8910452E263A930005D9DB /* FileManager+Additional.swift */; };
 		DA89104A2E263B0D0005D9DB /* lang_cn.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8910482E263B0D0005D9DB /* lang_cn.json */; };
 		DA89104B2E263B0D0005D9DB /* lang_en.json in Resources */ = {isa = PBXBuildFile; fileRef = DA8910492E263B0D0005D9DB /* lang_en.json */; };
-		DA89104D2E263C470005D9DB /* AppSetupUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89104C2E263C470005D9DB /* AppSetupUtilities.swift */; };
 		DA89104F2E263FFF0005D9DB /* lang_vi.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89104E2E263FFF0005D9DB /* lang_vi.json */; };
 		DA983F5A2E2BA0DF0030EEA2 /* BlurBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */; };
 		DA983F602E2E52D60030EEA2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F5F2E2E52D60030EEA2 /* Logger.swift */; };
@@ -272,7 +271,6 @@
 		DA8910452E263A930005D9DB /* FileManager+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Additional.swift"; sourceTree = "<group>"; };
 		DA8910482E263B0D0005D9DB /* lang_cn.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lang_cn.json; sourceTree = "<group>"; };
 		DA8910492E263B0D0005D9DB /* lang_en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lang_en.json; sourceTree = "<group>"; };
-		DA89104C2E263C470005D9DB /* AppSetupUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetupUtilities.swift; sourceTree = "<group>"; };
 		DA89104E2E263FFF0005D9DB /* lang_vi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lang_vi.json; sourceTree = "<group>"; };
 		DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackgroundView.swift; sourceTree = "<group>"; };
 		DA983F5F2E2E52D60030EEA2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -515,7 +513,6 @@
 		DA748DD62E22C00800B1B226 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				DA89104C2E263C470005D9DB /* AppSetupUtilities.swift */,
 				DA748E0B2E22C57A00B1B226 /* AppVersion.swift */,
 				DA748E072E22C49500B1B226 /* UserSettings.swift */,
 				DA748DD72E22C01B00B1B226 /* AppSettings.swift */,
@@ -834,7 +831,6 @@
 				DA748DBD2E22BA4C00B1B226 /* Text+Additional.swift in Sources */,
 				DA748E182E22C5E500B1B226 /* SampleViewCoordinator.swift in Sources */,
 				DA748E0C2E22C59100B1B226 /* UserSettings.swift in Sources */,
-				DA89104D2E263C470005D9DB /* AppSetupUtilities.swift in Sources */,
 				DA748E152E22C5D800B1B226 /* PlaceholderView.swift in Sources */,
 				DA748DEC2E22C15100B1B226 /* BackButton.swift in Sources */,
 				DA748E0F2E22C5A100B1B226 /* Env.swift in Sources */,

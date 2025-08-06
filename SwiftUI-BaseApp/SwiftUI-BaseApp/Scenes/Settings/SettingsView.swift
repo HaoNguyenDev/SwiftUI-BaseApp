@@ -51,7 +51,7 @@ struct SettingsView: View {
                 showChangeLanguageView = false
              }, onSelectItem: { idx, item in
                  Logger.shared.debug("\(idx), \(item)")
-                 updateLanguage(value: idx)
+                 updateLanguage(LanguageCode(rawValue: "\(item)"))
                  showChangeLanguageView = false
              })
             .presentationDetents([.height(410)])
@@ -69,7 +69,7 @@ struct SettingsView: View {
                         .setFont(.bold, size: 14.0, color: userSettings.color.textOnSubviewColor)
                 }
                 Spacer()
-                Text(currentMode)
+                Text(currentThemeMode)
                     .setFont(.bold, size: 14.0, color: userSettings.color.textOnSubviewColor)
                 Image(systemName: "chevron.right").tint(userSettings.color.textOnSubviewColor)
             }
@@ -92,6 +92,8 @@ struct SettingsView: View {
                         .setFont(.bold, size: 14, color: userSettings.color.textOnSubviewColor)
                 }
                 Spacer()
+                Text(currentLanguageTitle)
+                    .setFont(.bold, size: 14.0, color: userSettings.color.textOnSubviewColor)
                 Image(systemName: "chevron.right")
                     .tint(userSettings.color.textOnSubviewColor)
             }
@@ -104,14 +106,24 @@ struct SettingsView: View {
     }
     
     @MainActor
-    private func updateLanguage(value: Int) {
-        LanguageManager.shared.setLanguage(language: LanguageCode(rawValue: value)?.getLanguage() ?? LanguageCode.english.getLanguage())
+    private func updateLanguage(_ languageCode: LanguageCode?) {
+        if let languageCode = languageCode {
+            LanguageManager.shared.setLanguage(language: languageCode.getLanguage())
+            userSettings.languageCode = "\(languageCode)"
+        }
     }
 }
 
 extension SettingsView {
-    var currentMode: String {
-        "\(userSettings.colorSchemeOption.title)"
+    var currentThemeMode: String {
+        userSettings.colorSchemeOption.title
+    }
+    
+    var currentLanguageTitle: String {
+        guard let title = LanguageCode(rawValue: userSettings.languageCode)?.title else {
+            return "Unknown"
+        }
+        return title
     }
 }
 #Preview {

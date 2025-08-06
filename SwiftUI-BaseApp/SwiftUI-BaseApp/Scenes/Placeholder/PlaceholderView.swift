@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct PlaceholderView: View {
     @Environment(UserSettings.self) var userSettings
     @Environment(\.dismiss) private var dismiss
