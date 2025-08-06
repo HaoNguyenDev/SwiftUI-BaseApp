@@ -8,10 +8,8 @@
 
 import Foundation
 
-final class LanguageManager {
-    static let shared = LanguageManager(userSettings: .init())
-    private let userSettings: UserSettings
-    
+@Observable final class LanguageManager {
+    static let shared = LanguageManager()
     private(set) var language: Language {
         didSet {
             loadLocalModel()
@@ -22,25 +20,23 @@ final class LanguageManager {
     var localVersion: Int { localModel?.version ?? 0 }
 
     let allSupportLanguages = [
-        LanguageCode.english.getLanguage(),
-        LanguageCode.china.getLanguage(),
-        LanguageCode.vietnam.getLanguage()
+        LanguageCode.eng.getLanguage(),
+        LanguageCode.chs.getLanguage(),
+        LanguageCode.vi.getLanguage()
     ]
     
-    private init(userSettings: UserSettings) {
-        self.userSettings = userSettings
-        let languageCode = userSettings.userLanguageCode
-        language = userSettings.getLanguage(languageCode).getLanguage()
+    init() {
+        language = LanguageCode.eng.getLanguage() //userSettings.getLanguage(languageCode).getLanguage()
+        loadLocalModel()
+    }
+    
+    func setLanguage(language: Language) {
+        let selectedLanguage = allSupportLanguages.first(where: { $0.languageCode == language.languageCode }) ?? language
+        self.language = selectedLanguage
         loadLocalModel()
     }
 
-    public func setLanguage(language: Language) {
-        let selectedLanguage = allSupportLanguages.first(where: { $0.languageCode == language.languageCode }) ?? language
-        self.language = selectedLanguage
-        userSettings.userLanguageCode = selectedLanguage.languageCode
-    }
-
-    public func valueForKey(_ key: String) -> String {
+    func valueForKey(_ key: String) -> String {
         return localModel?.data[key] ?? key
     }
 

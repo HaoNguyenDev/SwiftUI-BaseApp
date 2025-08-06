@@ -20,35 +20,35 @@ public struct LanguageJsonModel: Codable {
     }
 }
 
-enum LanguageCode: Int, CaseIterable, TitleItem {
-    case english = 0
-    case china
-    case vietnam
+enum LanguageCode: String, CaseIterable, TitleItem {
+    case eng
+    case chs
+    case vi
     
     var title: String {
         switch self {
-        case .english:
+        case .eng:
             return "English"
-        case .china:
+        case .chs:
             return "中文"
-        case .vietnam:
+        case .vi:
             return "Viet Nam"
         }
     }
     
     func getLanguage() -> Language {
         switch self {
-        case .english:
+        case .eng:
             return  Language(displayName: "English",
                                languageCode: "eng",
                                flagName: "language_flag_2",
                                fileName: "lang_en")
-        case .china:
+        case .chs:
             return Language(displayName: "中文",
                               languageCode: "chs",
                               flagName: "language_flag_1",
                               fileName: "lang_cn")
-        case .vietnam:
+        case .vi:
             return Language(displayName: "Viet Nam",
                               languageCode: "vi",
                               flagName: "language_flag_3",

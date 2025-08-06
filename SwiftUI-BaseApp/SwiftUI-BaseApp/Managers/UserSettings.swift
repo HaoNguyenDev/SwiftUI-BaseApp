@@ -18,7 +18,7 @@ extension UserSettings {
         static let signature = "signature"
         static let userId = "userId"
         static let referralCode = "referralCode"
-        static let userLanguageCode = "userLanguageCode"
+        static let languageCode = "languageCode"
         static let colorSchemeOption = "colorSchemeOption"
         static let launchCount = "launchCount"
         static let currentUser = "currentUser"
@@ -33,6 +33,13 @@ extension UserSettings {
         didSet {
             defaults.set(colorSchemeOption.rawValue, forKey: Keys.colorSchemeOption)
             updateTheme(colorSchemeOption) // Update colorSet
+        }
+    }
+    
+    var languageCode: String {
+        didSet {
+            Logger.shared.info("languageCode set to: \(languageCode)")
+            defaults.set(languageCode, forKey: Keys.languageCode)
         }
     }
     
@@ -68,13 +75,6 @@ extension UserSettings {
         }
     }
     
-    var userLanguageCode: String {
-        didSet {
-            Logger.shared.info("userLanguageCode set to: \(userLanguageCode)")
-            defaults.set(userLanguageCode, forKey: Keys.userLanguageCode)
-        }
-    }
-    
     init() {
         // Load giá trị từ UserDefaults
         if let rawValue = defaults.string(forKey: Keys.colorSchemeOption),
@@ -86,10 +86,14 @@ extension UserSettings {
         self.token = defaults.string(forKey: Keys.token)
         self.referralCode = defaults.string(forKey: Keys.referralCode)
         self.signature = defaults.string(forKey: Keys.signature)
-        self.userLanguageCode = defaults.string(forKey: Keys.userLanguageCode) ?? "en"
+        self.languageCode = defaults.string(forKey: Keys.languageCode) ?? "en"
         
         colorSet = LightColorSet()
         updateTheme(colorSchemeOption)
+        
+        if let languageCode = LanguageCode(rawValue: languageCode)?.getLanguage() {
+            LanguageManager.shared.setLanguage(language: languageCode)
+        }
     }
     
     var hasLogin: Bool {
@@ -136,10 +140,10 @@ extension UserSettings {
 extension UserSettings {
     func getLanguage(_ languageCode: String) -> LanguageCode {
         switch languageCode {
-        case "eng": return LanguageCode.english
-        case "chs": return LanguageCode.china
-        case "vi": return LanguageCode.vietnam
-        default: return LanguageCode.english
+        case "eng": return LanguageCode.eng
+        case "chs": return LanguageCode.chs
+        case "vi": return LanguageCode.vi
+        default: return LanguageCode.eng
         }
     }
 }

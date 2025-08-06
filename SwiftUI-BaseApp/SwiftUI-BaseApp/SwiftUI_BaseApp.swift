@@ -13,6 +13,7 @@ struct SwiftUI_BaseApp: App {
     @State private var userSettings = UserSettings()
     @State private var appSettings = AppSettings()
     @State private var appState = AppState()
+    @State private var languageManager = LanguageManager()
     
     init() {
         setupDefaultSettings()
@@ -24,6 +25,7 @@ struct SwiftUI_BaseApp: App {
                 .environment(appState)
                 .environment(appSettings)
                 .environment(userSettings)
+                .environment(languageManager)
         }
     }
 }
@@ -31,7 +33,7 @@ struct SwiftUI_BaseApp: App {
 extension SwiftUI_BaseApp {
     private func setupDefaultSettings() {
         Logger.shared.isEnabled = true
-        Logger.shared.debug("\(userSettings.userLanguageCode)")
-        Logger.shared.debug("\(userSettings.colorSchemeOption)")
+        Logger.shared.info("Language: \(userSettings.languageCode)")
+        Logger.shared.info("Theme mode: \(userSettings.colorSchemeOption)")
     }
 }
