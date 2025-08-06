@@ -47,8 +47,8 @@ extension Router {
     enum MainTab: Routable {
         case profile
         case settings
-        case subview1
-        case subview2
+        case subview1(info: String)
+        case subview2(info: String)
         
         var id: String {
             switch self {
@@ -190,10 +190,10 @@ struct MainTabControllerView: View {
             ProfileViewCoordinator(navRouter: navRouter)
         case .settings:
             SettingsCoordinator(navRouter: navRouter)
-        case .subview1:
-            PlaceholderViewCoordinator(navRouter: navRouter, title: "Subview 1")
-            case .subview2:
-            PlaceholderViewCoordinator(navRouter: navRouter, title: "Subview 2")
+        case .subview1(let info):
+            PlaceholderViewCoordinator(navRouter: navRouter, title: "Subview 1 \(info)")
+            case .subview2(let info):
+            PlaceholderViewCoordinator(navRouter: navRouter, title: "Subview 2 \(info)")
         }
     }
 }

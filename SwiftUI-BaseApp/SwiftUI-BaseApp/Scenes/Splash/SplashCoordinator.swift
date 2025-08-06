@@ -45,16 +45,16 @@ struct SplashCoordinator: View, ScreenCoordinator {
         SplashView(onSkipUpdate: {
             if userSettings.hasLogin {
                 navRouter.push(ScreenRouter.login, animate: false)
-                navRouter.push(ScreenRouter.home, animate: true)
+                navRouter.push(ScreenRouter.home, animate: false)
             } else {
-                navRouter.push(ScreenRouter.login, animate: true)
+                navRouter.push(ScreenRouter.login, animate: false)
             }
         })
     }
     
     @ViewBuilder
     func viewForRouter(router: ScreenRouter) -> some View {
-        switch router {
+        switch router { 
         case .login:
             LoginCoordinator(navRouter: navRouter, userSettings: userSettings)
         case .home:
