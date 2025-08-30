@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol ColorSet {
+protocol Theme {
     var bgColor: Color { get }
     var subviewBgColor: Color { get }
     var textOnSubviewColor: Color { get }

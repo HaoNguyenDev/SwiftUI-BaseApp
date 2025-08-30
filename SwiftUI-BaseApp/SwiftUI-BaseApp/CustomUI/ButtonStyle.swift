@@ -62,10 +62,10 @@ struct SecondaryButtonStyle: ButtonStyle {
         configuration.label
             .font(mainFont.bold(16))
             .background(Color.clear)
-            .foregroundColor(isEnabled ? userSettings.color.textColor : .gray)
+            .foregroundColor(isEnabled ? userSettings.theme.textColor : .gray)
             .overlay(
                 RoundedRectangle(cornerRadius: 24)
-                    .stroke(isEnabled ? userSettings.color.textColor : Color.gray, lineWidth: 1)
+                    .stroke(isEnabled ? userSettings.theme.textColor : Color.gray, lineWidth: 1)
             )
             .contentShape(Rectangle())
             .opacity(configuration.isPressed ? 0.5 : 1)

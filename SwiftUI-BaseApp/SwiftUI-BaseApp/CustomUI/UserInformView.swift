@@ -44,12 +44,12 @@ struct UserInformView: View {
                 VStack(spacing: 16) {
                     if let title = message.title {
                         Text(title)
-                            .setFont(.bold, size: 24.0, color: userSettings.color.textOnSubviewColor)
+                            .setFont(.bold, size: 24.0, color: userSettings.theme.textOnSubviewColor)
                             .foregroundStyle(message.type.color)
                     }
                     if let message = message.message {
                         Text(message)
-                            .setFont(.regular, size: 14.0, color: userSettings.color.textOnSubviewColor)
+                            .setFont(.regular, size: 14.0, color: userSettings.theme.textOnSubviewColor)
                             .fixedSize(horizontal: false, vertical: true)
                     } else if let attributeMessage = message.attributeMessage {
                         Text(attributeMessage)
@@ -64,13 +64,13 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(primaryAction.title)
-                                    .setFont(.regular, size: 14, color: userSettings.color.textOnSubviewColor)
+                                    .setFont(.regular, size: 14, color: userSettings.theme.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                                     .background(
                                         RoundedRectangle(cornerRadius: 24)
                                             .stroke(lineWidth: 1)
-                                            .foregroundStyle(userSettings.color.textOnSubviewColor)
+                                            .foregroundStyle(userSettings.theme.textOnSubviewColor)
                                     )
                             })
                         }
@@ -82,13 +82,13 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(secondaryAction.title)
-                                    .setFont(.regular, size: 14, color: userSettings.color.textOnSubviewColor)
+                                    .setFont(.regular, size: 14, color: userSettings.theme.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                                     .background(
                                         RoundedRectangle(cornerRadius: 24)
                                             .stroke(lineWidth: 1)
-                                            .foregroundStyle(userSettings.color.textOnSubviewColor)
+                                            .foregroundStyle(userSettings.theme.textOnSubviewColor)
                                     )
                             })
                         }
@@ -100,7 +100,7 @@ struct UserInformView: View {
             .padding(.vertical, 40)
             .frame(maxWidth: .infinity)
             .background(
-                userSettings.color.subviewBgColor
+                userSettings.theme.subviewBgColor
                     .clipShape(RoundedRectangle(cornerRadius: 40))
                     .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 4)
             )

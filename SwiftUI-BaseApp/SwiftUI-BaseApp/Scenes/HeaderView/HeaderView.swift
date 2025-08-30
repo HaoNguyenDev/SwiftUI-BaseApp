@@ -26,7 +26,7 @@ struct HeaderView: View {
                     .frame(width: 32, height: 32)
                 
                 Text("👋 Hi, \(name ?? "buddy".localized())")
-                    .setFont(.bold, size: 14, color: userSettings.color.textColor)
+                    .setFont(.bold, size: 14, color: userSettings.theme.textColor)
                     .lineLimit(1)
             }
             .onTapGesture { onShowProfile?() }
@@ -42,23 +42,23 @@ struct HeaderView: View {
                         Image(systemName: hasNewNotification ? "bell.badge" : "bell")
                             .symbolRenderingMode(.monochrome)
                             .symbolEffect(.wiggle, options: .repeat(.bitWidth))
-                            .foregroundStyle(userSettings.color.textColor)
+                            .foregroundStyle(userSettings.theme.textColor)
                             .font(mainFont.semibold(18))
                     })
                 
                 HStack(alignment: .center, spacing: 5) {
                     Text("100.000.000")
-                        .setFont(.bold, size: 14, color: userSettings.color.textOnSubviewColor)
+                        .setFont(.bold, size: 14, color: userSettings.theme.textOnSubviewColor)
                         .fixedSize(horizontal: true, vertical: false)
                     Image(systemName: "bitcoinsign.circle")
                     //                            .resizable()
                         .font(mainFont.semibold(18))
-                        .foregroundStyle(userSettings.color.textOnSubviewColor)
+                        .foregroundStyle(userSettings.theme.textOnSubviewColor)
                 }
                 
                 .padding(.horizontal, 8)
                 .frame(height: 32)
-                .background(userSettings.color.subviewBgColor, in: .rect(cornerRadius: 16))
+                .background(userSettings.theme.subviewBgColor, in: .rect(cornerRadius: 16))
                 .onTapGesture {
                     //                    NotificationCenter.default.post(name: .showTransactionHistoryScreen, object: nil)
                 }

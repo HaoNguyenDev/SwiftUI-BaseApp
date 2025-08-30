@@ -29,15 +29,15 @@ struct TitleListView: View {
         VStack(spacing: 16) {
             VStack {
                 Text("swipe_down_to_exit".localized())
-                    .setFont(.regular, size: 14, color: userSettings.color.textColor)
+                    .setFont(.regular, size: 14, color: userSettings.theme.textColor)
                 VStack(spacing: 16) {
                     Text(title)
-                        .setFont(.bold, size: 24, color: userSettings.color.textOnSubviewColor)
+                        .setFont(.bold, size: 24, color: userSettings.theme.textOnSubviewColor)
 
                     VStack(spacing: 16) {
                         ForEach(items.indices, id: \.self) { idx in
                             Text(items[idx].title)
-                                .setFont(.regular, size: 16, color: userSettings.color.textOnSubviewColor)
+                                .setFont(.regular, size: 16, color: userSettings.theme.textOnSubviewColor)
                                 .frame(maxWidth: .infinity)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
@@ -45,7 +45,7 @@ struct TitleListView: View {
                                 }
                             if idx < items.count - 1 {
                                 Divider()
-                                    .background(userSettings.color.textOnSubviewColor)
+                                    .background(userSettings.theme.textOnSubviewColor)
                             }
                         }
                     }
@@ -54,7 +54,7 @@ struct TitleListView: View {
                 }
                 .padding(EdgeInsets(top: 40, leading: 32, bottom: 40, trailing: 32))
                 .frame(maxWidth: .infinity)
-                .background(userSettings.color.subviewBgColor, in: .rect(cornerRadius: 40))
+                .background(userSettings.theme.subviewBgColor, in: .rect(cornerRadius: 40))
             }
             .offset(y: offset)
             .opacity(opacity)
@@ -63,7 +63,7 @@ struct TitleListView: View {
         .multilineTextAlignment(.center)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .padding(.horizontal, 10)
-//        .background(theme.color.subviewBgColor)
+//        .background(theme.theme.subviewBgColor)
         .animation(.easeOut(duration: 0.2), value: offset)
         .animation(.easeOut(duration: 0.2), value: opacity)
         .onChange(of: isShow) { _, newValue in

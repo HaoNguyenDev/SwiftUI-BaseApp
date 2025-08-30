@@ -29,22 +29,22 @@ struct LogoutConfirmView: View {
                     .frame(width: 120, height: 120)
                 
                 Text("logout_prompt".localized())
-                    .setFont(.bold, size: 24, color: userSettings.color.textOnSubviewColor)
+                    .setFont(.bold, size: 24, color: userSettings.theme.textOnSubviewColor)
                 
                 Text("logout_message".localized())
-                    .setFont(.regular, size: 14, color: userSettings.color.textOnSubviewColor)
+                    .setFont(.regular, size: 14, color: userSettings.theme.textOnSubviewColor)
                 
                 Button {
                     onLogout?()
                 } label: {
                     Text("logout".localized())
-                        .setFont(.bold, size: 17, color: userSettings.color.textOnSubviewColor)
+                        .setFont(.bold, size: 17, color: userSettings.theme.textOnSubviewColor)
                         .frame(height: 48)
                         .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(cornerRadius: 24)
                                 .stroke(lineWidth: 1)
-                                .foregroundStyle(userSettings.color.textOnSubviewColor)
+                                .foregroundStyle(userSettings.theme.textOnSubviewColor)
                         )
                 }
                 
@@ -53,13 +53,13 @@ struct LogoutConfirmView: View {
                     onDismiss?()
                 } label: {
                     Text("cancel".localized())
-                        .setFont(.bold, size: 17, color: userSettings.color.textOnSubviewColor)
+                        .setFont(.bold, size: 17, color: userSettings.theme.textOnSubviewColor)
                         .frame(height: 48)
                         .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(cornerRadius: 24)
                                 .stroke(lineWidth: 1)
-                                .foregroundStyle(userSettings.color.textOnSubviewColor)
+                                .foregroundStyle(userSettings.theme.textOnSubviewColor)
                         )
                 }
                
@@ -68,7 +68,7 @@ struct LogoutConfirmView: View {
             .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(userSettings.color.subviewBgColor)
+                    .fill(userSettings.theme.subviewBgColor)
             )
             .offset(y: offset)
             .opacity(opacity)

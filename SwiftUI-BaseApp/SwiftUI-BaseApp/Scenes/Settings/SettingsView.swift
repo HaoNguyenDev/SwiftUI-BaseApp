@@ -18,7 +18,7 @@ struct SettingsView: View {
         ScrollView(showsIndicators: false, content: {
             VStack(spacing: 24) {
                 Text("settings".localized())
-                    .setFont(.bold, size: 32, color: userSettings.color.textColor)
+                    .setFont(.bold, size: 32, color: userSettings.theme.textColor)
                 // Settings content
                 VStack(spacing: 16) {
                     changeThemeModeRow
@@ -66,16 +66,16 @@ struct SettingsView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text("change_theme_mode".localized())
-                        .setFont(.bold, size: 14.0, color: userSettings.color.textOnSubviewColor)
+                        .setFont(.bold, size: 14.0, color: userSettings.theme.textOnSubviewColor)
                 }
                 Spacer()
                 Text(currentThemeMode)
-                    .setFont(.bold, size: 14.0, color: userSettings.color.textOnSubviewColor)
-                Image(systemName: "chevron.right").tint(userSettings.color.textOnSubviewColor)
+                    .setFont(.bold, size: 14.0, color: userSettings.theme.textOnSubviewColor)
+                Image(systemName: "chevron.right").tint(userSettings.theme.textOnSubviewColor)
             }
             .padding(.horizontal, 24)
             .frame(height: 75)
-            .background(userSettings.color.subviewBgColor)
+            .background(userSettings.theme.subviewBgColor)
             .clipShape(RoundedRectangle(cornerRadius: 32))
         }
         .padding(.horizontal, 24)
@@ -89,17 +89,17 @@ struct SettingsView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text("change_language_title".localized())
-                        .setFont(.bold, size: 14, color: userSettings.color.textOnSubviewColor)
+                        .setFont(.bold, size: 14, color: userSettings.theme.textOnSubviewColor)
                 }
                 Spacer()
                 Text(currentLanguageTitle)
-                    .setFont(.bold, size: 14.0, color: userSettings.color.textOnSubviewColor)
+                    .setFont(.bold, size: 14.0, color: userSettings.theme.textOnSubviewColor)
                 Image(systemName: "chevron.right")
-                    .tint(userSettings.color.textOnSubviewColor)
+                    .tint(userSettings.theme.textOnSubviewColor)
             }
             .padding(.horizontal, 24)
             .frame(height: 75)
-            .background(userSettings.color.subviewBgColor)
+            .background(userSettings.theme.subviewBgColor)
             .clipShape(RoundedRectangle(cornerRadius: 32))
         }
         .padding(.horizontal, 24)

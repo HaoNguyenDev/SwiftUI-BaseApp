@@ -80,9 +80,9 @@
 		DA748DBB2E22BA0200B1B226 /* Font+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DBA2E22BA0200B1B226 /* Font+Additional.swift */; };
 		DA748DBD2E22BA4C00B1B226 /* Text+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DBC2E22BA4C00B1B226 /* Text+Additional.swift */; };
 		DA748DBF2E22BBF500B1B226 /* Color+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DBE2E22BBF500B1B226 /* Color+Additional.swift */; };
-		DA748DC42E22BC9800B1B226 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DC32E22BC9800B1B226 /* ColorSet.swift */; };
-		DA748DC62E22BCB800B1B226 /* LightColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DC52E22BCB800B1B226 /* LightColorSet.swift */; };
-		DA748DC82E22BCD500B1B226 /* DarkColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DC72E22BCD500B1B226 /* DarkColorSet.swift */; };
+		DA748DC42E22BC9800B1B226 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DC32E22BC9800B1B226 /* Theme.swift */; };
+		DA748DC62E22BCB800B1B226 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DC52E22BCB800B1B226 /* LightTheme.swift */; };
+		DA748DC82E22BCD500B1B226 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DC72E22BCD500B1B226 /* DarkTheme.swift */; };
 		DA748DCA2E22BD0700B1B226 /* ColorSchemeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DC92E22BD0700B1B226 /* ColorSchemeOption.swift */; };
 		DA748DD52E22BF8E00B1B226 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DD42E22BF8E00B1B226 /* AppCoordinator.swift */; };
 		DA748DDB2E22C0C300B1B226 /* BackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DDA2E22C0C300B1B226 /* BackgroundAnimation.swift */; };
@@ -218,9 +218,9 @@
 		DA748DBA2E22BA0200B1B226 /* Font+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Additional.swift"; sourceTree = "<group>"; };
 		DA748DBC2E22BA4C00B1B226 /* Text+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Additional.swift"; sourceTree = "<group>"; };
 		DA748DBE2E22BBF500B1B226 /* Color+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Additional.swift"; sourceTree = "<group>"; };
-		DA748DC32E22BC9800B1B226 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
-		DA748DC52E22BCB800B1B226 /* LightColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightColorSet.swift; sourceTree = "<group>"; };
-		DA748DC72E22BCD500B1B226 /* DarkColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkColorSet.swift; sourceTree = "<group>"; };
+		DA748DC32E22BC9800B1B226 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		DA748DC52E22BCB800B1B226 /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
+		DA748DC72E22BCD500B1B226 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		DA748DC92E22BD0700B1B226 /* ColorSchemeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeOption.swift; sourceTree = "<group>"; };
 		DA748DCD2E22BE7D00B1B226 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		DA748DCE2E22BE9300B1B226 /* SampleViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewCoordinator.swift; sourceTree = "<group>"; };
@@ -459,9 +459,9 @@
 			isa = PBXGroup;
 			children = (
 				DA748DC92E22BD0700B1B226 /* ColorSchemeOption.swift */,
-				DA748DC32E22BC9800B1B226 /* ColorSet.swift */,
-				DA748DC52E22BCB800B1B226 /* LightColorSet.swift */,
-				DA748DC72E22BCD500B1B226 /* DarkColorSet.swift */,
+				DA748DC32E22BC9800B1B226 /* Theme.swift */,
+				DA748DC52E22BCB800B1B226 /* LightTheme.swift */,
+				DA748DC72E22BCD500B1B226 /* DarkTheme.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -813,7 +813,7 @@
 			files = (
 				DA748E172E22C5E100B1B226 /* SampleView.swift in Sources */,
 				DA748DBF2E22BBF500B1B226 /* Color+Additional.swift in Sources */,
-				DA748DC62E22BCB800B1B226 /* LightColorSet.swift in Sources */,
+				DA748DC62E22BCB800B1B226 /* LightTheme.swift in Sources */,
 				DA890F712E23B2FF0005D9DB /* HomeView.swift in Sources */,
 				DA8910462E263A9C0005D9DB /* FileManager+Additional.swift in Sources */,
 				DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */,
@@ -841,7 +841,7 @@
 				DA890F812E23D2500005D9DB /* SettingsCoordinator.swift in Sources */,
 				DA748E242E22C75500B1B226 /* ErrorHandler.swift in Sources */,
 				DA890F882E23D4260005D9DB /* ThemeChangeView.swift in Sources */,
-				DA748DC82E22BCD500B1B226 /* DarkColorSet.swift in Sources */,
+				DA748DC82E22BCD500B1B226 /* DarkTheme.swift in Sources */,
 				DA5CC28E2E22B47A000C5F18 /* NavRouter.swift in Sources */,
 				DA5CC2942E22B4EC000C5F18 /* ScreenCoordinator.swift in Sources */,
 				DA5CC2902E22B485000C5F18 /* NavRouterProtocol.swift in Sources */,
@@ -853,7 +853,7 @@
 				DA748F942E23A30100B1B226 /* LoginCoordinator.swift in Sources */,
 				DA983F5A2E2BA0DF0030EEA2 /* BlurBackgroundView.swift in Sources */,
 				DA748E102E22C5A600B1B226 /* AppVersion.swift in Sources */,
-				DA748DC42E22BC9800B1B226 /* ColorSet.swift in Sources */,
+				DA748DC42E22BC9800B1B226 /* Theme.swift in Sources */,
 				DA8910412E2639610005D9DB /* LanguageManager.swift in Sources */,
 				DA748DCA2E22BD0700B1B226 /* ColorSchemeOption.swift in Sources */,
 				DA890F8B2E23D73C0005D9DB /* ProfileView.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DarkColorSet: ColorSet {
+struct DarkTheme: Theme {
     let bgColor = Color(hex: "#1C2526")
     let subviewBgColor = Color(hex: "#495051")
     var textOnSubviewColor = Color(hex: "#ffffff")
