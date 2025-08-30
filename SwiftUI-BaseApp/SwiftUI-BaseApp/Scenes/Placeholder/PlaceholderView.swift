@@ -21,23 +21,23 @@ struct PlaceholderView: View {
                 .scaledToFit()
                 .symbolEffect(.wiggle)
                 .frame(width: 80, height: 80)
-                .foregroundColor(userSettings.color.textColor)
+                .foregroundColor(userSettings.theme.textColor)
 
             if let newTitle = newTitle {
                 Text("\(newTitle)\n\("in_development".localized())")
                     .setFont(.bold, size: 30.0,
-                             color: userSettings.color.textColor,
+                             color: userSettings.theme.textColor,
                              alignment: .center)
             } else {
                 Text("in_development".localized())
                     .setFont(.bold, size: 30.0,
-                             color: userSettings.color.textColor,
+                             color: userSettings.theme.textColor,
                              alignment: .center)
             }
             
             Text("feature_update_soon".localized())
                 .setFont(.regular, size: 20.0,
-                         color: userSettings.color.textColor,
+                         color: userSettings.theme.textColor,
                          alignment: .center)
             
             Spacer()
@@ -49,7 +49,7 @@ struct PlaceholderView: View {
             } label: {
                 Text("all_right".localized())
                     .setFont(.bold, size: 18.0,
-                             color: userSettings.color.textColor,
+                             color: userSettings.theme.textColor,
                              alignment: .center)
                     .padding()
                     .frame(height: 50)

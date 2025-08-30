@@ -46,11 +46,11 @@ extension SplashView {
                    
                     VStack(spacing: 12) {
                         Text("splas_screen_title".localized())
-                            .setFont(.bold, size: 50.0, color: userSettings.color.textColor)
+                            .setFont(.bold, size: 50.0, color: userSettings.theme.textColor)
                         Text("please_update".localized())
-                            .setFont(.bold, size: 32.0, color: userSettings.color.textColor)
+                            .setFont(.bold, size: 32.0, color: userSettings.theme.textColor)
                         Text("update_the_app_now".localized())
-                            .setFont(.regular, size: 14.0, color: userSettings.color.textColor)
+                            .setFont(.regular, size: 14.0, color: userSettings.theme.textColor)
                     }
                     .multilineTextAlignment(.center)
                 }
@@ -61,7 +61,7 @@ extension SplashView {
                         updateAppProcess()
                     }, label: {
                         Text("update".localized())
-                            .setFont(.regular, size: 17, color: userSettings.color.textColor)
+                            .setFont(.regular, size: 17, color: userSettings.theme.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
@@ -71,7 +71,7 @@ extension SplashView {
                         onSkipUpdate?()
                     }, label: {
                         Text("skip".localized())
-                            .setFont(.regular, size: 17, color: userSettings.color.textColor)
+                            .setFont(.regular, size: 17, color: userSettings.theme.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })

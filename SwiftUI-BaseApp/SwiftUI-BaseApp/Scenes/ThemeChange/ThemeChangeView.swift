@@ -16,29 +16,29 @@ struct ThemeChangeView: View {
     var body: some View {
         VStack(spacing: 15) {
             Text("choose_theme".localized())
-                .setFont(.bold, size: 25, color: userSettings.color.textOnSubviewColor)
+                .setFont(.bold, size: 25, color: userSettings.theme.textOnSubviewColor)
             
             Image(systemName: themeIcon(userSettings.colorSchemeOption))
                 .resizable()
                 .frame(width: 80, height: 80)
-                .foregroundColor(userSettings.color.bgColor)
+                .foregroundColor(userSettings.theme.bgColor)
             
             Text("\("current_theme".localized()) \(userSettings.colorSchemeOption.title)")
-                .setFont(.regular, size: 17, color: userSettings.color.textOnSubviewColor)
+                .setFont(.regular, size: 17, color: userSettings.theme.textOnSubviewColor)
             Text("choose_theme".localized())
-                .setFont(.regular, size: 17, color: userSettings.color.textOnSubviewColor)
+                .setFont(.regular, size: 17, color: userSettings.theme.textOnSubviewColor)
             
             HStack(spacing: 0) {
                 ForEach(ColorSchemeOption.allCases, id: \.self) { theme in
                     Text(theme.rawValue)
-                        .setFont(.semibold, size: 17, color: userSettings.colorSchemeOption == theme ? userSettings.color.textColor : userSettings.color.textOnSubviewColor)
+                        .setFont(.semibold, size: 17, color: userSettings.colorSchemeOption == theme ? userSettings.theme.textColor : userSettings.theme.textOnSubviewColor)
                         .padding(.vertical, 10)
                         .frame(width: 100)
                         .background {
                             ZStack {
                                 if userSettings.colorSchemeOption == theme {
                                     Capsule()
-                                        .fill(userSettings.color.bgColor)
+                                        .fill(userSettings.theme.bgColor)
                                         .matchedGeometryEffect(id: "ACTIVETAB", in: animation)
                                 }
                             }
@@ -51,13 +51,13 @@ struct ThemeChangeView: View {
                 }
             }
             .padding(5)
-            .background(userSettings.color.mainTabUnselectedTextColor.opacity(0.3), in: .capsule)
+            .background(userSettings.theme.mainTabUnselectedTextColor.opacity(0.3), in: .capsule)
             .padding(.top, 20)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .frame(height: 410)
         .background {
-            userSettings.color.subviewBgColor
+            userSettings.theme.subviewBgColor
         }
         .clipShape(RoundedRectangle(cornerRadius: 30))
         .padding(.horizontal, 10)

@@ -47,7 +47,7 @@ struct UserMessageView: View {
     var titleLabel: some View {
         if let title = message.title {
             Text(title)
-                .setFont(.bold, size: 20, color: userSettings.color.textOnSubviewColor)
+                .setFont(.bold, size: 20, color: userSettings.theme.textOnSubviewColor)
         } else {
             EmptyView()
         }
@@ -76,7 +76,7 @@ struct UserMessageView: View {
                     titleLabel
                     if let message = message.message {
                         Text(message)
-                            .setFont(.regular, size: 14, color: userSettings.color.textOnSubviewColor)
+                            .setFont(.regular, size: 14, color: userSettings.theme.textOnSubviewColor)
                     } else if let message = message.attributeMessage {
                         Text(message)
                     }
@@ -84,9 +84,9 @@ struct UserMessageView: View {
                 }
             }
             .multilineTextAlignment(.leading)
-            .foregroundStyle(userSettings.color.textOnSubviewColor)
+            .foregroundStyle(userSettings.theme.textOnSubviewColor)
             .padding(16)
-            .background(userSettings.color.subviewBgColor, in: .rect(cornerRadius: 20))
+            .background(userSettings.theme.subviewBgColor, in: .rect(cornerRadius: 20))
             .opacity(opacity)
             Spacer()
         }

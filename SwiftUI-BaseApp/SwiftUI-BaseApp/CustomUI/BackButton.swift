@@ -16,11 +16,11 @@ struct BackButton: View {
                 .background(
                     Circle()
                         .stroke(lineWidth: 1.5)
-                        .fill(userSettings.color.textColor)
+                        .fill(userSettings.theme.textColor)
                         .frame(width: 30, height: 30)
                 )
         }
-        .foregroundColor(userSettings.color.textColor)
+        .foregroundColor(userSettings.theme.textColor)
         .padding(.leading, 10)
     }
 }

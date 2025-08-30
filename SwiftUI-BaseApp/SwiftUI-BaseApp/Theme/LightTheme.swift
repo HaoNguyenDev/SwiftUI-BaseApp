@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LightColorSet: ColorSet {
+struct LightTheme: Theme {
     let bgColor = Color(hex: "#ffffff")
     let subviewBgColor = Color(hex: "#333333")
     var textOnSubviewColor = Color(hex: "#ffffff")

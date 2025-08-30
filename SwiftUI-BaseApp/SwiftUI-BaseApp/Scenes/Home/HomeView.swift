@@ -41,7 +41,7 @@ extension HomeView {
     private var content: some View {
         VStack(spacing: 20) {
             Text("home_view".localized())
-                .setFont(.bold, size: 32, color: userSettings.color.textColor)
+                .setFont(.bold, size: 32, color: userSettings.theme.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -50,7 +50,7 @@ extension HomeView {
                 processGotoSubview(subview: 1)
             } label: {
                 Text("\("go_to_sub_view".localized()) 1")
-                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -60,7 +60,7 @@ extension HomeView {
                 processGotoSubview(subview: 2)
             } label: {
                 Text("\("go_to_sub_view".localized()) 2")
-                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -70,7 +70,7 @@ extension HomeView {
                 showSheet?()
             } label: {
                 Text("\("Test Show Sheet")")
-                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -80,7 +80,7 @@ extension HomeView {
                 showFullScreen?()
             } label: {
                 Text("\("Test Show FullScreen")")
-                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
                     .padding()
                     .frame(height: 50)
             }

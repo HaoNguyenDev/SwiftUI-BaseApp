@@ -43,7 +43,7 @@ extension UserSettings {
         }
     }
     
-    private(set) var colorSet: ColorSet
+    private(set) var themeSet: Theme
     
     var username: String? {
         didSet {
@@ -90,7 +90,7 @@ extension UserSettings {
         self.signature = defaults.string(forKey: Keys.signature)
         self.languageCode = defaults.string(forKey: Keys.languageCode)
         
-        colorSet = LightColorSet()
+        themeSet = LightTheme()
         updateTheme(colorSchemeOption)
         
         if let languageCode = LanguageCode(rawValue: languageCode ?? LanguageCode.eng.rawValue)?.getLanguage() {
@@ -118,8 +118,8 @@ extension UserSettings {
 }
 
 extension UserSettings {
-    var color: ColorSet {
-        return colorSet
+    var theme: Theme {
+        return themeSet
     }
     
     func setColorScheme(_ option: ColorSchemeOption, systemColorScheme: ColorScheme = .light) {
@@ -130,11 +130,11 @@ extension UserSettings {
     private func updateTheme(_ option: ColorSchemeOption, systemColorScheme: ColorScheme = .light) {
         switch option {
         case .system:
-            colorSet = systemColorScheme == .dark ? DarkColorSet() : LightColorSet()
+            themeSet = systemColorScheme == .dark ? DarkTheme() : LightTheme()
         case .light:
-            colorSet = LightColorSet()
+            themeSet = LightTheme()
         case .dark:
-            colorSet = DarkColorSet()
+            themeSet = DarkTheme()
         }
     }
 }

@@ -28,7 +28,7 @@ struct BackgroundModifier: ViewModifier {
         content
             .background(
                 ContainerRelativeShape()
-                    .fill(userSettings.color.bgColor)
+                    .fill(userSettings.theme.bgColor)
                     .ignoresSafeArea(edges: .all)
             )
     }
@@ -49,7 +49,7 @@ struct GradientBackgroundModifier: ViewModifier {
     }
     
     private func getBackgroundColor(rotationColor: Bool = false) -> [Color] {
-        return rotationColor ? userSettings.color.gradientBgColors.reversed() : userSettings.color.gradientBgColors
+        return rotationColor ? userSettings.theme.gradientBgColors.reversed() : userSettings.theme.gradientBgColors
     }
 }
 
@@ -59,7 +59,7 @@ struct BackgroundImageModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .background(
-                userSettings.color.subviewBgColor.opacity(0.8) //Transparent color class
+                userSettings.theme.subviewBgColor.opacity(0.8) //Transparent color class
                     .overlay(BlurBackgroundView())
             )
         

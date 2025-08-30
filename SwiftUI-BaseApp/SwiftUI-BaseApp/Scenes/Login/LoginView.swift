@@ -49,7 +49,7 @@ extension LoginView {
     private var content: some View {
         VStack {
             Text("login_view".localized())
-                .setFont(.bold, size: 32, color: userSettings.color.textColor)
+                .setFont(.bold, size: 32, color: userSettings.theme.textColor)
             
             Spacer()
                 .frame(height: 100)
@@ -60,7 +60,7 @@ extension LoginView {
                 }
             } label: {
                 Text("login".localized())
-                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -69,7 +69,7 @@ extension LoginView {
                 gotoRegister?()
             } label: {
                 Text("register".localized())
-                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -78,7 +78,7 @@ extension LoginView {
                 gotoForgotPassword?()
             } label: {
                 Text("forgot_password".localized())
-                    .setFont(.bold, size: 20, color: userSettings.color.textColor)
+                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
