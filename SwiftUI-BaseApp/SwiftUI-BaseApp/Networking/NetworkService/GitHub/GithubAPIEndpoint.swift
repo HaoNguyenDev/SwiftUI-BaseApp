@@ -1,0 +1,32 @@
+//
+//  GithubAPIEndpoint.swift
+//  SwiftUI-BaseApp
+//
+//  Created by Hao Nguyen on 31/8/25.
+//
+
+
+// MARK: - Define GithubAPIEndpoint
+struct GithubAPIEndpoint: Endpoint {
+    var baseURL: String = "https://api.github.com"
+    var path: String
+    var method: HTTPMethod
+    var queryParameters: [String : String]?
+    var headers: [String : String]?
+    
+    static func getUsersEndpoint(perPage: Int, since: Int) -> GithubAPIEndpoint {
+        return GithubAPIEndpoint(path: "/users",
+                                method: .get,
+                                queryParameters: ["per_page": String(perPage), "since": String(since)],
+                                headers: ["Content-Type": "application/json;charset=utf-8"])
+    }
+    
+    static func getUserDetailEndpoint(username: String) -> GithubAPIEndpoint {
+        return GithubAPIEndpoint(
+            path: "/users/\(username)",
+            method: .get,
+            queryParameters: nil,
+            headers: ["Content-Type": "application/json;charset=utf-8"]
+        )
+    }
+}

@@ -130,6 +130,7 @@ extension Button {
     
     func secondaryStyle() -> some View {
         self.buttonStyle(SecondaryButtonStyle())
+            .environment(UserSettings())
     }
     
     func textStyle() -> some View {
@@ -141,6 +142,7 @@ extension Button {
     VStack {
         Button("Hello, World!") {}
             .primaryStyle()
+            .environment(\.isEnabled, true)
         Button("Hello, World!") {}
             .primaryStyle()
             .disabled(true)
