@@ -20,12 +20,14 @@ protocol GithubUserListVMProtocol {
     var isLoading: Bool { get }
     var error: Error? { get }
     func fetchUsers() async
+    func fetchUserDetail(username: String?) async
     func loadMoreUser(currentUser: GithubUser) async
     func updatePagination(from users: [GithubUser])
 }
 
 class GithubUserListVM: ObservableObject, GithubUserListVMProtocol {
     @Published private(set) var users: [GithubUser] = []
+    @Published private(set) var userDetail: GithubUserDetail?
     @Published private(set) var isLoading: Bool = false
     @Published private(set) var error: Error?
     private let networkService: GithubServiceProtocol
@@ -39,6 +41,7 @@ class GithubUserListVM: ObservableObject, GithubUserListVMProtocol {
 }
 
 extension GithubUserListVM {
+    @MainActor
     func fetchUsers() async {
         await performWithLoading {
             do {
@@ -48,13 +51,12 @@ extension GithubUserListVM {
                 await updateUsers(newUsers)
                 updatePagination(from: newUsers)
             } catch {
-                await MainActor.run {
-                    self.error = error
-                }
+                self.error = error
             }
         }
     }
     
+    @MainActor
     func loadMoreUser(currentUser: GithubUser) async {
         guard let lastUser = users.last, currentUser == lastUser,
               !isLoading,
@@ -69,9 +71,7 @@ extension GithubUserListVM {
                 await appendUsers(newUsers)
                 updatePagination(from: newUsers)
             } catch {
-                await MainActor.run {
-                    self.error = error
-                }
+                self.error = error
             }
         }
     }
@@ -81,6 +81,25 @@ extension GithubUserListVM {
             paginationConfig.since = lastUserId
         }
     }
+    
+    @MainActor
+    func fetchUserDetail(username: String?) async {
+        guard let username = username, !username.isEmpty else {
+            self.error = NSError(domain: "Invalid username", code: 1001, userInfo: nil)
+            return
+        }
+        
+        await performWithLoading {
+            do {
+                let userDetail = try await networkService.fetchUserDetail(by: username)
+                self.userDetail = userDetail
+                // TODO: gán userDetail vào @Published property nếu cần
+            } catch {
+                self.error = error
+            }
+        }
+    }
+    
 }
 
 // MARK: - Private Helper Methods
