@@ -30,6 +30,9 @@
     "%@ 2" : {
 
     },
+    "%lld" : {
+
+    },
     "👋 Hi, %@" : {
 
     },
@@ -39,6 +42,9 @@
     "Hello, world!" : {
 
     },
+    "Invalid URL" : {
+
+    },
     "Log out" : {
 
     },
@@ -46,6 +52,9 @@
 
     },
     "OOPS!\nThis route is not implemented at AppCoordinator showFullScreen function yet." : {
+
+    },
+    "Retry" : {
 
     },
     "You’ll be logged out of the app but can log back in anytime." : {

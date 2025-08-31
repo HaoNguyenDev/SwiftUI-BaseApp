@@ -70,6 +70,6 @@ struct HeaderView: View {
 
 #Preview {
     HeaderView(onShowProfile: nil)
-        .setBlurBackgroundImage()
+        .setDefaultBackground()
         .environment(UserSettings())
 }

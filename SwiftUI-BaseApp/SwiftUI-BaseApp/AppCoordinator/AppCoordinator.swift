@@ -50,7 +50,7 @@ struct AppCoordinator: View {
         Text("device_restricted".localized())
             .setFont(.bold, size: 20, color: userSettings.theme.textColor)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .setBlurBackgroundImage()
+            .setDefaultBackground()
     }
     
     @ViewBuilder
@@ -104,7 +104,7 @@ struct AppCoordinator: View {
         }
         .ignoresSafeArea(.all)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .setBlurBackgroundImage()
+        .setDefaultBackground()
     }
 }
 

@@ -32,7 +32,7 @@ struct ProfileView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .setBlurBackgroundImage()
+        .setDefaultBackground()
     }
     
     @ViewBuilder

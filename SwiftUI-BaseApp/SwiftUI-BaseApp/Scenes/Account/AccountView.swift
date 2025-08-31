@@ -25,7 +25,7 @@ struct AccountView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.all)
-        .setBlurBackgroundImage()
+        .setDefaultBackground()
     }
 }
 
@@ -81,4 +81,5 @@ extension AccountView {
 
 #Preview {
     AccountView()
+        .environment(UserSettings())
 }

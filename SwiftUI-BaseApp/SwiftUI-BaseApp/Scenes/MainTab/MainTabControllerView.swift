@@ -9,16 +9,16 @@ import SwiftUI
 
 enum TabType: Int, CaseIterable {
     case home = 0
-    case empty1 = 1
+    case users = 1
     case empty2 = 2
     case account = 3
     
-    static let allTabs: [TabType] = [.home, .empty1, .empty2, .account]
+    static let allTabs: [TabType] = [.home, .users, .empty2, .account]
 
     var title: String {
         switch self {
         case .home: return "home".localized()
-        case .empty1: return "empty".localized()
+        case .users: return "Users".localized()
         case .empty2: return "empty".localized()
         case .account: return "account".localized()
         }
@@ -27,7 +27,7 @@ enum TabType: Int, CaseIterable {
     var icon: Image {
         switch self {
         case .home: return Image(systemName: "house")
-        case .empty1: return Image(systemName: "pedal.accelerator")
+        case .users: return Image(systemName: "pedal.accelerator")
         case .empty2: return Image(systemName: "text.rectangle.page")
         case .account: return Image(systemName: "person.crop.circle")
         }
@@ -36,7 +36,7 @@ enum TabType: Int, CaseIterable {
     var iconSelected: Image {
         switch self {
         case .home: return Image(systemName: "house.fill")
-        case .empty1: return Image(systemName: "pedal.accelerator.fill")
+        case .users: return Image(systemName: "pedal.accelerator.fill")
         case .empty2: return Image(systemName: "text.rectangle.page.fill")
         case .account: return Image(systemName: "person.crop.circle.fill")
         }
@@ -100,11 +100,13 @@ struct MainTabControllerView: View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 HomeViewCoordinator(navRouter: navRouter).tag(0)
-                PlaceholderViewCoordinator(navRouter: navRouter, title: nil).tag(1)
+                UserListCoordinator(navRouter: navRouter).tag(1)
                 PlaceholderViewCoordinator(navRouter: navRouter, title: nil).tag(2)
                 AccountViewCoordinator(navRouter: navRouter).tag(3)
             }
             tabBar()
+                .padding(.horizontal, 24)
+                .padding(.bottom, 0)
         }
         .navigationDestination(for: Router.MainTab.self) { route in
             viewForRoute(route: route)
@@ -132,8 +134,7 @@ struct MainTabControllerView: View {
                     .frame(maxWidth: .infinity)
             }
         }
-        .padding(.horizontal, 24)
-        .frame(width: 333, height: 72)
+        .frame(maxWidth: .infinity, maxHeight: 72)
         .background(
             userSettings.theme.subviewBgColor
                 .clipShape(RoundedRectangle(cornerRadius: 36))
