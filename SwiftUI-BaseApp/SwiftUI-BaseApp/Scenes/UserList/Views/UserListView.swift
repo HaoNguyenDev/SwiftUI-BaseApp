@@ -9,8 +9,8 @@ import SwiftUI
 
 struct UserListView: View {
     @State private(set) var viewModel: GithubUserListVM
-    var gotoUserDetail: SingleResult<Int>?
-    
+    var gotoUserDetail: SingleResult<GithubUserDetail>?
+    @State private var navigate = false
     var body: some View {
         contentView()
             .padding([.top, .bottom])
@@ -38,6 +38,11 @@ extension UserListView {
                 .padding()
             }
         }
+        .onAppear {
+            if (viewModel.userDetail != nil) {
+                gotoUserDetail?(viewModel.userDetail!)
+            }
+        }
     }
     
     private func processLoadMore(currentUser user: GithubUser) {
@@ -56,6 +61,9 @@ extension UserListView {
                         .onAppear {
                             processLoadMore(currentUser: user)
                         }
+                        .onTapGesture {
+                            navigateToUserDetail(for: user.login)
+                        }
                 }
             }
         }
@@ -66,6 +74,12 @@ extension UserListView {
         ProgressView()
             .frame(maxWidth: .infinity)
             .padding()
+    }
+    
+    private func navigateToUserDetail(for login: String?) {
+        Task {
+            await viewModel.fetchUserDetail(username: login)
+        }
     }
 }
 
