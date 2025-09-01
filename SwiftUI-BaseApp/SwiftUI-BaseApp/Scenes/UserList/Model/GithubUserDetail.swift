@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - UserDetailModel
-struct GithubUserDetail: Codable {
+struct GithubUserDetail: Codable, Equatable, Hashable {
     let login : String?
     let name: String?
     let id : Int?

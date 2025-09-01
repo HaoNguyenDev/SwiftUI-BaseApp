@@ -49,13 +49,14 @@ extension Router {
         case settings
         case subview1(info: String)
         case subview2(info: String)
-        
+        case userDetail(user: GithubUserDetail)
         var id: String {
             switch self {
             case .profile: return "profile"
             case .settings: return "settings"
             case .subview1: return "subview1"
             case .subview2: return "subview2"
+            case .userDetail: return "userDetail"
             }
         }
     }
@@ -195,6 +196,8 @@ struct MainTabControllerView: View {
             PlaceholderViewCoordinator(navRouter: navRouter, title: "Subview 1 \(info)")
             case .subview2(let info):
             PlaceholderViewCoordinator(navRouter: navRouter, title: "Subview 2 \(info)")
+        case .userDetail(let user):
+            UserDetailCoordinator(navRouter: navRouter, user: user)
         }
     }
 }
