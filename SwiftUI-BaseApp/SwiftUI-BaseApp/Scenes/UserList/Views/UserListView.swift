@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserListView: View {
-    @State private(set) var viewModel: GithubUserListVM
+    @ObservedObject private(set) var viewModel: GithubUserListVM
     var gotoUserDetail: SingleResult<GithubUserDetail>?
     @State private var navigate = false
     var body: some View {
@@ -23,13 +23,18 @@ extension UserListView {
     func contentView() -> some View {
         VStack {
             userList()
+        }
+        .onAppear() {
+            Task {
+                await viewModel.fetchUsers()
+            }
+        }
+        .refreshable { await viewModel.fetchUsers() }
+        .overlay(alignment: .bottom) {
             if viewModel.isLoading {
                 loadingView
             }
-        }
-        .task { await viewModel.fetchUsers() }
-        .refreshable { await viewModel.fetchUsers() }
-        .overlay(alignment: .bottom) {
+            
             if let error = viewModel.error {
                 ErrorBanner(error: error) {
                     Task { await viewModel.fetchUsers() }
@@ -38,9 +43,10 @@ extension UserListView {
                 .padding()
             }
         }
-        .onAppear {
-            if (viewModel.userDetail != nil) {
-                gotoUserDetail?(viewModel.userDetail!)
+        .onChange(of: viewModel.userDetail) { _, newDetail in
+            if let userDetail = newDetail {
+                gotoUserDetail?(userDetail)
+                 viewModel.userDetail = nil
             }
         }
     }
@@ -62,7 +68,7 @@ extension UserListView {
                             processLoadMore(currentUser: user)
                         }
                         .onTapGesture {
-                            navigateToUserDetail(for: user.login)
+                            fetchUserDetail(for: user.login)
                         }
                 }
             }
@@ -76,7 +82,7 @@ extension UserListView {
             .padding()
     }
     
-    private func navigateToUserDetail(for login: String?) {
+    private func fetchUserDetail(for login: String?) {
         Task {
             await viewModel.fetchUserDetail(username: login)
         }
@@ -85,4 +91,5 @@ extension UserListView {
 
 #Preview {
     UserListView(viewModel: GithubUserListVM(), gotoUserDetail: nil)
+        .environment(UserSettings())
 }

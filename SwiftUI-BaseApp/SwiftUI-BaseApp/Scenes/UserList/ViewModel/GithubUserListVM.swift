@@ -27,7 +27,7 @@ protocol GithubUserListVMProtocol {
 
 class GithubUserListVM: ObservableObject, GithubUserListVMProtocol {
     @Published private(set) var users: [GithubUser] = []
-    @Published private(set) var userDetail: GithubUserDetail?
+    @Published var userDetail: GithubUserDetail?
     @Published private(set) var isLoading: Bool = false
     @Published private(set) var error: Error?
     private let networkService: GithubServiceProtocol
@@ -93,7 +93,6 @@ extension GithubUserListVM {
             do {
                 let userDetail = try await networkService.fetchUserDetail(by: username)
                 self.userDetail = userDetail
-                // TODO: gán userDetail vào @Published property nếu cần
             } catch {
                 self.error = error
             }

@@ -149,6 +149,9 @@
 		DAFCDF822E6481FE00B97C00 /* GithubUserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF812E6481FE00B97C00 /* GithubUserDetail.swift */; };
 		DAFCDF852E6482FD00B97C00 /* ErrorBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF842E6482FD00B97C00 /* ErrorBanner.swift */; };
 		DAFCDF872E64831600B97C00 /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF862E64831600B97C00 /* UserRowView.swift */; };
+		DAFCE0892E653FEC00B97C00 /* UserDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCE0882E653FEC00B97C00 /* UserDetailCoordinator.swift */; };
+		DAFCE08B2E6540D000B97C00 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCE08A2E6540D000B97C00 /* UserDetailView.swift */; };
+		DAFCE08D2E654B9100B97C00 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCE08C2E654B9100B97C00 /* UserDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -292,6 +295,9 @@
 		DAFCDF812E6481FE00B97C00 /* GithubUserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserDetail.swift; sourceTree = "<group>"; };
 		DAFCDF842E6482FD00B97C00 /* ErrorBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBanner.swift; sourceTree = "<group>"; };
 		DAFCDF862E64831600B97C00 /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
+		DAFCE0882E653FEC00B97C00 /* UserDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailCoordinator.swift; sourceTree = "<group>"; };
+		DAFCE08A2E6540D000B97C00 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		DAFCE08C2E654B9100B97C00 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -488,6 +494,7 @@
 		DA748DCB2E22BE5800B1B226 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DAFCE0862E653FAF00B97C00 /* UserDetail */,
 				DAFCDF702E647EAF00B97C00 /* UserList */,
 				DA890F892E23D7240005D9DB /* Profile */,
 				DA890F862E23D4120005D9DB /* ThemeChange */,
@@ -743,6 +750,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DAFCE0862E653FAF00B97C00 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DAFCE0872E653FD300B97C00 /* View */,
+				DAFCE08C2E654B9100B97C00 /* UserDetailViewModel.swift */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		DAFCE0872E653FD300B97C00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DAFCE0882E653FEC00B97C00 /* UserDetailCoordinator.swift */,
+				DAFCE08A2E6540D000B97C00 /* UserDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -918,6 +943,7 @@
 				DA748E1A2E22C60A00B1B226 /* String+Additional.swift in Sources */,
 				DA890F812E23D2500005D9DB /* SettingsCoordinator.swift in Sources */,
 				DA748E242E22C75500B1B226 /* ErrorHandler.swift in Sources */,
+				DAFCE08B2E6540D000B97C00 /* UserDetailView.swift in Sources */,
 				DA890F882E23D4260005D9DB /* ThemeChangeView.swift in Sources */,
 				DA748DC82E22BCD500B1B226 /* DarkTheme.swift in Sources */,
 				DA5CC28E2E22B47A000C5F18 /* NavRouter.swift in Sources */,
@@ -926,6 +952,7 @@
 				DA5CC2902E22B485000C5F18 /* NavRouterProtocol.swift in Sources */,
 				DA748DE02E22C0D400B1B226 /* UserInformView.swift in Sources */,
 				DA748E142E22C5D000B1B226 /* SplashView.swift in Sources */,
+				DAFCE0892E653FEC00B97C00 /* UserDetailCoordinator.swift in Sources */,
 				DA890F7C2E23D02A0005D9DB /* AccountViewCoordinator.swift in Sources */,
 				DA8910442E2639A80005D9DB /* LanguageCode.swift in Sources */,
 				DA748E132E22C5CC00B1B226 /* SplashCoordinator.swift in Sources */,
@@ -958,6 +985,7 @@
 				DA748DD52E22BF8E00B1B226 /* AppCoordinator.swift in Sources */,
 				DA748E112E22C5BE00B1B226 /* UserMessageItem.swift in Sources */,
 				DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseApp.swift in Sources */,
+				DAFCE08D2E654B9100B97C00 /* UserDetailViewModel.swift in Sources */,
 				DA748DBB2E22BA0200B1B226 /* Font+Additional.swift in Sources */,
 				DAFCDF822E6481FE00B97C00 /* GithubUserDetail.swift in Sources */,
 				DA890F772E23B38F0005D9DB /* HeaderView.swift in Sources */,

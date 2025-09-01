@@ -9,11 +9,11 @@ import SwiftUI
 
 extension Router {
     enum UserListView: Routable {
-        case userDetail
+        case userDetail(user: GithubUserDetail?)
         
         var id: String {
             switch self {
-            case .userDetail:
+            case .userDetail(_):
                 return "UserListView.UserDetail"
             }
         }
@@ -37,8 +37,8 @@ struct UserListCoordinator: View, ScreenCoordinator {
     
     @ViewBuilder
     func getView() -> some View {
-        UserListView(viewModel: viewModel, gotoUserDetail: { id in
-            navRouter.push(ScreenRouter.userDetail, animate: true)
+        UserListView(viewModel: viewModel, gotoUserDetail: { user in
+            navRouter.push(Router.MainTab.userDetail(user: user), animate: true)
         })
         .toolbar(.hidden, for: .navigationBar)
     }
@@ -46,8 +46,8 @@ struct UserListCoordinator: View, ScreenCoordinator {
     @ViewBuilder
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
-        case .userDetail:
-            PlaceholderViewCoordinator(navRouter: navRouter, title: "UserDetail")
+        case .userDetail(_):
+            EmptyView()
         }
     }
 }
