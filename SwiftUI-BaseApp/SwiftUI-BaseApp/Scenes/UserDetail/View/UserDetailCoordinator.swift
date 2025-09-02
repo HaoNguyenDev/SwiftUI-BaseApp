@@ -46,7 +46,7 @@ struct UserDetailCoordinator: View, ScreenCoordinator {
     
     @ViewBuilder
     func getView() -> some View {
-        UserDetailView(viewModel: viewModel, gotoSubview: {
+        UserDetailView(vm: viewModel, gotoSubview: {
             navRouter.push(ScreenRouter.subview, animate: true)
         })
     }

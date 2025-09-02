@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct UserDetailView: View {
-    @ObservedObject var viewModel: UserDetailViewModel
+    @Environment(UserSettings.self) var userSettings
+    @ObservedObject var vm: UserDetailViewModel
     var gotoSubview: (() -> Void)?
     
     var body: some View {
@@ -19,16 +20,96 @@ struct UserDetailView: View {
 extension UserDetailView {
     @ViewBuilder
     func contentView() -> some View {
-        VStack {
-            
+        ZStack(alignment: .top) {
+            VStack {
+                AvatarView(vm: vm)
+                
+                InfoSubview(vm: vm)
+                
+                Spacer()
+            }
         }
-        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .setDefaultBackground()
     }
 }
 
+struct FollowerSubView: View {
+    @Environment(UserSettings.self) var userSettings
+    var iconName: String = "person.fill"
+    var count: String = "0"
+    var title: String = "Follower"
+    var body: some View {
+        VStack(alignment: .center) {
+            Image(systemName: iconName)
+                .frame(width: 40, height: 40)
+                .background(Color.gray.opacity(0.2))
+                .clipShape(Circle())
+            Text(count)
+                .font(.system(size: 13, weight: .medium))
+                .foregroundStyle(userSettings.theme.textColor)
+            Text(title)
+                .font(.caption)
+                .foregroundStyle(userSettings.theme.textColor)
+        }
+    }
+}
+
 #Preview {
-    UserDetailView(viewModel: UserDetailViewModel(user: GithubUserDetail()), gotoSubview: nil)
+    UserDetailView(vm: UserDetailViewModel(user: GithubUserDetail()), gotoSubview: nil)
         .environment(UserSettings())
+        .preferredColorScheme(.light)
+}
+
+struct AvatarView: View {
+    @Environment(UserSettings.self) var userSettings
+    @ObservedObject var vm: UserDetailViewModel
+    var body: some View {
+        VStack {
+            AsyncImage(url: URL(string: vm.userDetail.avatarUrl.orEmpty)) { phase in
+                switch phase {
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFit()
+                case .failure, .empty:
+                    Image(systemName: "man-user-circle-icon")
+                        .resizable()
+                        .scaledToFit()
+                @unknown default:
+                    Image(systemName: "man-user-circle-icon")
+                        .resizable()
+                        .scaledToFit()
+                }
+            }
+            .frame(width: 200, height: 200)
+            .cornerRadius(100)
+            .padding()
+            
+            Text(vm.userDetail.login.orEmpty)
+                .font(.headline)
+                .fontWeight(.bold)
+                .foregroundColor(userSettings.theme.textColor)
+                .padding(.vertical, 10)
+        }
+    }
+}
+
+struct InfoSubview: View {
+    @Environment(UserSettings.self) var userSettings
+    @ObservedObject var vm: UserDetailViewModel
+    var body: some View {
+        VStack {
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(userSettings.theme.textColor, lineWidth: 1)
+                .frame(maxWidth: .infinity, maxHeight: 100)
+                .padding()
+                .overlay {
+                    HStack(spacing: 80) {
+                        FollowerSubView(count: vm.userDetail.getUserFollowers(), title: "Followers")
+                        FollowerSubView(count: vm.userDetail.getUserFollowing(), title: "Following")
+                    }
+                }
+        }
+    }
 }
