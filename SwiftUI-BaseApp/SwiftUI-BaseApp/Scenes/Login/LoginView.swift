@@ -13,7 +13,7 @@ struct LoginView: View {
     @Environment(UserSettings.self) var userSettings
     @State var loginModel: LoginModel
     @State private var showLoading: Bool = false
-
+    
     var loginSuccess: SingleResult<LoginResult>?
     var gotoForgotPassword: VoidResult?
     var gotoRegister: VoidResult?
@@ -30,11 +30,24 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            if showLoading {
-                loadingView
-            } else {
-                ZStack {
-                    content
+            VStack {
+                switch loginModel.viewState {
+                case .content:
+                    loginContentView
+                case .loading:
+                    loadingView
+                case .success(let result):
+                    Color.clear
+                        .onAppear {
+                            handleLoginSuccess(result)
+                            loginModel.viewState = .content
+                        }
+                case .failure(let error):
+                    Color.clear
+                        .onAppear {
+                            handleLoginFailure(error)
+                            loginModel.viewState = .content
+                        }
                 }
             }
         }
@@ -46,7 +59,7 @@ struct LoginView: View {
 
 extension LoginView {
     @ViewBuilder
-    private var content: some View {
+    private var loginContentView: some View {
         VStack {
             Text("login_view".localized())
                 .setFont(.bold, size: 32, color: userSettings.theme.textColor)
@@ -93,40 +106,29 @@ extension LoginView {
     }
     
     private func processLogin() async {
-        
-        Task {
-            do {
-                showLoading = true
-                let loginResult = try await loginModel.doLogin()
-                
-                if !loginResult.username.isEmpty {
-                    Logger.shared.debug("\(loginResult)")
-                    loginSuccess?(loginResult)
-                    showLoading = false
-                    appState.showToast( item: UserMessageItem(
-                        animationName: "SuccessCircle",
-                        loopMode: .playOnce,
-                        title: "login_success".localized(),
-                        message: "welcome_message_app".localized()))
-                }
-                
-            } catch(let error as LoginError) {
-                Logger.shared.error(error.errorMessage)
-                showLoading = false
-                appState.handleError(error: error.errorMessage, action: .toast)
-                /* appState.handleError(error: error,
-                 action: .alert)
-                 appState.showToast( item: UserMessageItem(
-                 animationName: "SuccessCircle",
-                 loopMode: .playOnce,
-                 title: "login_success".localized(),
-                 message: "welcome_message_app".localized()))*/
-            }
-            
-        }
+        loginModel.doLogin()
     }
     
-
+    private func handleLoginSuccess(_ result: LoginResult) {
+        Logger.shared.debug("Login Success: \(result)")
+        loginSuccess?(result)
+        
+        appState.showToast(item: UserMessageItem(
+            animationName: "SuccessCircle",
+            loopMode: .playOnce,
+            title: "login_success".localized(),
+            message: "welcome_message_app".localized()))
+    }
+    
+    private func handleLoginFailure(_ error: Error) {
+        if let loginError = error as? LoginError {
+            Logger.shared.error(loginError.errorMessage)
+            appState.handleError(error: loginError.errorMessage, action: .toast)
+        } else {
+            Logger.shared.error(error.localizedDescription)
+            appState.handleError(error: error.localizedDescription, action: .toast)
+        }
+    }
 }
 
 #Preview {

@@ -25,31 +25,42 @@ enum LoginError: Error {
     }
 }
 
+enum LoginState {
+    case content
+    case loading
+    case success(LoginResult)
+    case failure(Error)
+}
+
 @Observable class LoginModel {
-    private var userSettings: UserSettings
     
+    var viewState: LoginState = .content
+
+    private var userSettings: UserSettings
     init (userSettings: UserSettings) {
         self.userSettings = userSettings
     }
     
-    func doLogin() async throws -> LoginResult {
-        try? await Task.sleep(for: .seconds(2))
-//        let randomNumber = Int.random(in: 1...2)
-        let username: String = ["haonguyen", "minhhoang", "tuananh", "tuananh123", "tuananh456"].randomElement() ?? "Unknown"
-//        if randomNumber == 1 {
-            let loginResult: LoginResult = .init(token: "token 1234",
-                                                 refreshToken: "refresh token 1234",
-                                                 username: username,
-                                                 referralCode: "1234")
-            
-            Task { @MainActor in
-                userSettings.username = loginResult.username
-                userSettings.token = loginResult.token
+    func doLogin() {
+        viewState = .loading
+        Task {
+            try? await Task.sleep(for: .seconds(2))
+            let username: String = ["haonguyen", "minhhoang", "tuananh", "tuananh123", "tuananh456"].randomElement() ?? "Unknown"
+            if Int.random(in: 1...2) == 1 {
+                let loginResult: LoginResult = .init(token: "token 1234",
+                                                     refreshToken: "refresh token 1234",
+                                                     username: username,
+                                                     referralCode: "1234")
+                
+                Task { @MainActor in
+                    userSettings.username = loginResult.username
+                    userSettings.token = loginResult.token
+                }
+                
+                viewState = .success(loginResult)
+            } else {
+                viewState = .failure(LoginError.failed)
             }
-            
-            return loginResult
-//        } else {
-//            throw LoginError.failed
-//        }
+        }
     }
 }
