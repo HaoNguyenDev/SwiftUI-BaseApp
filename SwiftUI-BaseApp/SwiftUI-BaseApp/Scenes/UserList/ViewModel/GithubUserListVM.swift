@@ -5,7 +5,6 @@
 //  Created by Hao Nguyen on 31/8/25.
 //
 
-
 import SwiftUI
 
 // MARK: - Support for Loadmore
@@ -14,11 +13,32 @@ struct PaginationConfig {
     var since: Int
 }
 
-// MARK: - UserListViewModel Protocol
+// MARK: - New View State
+enum GHListViewState: Equatable {
+    case initial
+    case loading
+    case loaded([GithubUser])
+    case error(Error)
+    case gotoDetail(user: GithubUserDetail)
+    
+    static func == (lhs: GHListViewState, rhs: GHListViewState) -> Bool {
+        switch (lhs, rhs) {
+        case (.initial, .initial), (.loading, .loading):
+            return true
+        case (.loaded(let lUsers), .loaded(let rUsers)):
+            return lUsers.count == rUsers.count
+        case (.error(let lError), .error(let rError)):
+            return lError.localizedDescription == rError.localizedDescription
+        default:
+            return false
+        }
+    }
+}
+
+// MARK: - GithubUserListVM Protocol (Cập nhật)
 protocol GithubUserListVMProtocol {
-    var users: [GithubUser] { get }
-    var isLoading: Bool { get }
-    var error: Error? { get }
+    var viewState: GHListViewState { get }
+    
     func fetchUsers() async
     func fetchUserDetail(username: String?) async
     func loadMoreUser(currentUser: GithubUser) async
@@ -26,12 +46,18 @@ protocol GithubUserListVMProtocol {
 }
 
 class GithubUserListVM: ObservableObject, GithubUserListVMProtocol {
-    @Published private(set) var users: [GithubUser] = []
-    @Published var userDetail: GithubUserDetail?
-    @Published private(set) var isLoading: Bool = false
-    @Published private(set) var error: Error?
+    
+    @Published private(set) var viewState: GHListViewState = .initial
+    
     private let networkService: GithubServiceProtocol
     private var paginationConfig: PaginationConfig
+    
+    private var users: [GithubUser] {
+        if case .loaded(let users) = viewState {
+            return users
+        }
+        return []
+    }
     
     init(networkService: GithubServiceProtocol = GitHubNetworkService(),
          paginationConfig: PaginationConfig = PaginationConfig(perPage: 20, since: 0)) {
@@ -41,38 +67,37 @@ class GithubUserListVM: ObservableObject, GithubUserListVMProtocol {
 }
 
 extension GithubUserListVM {
+    
     @MainActor
     func fetchUsers() async {
-        await performWithLoading {
-            do {
-                var newUsers: [GithubUser] = []
-                newUsers = try await networkService.fetchUsers(perPage: paginationConfig.perPage,
-                                                               since: 0)
-                await updateUsers(newUsers)
-                updatePagination(from: newUsers)
-            } catch {
-                self.error = error
-            }
+        viewState = .loading
+        
+        do {
+            let newUsers = try await networkService.fetchUsers(perPage: paginationConfig.perPage, since: 0)
+            
+            viewState = .loaded(newUsers)
+            updatePagination(from: newUsers)
+        } catch {
+            viewState = .error(error)
         }
     }
     
     @MainActor
     func loadMoreUser(currentUser: GithubUser) async {
-        guard let lastUser = users.last, currentUser == lastUser,
-              !isLoading,
-              !users.isEmpty else { return }
+        guard let lastUser = users.last, currentUser.id == lastUser.id else { return }
+        guard case .loaded(let currentUsers) = viewState else { return }
+        
 #if DEBUG
         print(">>> Load more data from user withID \(String(describing: currentUser.id))")
 #endif
-        await performWithLoading {
-            do {
-                let newUsers = try await networkService.fetchUsers(perPage: paginationConfig.perPage,
-                                                                   since: paginationConfig.since)
-                await appendUsers(newUsers)
-                updatePagination(from: newUsers)
-            } catch {
-                self.error = error
-            }
+        do {
+            let newUsers = try await networkService.fetchUsers(perPage: paginationConfig.perPage,
+                                                               since: paginationConfig.since)
+            let updatedUsers = currentUsers + newUsers
+            viewState = .loaded(updatedUsers)
+            updatePagination(from: newUsers)
+        } catch {
+            viewState = .error(error)
         }
     }
     
@@ -85,46 +110,16 @@ extension GithubUserListVM {
     @MainActor
     func fetchUserDetail(username: String?) async {
         guard let username = username, !username.isEmpty else {
-            self.error = NSError(domain: "Invalid username", code: 1001, userInfo: nil)
             return
         }
         
-        await performWithLoading {
-            do {
-                let userDetail = try await networkService.fetchUserDetail(by: username)
-                self.userDetail = userDetail
-            } catch {
-                self.error = error
-            }
+        do {
+            let userDetail = try await networkService.fetchUserDetail(by: username)
+            viewState = .gotoDetail(user: userDetail)
+        } catch {
+            viewState = .error(error)
         }
     }
     
 }
 
-// MARK: - Private Helper Methods
-extension GithubUserListVM {
-    @MainActor
-    private func performWithLoading(_ operation: () async throws -> Void) async {
-        guard !isLoading else { return }
-        isLoading = true
-        error = nil
-        defer { isLoading = false }
-        do {
-            try await operation()
-        } catch {
-            self.error = error
-        }
-    }
-    
-    private func updateUsers(_ newUsers: [GithubUser]) async {
-        await MainActor.run { [weak self] in
-            self?.users = newUsers
-        }
-    }
-    
-    private func appendUsers(_ newUsers: [GithubUser]) async {
-        await MainActor.run { [weak self] in
-            self?.users.append(contentsOf: newUsers)
-        }
-    }
-}

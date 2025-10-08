@@ -21,21 +21,24 @@ struct UserListView: View {
 extension UserListView {
     @ViewBuilder
     func contentView() -> some View {
-        VStack {
-            userList()
-        }
-        .onAppear() {
-            Task {
-                await viewModel.fetchUsers()
-            }
-        }
-        .refreshable { await viewModel.fetchUsers() }
-        .overlay(alignment: .bottom) {
-            if viewModel.isLoading {
+        ZStack {
+            switch viewModel.viewState {
+            case .initial:
+                Color.clear
+            case .loading:
                 loadingView
-            }
-            
-            if let error = viewModel.error {
+            case .loaded(let users):
+                GHUserList(users: users, didTapUser: { user in
+                    fetchUserDetail(for: user)
+                }, loadMoreFrom: { user in
+                    processLoadMore(currentUser: user)
+                })
+            case .gotoDetail(let user):
+                Color.clear
+                    .onAppear {
+                        gotoUserDetail?(user)
+                    }
+            case .error(let error):
                 ErrorBanner(error: error) {
                     Task { await viewModel.fetchUsers() }
                 }
@@ -43,43 +46,27 @@ extension UserListView {
                 .padding()
             }
         }
-        .onChange(of: viewModel.userDetail) { _, newDetail in
-            if let userDetail = newDetail {
-                gotoUserDetail?(userDetail)
-                 viewModel.userDetail = nil
+        .onAppear() {
+            Task {
+                await viewModel.fetchUsers()
             }
         }
-    }
-    
-    private func processLoadMore(currentUser user: GithubUser) {
-        Task {
-            await viewModel.loadMoreUser(currentUser: user)
-        }
-    }
-    
-    @ViewBuilder
-    private func userList() -> some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(viewModel.users) { user in
-                    UserRowView(user: user)
-                        .padding()
-                        .onAppear {
-                            processLoadMore(currentUser: user)
-                        }
-                        .onTapGesture {
-                            fetchUserDetail(for: user.login)
-                        }
-                }
-            }
-        }
-        .animation(.default, value: viewModel.users)
+        .refreshable { await viewModel.fetchUsers() }
     }
     
     private var loadingView: some View {
         ProgressView()
             .frame(maxWidth: .infinity)
             .padding()
+    }
+}
+
+
+extension UserListView {
+    private func processLoadMore(currentUser user: GithubUser) {
+        Task {
+            await viewModel.loadMoreUser(currentUser: user)
+        }
     }
     
     private func fetchUserDetail(for login: String?) {
@@ -92,4 +79,28 @@ extension UserListView {
 #Preview {
     UserListView(viewModel: GithubUserListVM(), gotoUserDetail: nil)
         .environment(UserSettings())
+}
+
+
+struct GHUserList: View {
+    var users: [GithubUser]
+    var didTapUser: SingleResult<String?>?
+    var loadMoreFrom: SingleResult<GithubUser>?
+    
+    var body: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(users) { user in
+                    UserRowView(user: user)
+                        .padding()
+                        .onAppear {
+                            loadMoreFrom?(user)
+                        }
+                        .onTapGesture {
+                            didTapUser?(user.login)
+                        }
+                }
+            }
+        }
+    }
 }
