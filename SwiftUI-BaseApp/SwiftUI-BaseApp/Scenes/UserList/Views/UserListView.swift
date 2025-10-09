@@ -11,6 +11,7 @@ struct UserListView: View {
     @ObservedObject private(set) var viewModel: GithubUserListVM
     var gotoUserDetail: SingleResult<GithubUserDetail>?
     @State private var navigate = false
+    
     var body: some View {
         contentView()
             .padding([.top, .bottom])
@@ -27,31 +28,40 @@ extension UserListView {
                 Color.clear
             case .loading:
                 loadingView
-            case .loaded(let users):
-                GHUserList(users: users, didTapUser: { user in
+            case .loaded:
+                GHUserList(users: viewModel.userList, didTapUser: { user in
                     fetchUserDetail(for: user)
                 }, loadMoreFrom: { user in
                     processLoadMore(currentUser: user)
                 })
-            case .gotoDetail(let user):
-                Color.clear
-                    .onAppear {
-                        gotoUserDetail?(user)
-                    }
             case .error(let error):
                 ErrorBanner(error: error) {
-                    Task { await viewModel.fetchUsers() }
+                    Task {
+                        await viewModel.fetchUsers()
+                    }
                 }
                 .transition(.move(edge: .bottom).combined(with: .opacity))
                 .padding()
             }
         }
         .onAppear() {
+            if case .initial = viewModel.viewState {
+                Task {
+                    await viewModel.fetchUsers()
+                }
+            }
+        }
+        .refreshable {
             Task {
                 await viewModel.fetchUsers()
             }
         }
-        .refreshable { await viewModel.fetchUsers() }
+        .onChange(of: viewModel.shouldNavigateToDetail) { oldValue, newDetail in
+            if let userDetail = newDetail {
+                gotoUserDetail?(userDetail)
+                viewModel.shouldNavigateToDetail = nil
+            }
+        }
     }
     
     private var loadingView: some View {
