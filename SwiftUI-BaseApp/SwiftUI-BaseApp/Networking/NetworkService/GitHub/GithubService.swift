@@ -1,0 +1,33 @@
+//
+//  GithubService.swift
+//  SwiftUI-BaseApp
+//
+//  Created by Hao Nguyen on 31/8/25.
+//
+
+import Foundation
+
+// MARK: - GithubServiceProtocol
+protocol GithubServiceProtocol {
+    func fetchUsers(perPage: Int, since: Int) async throws -> [GithubUser]
+    func fetchUserDetail(by username: String) async throws -> GithubUserDetail
+}
+
+// MARK: - GitHubNetworkService
+class GitHubNetworkService: GithubServiceProtocol {
+    private let networkManager: NetworkService
+    
+    init(networkManager: NetworkService = NetworkManager()) {
+        self.networkManager = networkManager
+    }
+    
+    func fetchUsers(perPage: Int, since: Int) async throws -> [GithubUser] {
+        let endpoint = GithubAPIEndpoint.getUsersEndpoint(perPage: perPage, since: since)
+        return try await networkManager.fetchData(endpoint: endpoint, responseType: [GithubUser].self)
+    }
+    
+    func fetchUserDetail(by username: String) async throws -> GithubUserDetail {
+        let endpoint = GithubAPIEndpoint.getUserDetailEndpoint(username: username)
+        return try await networkManager.fetchData(endpoint: endpoint, responseType: GithubUserDetail.self)
+    }
+}
