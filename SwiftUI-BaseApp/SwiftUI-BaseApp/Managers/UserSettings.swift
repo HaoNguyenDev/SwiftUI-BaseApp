@@ -9,12 +9,11 @@ import Foundation
 import UIKit
 import SwiftUI
 import Observation
+import KeychainAccess
 
 extension UserSettings {
     // MARK: - Keys
-    private enum Keys {
-        static let username = "username"
-        static let token = ""
+    private enum UserSettingKeys {
         static let signature = "signature"
         static let userId = "userId"
         static let referralCode = "referralCode"
@@ -23,15 +22,19 @@ extension UserSettings {
         static let launchCount = "launchCount"
         static let currentUser = "currentUser"
     }
+    
+    private enum KeychainAccessKeys {
+        static let token = "token"
+        static let username = "username"
+    }
 }
 
 @Observable final class UserSettings {
-  
     private let defaults = UserDefaults.standard
-    
+    private let keychainAccess = Keychain(service: Bundle.main.bundleIdentifier ?? "")
     private(set) var colorSchemeOption: ColorSchemeOption = .system {
         didSet {
-            defaults.set(colorSchemeOption.rawValue, forKey: Keys.colorSchemeOption)
+            defaults.set(colorSchemeOption.rawValue, forKey: UserSettingKeys.colorSchemeOption)
             updateTheme(colorSchemeOption) // Update colorSet
         }
     }
@@ -39,56 +42,62 @@ extension UserSettings {
     var languageCode: String? {
         didSet {
             Logger.shared.info("languageCode set to: \(languageCode ?? "nil")")
-            defaults.set(languageCode, forKey: Keys.languageCode)
+            defaults.set(languageCode, forKey: UserSettingKeys.languageCode)
         }
     }
     
     private(set) var themeSet: Theme
     
     var username: String? {
-        didSet {
-            defaults.set(username, forKey: Keys.username)
+        get {
+            keychainAccess[KeychainAccessKeys.username]
+        }
+        
+        set {
+            keychainAccess[KeychainAccessKeys.username] = newValue
         }
     }
     
     var token: String? {
-        didSet {
-            defaults.set(token, forKey: Keys.token)
+        get {
+            keychainAccess[KeychainAccessKeys.token]
+        }
+        
+        set {
+            keychainAccess[KeychainAccessKeys.token] = newValue
         }
     }
     
     var signature: String? {
         didSet {
-            defaults.set(signature, forKey: Keys.signature)
+            defaults.set(signature, forKey: UserSettingKeys.signature)
         }
     }
     
     var userId: String? {
         didSet {
-            defaults.set(userId, forKey: Keys.userId)
+            defaults.set(userId, forKey: UserSettingKeys.userId)
         }
     }
     
     var referralCode: String? {
         didSet {
-            defaults.set(referralCode, forKey: Keys.referralCode)
+            defaults.set(referralCode, forKey: UserSettingKeys.referralCode)
         }
     }
     
     init() {
-        // Load giá trị từ UserDefaults
-        if let rawValue = defaults.string(forKey: Keys.colorSchemeOption),
+        // Load values from UserDefaults
+        if let rawValue = defaults.string(forKey: UserSettingKeys.colorSchemeOption),
            let savedOption = ColorSchemeOption(rawValue: rawValue) {
             self.colorSchemeOption = savedOption
         } else {
             self.colorSchemeOption = .system
         }
         
-        self.username = defaults.string(forKey: Keys.username)
-        self.token = defaults.string(forKey: Keys.token)
-        self.referralCode = defaults.string(forKey: Keys.referralCode)
-        self.signature = defaults.string(forKey: Keys.signature)
-        self.languageCode = defaults.string(forKey: Keys.languageCode)
+        self.referralCode = defaults.string(forKey: UserSettingKeys.referralCode)
+        self.signature = defaults.string(forKey: UserSettingKeys.signature)
+        self.languageCode = defaults.string(forKey: UserSettingKeys.languageCode)
         
         themeSet = LightTheme()
         updateTheme(colorSchemeOption)
@@ -107,9 +116,9 @@ extension UserSettings {
         token = nil
         referralCode = nil
 
-        defaults.removeObject(forKey: Keys.username)
-        defaults.removeObject(forKey: Keys.token)
-        defaults.removeObject(forKey: Keys.referralCode)
+        keychainAccess[KeychainAccessKeys.username] = nil
+        keychainAccess[KeychainAccessKeys.token] = nil
+        defaults.removeObject(forKey: UserSettingKeys.referralCode)
         
         // NotificationCenter.default.post(name: AppNotification.LOGOUT, object: nil)
     }

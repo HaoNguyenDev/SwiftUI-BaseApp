@@ -1,6 +1,15 @@
 {
-  "originHash" : "128251e906c24c9b78449972634037a827b4e21bae25be78f6b4033deebc6732",
+  "originHash" : "ec7dc9e19a72dcea2e2b40a906fef8da8551a3d0e6a4a60e2593754f91ce1ad2",
   "pins" : [
+    {
+      "identity" : "keychainaccess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "e0c7eebc5a4465a3c4680764f26b7a61f567cdaf"
+      }
+    },
     {
       "identity" : "lottie-spm",
       "kind" : "remoteSourceControl",

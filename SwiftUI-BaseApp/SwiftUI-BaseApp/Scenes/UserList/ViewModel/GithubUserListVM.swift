@@ -81,10 +81,7 @@ extension GithubUserListVM {
     func loadMoreUser(currentUser: GithubUser) async {
         guard let lastUser = userList.last, currentUser.id == lastUser.id else { return }
         guard case .loaded = viewState else { return }
-        
-#if DEBUG
-        print(">>> Load more data from user withID \(String(describing: currentUser.id))")
-#endif
+        Logger.shared.debug(">>> Load more data from user withID \(String(describing: currentUser.id))")
 //        viewState = .loading
         do {
             let newUsers = try await networkService.fetchUsers(perPage: paginationConfig.perPage,
