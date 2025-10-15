@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA58DDC12E9E8DD20042D1AD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = DA58DDC02E9E8DD20042D1AD /* KeychainAccess */; };
 		DA5CC2872E22B28F000C5F18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2812E22B28F000C5F18 /* Preview Assets.xcassets */; };
 		DA5CC2882E22B28F000C5F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2832E22B28F000C5F18 /* Assets.xcassets */; };
 		DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2842E22B28F000C5F18 /* ContentView.swift */; };
@@ -309,6 +310,7 @@
 				DA748DF22E22C17200B1B226 /* SDWebImageSwiftUI in Frameworks */,
 				DA748DF72E22C17B00B1B226 /* SDWebImageMapKit in Frameworks */,
 				DA748DEF2E22C16400B1B226 /* Lottie in Frameworks */,
+				DA58DDC12E9E8DD20042D1AD /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,6 +791,7 @@
 				DA748DF12E22C17200B1B226 /* SDWebImageSwiftUI */,
 				DA748DF42E22C17B00B1B226 /* SDWebImage */,
 				DA748DF62E22C17B00B1B226 /* SDWebImageMapKit */,
+				DA58DDC02E9E8DD20042D1AD /* KeychainAccess */,
 			);
 			productName = "SwiftUI-BaseApp";
 			productReference = DA5CC2702E22B254000C5F18 /* SwiftUI-BaseApp.app */;
@@ -822,6 +825,7 @@
 				DA748DED2E22C16400B1B226 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				DA748DF02E22C17200B1B226 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				DA748DF32E22C17B00B1B226 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				DA58DDBF2E9E8DD20042D1AD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DA5CC2712E22B254000C5F18 /* Products */;
@@ -1196,6 +1200,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DA58DDBF2E9E8DD20042D1AD /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DA748DED2E22C16400B1B226 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -1223,6 +1235,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DA58DDC02E9E8DD20042D1AD /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA58DDBF2E9E8DD20042D1AD /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
 		DA748DEE2E22C16400B1B226 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA748DED2E22C16400B1B226 /* XCRemoteSwiftPackageReference "lottie-spm" */;

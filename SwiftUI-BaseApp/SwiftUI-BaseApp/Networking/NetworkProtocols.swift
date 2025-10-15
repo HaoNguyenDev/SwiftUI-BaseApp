@@ -25,7 +25,7 @@ public protocol Endpoint {
 }
 
 // MARK: - NetworkService
-public protocol NetworkService {
+public protocol NetworkServiceProtocol {
     func fetchData<T: Decodable>(endpoint: Endpoint, responseType: T.Type) async throws -> T
     func fetchData<T: Decodable>(endpoint: Endpoint, responseType: T.Type) -> AnyPublisher<T, Error>
     func fetchData<T: Decodable>(endpoint: Endpoint, responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void)

@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 // MARK: - NetworkManager
-public class NetworkManager: NetworkService {
+public class NetworkManager: NetworkServiceProtocol {
     
     private let session: URLSession
     
