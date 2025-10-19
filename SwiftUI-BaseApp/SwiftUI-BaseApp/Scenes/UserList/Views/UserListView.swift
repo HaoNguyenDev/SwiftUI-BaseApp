@@ -22,28 +22,30 @@ struct UserListView: View {
 extension UserListView {
     @ViewBuilder
     func contentView() -> some View {
-        ZStack {
+        GHUserList(users: viewModel.userList, didTapUser: { user in
+            fetchUserDetail(for: user)
+        }, loadMoreFrom: { user in
+            processLoadMore(currentUser: user)
+        })
+        .overlay(content: {
             switch viewModel.viewState {
-            case .initial:
-                Color.clear
-            case .loading:
-                loadingView
-            case .loaded:
-                GHUserList(users: viewModel.userList, didTapUser: { user in
-                    fetchUserDetail(for: user)
-                }, loadMoreFrom: { user in
-                    processLoadMore(currentUser: user)
-                })
-            case .error(let error):
-                ErrorBanner(error: error) {
-                    Task {
-                        await viewModel.fetchUsers()
+                case .initial:
+                    Color.clear
+                case .loading:
+                    loadingView
+                case .loaded:
+                   EmptyView()
+                case .error(let error):
+                    ErrorBanner(error: error) {
+                        Task {
+                            await viewModel.fetchUsers()
+                        }
                     }
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .padding()
                 }
-                .transition(.move(edge: .bottom).combined(with: .opacity))
-                .padding()
-            }
-        }
+        })
+        
         .onAppear() {
             if case .initial = viewModel.viewState {
                 Task {
@@ -65,9 +67,13 @@ extension UserListView {
     }
     
     private var loadingView: some View {
-        ProgressView()
-            .frame(maxWidth: .infinity)
-            .padding()
+        ZStack {
+            Color.black.opacity(0.1).ignoresSafeArea()
+            ProgressView("Loading...")
+                .padding()
+                .background(Color.white)
+                .cornerRadius(10)
+        }
     }
 }
 

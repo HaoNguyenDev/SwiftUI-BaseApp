@@ -13,8 +13,8 @@ protocol GithubServiceProtocol {
     func fetchUserDetail(by username: String) async throws -> GithubUserDetail
 }
 
-// MARK: - GitHubNetworkService
-class GitHubNetworkService: GithubServiceProtocol {
+// MARK: - GithubNetworkService
+class GithubNetworkService: GithubServiceProtocol {
     private let networkManager: NetworkServiceProtocol
     
     init(networkManager: NetworkServiceProtocol = NetworkManager()) {
@@ -23,11 +23,11 @@ class GitHubNetworkService: GithubServiceProtocol {
     
     func fetchUsers(perPage: Int, since: Int) async throws -> [GithubUser] {
         let endpoint = GithubAPIEndpoint.getUsersEndpoint(perPage: perPage, since: since)
-        return try await networkManager.fetchData(endpoint: endpoint, responseType: [GithubUser].self)
+        return try await networkManager.requestAsync(endpoint: endpoint)
     }
     
     func fetchUserDetail(by username: String) async throws -> GithubUserDetail {
         let endpoint = GithubAPIEndpoint.getUserDetailEndpoint(username: username)
-        return try await networkManager.fetchData(endpoint: endpoint, responseType: GithubUserDetail.self)
+        return try await networkManager.requestAsync(endpoint: endpoint)
     }
 }
