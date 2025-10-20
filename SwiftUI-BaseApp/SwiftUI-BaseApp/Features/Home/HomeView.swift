@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     var onShowProfile: VoidResult?
     var gotoSubview1: (() -> Void)?
     var gotoSubview2: (() -> Void)?
@@ -41,7 +42,7 @@ extension HomeView {
     private var content: some View {
         VStack(spacing: 20) {
             Text("home_view".localized())
-                .setFont(.bold, size: 32, color: userSettings.theme.textColor)
+                .setFont(.bold, size: 32, color: theme.color.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -50,7 +51,7 @@ extension HomeView {
                 processGotoSubview(subview: 1)
             } label: {
                 Text("\("go_to_sub_view".localized()) 1")
-                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
+                    .setFont(.bold, size: 20, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -60,7 +61,7 @@ extension HomeView {
                 processGotoSubview(subview: 2)
             } label: {
                 Text("\("go_to_sub_view".localized()) 2")
-                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
+                    .setFont(.bold, size: 20, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -70,7 +71,7 @@ extension HomeView {
                 showSheet?()
             } label: {
                 Text("\("Test Show Sheet")")
-                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
+                    .setFont(.bold, size: 20, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -80,7 +81,7 @@ extension HomeView {
                 showFullScreen?()
             } label: {
                 Text("\("Test Show FullScreen")")
-                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
+                    .setFont(.bold, size: 20, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }

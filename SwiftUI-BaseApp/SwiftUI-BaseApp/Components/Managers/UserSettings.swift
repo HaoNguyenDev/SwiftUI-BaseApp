@@ -26,6 +26,7 @@ extension UserSettings {
 @Observable final class UserSettings {
     private let defaults = UserDefaults.standard
     private let keychain = KeychainManager.shared
+    private let themeManager = ThemeManager.shared
     
     private(set) var colorSchemeOption: ColorSchemeOption = .system {
         didSet {
@@ -34,7 +35,7 @@ extension UserSettings {
         }
     }
     
-    private(set) var themeSet: Theme
+    private(set) var themeSet: ThemeProtocol
     private var _token: String? = nil
     private var _username: String? = nil
     private var _password: String? = nil
@@ -48,6 +49,11 @@ extension UserSettings {
         } else {
             self.colorSchemeOption = .system
         }
+        
+//        let initialIsDarkMode = defaults.value(forKey: UserSettingKeys.isDarkMode) as? Bool
+//        isDarkMode = initialIsDarkMode ?? false
+//        // Sync theme value with ThemeManager
+//        ThemeManager.shared.isDarkEnabled = initialIsDarkMode ?? false
         
         self.referralCode = defaults.string(forKey: UserSettingKeys.referralCode)
         self.signature = defaults.string(forKey: UserSettingKeys.signature)
@@ -182,7 +188,7 @@ extension UserSettings {
 }
 
 extension UserSettings {
-    var theme: Theme {
+    var theme: ThemeProtocol {
         return themeSet
     }
     

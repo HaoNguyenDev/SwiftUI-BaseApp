@@ -12,7 +12,7 @@ struct BlurBackgroundView: View {
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
         ZStack {
-            Image("launch_screen_image")
+            Image(R.image.launch_screen_image)
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

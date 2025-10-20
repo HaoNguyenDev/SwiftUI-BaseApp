@@ -2,23 +2,28 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UILaunchScreen</key>
-	<dict>
-		<key>UIImageRespectsSafeAreaInsets</key>
-		<true/>
-		<key>UIImageName</key>
-		<string>launch_screen_image</string>
-		<key>UIColorName</key>
-		<string>launch_screen_color</string>
-	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Nunito-Bold.ttf</string>
-		<string>Nunito-Italic.ttf</string>
-		<string>Nunito-Light.ttf</string>
-		<string>Nunito-Medium.ttf</string>
-		<string>Nunito-Regular.ttf</string>
-		<string>Nunito-SemiBold.ttf</string>
+		<string>TT Hoves Pro Trial Variable.ttf</string>
+		<string>TT Hoves Pro Trial Regular.ttf</string>
+		<string>TT Hoves Pro Trial Medium.ttf</string>
+		<string>TT Hoves Pro Trial Hairline.ttf</string>
+		<string>TT Hoves Pro Trial Light.ttf</string>
+		<string>TT Hoves Pro Trial ExtraLight.ttf</string>
+		<string>TT Hoves Pro Trial Bold.ttf</string>
+		<string>TT Hoves Pro Trial ExtraBold.ttf</string>
+		<string>TT Hoves Pro Trial Black.ttf</string>
+		<string>TT Hoves Pro Trial DemiBold.ttf</string>
+		<string>TT Hoves Pro Trial Thin.ttf</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>launch_screen_color</string>
+		<key>UIImageName</key>
+		<string>launch_screen_image</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

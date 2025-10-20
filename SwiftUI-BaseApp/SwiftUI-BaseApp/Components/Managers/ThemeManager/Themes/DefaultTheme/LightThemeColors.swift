@@ -1,13 +1,14 @@
 //
-//  LightColorSet.swift
-//  SwiftUI-BaseApp
+//  LightThemeColors.swift
+//  LearnSwiftUI
 //
-//  Created by Hao Nguyen on 12/7/25.
+//  Created by Hao Nguyen on 10/10/25.
 //
 
+import UIKit
 import SwiftUI
 
-struct LightTheme: Theme {
+struct LightThemeColors: ThemeColorProtocol {
     let bgColor = Color(hex: "#ffffff")
     let subviewBgColor = Color(hex: "#333333")
     var textOnSubviewColor = Color(hex: "#ffffff")

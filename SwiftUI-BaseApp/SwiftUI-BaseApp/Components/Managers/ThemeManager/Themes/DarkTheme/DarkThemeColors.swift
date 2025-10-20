@@ -1,13 +1,14 @@
 //
-//  DarkColorSet.swift
-//  SwiftUI-BaseApp
+//  DarkThemeColors.swift
+//  LearnSwiftUI
 //
-//  Created by Hao Nguyen on 12/7/25.
+//  Created by Hao Nguyen on 13/10/25.
 //
 
+import UIKit
 import SwiftUI
 
-struct DarkTheme: Theme {
+struct DarkThemeColors: ThemeColorProtocol {
     let bgColor = Color(hex: "#1C2526")
     let subviewBgColor = Color(hex: "#495051")
     var textOnSubviewColor = Color(hex: "#ffffff")

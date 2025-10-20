@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(UserSettings.self) var userSettings
-    
+    @Environment(\.theme) var theme: any ThemeProtocol
     let showSettingsView: VoidResult?
     let showLogoutConfirmView: VoidResult?
 
@@ -24,7 +24,7 @@ struct ProfileView: View {
                 .padding(.top, 32)
                 
                 Text(userSettings.username ?? "anonymous".localized())
-                    .setFont(.bold, size: 32, color: userSettings.theme.textColor)
+                    .setFont(.bold, size: 32, color: theme.color.textColor)
                     .lineLimit(1)
                 settingsView
                 logoutView
@@ -41,10 +41,10 @@ struct ProfileView: View {
             VStack(alignment: .leading) {
                 Image(systemName: "gear")
                 Text("settings".localized())
-                    .setFont(.bold, size: 14, color: userSettings.theme.textOnSubviewColor)
+                    .setFont(.bold, size: 14, color: theme.color.textOnSubviewColor)
                     
                 Text("settings_description".localized())
-                    .setFont(.regular, size: 10, color: userSettings.theme.textOnSubviewColor)
+                    .setFont(.regular, size: 10, color: theme.color.textOnSubviewColor)
             }
             
             Spacer()
@@ -52,8 +52,8 @@ struct ProfileView: View {
         }
         .padding(.horizontal, 24)
         .frame(height: 107)
-        .background(userSettings.theme.subviewBgColor)
-        .foregroundStyle(userSettings.theme.textOnSubviewColor)
+        .background(theme.color.subviewBgColor)
+        .foregroundStyle(theme.color.textOnSubviewColor)
         .cornerRadius(32)
         .padding(.horizontal, 32)
         .onTapGesture {
@@ -66,12 +66,12 @@ struct ProfileView: View {
         HStack {
             VStack(alignment: .leading) {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
-                    .tint(userSettings.theme.textOnSubviewColor)
+                    .tint(theme.color.textOnSubviewColor)
                 Text("Log out")
-                    .setFont(.bold, size: 14, color: userSettings.theme.textOnSubviewColor)
+                    .setFont(.bold, size: 14, color: theme.color.textOnSubviewColor)
                 
                 Text("You’ll be logged out of the app but can log back in anytime.")
-                    .setFont(.regular, size: 10, color: userSettings.theme.textOnSubviewColor)
+                    .setFont(.regular, size: 10, color: theme.color.textOnSubviewColor)
             }
             
             Spacer()
@@ -80,8 +80,8 @@ struct ProfileView: View {
         }
         .padding(.horizontal, 24)
         .frame(height: 107)
-        .background(userSettings.theme.subviewBgColor)
-        .foregroundStyle(userSettings.theme.textOnSubviewColor)
+        .background(theme.color.subviewBgColor)
+        .foregroundStyle(theme.color.textOnSubviewColor)
         .cornerRadius(32)
         .padding(.horizontal, 32)
         .onTapGesture {

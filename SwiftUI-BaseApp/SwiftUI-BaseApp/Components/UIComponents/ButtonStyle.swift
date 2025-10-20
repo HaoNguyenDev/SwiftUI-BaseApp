@@ -57,15 +57,15 @@ struct PrimaryButtonStyleCustom: ButtonStyle {
 
 struct SecondaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
-    @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(mainFont.bold(16))
             .background(Color.clear)
-            .foregroundColor(isEnabled ? userSettings.theme.textColor : .gray)
+            .foregroundColor(isEnabled ? theme.color.textColor : .gray)
             .overlay(
                 RoundedRectangle(cornerRadius: 24)
-                    .stroke(isEnabled ? userSettings.theme.textColor : Color.gray, lineWidth: 1)
+                    .stroke(isEnabled ? theme.color.textColor : Color.gray, lineWidth: 1)
             )
             .contentShape(Rectangle())
             .opacity(configuration.isPressed ? 0.5 : 1)

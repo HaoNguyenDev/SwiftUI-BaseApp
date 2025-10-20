@@ -10,8 +10,8 @@ import SwiftUI
 
 struct SplashView: View {
     @Environment(AppState.self) var appState
-    @Environment(UserSettings.self) var userSettings
     @Environment(AppSettings.self) var appSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     var onSkipUpdate: VoidResult?
     @State var showLoading: Bool = false
     
@@ -46,11 +46,11 @@ extension SplashView {
                    
                     VStack(spacing: 12) {
                         Text("splas_screen_title".localized())
-                            .setFont(.bold, size: 50.0, color: userSettings.theme.textColor)
+                            .setFont(.bold, size: 50.0, color: theme.color.textColor)
                         Text("please_update".localized())
-                            .setFont(.bold, size: 32.0, color: userSettings.theme.textColor)
+                            .setFont(.bold, size: 32.0, color: theme.color.textColor)
                         Text("update_the_app_now".localized())
-                            .setFont(.regular, size: 14.0, color: userSettings.theme.textColor)
+                            .setFont(.regular, size: 14.0, color: theme.color.textColor)
                     }
                     .multilineTextAlignment(.center)
                 }
@@ -61,7 +61,7 @@ extension SplashView {
                         updateAppProcess()
                     }, label: {
                         Text("update".localized())
-                            .setFont(.regular, size: 17, color: userSettings.theme.textColor)
+                            .setFont(.regular, size: 17, color: theme.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
@@ -71,7 +71,7 @@ extension SplashView {
                         onSkipUpdate?()
                     }, label: {
                         Text("skip".localized())
-                            .setFont(.regular, size: 17, color: userSettings.theme.textColor)
+                            .setFont(.regular, size: 17, color: theme.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
@@ -120,5 +120,4 @@ extension SplashView {
     SplashView()
         .environment(AppState())
         .environment(AppSettings())
-        .environment(UserSettings())
 }

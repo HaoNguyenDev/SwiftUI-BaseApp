@@ -64,7 +64,7 @@ extension Router {
 
 struct MainTabControllerView: View {
     var navRouter: any NavRouterProtocol
-    @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     @State var selectedTab = TabType.home.rawValue
     
     init(navRouter: any NavRouterProtocol) {
@@ -137,7 +137,7 @@ struct MainTabControllerView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: 72)
         .background(
-            userSettings.theme.subviewBgColor
+            theme.color.subviewBgColor
                 .clipShape(RoundedRectangle(cornerRadius: 36))
                 .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 4)
         )
@@ -153,7 +153,7 @@ struct MainTabControllerView: View {
                     tabIcon(tab: tab, isSelected: isSelected)
                     if tab != .home {
                         Text(tab.title)
-                            .setFont(isSelected ? .bold : .regular, size: 10, color: isSelected ? userSettings.theme.mainTabSelectedTextColor : userSettings.theme.mainTabUnselectedTextColor)
+                            .setFont(isSelected ? .bold : .regular, size: 10, color: isSelected ? theme.color.mainTabSelectedTextColor : theme.color.mainTabUnselectedTextColor)
                     }
                 }
                 if tab == .home {
@@ -175,13 +175,13 @@ struct MainTabControllerView: View {
                 .symbolEffect(.bounce.up.wholeSymbol, options: .nonRepeating)
 //            .resizable()
 //            .frame(width: 24, height: 24)
-            .foregroundColor(userSettings.theme.mainTabSelectedTextColor)
+            .foregroundColor(theme.color.mainTabSelectedTextColor)
         } else {
             tab.icon
                 .font(mainFont.regular(24))
 //            .resizable()
 //            .frame(width: 24, height: 24)
-            .foregroundColor(userSettings.theme.mainTabUnselectedTextColor)
+            .foregroundColor(theme.color.mainTabUnselectedTextColor)
         }
     }
     
@@ -204,5 +204,4 @@ struct MainTabControllerView: View {
 
 #Preview {
     MainTabControllerView(navRouter: NavRouter())
-        .environment(UserSettings())
 }
