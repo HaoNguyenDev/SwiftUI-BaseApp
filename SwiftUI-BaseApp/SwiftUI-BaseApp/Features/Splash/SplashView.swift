@@ -46,11 +46,14 @@ extension SplashView {
                    
                     VStack(spacing: 12) {
                         Text("splas_screen_title".localized())
-                            .setFont(.bold, size: 50.0, color: theme.color.textColor)
+                            .font(theme.font.bold(ofSize: 50))
+                            .foregroundStyle(theme.color.textColor)
                         Text("please_update".localized())
-                            .setFont(.bold, size: 32.0, color: theme.color.textColor)
+                            .font(theme.font.bold(ofSize: 32))
+                            .foregroundStyle(theme.color.textColor)
                         Text("update_the_app_now".localized())
-                            .setFont(.regular, size: 14.0, color: theme.color.textColor)
+                            .font(theme.font.regular(ofSize: 14))
+                            .foregroundStyle(theme.color.textColor)
                     }
                     .multilineTextAlignment(.center)
                 }
@@ -61,7 +64,8 @@ extension SplashView {
                         updateAppProcess()
                     }, label: {
                         Text("update".localized())
-                            .setFont(.regular, size: 17, color: theme.color.textColor)
+                            .font(theme.font.regular(ofSize: 17))
+                            .foregroundStyle(theme.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
@@ -71,7 +75,8 @@ extension SplashView {
                         onSkipUpdate?()
                     }, label: {
                         Text("skip".localized())
-                            .setFont(.regular, size: 17, color: theme.color.textColor)
+                            .font(theme.font.regular(ofSize: 17))
+                            .foregroundStyle(theme.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })

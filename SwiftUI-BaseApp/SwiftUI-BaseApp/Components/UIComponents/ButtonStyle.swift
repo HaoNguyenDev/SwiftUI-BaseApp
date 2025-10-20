@@ -9,10 +9,11 @@ import SwiftUI
 
 struct PrimaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
+    @Environment(\.theme) var theme: any ThemeProtocol
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(mainFont.bold(16))
+            .font(theme.font.bold(ofSize: 16))
             .padding(.bottom, 4)
             .background(isEnabled ? Color(hex: "#0D00FF") : Color.gray)
             .foregroundColor(.white)
@@ -23,6 +24,7 @@ struct PrimaryButtonStyle: ButtonStyle {
 
 struct PrimaryButtonStyleThin: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
+    @Environment(\.theme) var theme: any ThemeProtocol
     let cornerRadius: CGFloat
 
     init(cornerRadius: CGFloat = 17) {
@@ -31,7 +33,7 @@ struct PrimaryButtonStyleThin: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(mainFont.bold(12))
+            .font(theme.font.bold(ofSize: 12))
             .background(isEnabled ? Color(hex: "#0D00FF") : Color.gray)
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .circular))
@@ -41,6 +43,7 @@ struct PrimaryButtonStyleThin: ButtonStyle {
 
 struct PrimaryButtonStyleCustom: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
+    @Environment(\.theme) var theme: any ThemeProtocol
     let font: Font
     let cornerRadius: CGFloat
     
@@ -60,7 +63,7 @@ struct SecondaryButtonStyle: ButtonStyle {
     @Environment(\.theme) var theme: any ThemeProtocol
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(mainFont.bold(16))
+            .font(theme.font.bold(ofSize: 16))
             .background(Color.clear)
             .foregroundColor(isEnabled ? theme.color.textColor : .gray)
             .overlay(
@@ -74,12 +77,12 @@ struct SecondaryButtonStyle: ButtonStyle {
 
 struct SecondaryButtonBlackStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
-    
+    @Environment(\.theme) var theme: any ThemeProtocol
     var radius: CGFloat = 16
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(mainFont.bold(12))
+            .font(theme.font.bold(ofSize: 12))
             .background(Color.clear)
             .foregroundColor(isEnabled ? Color(hex: "#333333") : .gray)
             .overlay(
@@ -93,10 +96,11 @@ struct SecondaryButtonBlackStyle: ButtonStyle {
 
 struct SecondaryButtonBlackStyleBig: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
+    @Environment(\.theme) var theme: any ThemeProtocol
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(mainFont.bold(16))
+            .font(theme.font.bold(ofSize: 16))
             .background(Color.clear)
             .foregroundColor(isEnabled ? Color(hex: "#333333") : .gray)
             .overlay(

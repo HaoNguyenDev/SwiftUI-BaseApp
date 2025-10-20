@@ -188,11 +188,11 @@ extension UserSettings {
     private func updateTheme(_ option: ColorSchemeOption, systemColorScheme: ColorScheme = .light) {
         switch option {
         case .system:
-            themeManager.activeTheme = systemColorScheme == .dark ? DarkTheme() : LightTheme()
+            themeManager.currentTheme = systemColorScheme == .dark ? DarkTheme() : LightTheme()
         case .light:
-            themeManager.activeTheme = LightTheme()
+            themeManager.currentTheme = LightTheme()
         case .dark:
-            themeManager.activeTheme = DarkTheme()
+            themeManager.currentTheme = DarkTheme()
         }
     }
 }

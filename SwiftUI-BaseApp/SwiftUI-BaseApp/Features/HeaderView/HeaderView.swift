@@ -27,7 +27,8 @@ struct HeaderView: View {
                     .frame(width: 32, height: 32)
                 
                 Text("👋 Hi, \(name ?? "buddy".localized())")
-                    .setFont(.bold, size: 14, color: theme.color.textColor)
+                    .font(theme.font.bold(ofSize: 14))
+                    .foregroundStyle(theme.color.textColor)
                     .lineLimit(1)
             }
             .onTapGesture { onShowProfile?() }
@@ -44,16 +45,17 @@ struct HeaderView: View {
                             .symbolRenderingMode(.monochrome)
                             .symbolEffect(.wiggle, options: .repeat(.bitWidth))
                             .foregroundStyle(theme.color.textColor)
-                            .font(mainFont.semibold(18))
+                            .font(theme.font.semibold(ofSize: 18))
                     })
                 
                 HStack(alignment: .center, spacing: 5) {
                     Text("100.000.000")
-                        .setFont(.bold, size: 14, color: theme.color.textOnSubviewColor)
+                        .font(theme.font.bold(ofSize: 14))
+                        .foregroundStyle(theme.color.textOnSubviewColor)
                         .fixedSize(horizontal: true, vertical: false)
                     Image(systemName: "bitcoinsign.circle")
                     //                            .resizable()
-                        .font(mainFont.semibold(18))
+                        .font(theme.font.semibold(ofSize: 18))
                         .foregroundStyle(theme.color.textOnSubviewColor)
                 }
                 

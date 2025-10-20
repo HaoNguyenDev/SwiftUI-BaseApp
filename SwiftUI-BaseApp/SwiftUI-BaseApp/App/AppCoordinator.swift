@@ -43,7 +43,8 @@ struct AppCoordinator: View {
     @ViewBuilder
     var blockingView: some View {
         Text("device_restricted".localized())
-            .setFont(.bold, size: 20, color: theme.color.textColor)
+            .font(theme.font.bold(ofSize: 20))
+            .foregroundStyle(theme.color.textColor)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .setDefaultBackground()
     }
@@ -87,9 +88,11 @@ struct AppCoordinator: View {
                 VStack(spacing: 32) {
                     VStack(spacing: 12) {
                         Text("system_maintenance".localized())
-                            .setFont(.semibold, size: 32, color: theme.color.textColor)
+                            .font(theme.font.semibold(ofSize: 32))
+                            .foregroundStyle(theme.color.textColor)
                         Text("maintenance_message".localized())
-                            .setFont(.regular, size: 17, color: theme.color.textColor)
+                            .font(theme.font.regular(ofSize: 17))
+                            .foregroundStyle(theme.color.textColor)
                     }
                     .multilineTextAlignment(.center)
                 }

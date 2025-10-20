@@ -44,12 +44,13 @@ struct UserInformView: View {
                 VStack(spacing: 16) {
                     if let title = message.title {
                         Text(title)
-                            .setFont(.bold, size: 24.0, color: theme.color.textOnSubviewColor)
+                            .font(theme.font.bold(ofSize: 24))
                             .foregroundStyle(message.type.color)
                     }
                     if let message = message.message {
                         Text(message)
-                            .setFont(.regular, size: 14.0, color: theme.color.textOnSubviewColor)
+                            .font(theme.font.regular(ofSize: 14))
+                            .foregroundStyle(theme.color.textOnSubviewColor)
                             .fixedSize(horizontal: false, vertical: true)
                     } else if let attributeMessage = message.attributeMessage {
                         Text(attributeMessage)
@@ -64,7 +65,8 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(primaryAction.title)
-                                    .setFont(.regular, size: 14, color: theme.color.textOnSubviewColor)
+                                    .font(theme.font.regular(ofSize: 14))
+                                    .foregroundStyle(theme.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                                     .background(
@@ -82,7 +84,8 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(secondaryAction.title)
-                                    .setFont(.regular, size: 14, color: theme.color.textOnSubviewColor)
+                                    .font(theme.font.regular(ofSize: 14))
+                                    .foregroundStyle(theme.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                                     .background(

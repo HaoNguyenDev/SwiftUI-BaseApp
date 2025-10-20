@@ -47,7 +47,8 @@ struct UserMessageView: View {
     var titleLabel: some View {
         if let title = message.title {
             Text(title)
-                .setFont(.bold, size: 20, color: theme.color.textOnSubviewColor)
+                .font(theme.font.bold(ofSize: 20))
+                .foregroundStyle(theme.color.textOnSubviewColor)
         } else {
             EmptyView()
         }
@@ -76,7 +77,8 @@ struct UserMessageView: View {
                     titleLabel
                     if let message = message.message {
                         Text(message)
-                            .setFont(.regular, size: 14, color: theme.color.textOnSubviewColor)
+                            .font(theme.font.regular(ofSize: 14))
+                            .foregroundStyle(theme.color.textOnSubviewColor)
                     } else if let message = message.attributeMessage {
                         Text(message)
                     }
