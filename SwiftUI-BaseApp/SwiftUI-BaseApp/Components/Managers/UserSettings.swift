@@ -15,23 +15,18 @@ extension UserSettings {
     // MARK: - Keys
     private enum UserSettingKeys {
         static let signature = "signature"
-        static let userId = "userId"
         static let referralCode = "referralCode"
         static let languageCode = "languageCode"
         static let colorSchemeOption = "colorSchemeOption"
         static let launchCount = "launchCount"
         static let currentUser = "currentUser"
     }
-    
-    private enum KeychainAccessKeys {
-        static let token = "token"
-        static let username = "username"
-    }
 }
 
 @Observable final class UserSettings {
     private let defaults = UserDefaults.standard
-    private let keychainAccess = Keychain(service: Bundle.main.bundleIdentifier ?? "")
+    private let keychain = KeychainManager.shared
+    
     private(set) var colorSchemeOption: ColorSchemeOption = .system {
         didSet {
             defaults.set(colorSchemeOption.rawValue, forKey: UserSettingKeys.colorSchemeOption)
@@ -39,52 +34,11 @@ extension UserSettings {
         }
     }
     
-    var languageCode: String? {
-        didSet {
-            Logger.shared.info("languageCode set to: \(languageCode ?? "nil")")
-            defaults.set(languageCode, forKey: UserSettingKeys.languageCode)
-        }
-    }
-    
     private(set) var themeSet: Theme
-    
-    var username: String? {
-        get {
-            keychainAccess[KeychainAccessKeys.username]
-        }
-        
-        set {
-            keychainAccess[KeychainAccessKeys.username] = newValue
-        }
-    }
-    
-    var token: String? {
-        get {
-            keychainAccess[KeychainAccessKeys.token]
-        }
-        
-        set {
-            keychainAccess[KeychainAccessKeys.token] = newValue
-        }
-    }
-    
-    var signature: String? {
-        didSet {
-            defaults.set(signature, forKey: UserSettingKeys.signature)
-        }
-    }
-    
-    var userId: String? {
-        didSet {
-            defaults.set(userId, forKey: UserSettingKeys.userId)
-        }
-    }
-    
-    var referralCode: String? {
-        didSet {
-            defaults.set(referralCode, forKey: UserSettingKeys.referralCode)
-        }
-    }
+    private var _token: String? = nil
+    private var _username: String? = nil
+    private var _password: String? = nil
+    private var _userId: String? = nil
     
     init() {
         // Load values from UserDefaults
@@ -107,23 +61,124 @@ extension UserSettings {
         }
     }
     
-    var hasLogin: Bool {
-        return token != nil && token != ""
+    var languageCode: String? {
+        didSet {
+            Logger.shared.info("languageCode set to: \(languageCode ?? "nil")")
+            defaults.set(languageCode, forKey: UserSettingKeys.languageCode)
+        }
+    }
+    
+    var hasLoggedIn: Bool {
+        get {
+            guard let token = _token else { return false }
+            return token != ""
+        }
+    }
+    
+    var token: String? {
+        get {
+            return _token
+        }
+        set {
+            _token = newValue
+            Task {
+                await saveValueToKeychain(newValue, for: .token)
+            }
+        }
+    }
+    
+    var username: String? {
+        get {
+            return _username
+        }
+        set {
+            _username = newValue
+            Task {
+                await saveValueToKeychain(newValue, for: .username)
+            }
+        }
+    }
+    
+    var password: String? {
+        get {
+            return _password
+        }
+        
+        set {
+            _password = newValue
+            Task {
+                await saveValueToKeychain(newValue, for: .password)
+            }
+        }
+    }
+    
+    var signature: String? {
+        didSet {
+            defaults.set(signature, forKey: UserSettingKeys.signature)
+        }
+    }
+    
+    var userId: String? {
+        get {
+            return _userId
+        }
+        set {
+            _username = newValue
+            Task {
+                await saveValueToKeychain(newValue, for: .userId)
+            }
+        }
+    }
+    
+    var referralCode: String? {
+        didSet {
+            defaults.set(referralCode, forKey: UserSettingKeys.referralCode)
+        }
     }
     
     func logout() {
-        username = nil
-        token = nil
-        referralCode = nil
-
-        keychainAccess[KeychainAccessKeys.username] = nil
-        keychainAccess[KeychainAccessKeys.token] = nil
-        defaults.removeObject(forKey: UserSettingKeys.referralCode)
-        
+        clearUserData()
         // NotificationCenter.default.post(name: AppNotification.LOGOUT, object: nil)
     }
-
     
+}
+
+extension UserSettings {
+    // MARK: - Load Keychain value
+    /// Call at @main or App struct
+    static func loadSettings() async -> UserSettings {
+        let settings = UserSettings()
+        settings._token = await settings.loadValueFromKeychain(for: .token)
+        settings._username = await settings.loadValueFromKeychain(for: .username)
+        settings._password = await settings.loadValueFromKeychain(for: .password)
+        settings._userId = await settings.loadValueFromKeychain(for: .userId)
+        
+        do {
+            try await Task.sleep(for: .seconds(1))
+        } catch {
+            Logger.shared.debug(error.localizedDescription)
+        }
+        
+        return settings
+    }
+    // MARK: - Manual Reload
+    /// call this func when refresh token or change password
+    @MainActor
+    func refreshKeychainData() async {
+        _token = await loadValueFromKeychain(for: .token)
+        _username = await loadValueFromKeychain(for: .username)
+    }
+}
+
+
+extension UserSettings {
+    private func clearUserData() {
+        token = nil
+        username = nil
+        referralCode = nil
+        userId = nil
+        signature = nil
+    }
 }
 
 extension UserSettings {
@@ -159,3 +214,33 @@ extension UserSettings {
     }
 }
 
+// MARK: - Keychain helper
+extension UserSettings {
+    @MainActor
+    private func loadValueFromKeychain(for key: KeychainManager.KeychainKeys) async -> String? {
+        do {
+            return try await keychain.loadValueFromKeychain(for: key)
+        } catch {
+            Logger.shared.debug("Error when load value from keychain: \(error.localizedDescription)")
+            return nil
+        }
+    }
+
+    @MainActor
+    private func saveValueToKeychain(_ value: String?, for key: KeychainManager.KeychainKeys) async {
+        guard let value = value else {
+            do {
+                try await keychain.deleteValueFromKeychain(for: key)
+            } catch {
+                Logger.shared.debug("Error when delete value from keychain: \(error.localizedDescription)")
+            }
+            return
+        }
+        
+        do {
+            try await keychain.saveValueToKeychain(value, for: key)
+        } catch {
+            Logger.shared.debug("Error when save value to keychain: \(error.localizedDescription)")
+        }
+    }
+}

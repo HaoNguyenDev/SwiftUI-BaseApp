@@ -36,13 +36,7 @@ struct AppCoordinator: View {
     
     private func startCheckingApp() {
         let isMatchBundleId = Bundle.main.bundleIdentifier == "haonguyen.SwiftUI-BaseApp"
-        
-        if !isMatchBundleId {
-            isShowBlockingView = true
-            return
-        }
-        
-        isShowBlockingView = false
+        isShowBlockingView = !isMatchBundleId
     }
     
     @ViewBuilder

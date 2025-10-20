@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct SwiftUI_BaseApp: App {
     
-    @State private var userSettings = UserSettings()
+    @State private var userSettings: UserSettings? = nil
     @State private var appSettings = AppSettings()
     @State private var appState = AppState()
     @State private var languageManager = LanguageManager()
@@ -21,11 +21,20 @@ struct SwiftUI_BaseApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AppCoordinator()
-                .environment(appState)
-                .environment(appSettings)
-                .environment(userSettings)
-                .environment(languageManager)
+            Group {
+                if let userSettings = userSettings {
+                    AppCoordinator()
+                        .environment(appState)
+                        .environment(appSettings)
+                        .environment(userSettings)
+                        .environment(languageManager)
+                } else {
+                    SampleLoadingView(title: "please_wait".localized())
+                }
+            }
+            .task {
+                userSettings = await UserSettings.loadSettings()
+            }
         }
     }
 }
@@ -33,7 +42,7 @@ struct SwiftUI_BaseApp: App {
 extension SwiftUI_BaseApp {
     private func setupDefaultSettings() {
         Logger.shared.isEnabled = true
-        Logger.shared.info("Language: \(userSettings.languageCode ?? "")")
-        Logger.shared.info("Theme mode: \(userSettings.colorSchemeOption)")
+        Logger.shared.info("Language: \(userSettings?.languageCode ?? "")")
+        Logger.shared.info("Theme mode: \(String(describing: userSettings?.colorSchemeOption))")
     }
 }
