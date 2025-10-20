@@ -9,13 +9,13 @@ import Foundation
 import Combine
 
 // MARK: - NetworkManager
-class NetworkManager: NetworkServiceProtocol {
+class NetworkManager: NetworkProtocol {
     private let session: URLSession
     public init(session: URLSession = .shared) {
         self.session = session
     }
 }
-// MARK: NetworkManager with NetworkServiceProtocol
+// MARK: NetworkManager with NetworkProtocol
 extension NetworkManager {
     // MARK: - 1. ASYNC/AWAIT
     func requestAsync<T: Decodable>(endpoint: Endpoint) async throws -> T {

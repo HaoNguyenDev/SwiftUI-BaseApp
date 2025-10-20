@@ -18,7 +18,7 @@
 		DA5CC2942E22B4EC000C5F18 /* ScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */; };
 		DA5D71772E3FA3B900C78E40 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D71762E3FA3B900C78E40 /* NetworkError.swift */; };
 		DA5D71792E3FA3CC00C78E40 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D71782E3FA3CC00C78E40 /* NetworkManager.swift */; };
-		DA5D717B2E3FA3DE00C78E40 /* NetworkProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D717A2E3FA3DE00C78E40 /* NetworkProtocols.swift */; };
+		DA5D717B2E3FA3DE00C78E40 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D717A2E3FA3DE00C78E40 /* NetworkProtocol.swift */; };
 		DA623ADD2E2AC7BE007BD9F5 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA623ADC2E2AC7BE007BD9F5 /* BlurView.swift */; };
 		DA748D482E22B8A000B1B226 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */; };
 		DA748D492E22B8A000B1B226 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */; };
@@ -145,7 +145,7 @@
 		DAFCDF742E647EE000B97C00 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF732E647EE000B97C00 /* UserListView.swift */; };
 		DAFCDF772E64812700B97C00 /* GithubUserListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */; };
 		DAFCDF7A2E64814600B97C00 /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF792E64814600B97C00 /* GithubUser.swift */; };
-		DAFCDF7D2E6481A500B97C00 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF7C2E6481A500B97C00 /* GithubService.swift */; };
+		DAFCDF7D2E6481A500B97C00 /* GithubNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF7C2E6481A500B97C00 /* GithubNetworkService.swift */; };
 		DAFCDF802E6481DF00B97C00 /* GithubAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF7F2E6481DF00B97C00 /* GithubAPIEndpoint.swift */; };
 		DAFCDF822E6481FE00B97C00 /* GithubUserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF812E6481FE00B97C00 /* GithubUserDetail.swift */; };
 		DAFCDF852E6482FD00B97C00 /* ErrorBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF842E6482FD00B97C00 /* ErrorBanner.swift */; };
@@ -167,7 +167,7 @@
 		DA5CC2932E22B4EC000C5F18 /* ScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCoordinator.swift; sourceTree = "<group>"; };
 		DA5D71762E3FA3B900C78E40 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DA5D71782E3FA3CC00C78E40 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		DA5D717A2E3FA3DE00C78E40 /* NetworkProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocols.swift; sourceTree = "<group>"; };
+		DA5D717A2E3FA3DE00C78E40 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		DA623ADC2E2AC7BE007BD9F5 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
@@ -291,7 +291,7 @@
 		DAFCDF732E647EE000B97C00 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListVM.swift; sourceTree = "<group>"; };
 		DAFCDF792E64814600B97C00 /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
-		DAFCDF7C2E6481A500B97C00 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
+		DAFCDF7C2E6481A500B97C00 /* GithubNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubNetworkService.swift; sourceTree = "<group>"; };
 		DAFCDF7F2E6481DF00B97C00 /* GithubAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIEndpoint.swift; sourceTree = "<group>"; };
 		DAFCDF812E6481FE00B97C00 /* GithubUserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserDetail.swift; sourceTree = "<group>"; };
 		DAFCDF842E6482FD00B97C00 /* ErrorBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBanner.swift; sourceTree = "<group>"; };
@@ -317,6 +317,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA4725342EA62F12000D596A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DA748DD82E22C04C00B1B226 /* AppState.swift */,
+				DA748DD42E22BF8E00B1B226 /* AppCoordinator.swift */,
+				DA4725352EA6309E000D596A /* Configuration */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DA4725352EA6309E000D596A /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DA748E0B2E22C57A00B1B226 /* AppVersion.swift */,
+				DA748E0A2E22C56100B1B226 /* Env.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		DA5CC2672E22B254000C5F18 = {
 			isa = PBXGroup;
 			children = (
@@ -344,23 +363,14 @@
 		DA5CC2862E22B28F000C5F18 /* SwiftUI-BaseApp */ = {
 			isa = PBXGroup;
 			children = (
-				DA5D71752E3FA27D00C78E40 /* Networking */,
+				DA4725342EA62F12000D596A /* App */,
+				DA748D3F2E22B87D00B1B226 /* Resources */,
+				DA748DFA2E22C27C00B1B226 /* Components */,
+				DA748DCB2E22BE5800B1B226 /* Features */,
 				DA748DB62E22B8F300B1B226 /* Info.plist */,
 				DA5CC2822E22B28F000C5F18 /* Preview Content */,
-				DA5CC2832E22B28F000C5F18 /* Assets.xcassets */,
 				DA5CC2842E22B28F000C5F18 /* ContentView.swift */,
 				DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseApp.swift */,
-				DA748DD32E22BF7C00B1B226 /* AppCoordinator */,
-				DA5CC28C2E22B458000C5F18 /* Router */,
-				DA748E1D2E22C66D00B1B226 /* Utilities */,
-				DA748DD92E22C08900B1B226 /* CustomUI */,
-				DA748DC02E22BC3C00B1B226 /* Theme */,
-				DA748D3F2E22B87D00B1B226 /* Resources */,
-				DA748DB72E22B9BA00B1B226 /* Extensions */,
-				DA748DFA2E22C27C00B1B226 /* Components */,
-				DA748DF82E22C1FD00B1B226 /* AppError */,
-				DA748DD62E22C00800B1B226 /* Managers */,
-				DA748DCB2E22BE5800B1B226 /* Scenes */,
 			);
 			path = "SwiftUI-BaseApp";
 			sourceTree = "<group>";
@@ -379,10 +389,10 @@
 		DA5D71752E3FA27D00C78E40 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				DAFCDF7B2E64818D00B97C00 /* NetworkService */,
-				DA5D717A2E3FA3DE00C78E40 /* NetworkProtocols.swift */,
-				DA5D71762E3FA3B900C78E40 /* NetworkError.swift */,
 				DA5D71782E3FA3CC00C78E40 /* NetworkManager.swift */,
+				DA5D717A2E3FA3DE00C78E40 /* NetworkProtocol.swift */,
+				DA5D71762E3FA3B900C78E40 /* NetworkError.swift */,
+				DAFCDF7B2E64818D00B97C00 /* NetworkServices */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -390,6 +400,7 @@
 		DA748D3F2E22B87D00B1B226 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA5CC2832E22B28F000C5F18 /* Assets.xcassets */,
 				DA8910472E263B010005D9DB /* Languages */,
 				DA748D412E22B88C00B1B226 /* Animation */,
 				DA748D402E22B88600B1B226 /* Font */,
@@ -482,7 +493,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		DA748DC02E22BC3C00B1B226 /* Theme */ = {
+		DA748DC02E22BC3C00B1B226 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
 				DA748DC92E22BD0700B1B226 /* ColorSchemeOption.swift */,
@@ -490,10 +501,10 @@
 				DA748DC52E22BCB800B1B226 /* LightTheme.swift */,
 				DA748DC72E22BCD500B1B226 /* DarkTheme.swift */,
 			);
-			path = Theme;
+			path = Themes;
 			sourceTree = "<group>";
 		};
-		DA748DCB2E22BE5800B1B226 /* Scenes */ = {
+		DA748DCB2E22BE5800B1B226 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				DAFCE0862E653FAF00B97C00 /* UserDetail */,
@@ -510,7 +521,7 @@
 				DA748DD02E22BEBB00B1B226 /* Placeholder */,
 				DA748DCC2E22BE6D00B1B226 /* Sample */,
 			);
-			path = Scenes;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		DA748DCC2E22BE6D00B1B226 /* Sample */ = {
@@ -531,30 +542,20 @@
 			path = Placeholder;
 			sourceTree = "<group>";
 		};
-		DA748DD32E22BF7C00B1B226 /* AppCoordinator */ = {
-			isa = PBXGroup;
-			children = (
-				DA748DD42E22BF8E00B1B226 /* AppCoordinator.swift */,
-			);
-			path = AppCoordinator;
-			sourceTree = "<group>";
-		};
 		DA748DD62E22C00800B1B226 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				DA748E0B2E22C57A00B1B226 /* AppVersion.swift */,
 				DA748E072E22C49500B1B226 /* UserSettings.swift */,
 				DA748DD72E22C01B00B1B226 /* AppSettings.swift */,
-				DA748DD82E22C04C00B1B226 /* AppState.swift */,
-				DA748E0A2E22C56100B1B226 /* Env.swift */,
-				DA8910422E2639A10005D9DB /* LanguageManager */,
+				DA8910422E2639A10005D9DB /* Localization */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		DA748DD92E22C08900B1B226 /* CustomUI */ = {
+		DA748DD92E22C08900B1B226 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				DA748DFB2E22C28F00B1B226 /* LottieHelperView.swift */,
 				DAFCDF842E6482FD00B97C00 /* ErrorBanner.swift */,
 				DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */,
 				DA623ADC2E2AC7BE007BD9F5 /* BlurView.swift */,
@@ -568,7 +569,7 @@
 				DA748DDC2E22C0CB00B1B226 /* UserMessageView.swift */,
 				DA748DDA2E22C0C300B1B226 /* BackgroundAnimation.swift */,
 			);
-			path = CustomUI;
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		DA748DF82E22C1FD00B1B226 /* AppError */ = {
@@ -585,8 +586,14 @@
 		DA748DFA2E22C27C00B1B226 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DA748DFD2E22C29B00B1B226 /* Closures.swift */,
-				DA748DFB2E22C28F00B1B226 /* LottieHelperView.swift */,
+				DA748DD62E22C00800B1B226 /* Managers */,
+				DA5D71752E3FA27D00C78E40 /* Networking */,
+				DA5CC28C2E22B458000C5F18 /* Router */,
+				DA748E1D2E22C66D00B1B226 /* Utilities */,
+				DA748DB72E22B9BA00B1B226 /* Extensions */,
+				DA748DD92E22C08900B1B226 /* UIComponents */,
+				DA748DC02E22BC3C00B1B226 /* Themes */,
+				DA748DF82E22C1FD00B1B226 /* AppError */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -603,6 +610,7 @@
 		DA748E1D2E22C66D00B1B226 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DA748DFD2E22C29B00B1B226 /* Closures.swift */,
 				DA983F5F2E2E52D60030EEA2 /* Logger.swift */,
 			);
 			path = Utilities;
@@ -678,13 +686,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		DA8910422E2639A10005D9DB /* LanguageManager */ = {
+		DA8910422E2639A10005D9DB /* Localization */ = {
 			isa = PBXGroup;
 			children = (
 				DA8910402E2639610005D9DB /* LanguageManager.swift */,
 				DA8910432E2639A80005D9DB /* LanguageCode.swift */,
 			);
-			path = LanguageManager;
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		DA8910472E263B010005D9DB /* Languages */ = {
@@ -725,21 +733,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DAFCDF7B2E64818D00B97C00 /* NetworkService */ = {
+		DAFCDF7B2E64818D00B97C00 /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
-				DAFCDF7E2E6481C000B97C00 /* GitHub */,
+				DAFCDF7E2E6481C000B97C00 /* GitHubService */,
 			);
-			path = NetworkService;
+			path = NetworkServices;
 			sourceTree = "<group>";
 		};
-		DAFCDF7E2E6481C000B97C00 /* GitHub */ = {
+		DAFCDF7E2E6481C000B97C00 /* GitHubService */ = {
 			isa = PBXGroup;
 			children = (
 				DAFCDF7F2E6481DF00B97C00 /* GithubAPIEndpoint.swift */,
-				DAFCDF7C2E6481A500B97C00 /* GithubService.swift */,
+				DAFCDF7C2E6481A500B97C00 /* GithubNetworkService.swift */,
 			);
-			path = GitHub;
+			path = GitHubService;
 			sourceTree = "<group>";
 		};
 		DAFCDF832E6482D500B97C00 /* Views */ = {
@@ -923,7 +931,7 @@
 				DA8910462E263A9C0005D9DB /* FileManager+Additional.swift in Sources */,
 				DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */,
 				DA748F902E23A2EC00B1B226 /* LoginView.swift in Sources */,
-				DAFCDF7D2E6481A500B97C00 /* GithubService.swift in Sources */,
+				DAFCDF7D2E6481A500B97C00 /* GithubNetworkService.swift in Sources */,
 				DA983F602E2E52D60030EEA2 /* Logger.swift in Sources */,
 				DA748E092E22C4E800B1B226 /* Notification+Additional.swift in Sources */,
 				DA748DE82E22C12B00B1B226 /* LoadingView.swift in Sources */,
@@ -975,7 +983,7 @@
 				DAFCDF742E647EE000B97C00 /* UserListView.swift in Sources */,
 				DAFCDF7A2E64814600B97C00 /* GithubUser.swift in Sources */,
 				DA748DFC2E22C28F00B1B226 /* LottieHelperView.swift in Sources */,
-				DA5D717B2E3FA3DE00C78E40 /* NetworkProtocols.swift in Sources */,
+				DA5D717B2E3FA3DE00C78E40 /* NetworkProtocol.swift in Sources */,
 				DA5CC2922E22B490000C5F18 /* Router.swift in Sources */,
 				DA748E162E22C5DC00B1B226 /* PlaceholderViewCoordinator.swift in Sources */,
 				DAFCDF852E6482FD00B97C00 /* ErrorBanner.swift in Sources */,
