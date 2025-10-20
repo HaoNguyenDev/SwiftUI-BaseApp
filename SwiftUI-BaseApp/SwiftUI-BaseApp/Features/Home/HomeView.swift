@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Environment(UserSettings.self) var userSettings
     @Environment(\.theme) var theme: any ThemeProtocol
     var onShowProfile: VoidResult?
     var gotoSubview1: (() -> Void)?
@@ -101,5 +100,4 @@ extension HomeView {
 
 #Preview {
     HomeView()
-        .environment(UserSettings())
 }

@@ -368,6 +368,7 @@
 			children = (
 				DA748DD82E22C04C00B1B226 /* AppState.swift */,
 				DA748DD42E22BF8E00B1B226 /* AppCoordinator.swift */,
+				DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseApp.swift */,
 				DA4725352EA6309E000D596A /* Configuration */,
 			);
 			path = App;
@@ -404,7 +405,7 @@
 			path = DarkTheme;
 			sourceTree = "<group>";
 		};
-		DA47254E2EA65F01000D596A /* DefaultTheme */ = {
+		DA47254E2EA65F01000D596A /* LightTheme */ = {
 			isa = PBXGroup;
 			children = (
 				DA47254A2EA65F01000D596A /* LightTheme.swift */,
@@ -412,7 +413,7 @@
 				DA47254C2EA65F01000D596A /* LightThemeColors.swift */,
 				DA47254D2EA65F01000D596A /* LightThemeFonts.swift */,
 			);
-			path = DefaultTheme;
+			path = LightTheme;
 			sourceTree = "<group>";
 		};
 		DA4725522EA65F01000D596A /* RswiftExtensions */ = {
@@ -440,7 +441,7 @@
 		DA4725562EA65F01000D596A /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				DA47254E2EA65F01000D596A /* DefaultTheme */,
+				DA47254E2EA65F01000D596A /* LightTheme */,
 				DA4725492EA65F01000D596A /* DarkTheme */,
 				DA4725522EA65F01000D596A /* RswiftExtensions */,
 			);
@@ -490,7 +491,6 @@
 				DA748DB62E22B8F300B1B226 /* Info.plist */,
 				DA5CC2822E22B28F000C5F18 /* Preview Content */,
 				DA5CC2842E22B28F000C5F18 /* ContentView.swift */,
-				DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseApp.swift */,
 			);
 			path = "SwiftUI-BaseApp";
 			sourceTree = "<group>";

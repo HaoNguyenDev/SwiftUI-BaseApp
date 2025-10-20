@@ -27,6 +27,7 @@
         "anonymous": "匿名",
         "settings": "设置",
         "settings_description": "您可以更改密码和其他设置",
+        "logout_description": "您将退出此应用，但随时可以重新登录。",
         "choose_theme": "选择主题",
         "current_theme": "当前主题：",
         "change_theme_mode": "更改主题模式",
@@ -44,6 +45,10 @@
         "feature_update_soon": "此功能将很快更新。",
         "home": "主页",
         "empty": "空的",
-        "account": "账户"
+        "account": "账户",
+        "users": "使用者",
+        "system": "系统",
+        "light": "浅色",
+        "dark": "深色"
     }
 }

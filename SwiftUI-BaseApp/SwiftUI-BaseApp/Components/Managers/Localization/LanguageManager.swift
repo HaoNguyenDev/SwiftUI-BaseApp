@@ -37,7 +37,7 @@ import Foundation
     }
 
     func valueForKey(_ key: String) -> String {
-        return localModel?.data[key] ?? key
+        return localModel?.data[key.lowercased()] ?? key
     }
 
     // MARK: - Private

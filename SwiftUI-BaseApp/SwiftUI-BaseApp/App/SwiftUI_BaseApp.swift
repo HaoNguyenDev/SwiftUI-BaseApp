@@ -13,7 +13,6 @@ struct SwiftUI_BaseApp: App {
     @State private var userSettings: UserSettings? = nil
     @State private var appSettings = AppSettings()
     @State private var appState = AppState()
-    @State private var languageManager = LanguageManager()
     
     init() {
         setupDefaultSettings()
@@ -27,7 +26,7 @@ struct SwiftUI_BaseApp: App {
                         .environment(appState)
                         .environment(appSettings)
                         .environment(userSettings)
-                        .environment(languageManager)
+                        .environmentTheme(manager: ThemeManager.shared)
                 } else {
                     SampleLoadingView(title: "please_wait".localized())
                 }

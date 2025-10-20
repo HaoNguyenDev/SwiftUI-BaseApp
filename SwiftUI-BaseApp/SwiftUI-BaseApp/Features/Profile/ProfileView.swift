@@ -67,10 +67,10 @@ struct ProfileView: View {
             VStack(alignment: .leading) {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
                     .tint(theme.color.textOnSubviewColor)
-                Text("Log out")
+                Text("logout".localized())
                     .setFont(.bold, size: 14, color: theme.color.textOnSubviewColor)
                 
-                Text("You’ll be logged out of the app but can log back in anytime.")
+                Text("logout_description".localized())
                     .setFont(.regular, size: 10, color: theme.color.textOnSubviewColor)
             }
             

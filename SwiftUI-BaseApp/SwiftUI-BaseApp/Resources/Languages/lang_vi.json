@@ -27,6 +27,7 @@
         "anonymous": "Ẩn danh",
         "settings": "Cài đặt",
         "settings_description": "Bạn có thể thay đổi mật khẩu và các cài đặt khác",
+        "logout_description": "Bạn sẽ được đăng xuất khỏi ứng dụng nhưng có thể đăng nhập lại bất cứ lúc nào.",
         "choose_theme": "Chọn Chủ đề",
         "current_theme": "Chủ đề Hiện tại:",
         "change_theme_mode": "Thay đổi chế độ chủ đề",
@@ -44,6 +45,10 @@
         "feature_update_soon": "Tính năng này sẽ được cập nhật sớm.",
         "home": "Trang chủ",
         "empty": "Trống",
-        "account": "Tài khoản"
+        "account": "Tài khoản",
+        "users": "Người dùng",
+        "system": "Hệ thống",
+        "light": "Sáng",
+        "dark": "Tối"
     }
 }

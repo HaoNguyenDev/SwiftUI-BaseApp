@@ -31,11 +31,10 @@ extension UserSettings {
     private(set) var colorSchemeOption: ColorSchemeOption = .system {
         didSet {
             defaults.set(colorSchemeOption.rawValue, forKey: UserSettingKeys.colorSchemeOption)
-            updateTheme(colorSchemeOption) // Update colorSet
+            updateTheme(colorSchemeOption) // Update theme
         }
     }
     
-    private(set) var themeSet: ThemeProtocol
     private var _token: String? = nil
     private var _username: String? = nil
     private var _password: String? = nil
@@ -50,17 +49,9 @@ extension UserSettings {
             self.colorSchemeOption = .system
         }
         
-//        let initialIsDarkMode = defaults.value(forKey: UserSettingKeys.isDarkMode) as? Bool
-//        isDarkMode = initialIsDarkMode ?? false
-//        // Sync theme value with ThemeManager
-//        ThemeManager.shared.isDarkEnabled = initialIsDarkMode ?? false
-        
         self.referralCode = defaults.string(forKey: UserSettingKeys.referralCode)
         self.signature = defaults.string(forKey: UserSettingKeys.signature)
         self.languageCode = defaults.string(forKey: UserSettingKeys.languageCode)
-        
-        themeSet = LightTheme()
-        updateTheme(colorSchemeOption)
         
         if let languageCode = LanguageCode(rawValue: languageCode ?? LanguageCode.eng.rawValue)?.getLanguage() {
             LanguageManager.shared.setLanguage(language: languageCode)
@@ -160,7 +151,7 @@ extension UserSettings {
         settings._userId = await settings.loadValueFromKeychain(for: .userId)
         
         do {
-            try await Task.sleep(for: .seconds(1))
+            try await Task.sleep(for: .seconds(0.5))
         } catch {
             Logger.shared.debug(error.localizedDescription)
         }
@@ -188,9 +179,6 @@ extension UserSettings {
 }
 
 extension UserSettings {
-    var theme: ThemeProtocol {
-        return themeSet
-    }
     
     func setColorScheme(_ option: ColorSchemeOption, systemColorScheme: ColorScheme = .light) {
         self.colorSchemeOption = option
@@ -200,11 +188,11 @@ extension UserSettings {
     private func updateTheme(_ option: ColorSchemeOption, systemColorScheme: ColorScheme = .light) {
         switch option {
         case .system:
-            themeSet = systemColorScheme == .dark ? DarkTheme() : LightTheme()
+            themeManager.activeTheme = systemColorScheme == .dark ? DarkTheme() : LightTheme()
         case .light:
-            themeSet = LightTheme()
+            themeManager.activeTheme = LightTheme()
         case .dark:
-            themeSet = DarkTheme()
+            themeManager.activeTheme = DarkTheme()
         }
     }
 }
