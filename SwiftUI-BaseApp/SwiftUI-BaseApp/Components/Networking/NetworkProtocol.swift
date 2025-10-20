@@ -1,5 +1,5 @@
 //
-//  NetworkProtocols.swift
+//  NetworkProtocol.swift
 //  SwiftUI-BaseApp
 //
 //  Created by Hao Nguyen on 3/8/25.
@@ -35,7 +35,7 @@ protocol Endpoint {
 //}
 
 // MARK: - NetworkService Protocol
-protocol NetworkServiceProtocol: AnyObject { // AnyObject for Reference Type (weak referrence)
+protocol NetworkProtocol: AnyObject { // AnyObject for Reference Type (weak referrence)
     
     // Async/Await
     func requestAsync<T: Decodable>(endpoint: Endpoint) async throws -> T
