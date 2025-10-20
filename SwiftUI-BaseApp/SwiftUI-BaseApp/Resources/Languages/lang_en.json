@@ -27,6 +27,7 @@
         "anonymous": "Anonymous",
         "settings": "Settings",
         "settings_description": "You can chage your password and other settings",
+        "logout_description": "You’ll be logged out of the app but can log back in anytime.",
         "choose_theme": "Choose Theme",
         "current_theme": "Current Theme:",
         "change_theme_mode": "Change theme mode",
@@ -44,6 +45,10 @@
         "feature_update_soon": "This feature will be updated soon.",
         "home": "Home",
         "empty": "Empty",
-        "account": "Account"
+        "account": "Account",
+        "users": "Users",
+        "system": "System",
+        "light": "Light",
+        "dark": "Dark"
     }
 }

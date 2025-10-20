@@ -47,7 +47,7 @@ struct ThemeChangeView: View {
     private var themeSelection: some View {
         HStack(spacing: 0) {
             ForEach(ColorSchemeOption.allCases, id: \.self) { schemeOption in
-                Text(schemeOption.rawValue)
+                Text(schemeOption.title)
                     .setFont(.semibold,
                              size: 17,
                              color: userSettings.colorSchemeOption == schemeOption ? theme.color.textColor : theme.color.textOnSubviewColor)

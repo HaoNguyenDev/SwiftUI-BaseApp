@@ -48,9 +48,6 @@
     "Loading..." : {
 
     },
-    "Log out" : {
-
-    },
     "OOPS!\nThis route is not implemented AppCoordinator showSheet function yet." : {
 
     },
@@ -58,9 +55,6 @@
 
     },
     "Retry" : {
-
-    },
-    "You’ll be logged out of the app but can log back in anytime." : {
 
     }
   },
