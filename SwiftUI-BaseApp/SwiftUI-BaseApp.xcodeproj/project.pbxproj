@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA4725372EA635E4000D596A /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725362EA635E4000D596A /* KeychainManager.swift */; };
+		DA47253B2EA6544B000D596A /* SampleLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47253A2EA6544B000D596A /* SampleLoadingView.swift */; };
 		DA58DDC12E9E8DD20042D1AD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = DA58DDC02E9E8DD20042D1AD /* KeychainAccess */; };
 		DA5CC2872E22B28F000C5F18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2812E22B28F000C5F18 /* Preview Assets.xcassets */; };
 		DA5CC2882E22B28F000C5F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2832E22B28F000C5F18 /* Assets.xcassets */; };
@@ -156,6 +158,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA4725362EA635E4000D596A /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		DA47253A2EA6544B000D596A /* SampleLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLoadingView.swift; sourceTree = "<group>"; };
 		DA5CC2702E22B254000C5F18 /* SwiftUI-BaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-BaseApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5CC2812E22B28F000C5F18 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DA5CC2832E22B28F000C5F18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -545,6 +549,7 @@
 		DA748DD62E22C00800B1B226 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				DA4725362EA635E4000D596A /* KeychainManager.swift */,
 				DA748E072E22C49500B1B226 /* UserSettings.swift */,
 				DA748DD72E22C01B00B1B226 /* AppSettings.swift */,
 				DA8910422E2639A10005D9DB /* Localization */,
@@ -568,6 +573,7 @@
 				DA748DDF2E22C0D400B1B226 /* UserInformView.swift */,
 				DA748DDC2E22C0CB00B1B226 /* UserMessageView.swift */,
 				DA748DDA2E22C0C300B1B226 /* BackgroundAnimation.swift */,
+				DA47253A2EA6544B000D596A /* SampleLoadingView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -958,6 +964,7 @@
 				DAFCE08B2E6540D000B97C00 /* UserDetailView.swift in Sources */,
 				DA890F882E23D4260005D9DB /* ThemeChangeView.swift in Sources */,
 				DA748DC82E22BCD500B1B226 /* DarkTheme.swift in Sources */,
+				DA4725372EA635E4000D596A /* KeychainManager.swift in Sources */,
 				DA5CC28E2E22B47A000C5F18 /* NavRouter.swift in Sources */,
 				DA5CC2942E22B4EC000C5F18 /* ScreenCoordinator.swift in Sources */,
 				DAFCDF772E64812700B97C00 /* GithubUserListVM.swift in Sources */,
@@ -983,6 +990,7 @@
 				DAFCDF742E647EE000B97C00 /* UserListView.swift in Sources */,
 				DAFCDF7A2E64814600B97C00 /* GithubUser.swift in Sources */,
 				DA748DFC2E22C28F00B1B226 /* LottieHelperView.swift in Sources */,
+				DA47253B2EA6544B000D596A /* SampleLoadingView.swift in Sources */,
 				DA5D717B2E3FA3DE00C78E40 /* NetworkProtocol.swift in Sources */,
 				DA5CC2922E22B490000C5F18 /* Router.swift in Sources */,
 				DA748E162E22C5DC00B1B226 /* PlaceholderViewCoordinator.swift in Sources */,
