@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct UserMessageView: View {
-    @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     private let kShowDuration: Int = 3  // Second
     @State private var opacity: CGFloat = 0
     @State private var isAnimating = false
@@ -47,7 +47,7 @@ struct UserMessageView: View {
     var titleLabel: some View {
         if let title = message.title {
             Text(title)
-                .setFont(.bold, size: 20, color: userSettings.theme.textOnSubviewColor)
+                .setFont(.bold, size: 20, color: theme.color.textOnSubviewColor)
         } else {
             EmptyView()
         }
@@ -76,7 +76,7 @@ struct UserMessageView: View {
                     titleLabel
                     if let message = message.message {
                         Text(message)
-                            .setFont(.regular, size: 14, color: userSettings.theme.textOnSubviewColor)
+                            .setFont(.regular, size: 14, color: theme.color.textOnSubviewColor)
                     } else if let message = message.attributeMessage {
                         Text(message)
                     }
@@ -84,9 +84,9 @@ struct UserMessageView: View {
                 }
             }
             .multilineTextAlignment(.leading)
-            .foregroundStyle(userSettings.theme.textOnSubviewColor)
+            .foregroundStyle(theme.color.textOnSubviewColor)
             .padding(16)
-            .background(userSettings.theme.subviewBgColor, in: .rect(cornerRadius: 20))
+            .background(theme.color.subviewBgColor, in: .rect(cornerRadius: 20))
             .opacity(opacity)
             Spacer()
         }

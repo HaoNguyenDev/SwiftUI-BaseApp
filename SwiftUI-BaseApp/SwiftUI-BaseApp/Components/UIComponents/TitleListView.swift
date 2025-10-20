@@ -12,7 +12,7 @@ protocol TitleItem {
 }
 
 struct TitleListView: View {
-    @Environment(UserSettings.self) private var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     private let kDragDismissThreshold: CGFloat = 100
     private let kMaxOffset: CGFloat = 400
     
@@ -29,15 +29,15 @@ struct TitleListView: View {
         VStack(spacing: 16) {
             VStack {
                 Text("swipe_down_to_exit".localized())
-                    .setFont(.regular, size: 14, color: userSettings.theme.textColor)
+                    .setFont(.regular, size: 14, color: theme.color.textColor)
                 VStack(spacing: 16) {
                     Text(title)
-                        .setFont(.bold, size: 24, color: userSettings.theme.textOnSubviewColor)
+                        .setFont(.bold, size: 24, color: theme.color.textOnSubviewColor)
 
                     VStack(spacing: 16) {
                         ForEach(items.indices, id: \.self) { idx in
                             Text(items[idx].title)
-                                .setFont(.regular, size: 16, color: userSettings.theme.textOnSubviewColor)
+                                .setFont(.regular, size: 16, color: theme.color.textOnSubviewColor)
                                 .frame(maxWidth: .infinity)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
@@ -45,7 +45,7 @@ struct TitleListView: View {
                                 }
                             if idx < items.count - 1 {
                                 Divider()
-                                    .background(userSettings.theme.textOnSubviewColor)
+                                    .background(theme.color.textOnSubviewColor)
                             }
                         }
                     }
@@ -54,7 +54,7 @@ struct TitleListView: View {
                 }
                 .padding(EdgeInsets(top: 40, leading: 32, bottom: 40, trailing: 32))
                 .frame(maxWidth: .infinity)
-                .background(userSettings.theme.subviewBgColor, in: .rect(cornerRadius: 40))
+                .background(theme.color.subviewBgColor, in: .rect(cornerRadius: 40))
             }
             .offset(y: offset)
             .opacity(opacity)

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserDetailView: View {
-    @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     @ObservedObject var vm: UserDetailViewModel
     var gotoSubview: (() -> Void)?
     
@@ -35,7 +35,7 @@ extension UserDetailView {
 }
 
 struct FollowerSubView: View {
-    @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     var iconName: String = "person.fill"
     var count: String = "0"
     var title: String = "Follower"
@@ -47,10 +47,10 @@ struct FollowerSubView: View {
                 .clipShape(Circle())
             Text(count)
                 .font(.system(size: 13, weight: .medium))
-                .foregroundStyle(userSettings.theme.textColor)
+                .foregroundStyle(theme.color.textColor)
             Text(title)
                 .font(.caption)
-                .foregroundStyle(userSettings.theme.textColor)
+                .foregroundStyle(theme.color.textColor)
         }
     }
 }
@@ -62,7 +62,7 @@ struct FollowerSubView: View {
 }
 
 struct AvatarView: View {
-    @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     @ObservedObject var vm: UserDetailViewModel
     var body: some View {
         VStack {
@@ -89,19 +89,19 @@ struct AvatarView: View {
             Text(vm.userDetail.login.orEmpty)
                 .font(.headline)
                 .fontWeight(.bold)
-                .foregroundColor(userSettings.theme.textColor)
+                .foregroundColor(theme.color.textColor)
                 .padding(.vertical, 10)
         }
     }
 }
 
 struct InfoSubview: View {
-    @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     @ObservedObject var vm: UserDetailViewModel
     var body: some View {
         VStack {
             RoundedRectangle(cornerRadius: 20)
-                .stroke(userSettings.theme.textColor, lineWidth: 1)
+                .stroke(theme.color.textColor, lineWidth: 1)
                 .frame(maxWidth: .infinity, maxHeight: 100)
                 .padding()
                 .overlay {

@@ -10,7 +10,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct LogoutConfirmView: View {
-    @Environment(UserSettings.self) private var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     private let kDragDismissThreshold: CGFloat = 100
     private let kMaxOffset: CGFloat = 400
     
@@ -29,22 +29,22 @@ struct LogoutConfirmView: View {
                     .frame(width: 120, height: 120)
                 
                 Text("logout_prompt".localized())
-                    .setFont(.bold, size: 24, color: userSettings.theme.textOnSubviewColor)
+                    .setFont(.bold, size: 24, color: theme.color.textOnSubviewColor)
                 
                 Text("logout_message".localized())
-                    .setFont(.regular, size: 14, color: userSettings.theme.textOnSubviewColor)
+                    .setFont(.regular, size: 14, color: theme.color.textOnSubviewColor)
                 
                 Button {
                     onLogout?()
                 } label: {
                     Text("logout".localized())
-                        .setFont(.bold, size: 17, color: userSettings.theme.textOnSubviewColor)
+                        .setFont(.bold, size: 17, color: theme.color.textOnSubviewColor)
                         .frame(height: 48)
                         .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(cornerRadius: 24)
                                 .stroke(lineWidth: 1)
-                                .foregroundStyle(userSettings.theme.textOnSubviewColor)
+                                .foregroundStyle(theme.color.textOnSubviewColor)
                         )
                 }
                 
@@ -53,13 +53,13 @@ struct LogoutConfirmView: View {
                     onDismiss?()
                 } label: {
                     Text("cancel".localized())
-                        .setFont(.bold, size: 17, color: userSettings.theme.textOnSubviewColor)
+                        .setFont(.bold, size: 17, color: theme.color.textOnSubviewColor)
                         .frame(height: 48)
                         .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(cornerRadius: 24)
                                 .stroke(lineWidth: 1)
-                                .foregroundStyle(userSettings.theme.textOnSubviewColor)
+                                .foregroundStyle(theme.color.textOnSubviewColor)
                         )
                 }
                
@@ -68,7 +68,7 @@ struct LogoutConfirmView: View {
             .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(userSettings.theme.subviewBgColor)
+                    .fill(theme.color.subviewBgColor)
             )
             .offset(y: offset)
             .opacity(opacity)

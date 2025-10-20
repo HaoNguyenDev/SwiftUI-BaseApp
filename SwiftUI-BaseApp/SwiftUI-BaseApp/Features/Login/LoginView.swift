@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LoginView: View {
     @Environment(AppState.self) var appState
-    @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     @State var loginModel: LoginModel
     @State private var showLoading: Bool = false
     
@@ -62,7 +62,7 @@ extension LoginView {
     private var loginContentView: some View {
         VStack {
             Text("login_view".localized())
-                .setFont(.bold, size: 32, color: userSettings.theme.textColor)
+                .setFont(.bold, size: 32, color: theme.color.textColor)
             
             Spacer()
                 .frame(height: 100)
@@ -73,7 +73,7 @@ extension LoginView {
                 }
             } label: {
                 Text("login".localized())
-                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
+                    .setFont(.bold, size: 20, color: theme.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -82,7 +82,7 @@ extension LoginView {
                 gotoRegister?()
             } label: {
                 Text("register".localized())
-                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
+                    .setFont(.bold, size: 20, color: theme.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -91,7 +91,7 @@ extension LoginView {
                 gotoForgotPassword?()
             } label: {
                 Text("forgot_password".localized())
-                    .setFont(.bold, size: 20, color: userSettings.theme.textColor)
+                    .setFont(.bold, size: 20, color: theme.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -137,5 +137,4 @@ extension LoginView {
               forgotPassword: nil,
               register: nil)
     .environment(AppState())
-    .environment(UserSettings())
 }

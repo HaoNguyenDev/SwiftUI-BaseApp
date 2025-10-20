@@ -10,54 +10,32 @@ import SwiftUI
 
 struct ThemeChangeView: View {
     @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     @Environment(\.colorScheme) var systemColorScheme
     @Namespace private var animation
     private var isDarkMode: Bool = false
     var body: some View {
         VStack(spacing: 15) {
             Text("choose_theme".localized())
-                .setFont(.bold, size: 25, color: userSettings.theme.textOnSubviewColor)
+                .setFont(.bold, size: 25, color: theme.color.textOnSubviewColor)
             
             Image(systemName: themeIcon(userSettings.colorSchemeOption))
                 .resizable()
                 .frame(width: 80, height: 80)
-                .foregroundColor(userSettings.theme.bgColor)
+                .foregroundColor(theme.color.bgColor)
             
             Text("\("current_theme".localized()) \(userSettings.colorSchemeOption.title)")
-                .setFont(.regular, size: 17, color: userSettings.theme.textOnSubviewColor)
+                .setFont(.regular, size: 17, color: theme.color.textOnSubviewColor)
             Text("choose_theme".localized())
-                .setFont(.regular, size: 17, color: userSettings.theme.textOnSubviewColor)
+                .setFont(.regular, size: 17, color: theme.color.textOnSubviewColor)
             
-            HStack(spacing: 0) {
-                ForEach(ColorSchemeOption.allCases, id: \.self) { theme in
-                    Text(theme.rawValue)
-                        .setFont(.semibold, size: 17, color: userSettings.colorSchemeOption == theme ? userSettings.theme.textColor : userSettings.theme.textOnSubviewColor)
-                        .padding(.vertical, 10)
-                        .frame(width: 100)
-                        .background {
-                            ZStack {
-                                if userSettings.colorSchemeOption == theme {
-                                    Capsule()
-                                        .fill(userSettings.theme.bgColor)
-                                        .matchedGeometryEffect(id: "ACTIVETAB", in: animation)
-                                }
-                            }
-                            .animation(.snappy, value: userSettings.colorSchemeOption)
-                        }
-                        .contentShape(.rect)
-                        .onTapGesture {
-                            updateTheme(scheme: theme)
-                        }
-                }
-            }
-            .padding(5)
-            .background(userSettings.theme.mainTabUnselectedTextColor.opacity(0.3), in: .capsule)
+            themeSelection
             .padding(.top, 20)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .frame(height: 410)
         .background {
-            userSettings.theme.subviewBgColor
+            theme.color.subviewBgColor
         }
         .clipShape(RoundedRectangle(cornerRadius: 30))
         .padding(.horizontal, 10)
@@ -66,6 +44,38 @@ struct ThemeChangeView: View {
         
     }
     
+    private var themeSelection: some View {
+        HStack(spacing: 0) {
+            ForEach(ColorSchemeOption.allCases, id: \.self) { schemeOption in
+                Text(schemeOption.rawValue)
+                    .setFont(.semibold,
+                             size: 17,
+                             color: userSettings.colorSchemeOption == schemeOption ? theme.color.textColor : theme.color.textOnSubviewColor)
+                    .padding(.vertical, 10)
+                    .frame(width: 100)
+                    .background {
+                        activeTabBackground(for: schemeOption)
+                    }
+                    .contentShape(.rect)
+                    .onTapGesture {
+                        updateTheme(scheme: schemeOption)
+                    }
+            }
+        }
+        .padding(5)
+        .background(theme.color.mainTabUnselectedTextColor.opacity(0.3), in: .capsule)
+        .animation(.snappy, value: userSettings.colorSchemeOption)
+    }
+    
+    private func activeTabBackground(for option: ColorSchemeOption) -> some View {
+        ZStack {
+            if userSettings.colorSchemeOption == option {
+                Capsule()
+                    .fill(theme.color.bgColor)
+                    .matchedGeometryEffect(id: "ACTIVETAB", in: animation)
+            }
+        }
+    }
     
     private func themeIcon(_ theme: ColorSchemeOption) -> String {
         switch theme {

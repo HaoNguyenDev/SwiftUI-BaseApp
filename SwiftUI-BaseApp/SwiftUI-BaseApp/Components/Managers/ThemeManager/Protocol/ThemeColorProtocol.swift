@@ -1,13 +1,14 @@
 //
-//  ColorSet.swift
-//  SwiftUI-BaseApp
+//  ThemeColorProtocol.swift
+//  LearnSwiftUI
 //
-//  Created by Hao Nguyen on 12/7/25.
+//  Created by Hao Nguyen on 10/10/25.
 //
 
+import Foundation
 import SwiftUI
 
-protocol Theme {
+protocol ThemeColorProtocol {
     var bgColor: Color { get }
     var subviewBgColor: Color { get }
     var textOnSubviewColor: Color { get }

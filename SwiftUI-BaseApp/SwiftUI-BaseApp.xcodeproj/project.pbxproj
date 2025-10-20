@@ -9,6 +9,36 @@
 /* Begin PBXBuildFile section */
 		DA4725372EA635E4000D596A /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725362EA635E4000D596A /* KeychainManager.swift */; };
 		DA47253B2EA6544B000D596A /* SampleLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47253A2EA6544B000D596A /* SampleLoadingView.swift */; };
+		DA47253E2EA65E7E000D596A /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = DA47253D2EA65E7E000D596A /* RswiftLibrary */; };
+		DA4725572EA65F01000D596A /* ThemeFontProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725422EA65F01000D596A /* ThemeFontProtocol.swift */; };
+		DA4725582EA65F01000D596A /* DarkThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725472EA65F01000D596A /* DarkThemeColors.swift */; };
+		DA4725592EA65F01000D596A /* RswiftResources+ColorResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47254F2EA65F01000D596A /* RswiftResources+ColorResource.swift */; };
+		DA47255A2EA65F01000D596A /* DarkThemeAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725462EA65F01000D596A /* DarkThemeAssets.swift */; };
+		DA47255B2EA65F01000D596A /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725452EA65F01000D596A /* DarkTheme.swift */; };
+		DA47255C2EA65F01000D596A /* ThemeAssetsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725402EA65F01000D596A /* ThemeAssetsProtocol.swift */; };
+		DA47255D2EA65F01000D596A /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47254A2EA65F01000D596A /* LightTheme.swift */; };
+		DA47255E2EA65F01000D596A /* LightThemeAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47254B2EA65F01000D596A /* LightThemeAssets.swift */; };
+		DA47255F2EA65F01000D596A /* ThemeColorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725412EA65F01000D596A /* ThemeColorProtocol.swift */; };
+		DA4725602EA65F01000D596A /* LightThemeFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47254D2EA65F01000D596A /* LightThemeFonts.swift */; };
+		DA4725612EA65F01000D596A /* LightThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47254C2EA65F01000D596A /* LightThemeColors.swift */; };
+		DA4725622EA65F01000D596A /* RswiftResources+FontResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725502EA65F01000D596A /* RswiftResources+FontResource.swift */; };
+		DA4725632EA65F01000D596A /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725542EA65F01000D596A /* ThemeManager.swift */; };
+		DA4725642EA65F01000D596A /* DarkThemeFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725482EA65F01000D596A /* DarkThemeFonts.swift */; };
+		DA4725652EA65F01000D596A /* RswiftResources+ImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725512EA65F01000D596A /* RswiftResources+ImageResource.swift */; };
+		DA4725662EA65F01000D596A /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4725432EA65F01000D596A /* ThemeProtocol.swift */; };
+		DA4725812EA663A0000D596A /* TT Hoves Pro Trial Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA4725762EA663A0000D596A /* TT Hoves Pro Trial Black.ttf */; };
+		DA4725822EA663A0000D596A /* TT Hoves Pro Trial ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA4725792EA663A0000D596A /* TT Hoves Pro Trial ExtraBold.ttf */; };
+		DA4725832EA663A0000D596A /* TT Hoves Pro Trial ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA47257A2EA663A0000D596A /* TT Hoves Pro Trial ExtraLight.ttf */; };
+		DA4725842EA663A0000D596A /* TT Hoves Pro Trial Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA47257F2EA663A0000D596A /* TT Hoves Pro Trial Thin.ttf */; };
+		DA4725852EA663A0000D596A /* TT Hoves Pro Trial Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA47257E2EA663A0000D596A /* TT Hoves Pro Trial Regular.ttf */; };
+		DA4725862EA663A0000D596A /* TT Hoves Pro Trial Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA47257B2EA663A0000D596A /* TT Hoves Pro Trial Hairline.ttf */; };
+		DA4725872EA663A0000D596A /* TT Hoves Pro Trial Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA47257C2EA663A0000D596A /* TT Hoves Pro Trial Light.ttf */; };
+		DA4725882EA663A0000D596A /* TT Hoves Pro Trial Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA47257D2EA663A0000D596A /* TT Hoves Pro Trial Medium.ttf */; };
+		DA4725892EA663A0000D596A /* TT Hoves Pro Trial Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA4725772EA663A0000D596A /* TT Hoves Pro Trial Bold.ttf */; };
+		DA47258A2EA663A0000D596A /* TT Hoves Pro Trial DemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA4725782EA663A0000D596A /* TT Hoves Pro Trial DemiBold.ttf */; };
+		DA47258B2EA663A0000D596A /* TT Hoves Pro Trial Variable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA4725802EA663A0000D596A /* TT Hoves Pro Trial Variable.ttf */; };
+		DA47259C2EA6655E000D596A /* Environment+ThemeKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47259A2EA6655E000D596A /* Environment+ThemeKeys.swift */; };
+		DA47259D2EA6655E000D596A /* View+Themed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47259B2EA6655E000D596A /* View+Themed.swift */; };
 		DA58DDC12E9E8DD20042D1AD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = DA58DDC02E9E8DD20042D1AD /* KeychainAccess */; };
 		DA5CC2872E22B28F000C5F18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2812E22B28F000C5F18 /* Preview Assets.xcassets */; };
 		DA5CC2882E22B28F000C5F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2832E22B28F000C5F18 /* Assets.xcassets */; };
@@ -22,12 +52,6 @@
 		DA5D71792E3FA3CC00C78E40 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D71782E3FA3CC00C78E40 /* NetworkManager.swift */; };
 		DA5D717B2E3FA3DE00C78E40 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D717A2E3FA3DE00C78E40 /* NetworkProtocol.swift */; };
 		DA623ADD2E2AC7BE007BD9F5 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA623ADC2E2AC7BE007BD9F5 /* BlurView.swift */; };
-		DA748D482E22B8A000B1B226 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */; };
-		DA748D492E22B8A000B1B226 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */; };
-		DA748D4A2E22B8A000B1B226 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D442E22B8A000B1B226 /* Nunito-Light.ttf */; };
-		DA748D4B2E22B8A000B1B226 /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D452E22B8A000B1B226 /* Nunito-Medium.ttf */; };
-		DA748D4C2E22B8A000B1B226 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D462E22B8A000B1B226 /* Nunito-Regular.ttf */; };
-		DA748D4D2E22B8A000B1B226 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA748D472E22B8A000B1B226 /* Nunito-SemiBold.ttf */; };
 		DA748D822E22B8B900B1B226 /* Bike.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D522E22B8B900B1B226 /* Bike.json */; };
 		DA748D832E22B8B900B1B226 /* ic_profile_delete_account_confirm_animate.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA748D662E22B8B900B1B226 /* ic_profile_delete_account_confirm_animate.gif */; };
 		DA748D842E22B8B900B1B226 /* Plus.json in Resources */ = {isa = PBXBuildFile; fileRef = DA748D712E22B8B900B1B226 /* Plus.json */; };
@@ -83,9 +107,6 @@
 		DA748DBB2E22BA0200B1B226 /* Font+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DBA2E22BA0200B1B226 /* Font+Additional.swift */; };
 		DA748DBD2E22BA4C00B1B226 /* Text+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DBC2E22BA4C00B1B226 /* Text+Additional.swift */; };
 		DA748DBF2E22BBF500B1B226 /* Color+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DBE2E22BBF500B1B226 /* Color+Additional.swift */; };
-		DA748DC42E22BC9800B1B226 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DC32E22BC9800B1B226 /* Theme.swift */; };
-		DA748DC62E22BCB800B1B226 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DC52E22BCB800B1B226 /* LightTheme.swift */; };
-		DA748DC82E22BCD500B1B226 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DC72E22BCD500B1B226 /* DarkTheme.swift */; };
 		DA748DCA2E22BD0700B1B226 /* ColorSchemeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DC92E22BD0700B1B226 /* ColorSchemeOption.swift */; };
 		DA748DD52E22BF8E00B1B226 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DD42E22BF8E00B1B226 /* AppCoordinator.swift */; };
 		DA748DDB2E22C0C300B1B226 /* BackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DDA2E22C0C300B1B226 /* BackgroundAnimation.swift */; };
@@ -160,6 +181,35 @@
 /* Begin PBXFileReference section */
 		DA4725362EA635E4000D596A /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		DA47253A2EA6544B000D596A /* SampleLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleLoadingView.swift; sourceTree = "<group>"; };
+		DA4725402EA65F01000D596A /* ThemeAssetsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAssetsProtocol.swift; sourceTree = "<group>"; };
+		DA4725412EA65F01000D596A /* ThemeColorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorProtocol.swift; sourceTree = "<group>"; };
+		DA4725422EA65F01000D596A /* ThemeFontProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeFontProtocol.swift; sourceTree = "<group>"; };
+		DA4725432EA65F01000D596A /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		DA4725452EA65F01000D596A /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		DA4725462EA65F01000D596A /* DarkThemeAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeAssets.swift; sourceTree = "<group>"; };
+		DA4725472EA65F01000D596A /* DarkThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeColors.swift; sourceTree = "<group>"; };
+		DA4725482EA65F01000D596A /* DarkThemeFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeFonts.swift; sourceTree = "<group>"; };
+		DA47254A2EA65F01000D596A /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
+		DA47254B2EA65F01000D596A /* LightThemeAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightThemeAssets.swift; sourceTree = "<group>"; };
+		DA47254C2EA65F01000D596A /* LightThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightThemeColors.swift; sourceTree = "<group>"; };
+		DA47254D2EA65F01000D596A /* LightThemeFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightThemeFonts.swift; sourceTree = "<group>"; };
+		DA47254F2EA65F01000D596A /* RswiftResources+ColorResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RswiftResources+ColorResource.swift"; sourceTree = "<group>"; };
+		DA4725502EA65F01000D596A /* RswiftResources+FontResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RswiftResources+FontResource.swift"; sourceTree = "<group>"; };
+		DA4725512EA65F01000D596A /* RswiftResources+ImageResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RswiftResources+ImageResource.swift"; sourceTree = "<group>"; };
+		DA4725542EA65F01000D596A /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		DA4725762EA663A0000D596A /* TT Hoves Pro Trial Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Hoves Pro Trial Black.ttf"; sourceTree = "<group>"; };
+		DA4725772EA663A0000D596A /* TT Hoves Pro Trial Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Hoves Pro Trial Bold.ttf"; sourceTree = "<group>"; };
+		DA4725782EA663A0000D596A /* TT Hoves Pro Trial DemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Hoves Pro Trial DemiBold.ttf"; sourceTree = "<group>"; };
+		DA4725792EA663A0000D596A /* TT Hoves Pro Trial ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Hoves Pro Trial ExtraBold.ttf"; sourceTree = "<group>"; };
+		DA47257A2EA663A0000D596A /* TT Hoves Pro Trial ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Hoves Pro Trial ExtraLight.ttf"; sourceTree = "<group>"; };
+		DA47257B2EA663A0000D596A /* TT Hoves Pro Trial Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Hoves Pro Trial Hairline.ttf"; sourceTree = "<group>"; };
+		DA47257C2EA663A0000D596A /* TT Hoves Pro Trial Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Hoves Pro Trial Light.ttf"; sourceTree = "<group>"; };
+		DA47257D2EA663A0000D596A /* TT Hoves Pro Trial Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Hoves Pro Trial Medium.ttf"; sourceTree = "<group>"; };
+		DA47257E2EA663A0000D596A /* TT Hoves Pro Trial Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Hoves Pro Trial Regular.ttf"; sourceTree = "<group>"; };
+		DA47257F2EA663A0000D596A /* TT Hoves Pro Trial Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Hoves Pro Trial Thin.ttf"; sourceTree = "<group>"; };
+		DA4725802EA663A0000D596A /* TT Hoves Pro Trial Variable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Hoves Pro Trial Variable.ttf"; sourceTree = "<group>"; };
+		DA47259A2EA6655E000D596A /* Environment+ThemeKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+ThemeKeys.swift"; sourceTree = "<group>"; };
+		DA47259B2EA6655E000D596A /* View+Themed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Themed.swift"; sourceTree = "<group>"; };
 		DA5CC2702E22B254000C5F18 /* SwiftUI-BaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-BaseApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5CC2812E22B28F000C5F18 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DA5CC2832E22B28F000C5F18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -173,12 +223,6 @@
 		DA5D71782E3FA3CC00C78E40 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DA5D717A2E3FA3DE00C78E40 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		DA623ADC2E2AC7BE007BD9F5 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-		DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
-		DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
-		DA748D442E22B8A000B1B226 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
-		DA748D452E22B8A000B1B226 /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
-		DA748D462E22B8A000B1B226 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
-		DA748D472E22B8A000B1B226 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		DA748D4E2E22B8B900B1B226 /* Achivement.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Achivement.gif; sourceTree = "<group>"; };
 		DA748D4F2E22B8B900B1B226 /* Achivement.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Achivement.json; sourceTree = "<group>"; };
 		DA748D502E22B8B900B1B226 /* Basket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Basket.json; sourceTree = "<group>"; };
@@ -235,9 +279,6 @@
 		DA748DBA2E22BA0200B1B226 /* Font+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Additional.swift"; sourceTree = "<group>"; };
 		DA748DBC2E22BA4C00B1B226 /* Text+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Additional.swift"; sourceTree = "<group>"; };
 		DA748DBE2E22BBF500B1B226 /* Color+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Additional.swift"; sourceTree = "<group>"; };
-		DA748DC32E22BC9800B1B226 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		DA748DC52E22BCB800B1B226 /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
-		DA748DC72E22BCD500B1B226 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		DA748DC92E22BD0700B1B226 /* ColorSchemeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeOption.swift; sourceTree = "<group>"; };
 		DA748DCD2E22BE7D00B1B226 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		DA748DCE2E22BE9300B1B226 /* SampleViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewCoordinator.swift; sourceTree = "<group>"; };
@@ -315,6 +356,7 @@
 				DA748DF72E22C17B00B1B226 /* SDWebImageMapKit in Frameworks */,
 				DA748DEF2E22C16400B1B226 /* Lottie in Frameworks */,
 				DA58DDC12E9E8DD20042D1AD /* KeychainAccess in Frameworks */,
+				DA47253E2EA65E7E000D596A /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +380,80 @@
 				DA748E0A2E22C56100B1B226 /* Env.swift */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		DA4725442EA65F01000D596A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				DA4725402EA65F01000D596A /* ThemeAssetsProtocol.swift */,
+				DA4725412EA65F01000D596A /* ThemeColorProtocol.swift */,
+				DA4725422EA65F01000D596A /* ThemeFontProtocol.swift */,
+				DA4725432EA65F01000D596A /* ThemeProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		DA4725492EA65F01000D596A /* DarkTheme */ = {
+			isa = PBXGroup;
+			children = (
+				DA4725452EA65F01000D596A /* DarkTheme.swift */,
+				DA4725462EA65F01000D596A /* DarkThemeAssets.swift */,
+				DA4725472EA65F01000D596A /* DarkThemeColors.swift */,
+				DA4725482EA65F01000D596A /* DarkThemeFonts.swift */,
+			);
+			path = DarkTheme;
+			sourceTree = "<group>";
+		};
+		DA47254E2EA65F01000D596A /* DefaultTheme */ = {
+			isa = PBXGroup;
+			children = (
+				DA47254A2EA65F01000D596A /* LightTheme.swift */,
+				DA47254B2EA65F01000D596A /* LightThemeAssets.swift */,
+				DA47254C2EA65F01000D596A /* LightThemeColors.swift */,
+				DA47254D2EA65F01000D596A /* LightThemeFonts.swift */,
+			);
+			path = DefaultTheme;
+			sourceTree = "<group>";
+		};
+		DA4725522EA65F01000D596A /* RswiftExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				DA47254F2EA65F01000D596A /* RswiftResources+ColorResource.swift */,
+				DA4725502EA65F01000D596A /* RswiftResources+FontResource.swift */,
+				DA4725512EA65F01000D596A /* RswiftResources+ImageResource.swift */,
+			);
+			path = RswiftExtensions;
+			sourceTree = "<group>";
+		};
+		DA4725552EA65F01000D596A /* ThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				DA4725992EA66549000D596A /* EnvironmentKeys */,
+				DA4725542EA65F01000D596A /* ThemeManager.swift */,
+				DA748DC92E22BD0700B1B226 /* ColorSchemeOption.swift */,
+				DA4725442EA65F01000D596A /* Protocol */,
+				DA4725562EA65F01000D596A /* Themes */,
+			);
+			path = ThemeManager;
+			sourceTree = "<group>";
+		};
+		DA4725562EA65F01000D596A /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				DA47254E2EA65F01000D596A /* DefaultTheme */,
+				DA4725492EA65F01000D596A /* DarkTheme */,
+				DA4725522EA65F01000D596A /* RswiftExtensions */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		DA4725992EA66549000D596A /* EnvironmentKeys */ = {
+			isa = PBXGroup;
+			children = (
+				DA47259A2EA6655E000D596A /* Environment+ThemeKeys.swift */,
+				DA47259B2EA6655E000D596A /* View+Themed.swift */,
+			);
+			path = EnvironmentKeys;
 			sourceTree = "<group>";
 		};
 		DA5CC2672E22B254000C5F18 = {
@@ -415,12 +531,17 @@
 		DA748D402E22B88600B1B226 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				DA748D422E22B8A000B1B226 /* Nunito-Bold.ttf */,
-				DA748D432E22B8A000B1B226 /* Nunito-Italic.ttf */,
-				DA748D442E22B8A000B1B226 /* Nunito-Light.ttf */,
-				DA748D452E22B8A000B1B226 /* Nunito-Medium.ttf */,
-				DA748D462E22B8A000B1B226 /* Nunito-Regular.ttf */,
-				DA748D472E22B8A000B1B226 /* Nunito-SemiBold.ttf */,
+				DA4725762EA663A0000D596A /* TT Hoves Pro Trial Black.ttf */,
+				DA4725772EA663A0000D596A /* TT Hoves Pro Trial Bold.ttf */,
+				DA4725782EA663A0000D596A /* TT Hoves Pro Trial DemiBold.ttf */,
+				DA4725792EA663A0000D596A /* TT Hoves Pro Trial ExtraBold.ttf */,
+				DA47257A2EA663A0000D596A /* TT Hoves Pro Trial ExtraLight.ttf */,
+				DA47257B2EA663A0000D596A /* TT Hoves Pro Trial Hairline.ttf */,
+				DA47257C2EA663A0000D596A /* TT Hoves Pro Trial Light.ttf */,
+				DA47257D2EA663A0000D596A /* TT Hoves Pro Trial Medium.ttf */,
+				DA47257E2EA663A0000D596A /* TT Hoves Pro Trial Regular.ttf */,
+				DA47257F2EA663A0000D596A /* TT Hoves Pro Trial Thin.ttf */,
+				DA4725802EA663A0000D596A /* TT Hoves Pro Trial Variable.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -497,17 +618,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		DA748DC02E22BC3C00B1B226 /* Themes */ = {
-			isa = PBXGroup;
-			children = (
-				DA748DC92E22BD0700B1B226 /* ColorSchemeOption.swift */,
-				DA748DC32E22BC9800B1B226 /* Theme.swift */,
-				DA748DC52E22BCB800B1B226 /* LightTheme.swift */,
-				DA748DC72E22BCD500B1B226 /* DarkTheme.swift */,
-			);
-			path = Themes;
-			sourceTree = "<group>";
-		};
 		DA748DCB2E22BE5800B1B226 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,6 +663,7 @@
 				DA748E072E22C49500B1B226 /* UserSettings.swift */,
 				DA748DD72E22C01B00B1B226 /* AppSettings.swift */,
 				DA8910422E2639A10005D9DB /* Localization */,
+				DA4725552EA65F01000D596A /* ThemeManager */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -598,7 +709,6 @@
 				DA748E1D2E22C66D00B1B226 /* Utilities */,
 				DA748DB72E22B9BA00B1B226 /* Extensions */,
 				DA748DD92E22C08900B1B226 /* UIComponents */,
-				DA748DC02E22BC3C00B1B226 /* Themes */,
 				DA748DF82E22C1FD00B1B226 /* AppError */,
 			);
 			path = Components;
@@ -798,6 +908,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DA4725692EA6625D000D596A /* PBXTargetDependency */,
 			);
 			name = "SwiftUI-BaseApp";
 			packageProductDependencies = (
@@ -806,6 +917,7 @@
 				DA748DF42E22C17B00B1B226 /* SDWebImage */,
 				DA748DF62E22C17B00B1B226 /* SDWebImageMapKit */,
 				DA58DDC02E9E8DD20042D1AD /* KeychainAccess */,
+				DA47253D2EA65E7E000D596A /* RswiftLibrary */,
 			);
 			productName = "SwiftUI-BaseApp";
 			productReference = DA5CC2702E22B254000C5F18 /* SwiftUI-BaseApp.app */;
@@ -840,6 +952,7 @@
 				DA748DF02E22C17200B1B226 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				DA748DF32E22C17B00B1B226 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				DA58DDBF2E9E8DD20042D1AD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				DA47253C2EA65E7E000D596A /* XCRemoteSwiftPackageReference "R.swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DA5CC2712E22B254000C5F18 /* Products */;
@@ -856,7 +969,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA748D482E22B8A000B1B226 /* Nunito-Bold.ttf in Resources */,
 				DA748D822E22B8B900B1B226 /* Bike.json in Resources */,
 				DA748D832E22B8B900B1B226 /* ic_profile_delete_account_confirm_animate.gif in Resources */,
 				DA748D842E22B8B900B1B226 /* Plus.json in Resources */,
@@ -902,6 +1014,17 @@
 				DA748DA92E22B8B900B1B226 /* Info.json in Resources */,
 				DA748DAA2E22B8B900B1B226 /* Maintenance.json in Resources */,
 				DA748DAB2E22B8B900B1B226 /* SuccessCircle.json in Resources */,
+				DA4725812EA663A0000D596A /* TT Hoves Pro Trial Black.ttf in Resources */,
+				DA4725822EA663A0000D596A /* TT Hoves Pro Trial ExtraBold.ttf in Resources */,
+				DA4725832EA663A0000D596A /* TT Hoves Pro Trial ExtraLight.ttf in Resources */,
+				DA4725842EA663A0000D596A /* TT Hoves Pro Trial Thin.ttf in Resources */,
+				DA4725852EA663A0000D596A /* TT Hoves Pro Trial Regular.ttf in Resources */,
+				DA4725862EA663A0000D596A /* TT Hoves Pro Trial Hairline.ttf in Resources */,
+				DA4725872EA663A0000D596A /* TT Hoves Pro Trial Light.ttf in Resources */,
+				DA4725882EA663A0000D596A /* TT Hoves Pro Trial Medium.ttf in Resources */,
+				DA4725892EA663A0000D596A /* TT Hoves Pro Trial Bold.ttf in Resources */,
+				DA47258A2EA663A0000D596A /* TT Hoves Pro Trial DemiBold.ttf in Resources */,
+				DA47258B2EA663A0000D596A /* TT Hoves Pro Trial Variable.ttf in Resources */,
 				DA748DAC2E22B8B900B1B226 /* Immediate.json in Resources */,
 				DA748DAD2E22B8B900B1B226 /* Win.json in Resources */,
 				DA748DAE2E22B8B900B1B226 /* ic_boost_loading.gif in Resources */,
@@ -912,11 +1035,6 @@
 				DA748DB32E22B8B900B1B226 /* person.json in Resources */,
 				DA748DB42E22B8B900B1B226 /* gift_boots.json in Resources */,
 				DA748DB52E22B8B900B1B226 /* Handsake.json in Resources */,
-				DA748D492E22B8A000B1B226 /* Nunito-Italic.ttf in Resources */,
-				DA748D4A2E22B8A000B1B226 /* Nunito-Light.ttf in Resources */,
-				DA748D4B2E22B8A000B1B226 /* Nunito-Medium.ttf in Resources */,
-				DA748D4C2E22B8A000B1B226 /* Nunito-Regular.ttf in Resources */,
-				DA748D4D2E22B8A000B1B226 /* Nunito-SemiBold.ttf in Resources */,
 				DA5CC2872E22B28F000C5F18 /* Preview Assets.xcassets in Resources */,
 				DA5CC2882E22B28F000C5F18 /* Assets.xcassets in Resources */,
 			);
@@ -932,7 +1050,6 @@
 				DAFCDF802E6481DF00B97C00 /* GithubAPIEndpoint.swift in Sources */,
 				DA748E172E22C5E100B1B226 /* SampleView.swift in Sources */,
 				DA748DBF2E22BBF500B1B226 /* Color+Additional.swift in Sources */,
-				DA748DC62E22BCB800B1B226 /* LightTheme.swift in Sources */,
 				DA890F712E23B2FF0005D9DB /* HomeView.swift in Sources */,
 				DA8910462E263A9C0005D9DB /* FileManager+Additional.swift in Sources */,
 				DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */,
@@ -963,7 +1080,6 @@
 				DA748E242E22C75500B1B226 /* ErrorHandler.swift in Sources */,
 				DAFCE08B2E6540D000B97C00 /* UserDetailView.swift in Sources */,
 				DA890F882E23D4260005D9DB /* ThemeChangeView.swift in Sources */,
-				DA748DC82E22BCD500B1B226 /* DarkTheme.swift in Sources */,
 				DA4725372EA635E4000D596A /* KeychainManager.swift in Sources */,
 				DA5CC28E2E22B47A000C5F18 /* NavRouter.swift in Sources */,
 				DA5CC2942E22B4EC000C5F18 /* ScreenCoordinator.swift in Sources */,
@@ -978,8 +1094,23 @@
 				DA748F942E23A30100B1B226 /* LoginCoordinator.swift in Sources */,
 				DA983F5A2E2BA0DF0030EEA2 /* BlurBackgroundView.swift in Sources */,
 				DA748E102E22C5A600B1B226 /* AppVersion.swift in Sources */,
-				DA748DC42E22BC9800B1B226 /* Theme.swift in Sources */,
 				DA8910412E2639610005D9DB /* LanguageManager.swift in Sources */,
+				DA4725572EA65F01000D596A /* ThemeFontProtocol.swift in Sources */,
+				DA4725582EA65F01000D596A /* DarkThemeColors.swift in Sources */,
+				DA4725592EA65F01000D596A /* RswiftResources+ColorResource.swift in Sources */,
+				DA47255A2EA65F01000D596A /* DarkThemeAssets.swift in Sources */,
+				DA47255B2EA65F01000D596A /* DarkTheme.swift in Sources */,
+				DA47255C2EA65F01000D596A /* ThemeAssetsProtocol.swift in Sources */,
+				DA47255D2EA65F01000D596A /* LightTheme.swift in Sources */,
+				DA47255E2EA65F01000D596A /* LightThemeAssets.swift in Sources */,
+				DA47255F2EA65F01000D596A /* ThemeColorProtocol.swift in Sources */,
+				DA4725602EA65F01000D596A /* LightThemeFonts.swift in Sources */,
+				DA4725612EA65F01000D596A /* LightThemeColors.swift in Sources */,
+				DA4725622EA65F01000D596A /* RswiftResources+FontResource.swift in Sources */,
+				DA4725632EA65F01000D596A /* ThemeManager.swift in Sources */,
+				DA4725642EA65F01000D596A /* DarkThemeFonts.swift in Sources */,
+				DA4725652EA65F01000D596A /* RswiftResources+ImageResource.swift in Sources */,
+				DA4725662EA65F01000D596A /* ThemeProtocol.swift in Sources */,
 				DA748DCA2E22BD0700B1B226 /* ColorSchemeOption.swift in Sources */,
 				DA890F8B2E23D73C0005D9DB /* ProfileView.swift in Sources */,
 				DA748E1C2E22C65400B1B226 /* AppErrorCode.swift in Sources */,
@@ -1006,6 +1137,8 @@
 				DA748E112E22C5BE00B1B226 /* UserMessageItem.swift in Sources */,
 				DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseApp.swift in Sources */,
 				DAFCE08D2E654B9100B97C00 /* UserDetailViewModel.swift in Sources */,
+				DA47259C2EA6655E000D596A /* Environment+ThemeKeys.swift in Sources */,
+				DA47259D2EA6655E000D596A /* View+Themed.swift in Sources */,
 				DA748DBB2E22BA0200B1B226 /* Font+Additional.swift in Sources */,
 				DAFCDF822E6481FE00B97C00 /* GithubUserDetail.swift in Sources */,
 				DA890F772E23B38F0005D9DB /* HeaderView.swift in Sources */,
@@ -1013,6 +1146,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA4725692EA6625D000D596A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DA4725682EA6625D000D596A /* RswiftGenerateInternalResources */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DA5CC27C2E22B255000C5F18 /* Debug */ = {
@@ -1147,7 +1287,6 @@
 				INFOPLIST_FILE = "SwiftUI-BaseApp/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1176,7 +1315,6 @@
 				INFOPLIST_FILE = "SwiftUI-BaseApp/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1216,6 +1354,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DA47253C2EA65E7E000D596A /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.8.0;
+			};
+		};
 		DA58DDBF2E9E8DD20042D1AD /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -1251,6 +1397,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DA47253D2EA65E7E000D596A /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA47253C2EA65E7E000D596A /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = RswiftLibrary;
+		};
+		DA4725682EA6625D000D596A /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA47253C2EA65E7E000D596A /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
 		DA58DDC02E9E8DD20042D1AD /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA58DDBF2E9E8DD20042D1AD /* XCRemoteSwiftPackageReference "KeychainAccess" */;

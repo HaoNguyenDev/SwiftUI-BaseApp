@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PlaceholderView: View {
-    @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     @Environment(\.dismiss) private var dismiss
     var newTitle: String?
     var onClose: (() -> Void)?
@@ -21,23 +21,23 @@ struct PlaceholderView: View {
                 .scaledToFit()
                 .symbolEffect(.wiggle)
                 .frame(width: 80, height: 80)
-                .foregroundColor(userSettings.theme.textColor)
+                .foregroundColor(theme.color.textColor)
 
             if let newTitle = newTitle {
                 Text("\(newTitle)\n\("in_development".localized())")
                     .setFont(.bold, size: 30.0,
-                             color: userSettings.theme.textColor,
+                             color: theme.color.textColor,
                              alignment: .center)
             } else {
                 Text("in_development".localized())
                     .setFont(.bold, size: 30.0,
-                             color: userSettings.theme.textColor,
+                             color: theme.color.textColor,
                              alignment: .center)
             }
             
             Text("feature_update_soon".localized())
                 .setFont(.regular, size: 20.0,
-                         color: userSettings.theme.textColor,
+                         color: theme.color.textColor,
                          alignment: .center)
             
             Spacer()
@@ -49,7 +49,7 @@ struct PlaceholderView: View {
             } label: {
                 Text("all_right".localized())
                     .setFont(.bold, size: 18.0,
-                             color: userSettings.theme.textColor,
+                             color: theme.color.textColor,
                              alignment: .center)
                     .padding()
                     .frame(height: 50)

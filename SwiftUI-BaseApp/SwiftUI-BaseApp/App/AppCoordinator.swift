@@ -12,6 +12,7 @@ struct AppCoordinator: View {
     @Environment(AppSettings.self) var appSettings
     @Environment(AppState.self) var appState
     @Environment(UserSettings.self) var userSettings
+    @Environment(\.theme) var theme: any ThemeProtocol
     @Environment(\.colorScheme) var systemColorScheme
     
     @State var rootRouter = NavRouter()
@@ -42,7 +43,7 @@ struct AppCoordinator: View {
     @ViewBuilder
     var blockingView: some View {
         Text("device_restricted".localized())
-            .setFont(.bold, size: 20, color: userSettings.theme.textColor)
+            .setFont(.bold, size: 20, color: theme.color.textColor)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .setDefaultBackground()
     }
@@ -86,9 +87,9 @@ struct AppCoordinator: View {
                 VStack(spacing: 32) {
                     VStack(spacing: 12) {
                         Text("system_maintenance".localized())
-                            .setFont(.semibold, size: 32, color: userSettings.theme.textColor)
+                            .setFont(.semibold, size: 32, color: theme.color.textColor)
                         Text("maintenance_message".localized())
-                            .setFont(.regular, size: 17, color: userSettings.theme.textColor)
+                            .setFont(.regular, size: 17, color: theme.color.textColor)
                     }
                     .multilineTextAlignment(.center)
                 }
