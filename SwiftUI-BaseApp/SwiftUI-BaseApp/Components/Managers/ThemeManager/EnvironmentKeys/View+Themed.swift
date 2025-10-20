@@ -12,7 +12,7 @@ struct ThemeModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .environment(\.theme, themeManager.activeTheme)
+            .environment(\.theme, themeManager.currentTheme)
     }
 }
 

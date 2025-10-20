@@ -7,7 +7,7 @@
 
 
 import Foundation
-
+/// @Observable will support notification to all views using the localized() extension chain to reload the view to get the new value, no need inject environment LanguageManager object
 @Observable final class LanguageManager {
     static let shared = LanguageManager()
     private(set) var language: Language {
@@ -25,7 +25,7 @@ import Foundation
         LanguageCode.vi.getLanguage()
     ]
     
-    init() {
+    private init() {
         language = LanguageCode.eng.getLanguage() //userSettings.getLanguage(languageCode).getLanguage()
         loadLocalModel()
     }

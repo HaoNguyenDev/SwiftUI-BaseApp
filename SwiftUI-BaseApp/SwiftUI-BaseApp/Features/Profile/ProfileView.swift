@@ -24,7 +24,8 @@ struct ProfileView: View {
                 .padding(.top, 32)
                 
                 Text(userSettings.username ?? "anonymous".localized())
-                    .setFont(.bold, size: 32, color: theme.color.textColor)
+                    .font(theme.font.bold(ofSize: 32))
+                    .foregroundStyle(theme.color.textColor)
                     .lineLimit(1)
                 settingsView
                 logoutView
@@ -41,10 +42,12 @@ struct ProfileView: View {
             VStack(alignment: .leading) {
                 Image(systemName: "gear")
                 Text("settings".localized())
-                    .setFont(.bold, size: 14, color: theme.color.textOnSubviewColor)
+                    .font(theme.font.bold(ofSize: 14))
+                    .foregroundStyle(theme.color.textOnSubviewColor)
                     
                 Text("settings_description".localized())
-                    .setFont(.regular, size: 10, color: theme.color.textOnSubviewColor)
+                    .font(theme.font.bold(ofSize: 10))
+                    .foregroundStyle(theme.color.textOnSubviewColor)
             }
             
             Spacer()
@@ -68,10 +71,12 @@ struct ProfileView: View {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
                     .tint(theme.color.textOnSubviewColor)
                 Text("logout".localized())
-                    .setFont(.bold, size: 14, color: theme.color.textOnSubviewColor)
+                    .font(theme.font.bold(ofSize: 14))
+                    .foregroundStyle(theme.color.textOnSubviewColor)
                 
                 Text("logout_description".localized())
-                    .setFont(.regular, size: 10, color: theme.color.textOnSubviewColor)
+                    .font(theme.font.regular(ofSize: 14))
+                    .foregroundStyle(theme.color.textOnSubviewColor)
             }
             
             Spacer()

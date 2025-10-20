@@ -19,7 +19,8 @@ struct SettingsView: View {
         ScrollView(showsIndicators: false, content: {
             VStack(spacing: 24) {
                 Text("settings".localized())
-                    .setFont(.bold, size: 32, color: theme.color.textColor)
+                    .font(theme.font.bold(ofSize: 32))
+                    .foregroundStyle(theme.color.textColor)
                 // Settings content
                 VStack(spacing: 16) {
                     changeThemeModeRow
@@ -67,11 +68,14 @@ struct SettingsView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text("change_theme_mode".localized())
-                        .setFont(.bold, size: 14.0, color: theme.color.textOnSubviewColor)
+                        .font(theme.font.bold(ofSize: 14))
+                        .foregroundStyle(theme.color.textOnSubviewColor)
                 }
                 Spacer()
                 Text(currentThemeMode)
-                    .setFont(.bold, size: 14.0, color: theme.color.textOnSubviewColor)
+                    .font(theme.font.bold(ofSize: 14))
+                    .foregroundStyle(theme.color.textOnSubviewColor)
+                
                 Image(systemName: "chevron.right").tint(theme.color.textOnSubviewColor)
             }
             .padding(.horizontal, 24)
@@ -90,11 +94,13 @@ struct SettingsView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text("change_language_title".localized())
-                        .setFont(.bold, size: 14, color: theme.color.textOnSubviewColor)
+                        .font(theme.font.bold(ofSize: 14))
+                        .foregroundStyle(theme.color.textOnSubviewColor)
                 }
                 Spacer()
                 Text(currentLanguageTitle)
-                    .setFont(.bold, size: 14.0, color: theme.color.textOnSubviewColor)
+                    .font(theme.font.bold(ofSize: 14))
+                    .foregroundStyle(theme.color.textOnSubviewColor)
                 Image(systemName: "chevron.right")
                     .tint(theme.color.textOnSubviewColor)
             }

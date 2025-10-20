@@ -17,17 +17,19 @@ struct ThemeChangeView: View {
     var body: some View {
         VStack(spacing: 15) {
             Text("choose_theme".localized())
-                .setFont(.bold, size: 25, color: theme.color.textOnSubviewColor)
-            
+                .font(theme.font.bold(ofSize: 25))
+                .foregroundStyle(theme.color.textOnSubviewColor)
             Image(systemName: themeIcon(userSettings.colorSchemeOption))
                 .resizable()
                 .frame(width: 80, height: 80)
                 .foregroundColor(theme.color.bgColor)
             
             Text("\("current_theme".localized()) \(userSettings.colorSchemeOption.title)")
-                .setFont(.regular, size: 17, color: theme.color.textOnSubviewColor)
+                .font(theme.font.regular(ofSize: 17))
+                .foregroundStyle(theme.color.textOnSubviewColor)
             Text("choose_theme".localized())
-                .setFont(.regular, size: 17, color: theme.color.textOnSubviewColor)
+                .font(theme.font.regular(ofSize: 17))
+                .foregroundStyle(theme.color.textOnSubviewColor)
             
             themeSelection
             .padding(.top, 20)
@@ -48,9 +50,8 @@ struct ThemeChangeView: View {
         HStack(spacing: 0) {
             ForEach(ColorSchemeOption.allCases, id: \.self) { schemeOption in
                 Text(schemeOption.title)
-                    .setFont(.semibold,
-                             size: 17,
-                             color: userSettings.colorSchemeOption == schemeOption ? theme.color.textColor : theme.color.textOnSubviewColor)
+                    .font(theme.font.semibold(ofSize: 17))
+                    .foregroundStyle(userSettings.colorSchemeOption == schemeOption ? theme.color.textColor : theme.color.textOnSubviewColor)
                     .padding(.vertical, 10)
                     .frame(width: 100)
                     .background {

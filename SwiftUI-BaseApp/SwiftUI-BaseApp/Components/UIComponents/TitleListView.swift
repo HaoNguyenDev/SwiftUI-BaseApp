@@ -27,38 +27,13 @@ struct TitleListView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            VStack {
-                Text("swipe_down_to_exit".localized())
-                    .setFont(.regular, size: 14, color: theme.color.textColor)
-                VStack(spacing: 16) {
-                    Text(title)
-                        .setFont(.bold, size: 24, color: theme.color.textOnSubviewColor)
-
-                    VStack(spacing: 16) {
-                        ForEach(items.indices, id: \.self) { idx in
-                            Text(items[idx].title)
-                                .setFont(.regular, size: 16, color: theme.color.textOnSubviewColor)
-                                .frame(maxWidth: .infinity)
-                                .contentShape(Rectangle())
-                                .onTapGesture {
-                                    onSelectItem?((idx, items[idx]))
-                                }
-                            if idx < items.count - 1 {
-                                Divider()
-                                    .background(theme.color.textOnSubviewColor)
-                            }
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    .multilineTextAlignment(.center)
-                }
-                .padding(EdgeInsets(top: 40, leading: 32, bottom: 40, trailing: 32))
-                .frame(maxWidth: .infinity)
-                .background(theme.color.subviewBgColor, in: .rect(cornerRadius: 40))
-            }
-            .offset(y: offset)
-            .opacity(opacity)
-            .gesture(createDismissGesture())
+            Text("swipe_down_to_exit".localized())
+                .font(theme.font.regular(ofSize: 14))
+                .foregroundStyle(theme.color.textColor)
+            listViewContent
+                .offset(y: offset)
+                .opacity(opacity)
+                .gesture(createDismissGesture())
         }
         .multilineTextAlignment(.center)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
@@ -93,6 +68,42 @@ struct TitleListView: View {
                 isShow = value.translation.height < kDragDismissThreshold
                 offset = isShow ? 0 : kMaxOffset
                 opacity = isShow ? 1 : 0
+            }
+    }
+}
+
+extension TitleListView {
+    private var listViewContent: some View {
+        VStack(spacing: 16) {
+            Text(title)
+                .font(theme.font.bold(ofSize: 24))
+                .foregroundStyle(theme.color.textOnSubviewColor)
+                
+            VStack(spacing: 16) {
+                ForEach(items.indices, id: \.self) { idx in
+                    listItemView(for: items[idx], index: idx)
+                    if idx < items.count - 1 {
+                        Divider()
+                            .background(theme.color.textOnSubviewColor)
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .multilineTextAlignment(.center)
+        }
+        .padding(EdgeInsets(top: 40, leading: 32, bottom: 40, trailing: 32))
+        .frame(maxWidth: .infinity)
+        .background(theme.color.subviewBgColor, in: .rect(cornerRadius: 40))
+    }
+    
+    private func listItemView(for item: TitleItem, index idx: Int) -> some View {
+        Text(item.title)
+            .font(theme.font.regular(ofSize: 16))
+            .foregroundStyle(theme.color.textOnSubviewColor)
+            .frame(maxWidth: .infinity)
+            .contentShape(Rectangle())
+            .onTapGesture {
+                onSelectItem?((idx, item))
             }
     }
 }

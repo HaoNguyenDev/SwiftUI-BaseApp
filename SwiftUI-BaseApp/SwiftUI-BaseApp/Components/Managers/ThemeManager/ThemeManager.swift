@@ -10,11 +10,11 @@ import SwiftUI
 @Observable class ThemeManager {
     static var shared = ThemeManager()
     
-    var activeTheme: any ThemeProtocol = LightTheme()
+    var currentTheme: any ThemeProtocol = LightTheme()
     
     var isDarkEnabled: Bool = false {
         didSet {
-            activeTheme = isDarkEnabled ? DarkTheme() : LightTheme()
+            currentTheme = isDarkEnabled ? DarkTheme() : LightTheme()
         }
     }
     
