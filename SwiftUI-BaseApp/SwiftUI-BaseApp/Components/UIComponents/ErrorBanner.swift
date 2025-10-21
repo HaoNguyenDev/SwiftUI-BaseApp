@@ -9,14 +9,18 @@
 import SwiftUI
 
 struct ErrorBanner: View {
+    @Environment(\.theme) var theme
+    
     let error: Error?
     var retry: () -> Void
     var body: some View {
         HStack {
             if let networkError = error as? NetworkError {
-                Text(networkError.errorDescription).font(.footnote)
+                Text(networkError.errorDescription)
+                    .regularStyle(theme, size: 17, color: theme.color.textColor)
             } else {
-                Text(error?.localizedDescription ?? "Unknown error").font(.footnote)
+                Text(error?.localizedDescription ?? "Unknown error")
+                    .regularStyle(theme, size: 17, color: theme.color.textColor)
             }
             Spacer()
             Button("Retry", action: retry)

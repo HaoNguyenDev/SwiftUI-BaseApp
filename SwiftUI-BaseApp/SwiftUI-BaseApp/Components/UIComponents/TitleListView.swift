@@ -76,8 +76,7 @@ extension TitleListView {
     private var listViewContent: some View {
         VStack(spacing: 16) {
             Text(title)
-                .font(theme.font.bold(ofSize: 24))
-                .foregroundStyle(theme.color.textOnSubviewColor)
+                .boldStyle(theme, size: 24, color: theme.color.textOnSubviewColor)
                 
             VStack(spacing: 16) {
                 ForEach(items.indices, id: \.self) { idx in

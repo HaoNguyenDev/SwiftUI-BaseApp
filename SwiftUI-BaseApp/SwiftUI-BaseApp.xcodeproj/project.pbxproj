@@ -40,6 +40,8 @@
 		DA47259C2EA6655E000D596A /* Environment+ThemeKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47259A2EA6655E000D596A /* Environment+ThemeKeys.swift */; };
 		DA47259D2EA6655E000D596A /* View+Themed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47259B2EA6655E000D596A /* View+Themed.swift */; };
 		DA4726272EA79355000D596A /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4726262EA79355000D596A /* AccountViewModel.swift */; };
+		DA4726402EA7A1FA000D596A /* ThemeFontColorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47263F2EA7A1FA000D596A /* ThemeFontColorModifier.swift */; };
+		DA4726632EA7C3C2000D596A /* AppTextStyleSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4726622EA7C3C2000D596A /* AppTextStyleSize.swift */; };
 		DA58DDC12E9E8DD20042D1AD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = DA58DDC02E9E8DD20042D1AD /* KeychainAccess */; };
 		DA5CC2872E22B28F000C5F18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2812E22B28F000C5F18 /* Preview Assets.xcassets */; };
 		DA5CC2882E22B28F000C5F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2832E22B28F000C5F18 /* Assets.xcassets */; };
@@ -211,6 +213,8 @@
 		DA47259A2EA6655E000D596A /* Environment+ThemeKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+ThemeKeys.swift"; sourceTree = "<group>"; };
 		DA47259B2EA6655E000D596A /* View+Themed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Themed.swift"; sourceTree = "<group>"; };
 		DA4726262EA79355000D596A /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		DA47263F2EA7A1FA000D596A /* ThemeFontColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeFontColorModifier.swift; sourceTree = "<group>"; };
+		DA4726622EA7C3C2000D596A /* AppTextStyleSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextStyleSize.swift; sourceTree = "<group>"; };
 		DA5CC2702E22B254000C5F18 /* SwiftUI-BaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-BaseApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5CC2812E22B28F000C5F18 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DA5CC2832E22B28F000C5F18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -455,6 +459,14 @@
 				DA47259B2EA6655E000D596A /* View+Themed.swift */,
 			);
 			path = EnvironmentKeys;
+			sourceTree = "<group>";
+		};
+		DA47263D2EA7A1D1000D596A /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				DA47263F2EA7A1FA000D596A /* ThemeFontColorModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		DA5CC2672E22B254000C5F18 = {
@@ -708,6 +720,7 @@
 				DA748E1D2E22C66D00B1B226 /* Utilities */,
 				DA748DB72E22B9BA00B1B226 /* Extensions */,
 				DA748DD92E22C08900B1B226 /* UIComponents */,
+				DA47263D2EA7A1D1000D596A /* ViewModifiers */,
 				DA748DF82E22C1FD00B1B226 /* AppError */,
 			);
 			path = Components;
@@ -725,6 +738,7 @@
 		DA748E1D2E22C66D00B1B226 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DA4726622EA7C3C2000D596A /* AppTextStyleSize.swift */,
 				DA748DFD2E22C29B00B1B226 /* Closures.swift */,
 				DA983F5F2E2E52D60030EEA2 /* Logger.swift */,
 			);
@@ -1062,6 +1076,7 @@
 				DA748DEA2E22C14200B1B226 /* ButtonStyle.swift in Sources */,
 				DA890F7F2E23D1E40005D9DB /* SettingsView.swift in Sources */,
 				DA890F7A2E23D0230005D9DB /* AccountView.swift in Sources */,
+				DA4726402EA7A1FA000D596A /* ThemeFontColorModifier.swift in Sources */,
 				DAFCDF872E64831600B97C00 /* UserRowView.swift in Sources */,
 				DA748DE22E22C0EE00B1B226 /* LogoutConfirmView.swift in Sources */,
 				DA748E0D2E22C59700B1B226 /* AppSettings.swift in Sources */,
@@ -1134,6 +1149,7 @@
 				DA748DE62E22C10C00B1B226 /* CustomAlertView.swift in Sources */,
 				DA748DE42E22C0FD00B1B226 /* TitleListView.swift in Sources */,
 				DA4726272EA79355000D596A /* AccountViewModel.swift in Sources */,
+				DA4726632EA7C3C2000D596A /* AppTextStyleSize.swift in Sources */,
 				DA748DD52E22BF8E00B1B226 /* AppCoordinator.swift in Sources */,
 				DA748E112E22C5BE00B1B226 /* UserMessageItem.swift in Sources */,
 				DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseApp.swift in Sources */,
