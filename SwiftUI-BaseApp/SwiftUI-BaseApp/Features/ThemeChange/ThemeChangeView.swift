@@ -15,33 +15,39 @@ struct ThemeChangeView: View {
     @Namespace private var animation
     private var isDarkMode: Bool = false
     var body: some View {
-        VStack(spacing: 15) {
-            Text("choose_theme".localized())
-                .font(theme.font.bold(ofSize: 25))
-                .foregroundStyle(theme.color.textOnSubviewColor)
-            Image(systemName: themeIcon(userSettings.colorSchemeOption))
-                .resizable()
-                .frame(width: 80, height: 80)
-                .foregroundColor(theme.color.bgColor)
+        VStack(spacing: 16) {
+            Text("swipe_down_to_exit".localized())
+                .font(theme.font.regular(ofSize: 14))
+                .foregroundStyle(theme.color.textColor)
             
-            Text("\("current_theme".localized()) \(userSettings.colorSchemeOption.title)")
-                .font(theme.font.regular(ofSize: 17))
-                .foregroundStyle(theme.color.textOnSubviewColor)
-            Text("choose_theme".localized())
-                .font(theme.font.regular(ofSize: 17))
-                .foregroundStyle(theme.color.textOnSubviewColor)
-            
-            themeSelection
-            .padding(.top, 20)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .frame(height: 410)
-        .background {
-            theme.color.subviewBgColor
-        }
-        .clipShape(RoundedRectangle(cornerRadius: 30))
-        .padding(.horizontal, 10)
-        .onAppear {
+            VStack(spacing: 15) {
+                Text("choose_theme".localized())
+                    .font(theme.font.bold(ofSize: 25))
+                    .foregroundStyle(theme.color.textOnSubviewColor)
+                Image(systemName: themeIcon(userSettings.colorSchemeOption))
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .foregroundColor(theme.color.bgColor)
+                
+                Text("\("current_theme".localized()) \(userSettings.colorSchemeOption.title)")
+                    .font(theme.font.regular(ofSize: 17))
+                    .foregroundStyle(theme.color.textOnSubviewColor)
+                Text("choose_theme".localized())
+                    .font(theme.font.regular(ofSize: 17))
+                    .foregroundStyle(theme.color.textOnSubviewColor)
+                
+                themeSelection
+                .padding(.top, 20)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(height: 410)
+            .background {
+                theme.color.subviewBgColor
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+            .padding(.horizontal, 10)
+            .onAppear {
+            }
         }
         
     }

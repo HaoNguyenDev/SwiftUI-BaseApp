@@ -35,7 +35,7 @@ struct SettingsView: View {
         .setDefaultBackground()
         .sheet(isPresented: $showChangeThemeModeView) {
             ThemeChangeView()
-                .presentationDetents([.height(410)])
+                .presentationDetents([.height(450)])
                 .presentationBackground(.clear)
             /* TitleListView(title: "Choose theme mode",
              items: ThemeMode.allCases,

@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct CustomAlertView: View {
+    @Environment(\.theme) var theme
+    
     let title: String
     let message: String
     let confirmText: String?
@@ -20,10 +22,11 @@ struct CustomAlertView: View {
         VStack(spacing: 16) {
             Text(title)
                 .font(.headline)
+                .regularStyle(theme, size: 32, color: theme.color.textColor)
                 .foregroundColor(.primary)
 
             Text(message)
-                .font(.subheadline)
+                .regularStyle(theme, size: 18, color: theme.color.textColor)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
 

@@ -46,11 +46,9 @@ extension SplashView {
                    
                     VStack(spacing: 12) {
                         Text("splas_screen_title".localized())
-                            .font(theme.font.bold(ofSize: 50))
-                            .foregroundStyle(theme.color.textColor)
+                            .regularStyle(theme, size: 50, color: theme.color.textColor)
                         Text("please_update".localized())
-                            .font(theme.font.bold(ofSize: 32))
-                            .foregroundStyle(theme.color.textColor)
+                            .boldStyle(theme, size: 32, color: theme.color.textColor)
                         Text("update_the_app_now".localized())
                             .font(theme.font.regular(ofSize: 14))
                             .foregroundStyle(theme.color.textColor)
