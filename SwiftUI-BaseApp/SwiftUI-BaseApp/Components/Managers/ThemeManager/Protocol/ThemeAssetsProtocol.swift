@@ -8,4 +8,5 @@ import SwiftUI
 
 protocol ThemeAssetsProtocol {
     var userAvatar: UIImage { get }
+    var iconBack: UIImage { get }
 }

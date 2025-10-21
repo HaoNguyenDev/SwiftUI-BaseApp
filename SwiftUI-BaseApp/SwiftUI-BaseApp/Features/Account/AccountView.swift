@@ -10,18 +10,19 @@ import SwiftUI
 
 struct AccountView: View {
     @Environment(\.theme) var theme: any ThemeProtocol
-    @State private var showLoading: Bool = false
+    @State private var viewModel: AccountViewModelProtocol
+    var gotoSettings: VoidResult?
+    var gotoProfile: VoidResult?
     
-    var gotoSettings: (() -> Void)?
-    var gotoProfile: (() -> Void)?
+    init(vm: AccountViewModelProtocol, gotoSettings: VoidResult?, gotoProfile: VoidResult?) {
+        viewModel = vm
+        self.gotoProfile = gotoProfile
+        self.gotoSettings = gotoSettings
+    }
     
     var body: some View {
         VStack {
-            if showLoading {
-                loadingView
-            } else {
-                content
-            }
+            contentView(for: viewModel.viewState)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.all)
@@ -31,7 +32,22 @@ struct AccountView: View {
 
 extension AccountView {
     @ViewBuilder
-    private var content: some View {
+    private func contentView(for viewState: AccountViewState) -> some View {
+        settingsContent()
+            .overlay {
+                switch viewState {
+                case .initial:
+                    EmptyView()
+                case .loading:
+                    loadingView
+                case .loaded:
+                    EmptyView()
+                }
+            }
+    }
+    
+    @ViewBuilder
+    private func settingsContent() -> some View {
         VStack(spacing: 20) {
             Text("account_view".localized())
                 .font(theme.font.bold(ofSize: 32))
@@ -41,7 +57,7 @@ extension AccountView {
                 .frame(height: 30)
             
             Button {
-                processGotoSubview(subview: 1)
+                processGotoSubview(view: .settings)
             } label: {
                 Text("settings".localized())
                     .font(theme.font.bold(ofSize: 20))
@@ -51,7 +67,7 @@ extension AccountView {
             .buttonStyle(SecondaryButtonStyle())
             
             Button {
-                processGotoSubview(subview: 2)
+                processGotoSubview(view: .profile)
             } label: {
                 Text("profile".localized())
                     .font(theme.font.bold(ofSize: 20))
@@ -60,29 +76,36 @@ extension AccountView {
             }
             .buttonStyle(SecondaryButtonStyle())
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     @ViewBuilder
     private var loadingView: some View {
         VStack {
-            LoadingView()
+            LoadingView(hideText: true)
         }
     }
     
-    private func processGotoSubview(subview: Int) {
-        showLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            if subview == 1 {
-                gotoSettings?()
-            } else {
-                gotoProfile?()
+    private func processGotoSubview(view: Router.MainTab) {
+        Task {
+            do {
+                viewModel.loading(show: true)
+                try await Task.sleep(for: .seconds(1))
+                viewModel.loading(show: false)
+                
+                switch view {
+                case .profile:
+                    gotoProfile?()
+                case .settings:
+                    gotoSettings?()
+                default: return
+                }
             }
-            showLoading = false
         }
     }
 }
 
 #Preview {
-    AccountView()
+    AccountView(vm: AccountViewModel(), gotoSettings: nil, gotoProfile: nil)
         .environment(UserSettings())
 }

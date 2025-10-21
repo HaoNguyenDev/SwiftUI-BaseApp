@@ -14,7 +14,7 @@ enum TabType: Int, CaseIterable {
     case account = 3
     
     static let allTabs: [TabType] = [.home, .users, .empty2, .account]
-
+    
     var title: String {
         switch self {
         case .home: return "home".localized()
@@ -103,11 +103,11 @@ struct MainTabControllerView: View {
                 HomeViewCoordinator(navRouter: navRouter).tag(0)
                 UserListCoordinator(navRouter: navRouter).tag(1)
                 PlaceholderViewCoordinator(navRouter: navRouter, title: nil).tag(2)
-                AccountViewCoordinator(navRouter: navRouter).tag(3)
+                AccountViewCoordinator(viewModel: AccountViewModel(), navRouter: navRouter).tag(3)
             }
             tabBar()
-                .padding(.horizontal, 24)
-                .padding(.bottom, 0)
+                .padding(.horizontal, 25)
+                .padding(.bottom, -10)
         }
         .navigationDestination(for: Router.MainTab.self) { route in
             viewForRoute(route: route)
@@ -121,7 +121,7 @@ struct MainTabControllerView: View {
         .onReceive(NotificationCenter.default.publisher(for: .showPromotionScreen)) { _ in
             selectedTab = 1
         }
-
+        
         .toolbar(.hidden, for: .navigationBar)
         .toolbar(.hidden, for: .bottomBar)
         .toolbar(.hidden, for: .tabBar)
@@ -135,7 +135,7 @@ struct MainTabControllerView: View {
                     .frame(maxWidth: .infinity)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: 72)
+        .frame(maxWidth: .infinity, maxHeight: 65)
         .background(
             theme.color.subviewBgColor
                 .clipShape(RoundedRectangle(cornerRadius: 36))
@@ -151,16 +151,9 @@ struct MainTabControllerView: View {
             HStack(spacing: 24) {
                 VStack {
                     tabIcon(tab: tab, isSelected: isSelected)
-                    if tab != .home {
-                        Text(tab.title)
-                            .font(isSelected ? theme.font.bold(ofSize: 10) : theme.font.regular(ofSize: 10))
-                            .foregroundStyle(isSelected ? theme.color.mainTabSelectedTextColor : theme.color.mainTabUnselectedTextColor)
-                    }
-                }
-                if tab == .home {
-                    Rectangle()
-                        .frame(width: 1, height: 40)
-                        .foregroundStyle(Color(hex: "#E5E5EA"))
+                    Text(tab.title)
+                        .font(isSelected ? theme.font.bold(ofSize: 10) : theme.font.regular(ofSize: 10))
+                        .foregroundStyle(isSelected ? theme.color.mainTabSelectedTextColor : theme.color.mainTabUnselectedTextColor)
                 }
             }
         }
@@ -172,17 +165,17 @@ struct MainTabControllerView: View {
             tab.iconSelected
                 .font(theme.font.regular(ofSize: 24))
                 .symbolRenderingMode(.monochrome)
-//                .symbolEffect(.wiggle, options: .repeat(.bitWidth))
+            //                .symbolEffect(.wiggle, options: .repeat(.bitWidth))
                 .symbolEffect(.bounce.up.wholeSymbol, options: .nonRepeating)
-//            .resizable()
-//            .frame(width: 24, height: 24)
-            .foregroundColor(theme.color.mainTabSelectedTextColor)
+            //            .resizable()
+            //            .frame(width: 24, height: 24)
+                .foregroundColor(theme.color.mainTabSelectedTextColor)
         } else {
             tab.icon
                 .font(theme.font.regular(ofSize: 24))
-//            .resizable()
-//            .frame(width: 24, height: 24)
-            .foregroundColor(theme.color.mainTabUnselectedTextColor)
+            //            .resizable()
+            //            .frame(width: 24, height: 24)
+                .foregroundColor(theme.color.mainTabUnselectedTextColor)
         }
     }
     
@@ -195,7 +188,7 @@ struct MainTabControllerView: View {
             SettingsCoordinator(navRouter: navRouter)
         case .subview1(let info):
             PlaceholderViewCoordinator(navRouter: navRouter, title: "Subview 1 \(info)")
-            case .subview2(let info):
+        case .subview2(let info):
             PlaceholderViewCoordinator(navRouter: navRouter, title: "Subview 2 \(info)")
         case .userDetail(let user):
             UserDetailCoordinator(navRouter: navRouter, user: user)
@@ -205,4 +198,6 @@ struct MainTabControllerView: View {
 
 #Preview {
     MainTabControllerView(navRouter: NavRouter())
+        .environmentTheme(manager: ThemeManager.shared)
+        .environment(UserSettings())
 }

@@ -10,7 +10,8 @@ import SwiftUI
 
 #Preview {
     TestLoadingView()
-        .environment(UserSettings())
+        .environmentTheme(manager: ThemeManager.shared)
+        .preferredColorScheme(.light)
 }
 
 struct TestLoadingView: View {
@@ -33,6 +34,7 @@ struct LoadingView: View {
 
     var body: some View {
         ZStack {
+            theme.color.subviewBgColor.opacity(0.5).ignoresSafeArea()
             ForEach(0..<dotCount, id: \.self) { index in
                 Circle()
                     .fill(loadingOnSubview ? theme.color.textOnSubviewColor : theme.color.textColor)
@@ -59,8 +61,6 @@ struct LoadingView: View {
                 .padding(.top, 120)
             }
         }
-        
-        
         .onAppear {
             isAnimating = true
         }
