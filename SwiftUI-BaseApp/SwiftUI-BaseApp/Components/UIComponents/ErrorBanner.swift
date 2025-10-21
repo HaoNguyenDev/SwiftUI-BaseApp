@@ -17,10 +17,10 @@ struct ErrorBanner: View {
         HStack {
             if let networkError = error as? NetworkError {
                 Text(networkError.errorDescription)
-                    .regularStyle(theme, size: 17, color: theme.color.textColor)
+                    .regularStyle(theme, size: AppTextStyleSize.largeTitle, color: theme.color.textColor)
             } else {
                 Text(error?.localizedDescription ?? "Unknown error")
-                    .regularStyle(theme, size: 17, color: theme.color.textColor)
+                    .regularStyle(theme, size: AppTextStyleSize.body, color: theme.color.textColor)
             }
             Spacer()
             Button("Retry", action: retry)

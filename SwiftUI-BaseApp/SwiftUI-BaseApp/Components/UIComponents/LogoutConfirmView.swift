@@ -29,18 +29,15 @@ struct LogoutConfirmView: View {
                     .frame(width: 120, height: 120)
                 
                 Text("logout_prompt".localized())
-                    .font(theme.font.bold(ofSize: 24))
-                    .foregroundStyle(theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: AppTextStyleSize.title2, color: theme.color.textOnSubviewColor)
                 
                 Text("logout_message".localized())
-                    .font(theme.font.regular(ofSize: 14))
-                    .foregroundStyle(theme.color.textOnSubviewColor)
+                    .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
                 Button {
                     onLogout?()
                 } label: {
                     Text("logout".localized())
-                        .font(theme.font.bold(ofSize: 17))
-                        .foregroundStyle(theme.color.textOnSubviewColor)
+                        .boldStyle(theme, size: AppTextStyleSize.headline, color: theme.color.textOnSubviewColor)
                         .frame(height: 48)
                         .frame(maxWidth: .infinity)
                         .background(
@@ -55,8 +52,7 @@ struct LogoutConfirmView: View {
                     onDismiss?()
                 } label: {
                     Text("cancel".localized())
-                        .font(theme.font.bold(ofSize: 17))
-                        .foregroundStyle(theme.color.textOnSubviewColor)
+                        .boldStyle(theme, size: AppTextStyleSize.headline, color: theme.color.textOnSubviewColor)
                         .frame(height: 48)
                         .frame(maxWidth: .infinity)
                         .background(

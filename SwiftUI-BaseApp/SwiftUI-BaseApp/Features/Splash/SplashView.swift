@@ -50,8 +50,7 @@ extension SplashView {
                         Text("please_update".localized())
                             .boldStyle(theme, size: 32, color: theme.color.textColor)
                         Text("update_the_app_now".localized())
-                            .font(theme.font.regular(ofSize: 14))
-                            .foregroundStyle(theme.color.textColor)
+                            .regularStyle(theme, size: AppTextStyleSize.footnote, color: theme.color.textColor)
                     }
                     .multilineTextAlignment(.center)
                 }
@@ -62,8 +61,7 @@ extension SplashView {
                         updateAppProcess()
                     }, label: {
                         Text("update".localized())
-                            .font(theme.font.regular(ofSize: 17))
-                            .foregroundStyle(theme.color.textColor)
+                            .regularStyle(theme, size: AppTextStyleSize.body, color: theme.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
@@ -73,8 +71,7 @@ extension SplashView {
                         onSkipUpdate?()
                     }, label: {
                         Text("skip".localized())
-                            .font(theme.font.regular(ofSize: 17))
-                            .foregroundStyle(theme.color.textColor)
+                            .regularStyle(theme, size: AppTextStyleSize.body, color: theme.color.textColor)
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
@@ -123,4 +120,6 @@ extension SplashView {
     SplashView()
         .environment(AppState())
         .environment(AppSettings())
+        .environmentTheme(manager: ThemeManager.shared)
+        .preferredColorScheme(.light)
 }

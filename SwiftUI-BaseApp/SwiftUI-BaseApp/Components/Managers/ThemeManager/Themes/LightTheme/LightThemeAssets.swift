@@ -9,6 +9,6 @@ import SwiftUI
 import RswiftResources
 
 struct LightThemeAssets: ThemeAssetsProtocol {
-    var userAvatar: UIImage { R.image.manUserCircleIcon() ?? UIImage() }
+    var userAvatar: UIImage { R.image.userAvatar() ?? UIImage() }
     var iconBack: UIImage { R.image.ic_back() ?? UIImage() }
 }

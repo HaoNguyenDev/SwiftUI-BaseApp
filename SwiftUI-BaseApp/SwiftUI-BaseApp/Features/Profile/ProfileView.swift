@@ -24,8 +24,7 @@ struct ProfileView: View {
                 .padding(.top, 32)
                 
                 Text(userSettings.username ?? "anonymous".localized())
-                    .font(theme.font.bold(ofSize: 32))
-                    .foregroundStyle(theme.color.textColor)
+                    .boldStyle(theme, size: AppTextStyleSize.largeTitle, color: theme.color.textColor)
                     .lineLimit(1)
                 settingsView
                 logoutView
@@ -42,12 +41,10 @@ struct ProfileView: View {
             VStack(alignment: .leading) {
                 Image(systemName: "gear")
                 Text("settings".localized())
-                    .font(theme.font.bold(ofSize: 14))
-                    .foregroundStyle(theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
                     
                 Text("settings_description".localized())
-                    .font(theme.font.bold(ofSize: 10))
-                    .foregroundStyle(theme.color.textOnSubviewColor)
+                    .regularStyle(theme, size: AppTextStyleSize.footnote, color: theme.color.textOnSubviewColor)
             }
             
             Spacer()
@@ -71,12 +68,10 @@ struct ProfileView: View {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
                     .tint(theme.color.textOnSubviewColor)
                 Text("logout".localized())
-                    .font(theme.font.bold(ofSize: 14))
-                    .foregroundStyle(theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
                 
                 Text("logout_description".localized())
-                    .font(theme.font.regular(ofSize: 14))
-                    .foregroundStyle(theme.color.textOnSubviewColor)
+                    .regularStyle(theme, size: AppTextStyleSize.footnote, color: theme.color.textOnSubviewColor)
             }
             
             Spacer()

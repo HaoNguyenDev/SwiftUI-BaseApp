@@ -17,24 +17,20 @@ struct ThemeChangeView: View {
     var body: some View {
         VStack(spacing: 16) {
             Text("swipe_down_to_exit".localized())
-                .font(theme.font.regular(ofSize: 14))
-                .foregroundStyle(theme.color.textColor)
+                .regularStyle(theme, size: AppTextStyleSize.footnote, color: theme.color.textColor)
             
             VStack(spacing: 15) {
                 Text("choose_theme".localized())
-                    .font(theme.font.bold(ofSize: 25))
-                    .foregroundStyle(theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: AppTextStyleSize.title1, color: theme.color.textOnSubviewColor)
                 Image(systemName: themeIcon(userSettings.colorSchemeOption))
                     .resizable()
                     .frame(width: 80, height: 80)
                     .foregroundColor(theme.color.bgColor)
                 
-                Text("\("current_theme".localized()) \(userSettings.colorSchemeOption.title)")
-                    .font(theme.font.regular(ofSize: 17))
-                    .foregroundStyle(theme.color.textOnSubviewColor)
+                Text("\("current_theme".localized()) -> \(userSettings.colorSchemeOption.title)")
+                    .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
                 Text("choose_theme".localized())
-                    .font(theme.font.regular(ofSize: 17))
-                    .foregroundStyle(theme.color.textOnSubviewColor)
+                    .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
                 
                 themeSelection
                 .padding(.top, 20)
@@ -56,8 +52,7 @@ struct ThemeChangeView: View {
         HStack(spacing: 0) {
             ForEach(ColorSchemeOption.allCases, id: \.self) { schemeOption in
                 Text(schemeOption.title)
-                    .font(theme.font.semibold(ofSize: 17))
-                    .foregroundStyle(userSettings.colorSchemeOption == schemeOption ? theme.color.textColor : theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: AppTextStyleSize.headline, color: userSettings.colorSchemeOption == schemeOption ? theme.color.textColor : theme.color.textOnSubviewColor)
                     .padding(.vertical, 10)
                     .frame(width: 100)
                     .background {
@@ -100,5 +95,6 @@ struct ThemeChangeView: View {
 #Preview {
     ThemeChangeView()
         .environment(UserSettings())
-        .colorScheme(.light)
+        .environmentTheme(manager: ThemeManager.shared)
+        .preferredColorScheme(.dark)
 }

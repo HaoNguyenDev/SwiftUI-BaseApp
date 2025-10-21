@@ -19,8 +19,7 @@ struct SettingsView: View {
         ScrollView(showsIndicators: false, content: {
             VStack(spacing: 24) {
                 Text("settings".localized())
-                    .font(theme.font.bold(ofSize: 32))
-                    .foregroundStyle(theme.color.textColor)
+                    .boldStyle(theme, size: AppTextStyleSize.largeTitle, color: theme.color.textColor)
                 // Settings content
                 VStack(spacing: 16) {
                     changeThemeModeRow
@@ -68,13 +67,11 @@ struct SettingsView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text("change_theme_mode".localized())
-                        .font(theme.font.bold(ofSize: 14))
-                        .foregroundStyle(theme.color.textOnSubviewColor)
+                        .boldStyle(theme, size: AppTextStyleSize.subhead, color: theme.color.textOnSubviewColor)
                 }
                 Spacer()
                 Text(currentThemeMode)
-                    .font(theme.font.bold(ofSize: 14))
-                    .foregroundStyle(theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: AppTextStyleSize.subhead, color: theme.color.textOnSubviewColor)
                 
                 Image(systemName: "chevron.right").tint(theme.color.textOnSubviewColor)
             }
@@ -94,13 +91,11 @@ struct SettingsView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text("change_language_title".localized())
-                        .font(theme.font.bold(ofSize: 14))
-                        .foregroundStyle(theme.color.textOnSubviewColor)
+                        .boldStyle(theme, size: AppTextStyleSize.subhead, color: theme.color.textOnSubviewColor)
                 }
                 Spacer()
                 Text(currentLanguageTitle)
-                    .font(theme.font.bold(ofSize: 14))
-                    .foregroundStyle(theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: AppTextStyleSize.subhead, color: theme.color.textOnSubviewColor)
                 Image(systemName: "chevron.right")
                     .tint(theme.color.textOnSubviewColor)
             }

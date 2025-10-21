@@ -10,6 +10,7 @@ import SDWebImage
 import SDWebImageSwiftUI
 
 struct UserRowView: View {
+    @Environment(\.theme) var theme
     var user: GithubUser
     
     var body: some View {
@@ -48,21 +49,21 @@ extension UserRowView {
                         .resizable()
                         .scaledToFit()
                 case .failure, .empty:
-                    Image(systemName: "man-user-circle-icon")
+                    Image(uiImage: theme.assets.userAvatar)
                         .resizable()
                         .scaledToFit()
                 @unknown default:
-                    Image(systemName: "man-user-circle-icon")
+                    Image(uiImage: theme.assets.userAvatar)
                         .resizable()
                         .scaledToFit()
                 }
             }
             .cornerRadius(10)
             
-//            WebImage(url: URL(string: user.avatarUrl ?? ""))
-//                .resizable()
-//                .scaledToFit()
-//                .cornerRadius(10)
+            //            WebImage(url: URL(string: user.avatarUrl ?? ""))
+            //                .resizable()
+            //                .scaledToFit()
+            //                .cornerRadius(10)
         }
         .frame(maxWidth: 100, maxHeight: 100)
         
@@ -74,9 +75,8 @@ extension UserRowView {
     private var infoView: some View {
         VStack(alignment: .leading) {
             Text(user.login ?? "" .uppercased())
+                .boldStyle(theme, size: AppTextStyleSize.headline, color: Color.black, alignment: .leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(Color.black)
-                .font(.system(size: 15, weight: .bold))
             
             Divider()
             
