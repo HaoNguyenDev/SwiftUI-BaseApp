@@ -8,6 +8,6 @@
 import SwiftUI
 
 struct DarkThemeAssets: ThemeAssetsProtocol {
-    var userAvatar: UIImage { R.image.manUserCircleIcon() ?? UIImage() }
+    var userAvatar: UIImage { R.image.userAvatar() ?? UIImage() }
     var iconBack: UIImage { R.image.ic_back() ?? UIImage() }
 }

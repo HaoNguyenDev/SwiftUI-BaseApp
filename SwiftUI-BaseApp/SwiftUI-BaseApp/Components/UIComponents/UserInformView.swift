@@ -44,13 +44,11 @@ struct UserInformView: View {
                 VStack(spacing: 16) {
                     if let title = message.title {
                         Text(title)
-                            .font(theme.font.bold(ofSize: 24))
-                            .foregroundStyle(message.type.color)
+                            .boldStyle(theme, size: AppTextStyleSize.title2, color: message.type.color)
                     }
                     if let message = message.message {
                         Text(message)
-                            .font(theme.font.regular(ofSize: 14))
-                            .foregroundStyle(theme.color.textOnSubviewColor)
+                            .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
                             .fixedSize(horizontal: false, vertical: true)
                     } else if let attributeMessage = message.attributeMessage {
                         Text(attributeMessage)
@@ -65,8 +63,7 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(primaryAction.title)
-                                    .font(theme.font.regular(ofSize: 14))
-                                    .foregroundStyle(theme.color.textOnSubviewColor)
+                                    .boldStyle(theme, size: AppTextStyleSize.subhead, color: theme.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                                     .background(
@@ -84,8 +81,7 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(secondaryAction.title)
-                                    .font(theme.font.regular(ofSize: 14))
-                                    .foregroundStyle(theme.color.textOnSubviewColor)
+                                    .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                                     .background(

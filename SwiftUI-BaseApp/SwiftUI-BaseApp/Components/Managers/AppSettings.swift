@@ -14,7 +14,7 @@ import Foundation
     var isMaintenance: Bool { false }
     
     var isNeedUpdate: Bool {
-        return false
+        return true
 //        guard let appVersion = appVersion else { return false }
 //        let state = appVersion.checkUpdate(Env.shared.getVersionApp())
 //        return state != .nonUpdate

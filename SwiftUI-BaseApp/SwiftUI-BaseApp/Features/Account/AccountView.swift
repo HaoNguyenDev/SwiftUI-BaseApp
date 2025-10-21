@@ -50,8 +50,7 @@ extension AccountView {
     private func settingsContent() -> some View {
         VStack(spacing: 20) {
             Text("account_view".localized())
-                .font(theme.font.bold(ofSize: 32))
-                .foregroundStyle(theme.color.textColor)
+                .boldStyle(theme, size: AppTextStyleSize.largeTitle, color: theme.color.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -60,8 +59,7 @@ extension AccountView {
                 processGotoSubview(view: .settings)
             } label: {
                 Text("settings".localized())
-                    .font(theme.font.bold(ofSize: 20))
-                    .foregroundStyle(theme.color.textColor)
+                    .boldStyle(theme, size: AppTextStyleSize.title3, color: theme.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())
@@ -70,8 +68,7 @@ extension AccountView {
                 processGotoSubview(view: .profile)
             } label: {
                 Text("profile".localized())
-                    .font(theme.font.bold(ofSize: 20))
-                    .foregroundStyle(theme.color.textColor)
+                    .boldStyle(theme, size: AppTextStyleSize.title3, color: theme.color.textColor)
                     .frame(width: 200, height: 50)
             }
             .buttonStyle(SecondaryButtonStyle())

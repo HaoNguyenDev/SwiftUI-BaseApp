@@ -41,8 +41,7 @@ extension HomeView {
     private var content: some View {
         VStack(spacing: 20) {
             Text("home_view".localized())
-                .font(theme.font.bold(ofSize: 32))
-                .foregroundStyle(theme.color.textColor)
+                .boldStyle(theme, size: AppTextStyleSize.largeTitle, color: theme.color.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -51,8 +50,7 @@ extension HomeView {
                 processGotoSubview(subview: 1)
             } label: {
                 Text("\("go_to_sub_view".localized()) 1")
-                    .font(theme.font.bold(ofSize: 20))
-                    .foregroundStyle(theme.color.textColor)
+                    .boldStyle(theme, size: AppTextStyleSize.title3, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -62,8 +60,7 @@ extension HomeView {
                 processGotoSubview(subview: 2)
             } label: {
                 Text("\("go_to_sub_view".localized()) 2")
-                    .font(theme.font.bold(ofSize: 20))
-                    .foregroundStyle(theme.color.textColor)
+                    .boldStyle(theme, size: AppTextStyleSize.title3, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -73,8 +70,7 @@ extension HomeView {
                 showSheet?()
             } label: {
                 Text("\("Test Show Sheet")")
-                    .font(theme.font.bold(ofSize: 20))
-                    .foregroundStyle(theme.color.textColor)
+                    .boldStyle(theme, size: AppTextStyleSize.title3, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -84,8 +80,7 @@ extension HomeView {
                 showFullScreen?()
             } label: {
                 Text("\("Test Show FullScreen")")
-                    .font(theme.font.bold(ofSize: 20))
-                    .foregroundStyle(theme.color.textColor)
+                    .boldStyle(theme, size: AppTextStyleSize.title3, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -106,4 +101,5 @@ extension HomeView {
 #Preview {
     HomeView()
         .environmentTheme(manager: ThemeManager.shared)
+        .environment(UserSettings())
 }

@@ -152,7 +152,7 @@ struct MainTabControllerView: View {
                 VStack {
                     tabIcon(tab: tab, isSelected: isSelected)
                     Text(tab.title)
-                        .font(isSelected ? theme.font.bold(ofSize: 10) : theme.font.regular(ofSize: 10))
+                        .font(isSelected ? theme.font.bold(ofSize: AppTextStyleSize.caption2) : theme.font.regular(ofSize: AppTextStyleSize.caption2))
                         .foregroundStyle(isSelected ? theme.color.mainTabSelectedTextColor : theme.color.mainTabUnselectedTextColor)
                 }
             }
@@ -163,18 +163,14 @@ struct MainTabControllerView: View {
     private func tabIcon(tab: TabType, isSelected: Bool) -> some View {
         if isSelected {
             tab.iconSelected
-                .font(theme.font.regular(ofSize: 24))
+                .font(theme.font.regular(ofSize: AppTextStyleSize.title2))
                 .symbolRenderingMode(.monochrome)
             //                .symbolEffect(.wiggle, options: .repeat(.bitWidth))
                 .symbolEffect(.bounce.up.wholeSymbol, options: .nonRepeating)
-            //            .resizable()
-            //            .frame(width: 24, height: 24)
                 .foregroundColor(theme.color.mainTabSelectedTextColor)
         } else {
             tab.icon
-                .font(theme.font.regular(ofSize: 24))
-            //            .resizable()
-            //            .frame(width: 24, height: 24)
+                .font(theme.font.regular(ofSize: AppTextStyleSize.title1))
                 .foregroundColor(theme.color.mainTabUnselectedTextColor)
         }
     }
