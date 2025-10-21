@@ -23,8 +23,10 @@ extension Router {
 struct AccountViewCoordinator: View, ScreenCoordinator {
     typealias ScreenRouter = Router.AccountView
     var navRouter: any NavRouterProtocol
+    private var viewModel: AccountViewModelProtocol
     
-    init(navRouter: any NavRouterProtocol) {
+    init(viewModel: AccountViewModelProtocol, navRouter: any NavRouterProtocol) {
+        self.viewModel = viewModel
         self.navRouter = navRouter
     }
     
@@ -37,7 +39,7 @@ struct AccountViewCoordinator: View, ScreenCoordinator {
     
     @ViewBuilder
     func accountView() -> some View {
-        AccountView(gotoSettings: {
+        AccountView(vm: viewModel, gotoSettings: {
             navRouter.push(Router.MainTab.settings, animate: true)
         }, gotoProfile: {
             navRouter.push(Router.MainTab.profile, animate: true)

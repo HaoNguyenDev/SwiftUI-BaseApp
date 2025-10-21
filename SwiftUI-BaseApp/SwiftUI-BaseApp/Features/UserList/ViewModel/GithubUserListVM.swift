@@ -32,7 +32,7 @@ enum GHListViewState: Equatable {
     }
 }
 
-// MARK: - GithubUserListVM Protocol (Cập nhật)
+// MARK: - GithubUserListVM Protocol
 protocol GithubUserListVMProtocol {
     var viewState: GHListViewState { get }
     

@@ -11,22 +11,21 @@ struct BackButton: View {
     @Environment(\.theme) var theme: any ThemeProtocol
     var body: some View {
         HStack {
-            Image(systemName: "chevron.left")
+            Image(uiImage: theme.assets.iconBack)
+                .renderingMode(.template)
+                .resizable()
                 .frame(width: 25, height: 25)
-                .background(
-                    Circle()
-                        .stroke(lineWidth: 1.5)
-                        .fill(theme.color.textColor)
-                        .frame(width: 30, height: 30)
-                )
+                .foregroundStyle(theme.color.textColor)
         }
         .foregroundColor(theme.color.textColor)
-        .padding(.leading, 10)
+        .padding(.leading, 0)
     }
 }
 
 #Preview {
     BackButton()
         .environment(UserSettings())
+        .environmentTheme(manager: ThemeManager.shared)
+        .preferredColorScheme(.light)
         
 }
