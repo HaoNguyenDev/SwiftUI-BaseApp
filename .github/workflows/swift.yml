@@ -34,7 +34,7 @@ jobs:
     
     defaults: 
       run:
-        working-directory: ./SwiftUI-BaseApp
+        working-directory: ./SwiftUI-BaseApp/SwiftUI-BaseApp
         
     steps:
       - uses: actions/checkout@v4
