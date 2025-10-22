@@ -27,4 +27,27 @@ protocol ThemeColorProtocol {
     // Tab
     var mainTabSelectedTextColor: Color { get }
     var mainTabUnselectedTextColor: Color { get }
+    
+    //--------------------//---------------------//
+    
+    // Background
+    var primaryBg: Color { get }
+    var secondaryBg: Color { get }
+    
+    // Text
+    var primaryText: Color { get }
+    var secondaryText: Color { get }
+    var secondaryText2: Color { get }
+    var highlightText: Color { get }
+    
+    // Button
+    var buttonPrimaryBg: Color { get }
+    var buttonPrimarySelectedBg: Color { get }
+    var buttonPrimaryDisabledBg: Color { get }
+    var buttonPrimaryTitle: Color { get }
+    
+    var buttonSecondaryBg: Color { get }
+    var buttonSecondarySelectedBg: Color { get }
+    var buttonSecondaryDisabledBg: Color { get }
+    var buttonSecondaryTitle: Color { get }
 }

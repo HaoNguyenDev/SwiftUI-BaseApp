@@ -28,4 +28,27 @@ struct LightThemeColors: ThemeColorProtocol {
     // Tab
     let mainTabSelectedTextColor = Color(hex: "#ffffff")
     let mainTabUnselectedTextColor =  Color(hex: "#AEAEB2")
+    
+    //--------------------//---------------------//
+    
+    // Background
+    var primaryBg: Color = Color(hex: "#feffff")
+    var secondaryBg: Color = Color(hex: "#f9f9f9")
+    
+    // Text
+    var primaryText: Color = Color(hex: "#000000")
+    var secondaryText: Color = Color(hex: "#757575")
+    var secondaryText2: Color = Color(hex: "#9b9b9b")
+    var highlightText: Color = Color(hex: "#efb80b")
+    
+    // Button
+    var buttonPrimaryBg: Color = Color(hex: "#fbd535")
+    var buttonPrimarySelectedBg: Color = Color(hex: "#f2c756")
+    var buttonPrimaryDisabledBg: Color = Color(hex: "#fbd535").opacity(0.5)
+    var buttonPrimaryTitle: Color = Color(hex: "#202530")
+    
+    var buttonSecondaryBg: Color = Color(hex: "#ececec")
+    var buttonSecondarySelectedBg: Color = Color(hex: "#d4d4d4")
+    var buttonSecondaryDisabledBg: Color = Color(hex: "#ececec").opacity(0.5)
+    var buttonSecondaryTitle: Color = Color(hex: "#040404")
 }
