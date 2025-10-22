@@ -16,22 +16,7 @@ struct SettingsView: View {
     var gotoChangeLanguageView: VoidResult?
     
     var body: some View {
-        ScrollView(showsIndicators: false, content: {
-            VStack(spacing: 24) {
-                Text("settings".localized())
-                    .boldStyle(theme, size: AppTextStyleSize.largeTitle, color: theme.color.textColor)
-                // Settings content
-                VStack(spacing: 16) {
-                    changeThemeModeRow
-                    changeLanguageRow
-                }
-                Spacer()
-            }
-            .padding(.top, 24)
-            .frame(maxWidth: .infinity)
-        })
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .setDefaultBackground()
+        contentView()
         .sheet(isPresented: $showChangeThemeModeView) {
             ThemeChangeView()
                 .presentationDetents([.height(450)])
@@ -59,8 +44,31 @@ struct SettingsView: View {
             .presentationBackground(.clear)
         }
     }
+}
+
+// MARK: - UI
+extension SettingsView {
+    @ViewBuilder
+    private func contentView() -> some View {
+        ScrollView(showsIndicators: false, content: {
+            VStack(spacing: 24) {
+                Text("settings".localized())
+                    .boldStyle(theme, size: AppTextStyleSize.largeTitle, color: theme.color.textColor)
+                // Settings content
+                VStack(spacing: 16) {
+                    changeThemeModeRow
+                    changeLanguageRow
+                }
+                Spacer()
+            }
+            .padding(.top, 24)
+            .frame(maxWidth: .infinity)
+        })
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .setDefaultBackground()
+    }
     
-    var changeThemeModeRow: some View {
+    private var changeThemeModeRow: some View {
         Button(action: {
             showChangeThemeModeView = true
         }) {
@@ -85,7 +93,6 @@ struct SettingsView: View {
     
     var changeLanguageRow: some View {
         Button(action: {
-//            gotoChangeLanguageView?()
             showChangeLanguageView = true
         }) {
             HStack {
@@ -106,6 +113,19 @@ struct SettingsView: View {
         }
         .padding(.horizontal, 24)
     }
+}
+
+extension SettingsView {
+    private var currentThemeMode: String {
+        userSettings.colorSchemeOption.title
+    }
+    
+    private var currentLanguageTitle: String {
+        guard let title = LanguageCode(rawValue: userSettings.languageCode ?? LanguageCode.eng.rawValue)?.title else {
+            return "Unknown"
+        }
+        return title
+    }
     
     @MainActor
     private func updateLanguage(_ languageCode: LanguageCode?) {
@@ -115,19 +135,6 @@ struct SettingsView: View {
         } else {
             userSettings.languageCode = LanguageCode.eng.rawValue
         }
-    }
-}
-
-extension SettingsView {
-    var currentThemeMode: String {
-        userSettings.colorSchemeOption.title
-    }
-    
-    var currentLanguageTitle: String {
-        guard let title = LanguageCode(rawValue: userSettings.languageCode ?? LanguageCode.eng.rawValue)?.title else {
-            return "Unknown"
-        }
-        return title
     }
 }
 #Preview {

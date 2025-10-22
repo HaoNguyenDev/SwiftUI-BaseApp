@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 // MARK: - NetworkManager
-class NetworkManager: NetworkProtocol {
+final class NetworkManager: NetworkProtocol {
     static let shared = NetworkManager()
     private let session: URLSession
     private init(session: URLSession = .shared) {
