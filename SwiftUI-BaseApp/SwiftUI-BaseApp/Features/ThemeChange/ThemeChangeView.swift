@@ -13,9 +13,6 @@ struct ThemeChangeView: View {
     @Environment(\.theme) var theme: any ThemeProtocol
     @Environment(\.colorScheme) var systemColorScheme
     @Namespace private var animation
-    
-    private var isDarkMode: Bool = false
-    
     var body: some View {
         VStack(spacing: 16) {
             Text("swipe_down_to_exit".localized())

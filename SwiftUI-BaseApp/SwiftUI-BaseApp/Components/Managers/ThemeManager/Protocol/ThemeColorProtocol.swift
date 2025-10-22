@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 protocol ThemeColorProtocol {
+    var backgroundView: Color { get }
     var bgColor: Color { get }
     var subviewBgColor: Color { get }
     var textOnSubviewColor: Color { get }
