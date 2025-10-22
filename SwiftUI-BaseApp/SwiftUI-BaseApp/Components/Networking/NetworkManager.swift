@@ -10,8 +10,9 @@ import Combine
 
 // MARK: - NetworkManager
 class NetworkManager: NetworkProtocol {
+    static let shared = NetworkManager()
     private let session: URLSession
-    public init(session: URLSession = .shared) {
+    private init(session: URLSession = .shared) {
         self.session = session
     }
 }
