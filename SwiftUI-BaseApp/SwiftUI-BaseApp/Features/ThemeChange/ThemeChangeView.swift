@@ -13,7 +13,9 @@ struct ThemeChangeView: View {
     @Environment(\.theme) var theme: any ThemeProtocol
     @Environment(\.colorScheme) var systemColorScheme
     @Namespace private var animation
+    
     private var isDarkMode: Bool = false
+    
     var body: some View {
         VStack(spacing: 16) {
             Text("swipe_down_to_exit".localized())
@@ -22,7 +24,7 @@ struct ThemeChangeView: View {
             VStack(spacing: 15) {
                 Text("choose_theme".localized())
                     .boldStyle(theme, size: AppTextStyleSize.title1, color: theme.color.textOnSubviewColor)
-                Image(systemName: themeIcon(userSettings.colorSchemeOption))
+                Image(systemName: ThemeManager.shared.currentTheme.assets.currentThemeIcon)
                     .resizable()
                     .frame(width: 80, height: 80)
                     .foregroundColor(theme.color.bgColor)
@@ -42,8 +44,6 @@ struct ThemeChangeView: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 30))
             .padding(.horizontal, 10)
-            .onAppear {
-            }
         }
         
     }
@@ -78,15 +78,7 @@ struct ThemeChangeView: View {
             }
         }
     }
-    
-    private func themeIcon(_ theme: ColorSchemeOption) -> String {
-        switch theme {
-        case .dark: return "moon.fill"
-        case .light: return "sun.max.fill"
-        case .system: return "autostartstop.trianglebadge.exclamationmark"
-        }
-    }
-  
+
     private func updateTheme(scheme: ColorSchemeOption) {
         userSettings.setColorScheme(scheme, systemColorScheme: systemColorScheme)
     }

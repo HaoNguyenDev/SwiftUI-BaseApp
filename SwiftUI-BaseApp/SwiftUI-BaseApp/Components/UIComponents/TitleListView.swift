@@ -96,7 +96,7 @@ extension TitleListView {
     
     private func listItemView(for item: TitleItem, index idx: Int) -> some View {
         Text(item.title)
-            .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textColor)
+            .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
             .frame(maxWidth: .infinity)
             .contentShape(Rectangle())
             .onTapGesture {

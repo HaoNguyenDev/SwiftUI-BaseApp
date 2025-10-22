@@ -16,9 +16,9 @@ struct UserMessageItem: Equatable {
         var color: Color {
             switch self {
             case .error:
-                Color(hex: "#FC0F4D")
+                ThemeManager.shared.currentTheme.color.errorMessage
             case .inform:
-                Color(hex: "#333333")
+                ThemeManager.shared.currentTheme.color.textOnSubviewColor
             }
         }
     }
