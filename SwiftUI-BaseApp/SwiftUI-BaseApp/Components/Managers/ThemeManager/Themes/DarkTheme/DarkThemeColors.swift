@@ -28,4 +28,28 @@ struct DarkThemeColors: ThemeColorProtocol {
     // Tab
     let mainTabSelectedTextColor = Color(hex: "#ffffff")
     let mainTabUnselectedTextColor =  Color(hex: "#AEAEB2")
+    
+    //--------------------//---------------------//
+    
+    // Background
+    var primaryBg: Color = Color(hex: "#171a1f")
+    var secondaryBg: Color = Color(hex: "#28303d")
+    
+    // Text
+    var primaryText: Color = Color(hex: "#e9ebee")
+    var secondaryText: Color = Color(hex: "#9299a4")
+    var secondaryText2: Color = Color(hex: "#707a8a")
+    var highlightText: Color = Color(hex: "#efb80b")
+    
+    // Button
+    var buttonPrimaryBg: Color = Color(hex: "#fbd535")
+    var buttonPrimarySelectedBg: Color = Color(hex: "#f2c756")
+    var buttonPrimaryDisabledBg: Color = Color(hex: "#fbd535").opacity(0.5)
+    var buttonPrimaryTitle: Color = Color(hex: "#202530")
+    
+    var buttonSecondaryBg: Color = Color(hex: "#333b47")
+    var buttonSecondarySelectedBg: Color = Color(hex: "#5b626b")
+    var buttonSecondaryDisabledBg: Color = Color(hex: "#333b47").opacity(0.5)
+    var buttonSecondaryTitle: Color = Color(hex: "#e9ebee")
+    
 }
