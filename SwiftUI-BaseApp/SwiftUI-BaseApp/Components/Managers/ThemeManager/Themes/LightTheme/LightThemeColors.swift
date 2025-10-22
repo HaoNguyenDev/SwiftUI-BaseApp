@@ -9,6 +9,7 @@ import UIKit
 import SwiftUI
 
 struct LightThemeColors: ThemeColorProtocol {
+    let backgroundView: Color = R.color.backgroundView.color
     let bgColor = Color(hex: "#ffffff")
     let subviewBgColor = Color(hex: "#333333")
     var textOnSubviewColor = Color(hex: "#ffffff")
