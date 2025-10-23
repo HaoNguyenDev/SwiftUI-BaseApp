@@ -173,28 +173,46 @@ extension HButtonStyle {
 
 // MARK: - ButtonStyle
 extension ButtonStyle where Self == HButtonStyle {
-    static var primaryHButton: HButtonStyle {
-        HButtonStyle(size: .large, type: .primary)
+    static func primaryHButtonStyle(size: HButtonStyle.ButtonSize,
+                        titleColor: Color? = nil,
+                        titlePadding: CGFloat? = nil,
+                        customTitleFont:Font? = nil,
+                        customTitleColor:Color? = nil,
+                        backgroundColor: Color? = nil) -> HButtonStyle {
+        HButtonStyle(size: size,
+                     type: .primary,
+                     customTitleHorizontalPadding: titlePadding,
+                     customTitleFont: customTitleFont,
+                     customTitleColor: customTitleColor,
+                     customBackgroundColor: backgroundColor)
     }
     
-    static func primary(size: HButtonStyle.ButtonSize) -> HButtonStyle {
-        HButtonStyle(size: size, type: .primary)
+    static func secondaryHButtonStyle(size: HButtonStyle.ButtonSize,
+                          titleColor: Color? = nil,
+                          titlePadding: CGFloat? = nil,
+                          customTitleFont:Font? = nil,
+                          customTitleColor:Color? = nil,
+                          backgroundColor: Color? = nil) -> HButtonStyle {
+          HButtonStyle(size: size,
+                       type: .secondary,
+                       customTitleHorizontalPadding: titlePadding,
+                       customTitleFont: customTitleFont,
+                       customTitleColor: customTitleColor,
+                       customBackgroundColor: backgroundColor)
     }
     
-    static func primary(color: Color? = nil) -> HButtonStyle {
-        HButtonStyle(size: .large, type: .primary, customBackgroundColor: color)
-    }
-    
-    static var secondaryHButton: HButtonStyle {
-        HButtonStyle(size: .large, type: .secondary)
-    }
-    
-    static func secondary(color: Color? = nil) -> HButtonStyle {
-        HButtonStyle(size: .large, type: .secondary, customTitleColor: color)
-    }
-    
-    static func secondary(size: HButtonStyle.ButtonSize) -> HButtonStyle {
-        HButtonStyle(size: size, type: .secondary)
+    static func tertiaryHButtonStyle(size: HButtonStyle.ButtonSize,
+                          titleColor: Color? = nil,
+                          titlePadding: CGFloat? = nil,
+                          customTitleFont:Font? = nil,
+                          customTitleColor:Color? = nil,
+                          backgroundColor: Color? = nil) -> HButtonStyle {
+          HButtonStyle(size: size,
+                       type: .secondary,
+                       customTitleHorizontalPadding: titlePadding,
+                       customTitleFont: customTitleFont,
+                       customTitleColor: customTitleColor,
+                       customBackgroundColor: backgroundColor)
     }
     
     static var tertiaryHButton: HButtonStyle {
@@ -206,109 +224,65 @@ extension ButtonStyle where Self == HButtonStyle {
     }
 }
 
-#Preview("Size=Large, Style=Primary") {
+#Preview("Style=Primary") {
     VStack(spacing: 20) {
-        Button("Continue") {}
-            .buttonStyle(.primaryHButton)
+        Button("Large") {}
+            .buttonStyle(.primaryHButtonStyle(size: .large, backgroundColor: nil))
         
-        Button("Continue") {}
-            .buttonStyle(.primaryHButton)
+        Button("Large") {}
+            .buttonStyle(.primaryHButtonStyle(size: .large, backgroundColor: nil))
+            .disabled(true)
+        
+        Button("Medium") {}
+            .buttonStyle(.primaryHButtonStyle(size: .medium, backgroundColor: nil))
+        
+        Button("Medium") {}
+            .buttonStyle(.primaryHButtonStyle(size: .medium, backgroundColor: nil))
+            .disabled(true)
+        
+        Button("Small") {}
+            .buttonStyle(.primaryHButtonStyle(size: .small, backgroundColor: nil))
+        
+        Button("Small") {}
+            .buttonStyle(.primaryHButtonStyle(size: .small, backgroundColor: nil))
             .disabled(true)
     }
     .padding()
 }
 
-#Preview("Size=Large, Style=Secondary") {
+#Preview("Style=Secondary") {
     VStack(spacing: 20) {
-        Button("Continue") {}
-            .buttonStyle(.secondaryHButton)
+        Button("Large") {}
+            .buttonStyle(.secondaryHButtonStyle(size: .large, backgroundColor: nil))
         
-        Button("Continue") {}
-            .buttonStyle(.secondaryHButton)
+        Button("Large") {}
+            .buttonStyle(.secondaryHButtonStyle(size: .large, backgroundColor: nil))
+            .disabled(true)
+        
+        Button("Medium") {}
+            .buttonStyle(.secondaryHButtonStyle(size: .medium, backgroundColor: nil))
+        
+        Button("Medium") {}
+            .buttonStyle(.secondaryHButtonStyle(size: .medium, backgroundColor: nil))
+            .disabled(true)
+        
+        Button("Small") {}
+            .buttonStyle(.secondaryHButtonStyle(size: .small, backgroundColor: nil))
+        
+        Button("Small") {}
+            .buttonStyle(.secondaryHButtonStyle(size: .small, backgroundColor: nil))
             .disabled(true)
     }
     .padding()
 }
 
-#Preview("Size=Large, Style=Tertiary") {
+#Preview("Style=Tertiary") {
     VStack(spacing: 20) {
         Button("Continue") {}
             .buttonStyle(.tertiaryHButton)
         
         Button("Continue") {}
             .buttonStyle(.tertiaryHButton)
-            .disabled(true)
-    }
-    .padding()
-}
-
-#Preview("Size=Medium, Style=Primary") {
-    VStack(spacing: 20) {
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .medium, type: .primary))
-        
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .medium, type: .primary))
-            .disabled(true)
-    }
-    .padding()
-}
-
-#Preview("Size=Medium, Style=Secondary") {
-    VStack(spacing: 20) {
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .medium, type: .secondary))
-        
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .medium, type: .secondary))
-            .disabled(true)
-    }
-    .padding()
-}
-
-#Preview("Size=Medium, Style=Tertiary") {
-    VStack(spacing: 20) {
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .medium, type: .tertiary))
-        
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .medium, type: .tertiary))
-            .disabled(true)
-    }
-    .padding()
-}
-
-#Preview("Size=Small, Style=Primary") {
-    VStack(spacing: 20) {
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .small, type: .primary))
-        
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .small, type: .primary))
-            .disabled(true)
-    }
-    .padding()
-}
-
-#Preview("Size=Small, Style=Secondary") {
-    VStack(spacing: 20) {
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .small, type: .secondary))
-        
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .small, type: .secondary))
-            .disabled(true)
-    }
-    .padding()
-}
-
-#Preview("Size=Small, Style=Tertiary") {
-    VStack(spacing: 20) {
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .small, type: .tertiary))
-        
-        Button("Continue") {}
-            .buttonStyle(HButtonStyle(size: .small, type: .tertiary))
             .disabled(true)
     }
     .padding()
