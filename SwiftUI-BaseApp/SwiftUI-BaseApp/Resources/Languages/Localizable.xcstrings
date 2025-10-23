@@ -30,10 +30,16 @@
     "%lld" : {
 
     },
-    "👋 Hi, %@" : {
+    "100.000.000" : {
 
     },
-    "100.000.000" : {
+    "Fixed Icon (No need to resizable if using small size SF Symbol)" : {
+
+    },
+    "Hi, %@" : {
+
+    },
+    "Image Styling Modifier Demo (Must call .resizable() first)" : {
 
     },
     "Invalid URL" : {
@@ -54,6 +60,9 @@
     "Retry" : {
 
     },
+    "Round Avatar" : {
+
+    },
     "Secondary" : {
 
     },
@@ -64,6 +73,9 @@
 
     },
     "Tertiary" : {
+
+    },
+    "Thumbnail Rounded Corners" : {
 
     }
   },

@@ -169,6 +169,7 @@
 		DA983F5A2E2BA0DF0030EEA2 /* BlurBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */; };
 		DA983F602E2E52D60030EEA2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F5F2E2E52D60030EEA2 /* Logger.swift */; };
 		DAD6C2C32EAA72C80051AB26 /* PaddingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */; };
+		DAD6C31D2EAA86E90051AB26 /* ImageStylingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */; };
 		DAFCDF722E647ED300B97C00 /* UserListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */; };
 		DAFCDF742E647EE000B97C00 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF732E647EE000B97C00 /* UserListView.swift */; };
 		DAFCDF772E64812700B97C00 /* GithubUserListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */; };
@@ -342,6 +343,7 @@
 		DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackgroundView.swift; sourceTree = "<group>"; };
 		DA983F5F2E2E52D60030EEA2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingSize.swift; sourceTree = "<group>"; };
+		DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStylingModifier.swift; sourceTree = "<group>"; };
 		DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinator.swift; sourceTree = "<group>"; };
 		DAFCDF732E647EE000B97C00 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListVM.swift; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 		DA47263D2EA7A1D1000D596A /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */,
 				DA47263F2EA7A1FA000D596A /* ThemeFontColorModifier.swift */,
 			);
 			path = ViewModifiers;
@@ -1164,6 +1167,7 @@
 				DA748DD52E22BF8E00B1B226 /* AppCoordinator.swift in Sources */,
 				DA748E112E22C5BE00B1B226 /* UserMessageItem.swift in Sources */,
 				DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseApp.swift in Sources */,
+				DAD6C31D2EAA86E90051AB26 /* ImageStylingModifier.swift in Sources */,
 				DAFCE08D2E654B9100B97C00 /* UserDetailViewModel.swift in Sources */,
 				DA47259C2EA6655E000D596A /* Environment+ThemeKeys.swift in Sources */,
 				DA4726CA2EA7E016000D596A /* HButtonStyle.swift in Sources */,

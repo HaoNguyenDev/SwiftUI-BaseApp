@@ -20,21 +20,21 @@ struct HeaderView: View {
     }
     @State var hasNewNotification: Bool = false
     var body: some View {
-        HStack(spacing: 24) {
+        HStack(spacing: PaddingSize.medium) {
             HStack(spacing: 4) {
                 Image(uiImage: .appLogo)
                     .resizable()
                     .frame(width: 32, height: 32)
                 
-                Text("👋 Hi, \(name ?? "buddy".localized())")
-                    .boldStyle(theme, size: TextSize.subhead, color: theme.color.textColor)
+                Text("Hi, \(name ?? "buddy".localized())")
+                    .boldStyle(theme, size: TextSize.subhead, color: theme.color.primaryText)
                     .lineLimit(1)
             }
             .onTapGesture { onShowProfile?() }
             
             Spacer(minLength: 1)
             
-            HStack(spacing: 12) {
+            HStack(spacing: PaddingSize.standard) {
                 Button(
                     action: {
                         //                        NotificationCenter.default.post(name: .showNotificationScreen, object: nil)
@@ -43,23 +43,22 @@ struct HeaderView: View {
                         Image(systemName: hasNewNotification ? "bell.badge" : "bell")
                             .symbolRenderingMode(.monochrome)
                             .symbolEffect(.wiggle, options: .repeat(.bitWidth))
-                            .foregroundStyle(theme.color.textColor)
-                            .font(theme.font.semibold(ofSize: TextSize.footnote))
+                            .foregroundStyle(theme.color.primaryText)
+                            .font(theme.font.semibold(ofSize: TextSize.title3))
                     })
                 
                 HStack(alignment: .center, spacing: 5) {
                     Text("100.000.000")
-                        .boldStyle(theme, size: TextSize.subhead, color: theme.color.textOnSubviewColor)
+                        .boldStyle(theme, size: TextSize.subhead, color: theme.color.primaryText)
                         .fixedSize(horizontal: true, vertical: false)
                     Image(systemName: "bitcoinsign.circle")
-                    //                            .resizable()
+//                                                .resizable()
                         .font(theme.font.semibold(ofSize: TextSize.headline))
-                        .foregroundStyle(theme.color.textOnSubviewColor)
+                        .foregroundStyle(theme.color.primaryText)
                 }
-                
                 .padding(.horizontal, 8)
                 .frame(height: 32)
-                .background(theme.color.subviewBgColor, in: .rect(cornerRadius: 16))
+                .background(theme.color.secondaryBg, in: .rect(cornerRadius: 16))
                 .onTapGesture {
                     //                    NotificationCenter.default.post(name: .showTransactionHistoryScreen, object: nil)
                 }
@@ -72,5 +71,6 @@ struct HeaderView: View {
 #Preview {
     HeaderView(onShowProfile: nil)
         .setDefaultBackground()
+        .environmentTheme(manager: ThemeManager.shared)
         .environment(UserSettings())
 }
