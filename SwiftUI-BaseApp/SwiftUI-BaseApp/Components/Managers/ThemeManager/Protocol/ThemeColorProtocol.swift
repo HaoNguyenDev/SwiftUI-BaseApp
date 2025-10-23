@@ -45,9 +45,17 @@ protocol ThemeColorProtocol {
     var buttonPrimarySelectedBg: Color { get }
     var buttonPrimaryDisabledBg: Color { get }
     var buttonPrimaryTitle: Color { get }
+    var buttonPrimaryBoder: Color { get }
     
     var buttonSecondaryBg: Color { get }
     var buttonSecondarySelectedBg: Color { get }
     var buttonSecondaryDisabledBg: Color { get }
     var buttonSecondaryTitle: Color { get }
+    var buttonSecondaryBoder: Color { get }
+    
+    var buttonTertiaryBg: Color { get }
+    var buttonTertiarySelectedBg: Color { get }
+    var buttonTertiaryDisabledBg: Color { get }
+    var buttonTertiaryTitle: Color { get }
+    var buttonTertiaryBoder: Color { get }
 }

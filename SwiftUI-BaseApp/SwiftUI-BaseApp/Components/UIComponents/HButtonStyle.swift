@@ -39,7 +39,7 @@ struct HButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         let isPressed = configuration.isPressed
         let titleColor = titleColor(isPressed: isPressed)
-        let fillColor = fillColor(isPressed: isPressed)
+        let borderColor = borderColor(isPressed: isPressed)
         let backgroundColor = backgroundColor(isPressed: isPressed)
         
         configuration.label
@@ -53,7 +53,7 @@ struct HButtonStyle: ButtonStyle {
             .roundedBorder(
                 cornerRadius: 8,
                 lineWidth: strokeWeight,
-                borderColor: fillColor
+                borderColor: borderColor
             )
     }
 }
@@ -75,7 +75,7 @@ extension HButtonStyle {
 
 //MARK: - Getters
 extension HButtonStyle {
-    var strokeWeight: CGFloat { type == .secondary ? 1 : 0 }
+    var strokeWeight: CGFloat { type == .secondary || type == .tertiary ? 1 : 0 }
     var maxWidth: CGFloat? { size == .large ? .infinity : nil }
     var minHeight: CGFloat? { size == .small ? 0 : 44 }
     var maxHeight: CGFloat? { size == .large ? 56 : 44 }
@@ -97,10 +97,10 @@ extension HButtonStyle {
             case .secondary:
                 return theme.color.buttonSecondaryDisabledBg
             case .tertiary:
-                return theme.color.buttonPrimaryDisabledBg
+                return theme.color.buttonTertiaryDisabledBg
             }
         }
-
+        
         if let customBackgroundColor {
             if let customSelectedBackgroundColor {
                 return isPressed ? customSelectedBackgroundColor : customBackgroundColor
@@ -114,13 +114,13 @@ extension HButtonStyle {
         case .secondary:
             return isPressed ? theme.color.buttonSecondarySelectedBg : theme.color.buttonSecondaryBg
         case .tertiary:
-            return isPressed ? theme.color.buttonPrimarySelectedBg : theme.color.buttonPrimaryBg
+            return isPressed ? theme.color.buttonTertiarySelectedBg : theme.color.buttonTertiaryBg
         }
     }
     
     var titleFont: Font {
         if let customTitleFont { return customTitleFont }
-        return theme.font.bold(ofSize: 16)
+        return theme.font.semibold(ofSize: 16)
     }
     
     func titleColor(isPressed: Bool) -> Color {
@@ -131,7 +131,7 @@ extension HButtonStyle {
             }
             return theme.color.buttonPrimaryTitle.opacity(0.5)
         }
-       
+        
         if let customTitleColor { return customTitleColor }
         
         switch type {
@@ -140,11 +140,11 @@ extension HButtonStyle {
         case .secondary:
             return isEnabled ? theme.color.buttonSecondaryTitle :  theme.color.buttonSecondaryTitle.opacity(0.5)
         case .tertiary:
-            return isEnabled ? theme.color.buttonPrimaryTitle : theme.color.buttonPrimaryTitle.opacity(0.5)
+            return isEnabled ? theme.color.buttonTertiaryTitle : theme.color.buttonTertiaryTitle.opacity(0.5)
         }
     }
     
-    func fillColor(isPressed: Bool) -> Color {
+    func borderColor(isPressed: Bool) -> Color {
         if let customTitleColor {
             return customTitleColor
         }
@@ -152,9 +152,9 @@ extension HButtonStyle {
         guard isEnabled else {
             switch type {
             case .primary:
-                return theme.color.buttonPrimaryTitle.opacity(0.5)
+                return Color.clear
             case .secondary:
-                return theme.color.buttonSecondaryTitle.opacity(0.5)
+                return Color.clear
             case .tertiary:
                 return theme.color.buttonPrimaryTitle.opacity(0.5)
             }
@@ -162,11 +162,11 @@ extension HButtonStyle {
         
         switch type {
         case .primary:
-            return theme.color.buttonPrimaryTitle
+            return theme.color.buttonPrimaryBoder
         case .secondary:
-            return theme.color.buttonSecondaryTitle
+            return theme.color.buttonSecondaryBoder
         case .tertiary:
-            return theme.color.buttonPrimaryTitle
+            return theme.color.buttonTertiaryBoder
         }
     }
 }
@@ -174,45 +174,48 @@ extension HButtonStyle {
 // MARK: - ButtonStyle
 extension ButtonStyle where Self == HButtonStyle {
     static func primaryHButtonStyle(size: HButtonStyle.ButtonSize,
-                        titleColor: Color? = nil,
-                        titlePadding: CGFloat? = nil,
-                        customTitleFont:Font? = nil,
-                        customTitleColor:Color? = nil,
-                        backgroundColor: Color? = nil) -> HButtonStyle {
+                                    titlePadding: CGFloat? = nil,
+                                    titleFont:Font? = nil,
+                                    titleColor: Color? = nil,
+                                    backgroundColor: Color? = nil,
+                                    selectedBackgroundColor: Color? = nil) -> HButtonStyle {
         HButtonStyle(size: size,
                      type: .primary,
                      customTitleHorizontalPadding: titlePadding,
-                     customTitleFont: customTitleFont,
-                     customTitleColor: customTitleColor,
-                     customBackgroundColor: backgroundColor)
+                     customTitleFont: titleFont,
+                     customTitleColor: titleColor,
+                     customBackgroundColor: backgroundColor,
+                     customSelectedBackgroundColor: selectedBackgroundColor)
     }
     
     static func secondaryHButtonStyle(size: HButtonStyle.ButtonSize,
-                          titleColor: Color? = nil,
-                          titlePadding: CGFloat? = nil,
-                          customTitleFont:Font? = nil,
-                          customTitleColor:Color? = nil,
-                          backgroundColor: Color? = nil) -> HButtonStyle {
-          HButtonStyle(size: size,
-                       type: .secondary,
-                       customTitleHorizontalPadding: titlePadding,
-                       customTitleFont: customTitleFont,
-                       customTitleColor: customTitleColor,
-                       customBackgroundColor: backgroundColor)
+                                      titlePadding: CGFloat? = nil,
+                                      titleFont:Font? = nil,
+                                      titleColor: Color? = nil,
+                                      backgroundColor: Color? = nil,
+                                      selectedBackgroundColor: Color? = nil) -> HButtonStyle {
+        HButtonStyle(size: size,
+                     type: .secondary,
+                     customTitleHorizontalPadding: titlePadding,
+                     customTitleFont: titleFont,
+                     customTitleColor: titleColor,
+                     customBackgroundColor: backgroundColor,
+                     customSelectedBackgroundColor: selectedBackgroundColor)
     }
     
     static func tertiaryHButtonStyle(size: HButtonStyle.ButtonSize,
-                          titleColor: Color? = nil,
-                          titlePadding: CGFloat? = nil,
-                          customTitleFont:Font? = nil,
-                          customTitleColor:Color? = nil,
-                          backgroundColor: Color? = nil) -> HButtonStyle {
-          HButtonStyle(size: size,
-                       type: .secondary,
-                       customTitleHorizontalPadding: titlePadding,
-                       customTitleFont: customTitleFont,
-                       customTitleColor: customTitleColor,
-                       customBackgroundColor: backgroundColor)
+                                     titlePadding: CGFloat? = nil,
+                                     titleFont:Font? = nil,
+                                     titleColor: Color? = nil,
+                                     backgroundColor: Color? = nil,
+                                     selectedBackgroundColor: Color? = nil) -> HButtonStyle {
+        HButtonStyle(size: size,
+                     type: .tertiary,
+                     customTitleHorizontalPadding: titlePadding,
+                     customTitleFont: titleFont,
+                     customTitleColor: titleColor,
+                     customBackgroundColor: backgroundColor,
+                     customSelectedBackgroundColor: selectedBackgroundColor)
     }
     
     static var tertiaryHButton: HButtonStyle {
@@ -225,6 +228,7 @@ extension ButtonStyle where Self == HButtonStyle {
 }
 
 #Preview("Style=Primary") {
+    @Previewable @Environment(\.theme) var theme: any ThemeProtocol
     VStack(spacing: 20) {
         Button("Large") {}
             .buttonStyle(.primaryHButtonStyle(size: .large, backgroundColor: nil))
@@ -248,93 +252,84 @@ extension ButtonStyle where Self == HButtonStyle {
             .disabled(true)
     }
     .padding()
+    .environmentTheme(manager: ThemeManager.shared)
 }
 
 #Preview("Style=Secondary") {
+    @Previewable @Environment(\.theme) var theme: any ThemeProtocol
     VStack(spacing: 20) {
         Button("Large") {}
-            .buttonStyle(.secondaryHButtonStyle(size: .large, backgroundColor: nil))
+            .buttonStyle(.secondaryHButtonStyle(size: .large))
         
         Button("Large") {}
-            .buttonStyle(.secondaryHButtonStyle(size: .large, backgroundColor: nil))
+            .buttonStyle(.secondaryHButtonStyle(size: .large))
             .disabled(true)
         
         Button("Medium") {}
-            .buttonStyle(.secondaryHButtonStyle(size: .medium, backgroundColor: nil))
+            .buttonStyle(.secondaryHButtonStyle(size: .medium))
         
         Button("Medium") {}
-            .buttonStyle(.secondaryHButtonStyle(size: .medium, backgroundColor: nil))
+            .buttonStyle(.secondaryHButtonStyle(size: .medium))
             .disabled(true)
         
         Button("Small") {}
-            .buttonStyle(.secondaryHButtonStyle(size: .small, backgroundColor: nil))
+            .buttonStyle(.secondaryHButtonStyle(size: .small))
         
         Button("Small") {}
-            .buttonStyle(.secondaryHButtonStyle(size: .small, backgroundColor: nil))
+            .buttonStyle(.secondaryHButtonStyle(size: .small))
             .disabled(true)
     }
     .padding()
+    .environmentTheme(manager: ThemeManager.shared)
 }
 
 #Preview("Style=Tertiary") {
+    @Previewable @Environment(\.theme) var theme: any ThemeProtocol
     VStack(spacing: 20) {
-        Button("Continue") {}
-            .buttonStyle(.tertiaryHButton)
+        Button("Large") {}
+            .buttonStyle(.tertiaryHButtonStyle(size: .large))
         
-        Button("Continue") {}
-            .buttonStyle(.tertiaryHButton)
+        Button("Large") {}
+            .buttonStyle(.tertiaryHButtonStyle(size: .large))
+            .disabled(true)
+        
+        Button("Medium") {}
+            .buttonStyle(.tertiaryHButtonStyle(size: .medium))
+        
+        Button("Medium") {}
+            .buttonStyle(.tertiaryHButtonStyle(size: .medium))
+            .disabled(true)
+        
+        Button("Small") {}
+            .buttonStyle(.tertiaryHButtonStyle(size: .small))
+        
+        Button("Small") {}
+            .buttonStyle(.tertiaryHButtonStyle(size: .small))
             .disabled(true)
     }
     .padding()
+    .environmentTheme(manager: ThemeManager.shared)
 }
 
 #Preview("Custom Buttons") {
     @Previewable @Environment(\.theme) var theme
     VStack(spacing: 20) {
-        Button("Primary-Large") {}
-            .buttonStyle(
-                HButtonStyle(
-                    size: .large,
-                    type: .primary
-                )
-            )
         
-        Button("Primary-Large-Medium") {}
-            .buttonStyle(
-                HButtonStyle(
-                    size: .medium,
-                    type: .primary
-                )
-            )
-            .disabled(false)
         
-        Button("Primary-Large-CustomColor") {}
-            .buttonStyle(
-                HButtonStyle(
-                    size: .large,
-                    type: .primary,
-                    customTitleColor: theme.color.buttonSecondaryTitle,
-                    customBackgroundColor: theme.color.buttonSecondaryBg,
-                    customSelectedBackgroundColor: theme.color.buttonSecondarySelectedBg
-                )
-            )
-            .disabled(false)
+        Button("Primary") {}
+            .buttonStyle(.primaryHButtonStyle(size: .medium,
+                                              titlePadding: 20,
+                                              titleFont: theme.font.regular(ofSize: 22),
+                                              titleColor: Color.white,
+                                              backgroundColor: Color.green,
+                                              selectedBackgroundColor: Color.green.opacity(0.5)))
         
-        Button("Secondary-Large") {}
-            .buttonStyle(
-                HButtonStyle(
-                    size: .large,
-                    type: .secondary
-                )
-            )
+        Button("Secondary") {}
+            .buttonStyle(.secondaryHButtonStyle(size: .medium))
         
-        Button("Secondary-Medium") {}
-            .buttonStyle(
-                HButtonStyle(
-                    size: .medium,
-                    type: .secondary
-                )
-            )
+        Button("Tertiary") {}
+            .buttonStyle(.tertiaryHButtonStyle(size: .medium, titleColor: Color.blue))
     }
-    .padding()
+    .padding(.horizontal, 50)
+    .environmentTheme(manager: ThemeManager.shared)
 }

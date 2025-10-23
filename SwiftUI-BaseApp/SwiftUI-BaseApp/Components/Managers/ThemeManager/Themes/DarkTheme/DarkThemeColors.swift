@@ -46,10 +46,17 @@ struct DarkThemeColors: ThemeColorProtocol {
     var buttonPrimarySelectedBg: Color = Color(hex: "#f2c756")
     var buttonPrimaryDisabledBg: Color = Color(hex: "#fbd535").opacity(0.5)
     var buttonPrimaryTitle: Color = Color(hex: "#202530")
+    var buttonPrimaryBoder: Color = Color.clear
     
     var buttonSecondaryBg: Color = Color(hex: "#333b47")
     var buttonSecondarySelectedBg: Color = Color(hex: "#5b626b")
     var buttonSecondaryDisabledBg: Color = Color(hex: "#333b47").opacity(0.5)
     var buttonSecondaryTitle: Color = Color(hex: "#e9ebee")
+    var buttonSecondaryBoder: Color = Color.clear
     
+    var buttonTertiaryBg: Color = Color(hex: "#ececec").opacity(0)
+    var buttonTertiarySelectedBg: Color = Color(hex: "#ececec")
+    var buttonTertiaryDisabledBg: Color = Color(hex: "#ececec").opacity(0.5)
+    var buttonTertiaryTitle: Color = Color(hex: "#040404")
+    var buttonTertiaryBoder: Color = Color(hex: "#040404")
 }

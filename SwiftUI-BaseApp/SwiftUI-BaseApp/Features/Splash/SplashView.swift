@@ -121,5 +121,5 @@ extension SplashView {
         .environment(AppState())
         .environment(AppSettings())
         .environmentTheme(manager: ThemeManager.shared)
-        .preferredColorScheme(.light)
+        .preferredColorScheme(.dark)
 }
