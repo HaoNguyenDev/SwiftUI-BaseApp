@@ -35,6 +35,9 @@ struct DarkThemeColors: ThemeColorProtocol {
     var primaryBg: Color = Color(hex: "#171a1f")
     var secondaryBg: Color = Color(hex: "#28303d")
     
+    // Shadow
+    var primaryShadow: Color = Color(hex: "#feffff").opacity(0.25)
+    
     // Text
     var primaryText: Color = Color(hex: "#e9ebee")
     var secondaryText: Color = Color(hex: "#9299a4")
@@ -55,8 +58,8 @@ struct DarkThemeColors: ThemeColorProtocol {
     var buttonSecondaryBoder: Color = Color.clear
     
     var buttonTertiaryBg: Color = Color(hex: "#ececec").opacity(0)
-    var buttonTertiarySelectedBg: Color = Color(hex: "#ececec")
+    var buttonTertiarySelectedBg: Color = Color(hex: "#5b626b")
     var buttonTertiaryDisabledBg: Color = Color(hex: "#ececec").opacity(0.5)
-    var buttonTertiaryTitle: Color = Color(hex: "#040404")
-    var buttonTertiaryBoder: Color = Color(hex: "#040404")
+    var buttonTertiaryTitle: Color = Color(hex: "#ececec")
+    var buttonTertiaryBoder: Color = Color(hex: "#ececec")
 }

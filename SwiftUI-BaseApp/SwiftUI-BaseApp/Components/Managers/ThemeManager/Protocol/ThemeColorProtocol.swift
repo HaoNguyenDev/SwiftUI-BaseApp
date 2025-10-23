@@ -34,6 +34,9 @@ protocol ThemeColorProtocol {
     var primaryBg: Color { get }
     var secondaryBg: Color { get }
     
+    // Shadow
+    var primaryShadow: Color { get }
+    
     // Text
     var primaryText: Color { get }
     var secondaryText: Color { get }

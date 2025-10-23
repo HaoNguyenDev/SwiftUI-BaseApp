@@ -28,7 +28,7 @@ struct BackgroundModifier: ViewModifier {
         content
             .background(
                 ContainerRelativeShape()
-                    .fill(theme.color.bgColor)
+                    .fill(theme.color.primaryBg)
                     .ignoresSafeArea(edges: .all)
             )
     }

@@ -39,9 +39,6 @@
     "100.000.000" : {
 
     },
-    "Hello, world!" : {
-
-    },
     "Invalid URL" : {
 
     },
@@ -54,7 +51,16 @@
     "OOPS!\nThis route is not implemented at AppCoordinator showFullScreen function yet." : {
 
     },
+    "Primary" : {
+
+    },
     "Retry" : {
+
+    },
+    "Secondary" : {
+
+    },
+    "Tertiary" : {
 
     }
   },

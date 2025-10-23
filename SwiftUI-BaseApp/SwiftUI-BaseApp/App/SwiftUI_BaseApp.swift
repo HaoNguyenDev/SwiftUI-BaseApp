@@ -44,4 +44,12 @@ extension SwiftUI_BaseApp {
         Logger.shared.info("Language: \(userSettings?.languageCode ?? "")")
         Logger.shared.info("Theme mode: \(String(describing: userSettings?.colorSchemeOption))")
     }
+    
+    private var testUI: some View {
+        ContentView()
+            .environment(appState)
+            .environment(appSettings)
+            .environment(userSettings)
+            .environmentTheme(manager: ThemeManager.shared)
+    }
 }
