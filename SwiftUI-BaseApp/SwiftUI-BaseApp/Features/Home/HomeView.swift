@@ -11,8 +11,8 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.theme) var theme: any ThemeProtocol
     var onShowProfile: VoidResult?
-    var gotoSubview1: (() -> Void)?
-    var gotoSubview2: (() -> Void)?
+    var gotoSubview1: SingleResult<String?>?
+    var gotoSubview2: SingleResult<String?>?
     var showSheet: VoidResult?
     var showFullScreen: VoidResult?
     
@@ -46,53 +46,40 @@ extension HomeView {
             Spacer()
                 .frame(height: 30)
             
-            Button {
-                processGotoSubview(subview: 1)
-            } label: {
-                Text("\("go_to_sub_view".localized()) 1")
-                    .boldStyle(theme, size: TextSize.title3, color: theme.color.textColor)
-                    .padding()
-                    .frame(height: 50)
+            Button("\("go_to_sub_view".localized()) 1") {
+                processGotoSubview(view: .subview1(info: "This's parameter"))
             }
-            .buttonStyle(SecondaryButtonStyle())
+            .padding(.horizontal, PaddingSize.standard)
+            .buttonStyle(.primaryHButton)
             
-            Button {
-                processGotoSubview(subview: 2)
-            } label: {
-                Text("\("go_to_sub_view".localized()) 2")
-                    .boldStyle(theme, size: TextSize.title3, color: theme.color.textColor)
-                    .padding()
-                    .frame(height: 50)
+            Button("\("go_to_sub_view".localized()) 2") {
+                processGotoSubview(view: .subview1(info: "This's parameter"))
             }
-            .buttonStyle(SecondaryButtonStyle())
+            .padding(.horizontal, PaddingSize.standard)
+            .buttonStyle(.primaryHButton)
             
-            Button {
+            Button("Show Sheet") {
                 showSheet?()
-            } label: {
-                Text("\("Test Show Sheet")")
-                    .boldStyle(theme, size: TextSize.title3, color: theme.color.textColor)
-                    .padding()
-                    .frame(height: 50)
             }
-            .buttonStyle(SecondaryButtonStyle())
+            .padding(.horizontal, PaddingSize.standard)
+            .buttonStyle(.primaryHButton)
             
-            Button {
+            Button("Show FullScreen") {
                 showFullScreen?()
-            } label: {
-                Text("\("Test Show FullScreen")")
-                    .boldStyle(theme, size: TextSize.title3, color: theme.color.textColor)
-                    .padding()
-                    .frame(height: 50)
             }
-            .buttonStyle(SecondaryButtonStyle())
+            .padding(.horizontal, PaddingSize.standard)
+            .buttonStyle(.primaryHButton)
+
         }
     }
     
-    private func processGotoSubview(subview: Int) {
-        if subview == 1 {
-            gotoSubview1?()
-        } else {
-            gotoSubview2?()
+    private func processGotoSubview(view: Router.MainTab) {
+        switch view {
+        case .subview1(let info):
+            gotoSubview1?(info)
+        case .subview2(let info):
+            gotoSubview2?(info)
+        default: break
         }
     }
     

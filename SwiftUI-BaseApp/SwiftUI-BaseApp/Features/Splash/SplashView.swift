@@ -46,11 +46,11 @@ extension SplashView {
                    
                     VStack(spacing: 12) {
                         Text("splas_screen_title".localized())
-                            .regularStyle(theme, size: TextSize.supperTitle, color: theme.color.primaryText, alignment: .center)
+                            .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText, alignment: .center)
                         Text("please_update".localized())
-                            .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText)
+                            .regularStyle(theme, size: TextSize.title1, color: theme.color.primaryText)
                         Text("update_the_app_now".localized())
-                            .regularStyle(theme, size: TextSize.footnote, color: theme.color.secondaryText)
+                            .regularStyle(theme, size: TextSize.subhead, color: theme.color.secondaryText)
                     }
                 }
                 Spacer()
