@@ -120,7 +120,7 @@ extension HButtonStyle {
     
     var titleFont: Font {
         if let customTitleFont { return customTitleFont }
-        return theme.font.semibold(ofSize: 16)
+        return theme.font.semibold(ofSize: TextSize.body)
     }
     
     func titleColor(isPressed: Bool) -> Color {
@@ -173,6 +173,9 @@ extension HButtonStyle {
 
 // MARK: - ButtonStyle
 extension ButtonStyle where Self == HButtonStyle {
+    static var primaryHButton: HButtonStyle {
+        HButtonStyle(size: .large, type: .primary)
+    }
     static func primaryHButtonStyle(size: HButtonStyle.ButtonSize,
                                     titlePadding: CGFloat? = nil,
                                     titleFont:Font? = nil,
@@ -188,6 +191,9 @@ extension ButtonStyle where Self == HButtonStyle {
                      customSelectedBackgroundColor: selectedBackgroundColor)
     }
     
+    static var secondaryHButton: HButtonStyle {
+        HButtonStyle(size: .large, type: .secondary)
+    }
     static func secondaryHButtonStyle(size: HButtonStyle.ButtonSize,
                                       titlePadding: CGFloat? = nil,
                                       titleFont:Font? = nil,
@@ -203,6 +209,9 @@ extension ButtonStyle where Self == HButtonStyle {
                      customSelectedBackgroundColor: selectedBackgroundColor)
     }
     
+    static var tertiaryHButton: HButtonStyle {
+        HButtonStyle(size: .large, type: .tertiary)
+    }
     static func tertiaryHButtonStyle(size: HButtonStyle.ButtonSize,
                                      titlePadding: CGFloat? = nil,
                                      titleFont:Font? = nil,
@@ -216,14 +225,6 @@ extension ButtonStyle where Self == HButtonStyle {
                      customTitleColor: titleColor,
                      customBackgroundColor: backgroundColor,
                      customSelectedBackgroundColor: selectedBackgroundColor)
-    }
-    
-    static var tertiaryHButton: HButtonStyle {
-        HButtonStyle(size: .large, type: .tertiary)
-    }
-    
-    static func tertiary(size: HButtonStyle.ButtonSize) -> HButtonStyle {
-        HButtonStyle(size: size, type: .tertiary)
     }
 }
 
@@ -319,7 +320,7 @@ extension ButtonStyle where Self == HButtonStyle {
         Button("Primary") {}
             .buttonStyle(.primaryHButtonStyle(size: .medium,
                                               titlePadding: 20,
-                                              titleFont: theme.font.regular(ofSize: 22),
+                                              titleFont: theme.font.regular(ofSize: TextSize.buttonTitle1),
                                               titleColor: Color.white,
                                               backgroundColor: Color.green,
                                               selectedBackgroundColor: Color.green.opacity(0.5)))

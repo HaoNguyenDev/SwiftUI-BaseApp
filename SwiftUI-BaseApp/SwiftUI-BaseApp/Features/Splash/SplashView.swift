@@ -46,45 +46,38 @@ extension SplashView {
                    
                     VStack(spacing: 12) {
                         Text("splas_screen_title".localized())
-                            .regularStyle(theme, size: 50, color: theme.color.primaryText)
+                            .regularStyle(theme, size: TextSize.supperTitle, color: theme.color.primaryText, alignment: .center)
                         Text("please_update".localized())
-                            .boldStyle(theme, size: 32, color: theme.color.primaryText)
+                            .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText)
                         Text("update_the_app_now".localized())
-                            .regularStyle(theme, size: AppTextStyleSize.footnote, color: theme.color.primaryText)
+                            .regularStyle(theme, size: TextSize.footnote, color: theme.color.secondaryText)
                     }
-                    .multilineTextAlignment(.center)
                 }
                 Spacer()
                 VStack(spacing: 16) {
-                    Button(action: {
-                        Logger.shared.debug("Update App")
+                    /// Old style
+//                    Button(action: {
+//                        updateAppProcess()
+//                    }, label: {
+//                        Text("update".localized())
+//                            .regularStyle(theme, size: TextSize.body, color: theme.color.textColor)
+//                            .frame(height: 48)
+//                            .frame(maxWidth: .infinity)
+//                    })
+//                    .buttonStyle(.primaryHButtonStyle(size: .large))
+////                    .buttonStyle(SecondaryButtonStyle())
+                    
+                    /// New style
+                    Button("update".localized()) {
                         updateAppProcess()
-                    }, label: {
-                        Text("update".localized())
-                            .regularStyle(theme, size: AppTextStyleSize.body, color: theme.color.textColor)
-                            .frame(height: 48)
-                            .frame(maxWidth: .infinity)
-                    })
-                    .buttonStyle(.primaryHButtonStyle(size: .large))
-//                    .buttonStyle(SecondaryButtonStyle())
+                    }
+                    .buttonStyle(.primaryHButton)
                     
-                    Button(action: {
+                    Button("skip".localized()) {
                         onSkipUpdate?()
-                    }, label: {
-                        Text("skip".localized())
-                            .regularStyle(theme, size: AppTextStyleSize.body, color: theme.color.textColor)
-                            .frame(height: 48)
-                            .frame(maxWidth: .infinity)
-                    })
-                    .buttonStyle(.secondaryHButtonStyle(size: .large))
-//                    .buttonStyle(SecondaryButtonStyle())
+                    }
+                    .buttonStyle(.secondaryHButton)
                     
-//                    Button("Primary") {}
-//                        .buttonStyle(.primaryHButtonStyle(size: .large))
-//                    Button("Secondary") {}
-//                        .buttonStyle(.secondaryHButtonStyle(size: .large))
-//                    Button("Tertiary") {}
-//                        .buttonStyle(.tertiaryHButtonStyle(size: .large))
                 }
             }
             .padding(EdgeInsets(top: 130, leading: 40, bottom: 112, trailing: 40))

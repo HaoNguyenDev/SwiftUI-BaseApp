@@ -28,7 +28,7 @@ struct TitleListView: View {
     var body: some View {
         VStack(spacing: 16) {
             Text("swipe_down_to_exit".localized())
-                .regularStyle(theme, size: AppTextStyleSize.footnote, color: theme.color.textColor)
+                .regularStyle(theme, size: TextSize.footnote, color: theme.color.textColor)
             listViewContent
                 .offset(y: offset)
                 .opacity(opacity)
@@ -96,7 +96,7 @@ extension TitleListView {
     
     private func listItemView(for item: TitleItem, index idx: Int) -> some View {
         Text(item.title)
-            .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
+            .regularStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
             .frame(maxWidth: .infinity)
             .contentShape(Rectangle())
             .onTapGesture {

@@ -41,7 +41,7 @@ extension HomeView {
     private var content: some View {
         VStack(spacing: 20) {
             Text("home_view".localized())
-                .boldStyle(theme, size: AppTextStyleSize.largeTitle, color: theme.color.textColor)
+                .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.textColor)
             
             Spacer()
                 .frame(height: 30)
@@ -50,7 +50,7 @@ extension HomeView {
                 processGotoSubview(subview: 1)
             } label: {
                 Text("\("go_to_sub_view".localized()) 1")
-                    .boldStyle(theme, size: AppTextStyleSize.title3, color: theme.color.textColor)
+                    .boldStyle(theme, size: TextSize.title3, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -60,7 +60,7 @@ extension HomeView {
                 processGotoSubview(subview: 2)
             } label: {
                 Text("\("go_to_sub_view".localized()) 2")
-                    .boldStyle(theme, size: AppTextStyleSize.title3, color: theme.color.textColor)
+                    .boldStyle(theme, size: TextSize.title3, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -70,7 +70,7 @@ extension HomeView {
                 showSheet?()
             } label: {
                 Text("\("Test Show Sheet")")
-                    .boldStyle(theme, size: AppTextStyleSize.title3, color: theme.color.textColor)
+                    .boldStyle(theme, size: TextSize.title3, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }
@@ -80,7 +80,7 @@ extension HomeView {
                 showFullScreen?()
             } label: {
                 Text("\("Test Show FullScreen")")
-                    .boldStyle(theme, size: AppTextStyleSize.title3, color: theme.color.textColor)
+                    .boldStyle(theme, size: TextSize.title3, color: theme.color.textColor)
                     .padding()
                     .frame(height: 50)
             }

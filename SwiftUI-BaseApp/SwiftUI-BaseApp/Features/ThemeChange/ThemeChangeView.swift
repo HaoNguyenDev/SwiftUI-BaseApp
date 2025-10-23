@@ -16,20 +16,20 @@ struct ThemeChangeView: View {
     var body: some View {
         VStack(spacing: 16) {
             Text("swipe_down_to_exit".localized())
-                .regularStyle(theme, size: AppTextStyleSize.footnote, color: theme.color.textColor)
+                .regularStyle(theme, size: TextSize.footnote, color: theme.color.textColor)
             
             VStack(spacing: 15) {
                 Text("choose_theme".localized())
-                    .boldStyle(theme, size: AppTextStyleSize.title1, color: theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: TextSize.title1, color: theme.color.textOnSubviewColor)
                 Image(systemName: ThemeManager.shared.currentTheme.assets.currentThemeIcon)
                     .resizable()
                     .frame(width: 80, height: 80)
                     .foregroundColor(theme.color.bgColor)
                 
                 Text("\("current_theme".localized()) -> \(userSettings.colorSchemeOption.title)")
-                    .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
+                    .regularStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
                 Text("choose_theme".localized())
-                    .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
+                    .regularStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
                 
                 themeSelection
                 .padding(.top, 20)
@@ -49,7 +49,7 @@ struct ThemeChangeView: View {
         HStack(spacing: 0) {
             ForEach(ColorSchemeOption.allCases, id: \.self) { schemeOption in
                 Text(schemeOption.title)
-                    .boldStyle(theme, size: AppTextStyleSize.headline, color: userSettings.colorSchemeOption == schemeOption ? theme.color.textColor : theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: TextSize.headline, color: userSettings.colorSchemeOption == schemeOption ? theme.color.textColor : theme.color.textOnSubviewColor)
                     .padding(.vertical, 10)
                     .frame(width: 100)
                     .background {

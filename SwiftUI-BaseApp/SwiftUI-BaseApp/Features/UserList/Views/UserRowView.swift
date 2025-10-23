@@ -75,7 +75,7 @@ extension UserRowView {
     private var infoView: some View {
         VStack(alignment: .leading) {
             Text(user.login ?? "" .uppercased())
-                .boldStyle(theme, size: AppTextStyleSize.headline, color: Color.black, alignment: .leading)
+                .boldStyle(theme, size: TextSize.headline, color: Color.black, alignment: .leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             Divider()
