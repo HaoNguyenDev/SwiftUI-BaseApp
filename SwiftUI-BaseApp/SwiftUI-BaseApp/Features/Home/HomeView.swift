@@ -20,7 +20,7 @@ struct HomeView: View {
         ZStack {
             VStack {
                 headerView
-                    .padding(.horizontal, 10)
+                    .padding(.horizontal, PaddingSize.standard)
                 content
             }
            
@@ -39,7 +39,7 @@ extension HomeView {
     
     @ViewBuilder
     private var content: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: PaddingSize.wide) {
             Text("home_view".localized())
                 .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.textColor)
             
