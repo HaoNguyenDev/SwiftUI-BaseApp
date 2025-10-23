@@ -34,10 +34,10 @@ struct LoadingView: View {
 
     var body: some View {
         ZStack {
-            theme.color.subviewBgColor.opacity(0.5).ignoresSafeArea()
+            theme.color.secondaryBg.ignoresSafeArea()
             ForEach(0..<dotCount, id: \.self) { index in
                 Circle()
-                    .fill(loadingOnSubview ? theme.color.textOnSubviewColor : theme.color.textColor)
+                    .fill(theme.color.primaryText)
                     .frame(width: 10, height: 10)
                     .offset(x: radius)
                     .rotationEffect(.degrees(Double(index) / Double(dotCount) * 360))
@@ -54,7 +54,7 @@ struct LoadingView: View {
             if !hideText {
                 VStack {
                     Text("please_wait".localized())
-                        .boldStyle(theme, size: 17, color: theme.color.textColor)
+                        .boldStyle(theme, size: 17, color: theme.color.primaryText)
                         .frame(maxWidth: .infinity)
                 }
                 .padding(.top, 120)

@@ -46,11 +46,11 @@ extension SplashView {
                    
                     VStack(spacing: 12) {
                         Text("splas_screen_title".localized())
-                            .regularStyle(theme, size: 50, color: theme.color.textColor)
+                            .regularStyle(theme, size: 50, color: theme.color.primaryText)
                         Text("please_update".localized())
-                            .boldStyle(theme, size: 32, color: theme.color.textColor)
+                            .boldStyle(theme, size: 32, color: theme.color.primaryText)
                         Text("update_the_app_now".localized())
-                            .regularStyle(theme, size: AppTextStyleSize.footnote, color: theme.color.textColor)
+                            .regularStyle(theme, size: AppTextStyleSize.footnote, color: theme.color.primaryText)
                     }
                     .multilineTextAlignment(.center)
                 }
@@ -65,7 +65,8 @@ extension SplashView {
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
-                    .buttonStyle(SecondaryButtonStyle())
+                    .buttonStyle(.primaryHButtonStyle(size: .large))
+//                    .buttonStyle(SecondaryButtonStyle())
                     
                     Button(action: {
                         onSkipUpdate?()
@@ -75,7 +76,15 @@ extension SplashView {
                             .frame(height: 48)
                             .frame(maxWidth: .infinity)
                     })
-                    .buttonStyle(SecondaryButtonStyle())
+                    .buttonStyle(.secondaryHButtonStyle(size: .large))
+//                    .buttonStyle(SecondaryButtonStyle())
+                    
+//                    Button("Primary") {}
+//                        .buttonStyle(.primaryHButtonStyle(size: .large))
+//                    Button("Secondary") {}
+//                        .buttonStyle(.secondaryHButtonStyle(size: .large))
+//                    Button("Tertiary") {}
+//                        .buttonStyle(.tertiaryHButtonStyle(size: .large))
                 }
             }
             .padding(EdgeInsets(top: 130, leading: 40, bottom: 112, trailing: 40))
@@ -110,8 +119,8 @@ extension SplashView {
     @ViewBuilder
     private var loadingView: UserInformView {
         let loadingMessage = UserMessageItem(animationName: "RoadLoading",
-                                             title: "Loading...",
-                                             message: "It may take a while. Thank you for your patient. You are amazing.")
+                                             title: "loading".localized(),
+                                             message: "loading_message".localized())
         UserInformView(message: loadingMessage)
     }
 }

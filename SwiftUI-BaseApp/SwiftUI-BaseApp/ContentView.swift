@@ -8,17 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.theme) var theme
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ScrollView {
+            VStack {
+                Button("Primary") {
+                    Logger.shared.debug("Primary")
+                }
+                .buttonStyle(.primaryHButtonStyle(size: .large))
+                
+                Button("Secondary") {
+                    Logger.shared.debug("Secondary")
+                }
+                .buttonStyle(.secondaryHButtonStyle(size: .large))
+                
+                Button("Tertiary") {
+                    Logger.shared.debug("Tertiary")
+                }
+                .buttonStyle(.tertiaryHButtonStyle(size: .large))
+            }
+            .padding()
         }
-        .padding()
+        .setDefaultBackground()
     }
+    
 }
 
 #Preview {
     ContentView()
+        .environmentTheme(manager: ThemeManager.shared)
 }

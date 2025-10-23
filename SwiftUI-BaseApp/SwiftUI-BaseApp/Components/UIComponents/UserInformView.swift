@@ -35,10 +35,10 @@ struct UserInformView: View {
                         .resizable()
                         .frame(width: 120, height: 120)
                 } else if message.animation != nil {
-                    LoadingView(hideText: false, loadingOnSubview: true)
+                    LoadingView(hideText: true, loadingOnSubview: true)
                         .frame(width: 100, height: 100)
-//                    LottieHelperView(fileName: animation.name, playLoopMode: animation.loop)
-//                        .frame(width: 120, height: 120)
+                    //                    LottieHelperView(fileName: animation.name, playLoopMode: animation.loop)
+                    //                        .frame(width: 120, height: 120)
                 }
                 
                 VStack(spacing: 16) {
@@ -48,7 +48,7 @@ struct UserInformView: View {
                     }
                     if let message = message.message {
                         Text(message)
-                            .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
+                            .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.primaryText)
                             .fixedSize(horizontal: false, vertical: true)
                     } else if let attributeMessage = message.attributeMessage {
                         Text(attributeMessage)
@@ -66,12 +66,8 @@ struct UserInformView: View {
                                     .boldStyle(theme, size: AppTextStyleSize.subhead, color: theme.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 24)
-                                            .stroke(lineWidth: 1)
-                                            .foregroundStyle(theme.color.textOnSubviewColor)
-                                    )
                             })
+                            .buttonStyle(.primaryHButtonStyle(size: .large))
                         }
                         
                         // Secondary action
@@ -84,12 +80,9 @@ struct UserInformView: View {
                                     .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 24)
-                                            .stroke(lineWidth: 1)
-                                            .foregroundStyle(theme.color.textOnSubviewColor)
-                                    )
+                                
                             })
+                            .buttonStyle(.primaryHButtonStyle(size: .large))
                         }
                     }
                 }
@@ -99,9 +92,9 @@ struct UserInformView: View {
             .padding(.vertical, 40)
             .frame(maxWidth: .infinity)
             .background(
-                theme.color.subviewBgColor
+                theme.color.secondaryBg
                     .clipShape(RoundedRectangle(cornerRadius: 40))
-                    .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 4)
+                    .shadow(color: theme.color.primaryShadow, radius: 10, x: 0, y: 4)
             )
             .padding(.horizontal, 16)
             .opacity(isShow ? 1 : 0)
@@ -116,11 +109,17 @@ struct UserInformView: View {
 }
 
 #Preview {
-//    UserInformView(message: UserMessageItem(message: "welcome_message".localized()),
-//                   primaryAction: InformAction(title: "test", callback: {}))
-//    .environmentObject(ThemeManager())
+    @Previewable @Environment(\.theme) var theme
+    UserInformView(message: UserMessageItem(icon: theme.assets.userAvatar,
+                                            title: "Title",
+                                            message: "Message"),
+                   primaryAction: InformAction(title: "login".localized(),
+                                               callback: {}))
+    .environmentTheme(manager: ThemeManager.shared)
+    
     
     UserInformView(message: UserMessageItem(message: "welcome_message".localized()),
-                   primaryAction: InformAction(title: "test", callback: {}))
-    .environment(UserSettings())
+                   primaryAction: InformAction(title: "login".localized(),
+                                               callback: {}))
+    .environmentTheme(manager: ThemeManager.shared)
 }
