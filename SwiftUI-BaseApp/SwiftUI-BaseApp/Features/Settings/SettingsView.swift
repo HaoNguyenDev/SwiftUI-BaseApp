@@ -53,7 +53,7 @@ extension SettingsView {
         ScrollView(showsIndicators: false, content: {
             VStack(spacing: 24) {
                 Text("settings".localized())
-                    .boldStyle(theme, size: AppTextStyleSize.largeTitle, color: theme.color.textColor)
+                    .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.textColor)
                 // Settings content
                 VStack(spacing: 16) {
                     changeThemeModeRow
@@ -75,11 +75,11 @@ extension SettingsView {
             HStack {
                 VStack(alignment: .leading) {
                     Text("change_theme_mode".localized())
-                        .boldStyle(theme, size: AppTextStyleSize.subhead, color: theme.color.textOnSubviewColor)
+                        .boldStyle(theme, size: TextSize.subhead, color: theme.color.textOnSubviewColor)
                 }
                 Spacer()
                 Text(currentThemeMode)
-                    .boldStyle(theme, size: AppTextStyleSize.subhead, color: theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: TextSize.subhead, color: theme.color.textOnSubviewColor)
                 
                 Image(systemName: "chevron.right").tint(theme.color.textOnSubviewColor)
             }
@@ -98,11 +98,11 @@ extension SettingsView {
             HStack {
                 VStack(alignment: .leading) {
                     Text("change_language_title".localized())
-                        .boldStyle(theme, size: AppTextStyleSize.subhead, color: theme.color.textOnSubviewColor)
+                        .boldStyle(theme, size: TextSize.subhead, color: theme.color.textOnSubviewColor)
                 }
                 Spacer()
                 Text(currentLanguageTitle)
-                    .boldStyle(theme, size: AppTextStyleSize.subhead, color: theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: TextSize.subhead, color: theme.color.textOnSubviewColor)
                 Image(systemName: "chevron.right")
                     .tint(theme.color.textOnSubviewColor)
             }

@@ -21,11 +21,11 @@ struct CustomAlertView: View {
     var body: some View {
         VStack(spacing: 16) {
             Text(title)
-                .regularStyle(theme, size: AppTextStyleSize.largeTitle, color: theme.color.textColor)
+                .regularStyle(theme, size: TextSize.largeTitle, color: theme.color.textColor)
                 .foregroundColor(.primary)
 
             Text(message)
-                .regularStyle(theme, size: AppTextStyleSize.body, color: theme.color.textColor)
+                .regularStyle(theme, size: TextSize.body, color: theme.color.textColor)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
 

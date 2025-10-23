@@ -60,41 +60,34 @@ struct LoginView: View {
 extension LoginView {
     @ViewBuilder
     private var loginContentView: some View {
-        VStack {
+        VStack(spacing: PaddingSize.verticalRelaxed) {
             Text("login_view".localized())
-                .boldStyle(theme, size: 32, color: theme.color.textColor)
+                .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText)
             Spacer()
-                .frame(height: 100)
+                .frame(height: PaddingSize.navBarLarge)
             
-            Button {
+            Button("login".localized()) {
                 Task {
                     await processLogin()
                 }
-            } label: {
-                Text("login".localized())
-                    .boldStyle(theme, size: 20, color: theme.color.textColor)
-                    .frame(width: 200, height: 50)
             }
-            .buttonStyle(SecondaryButtonStyle())
+            .padding(.horizontal, PaddingSize.standard)
+            .buttonStyle(.primaryHButton)
             
-            Button {
+            
+            Button("register".localized()) {
                 gotoRegister?()
-            } label: {
-                Text("register".localized())
-                    .boldStyle(theme, size: 20, color: theme.color.textColor)
-                    .frame(width: 200, height: 50)
             }
-            .buttonStyle(SecondaryButtonStyle())
+            .padding(.horizontal, PaddingSize.standard)
+            .buttonStyle(.secondaryHButton)
             
-            Button {
+            Button("forgot_password".localized()){
                 gotoForgotPassword?()
-            } label: {
-                Text("forgot_password".localized())
-                    .boldStyle(theme, size: 20, color: theme.color.textColor)
-                    .frame(width: 200, height: 50)
             }
-            .buttonStyle(SecondaryButtonStyle())
+            .padding(.horizontal, PaddingSize.standard)
+            .buttonStyle(.tertiaryHButton)
         }
+        .setDefaultBackground()
     }
     
     @ViewBuilder
@@ -136,4 +129,5 @@ extension LoginView {
               forgotPassword: nil,
               register: nil)
     .environment(AppState())
+    .environmentTheme(manager: ThemeManager.shared)
 }

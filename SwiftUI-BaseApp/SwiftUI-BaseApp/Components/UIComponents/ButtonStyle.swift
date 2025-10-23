@@ -13,7 +13,7 @@ struct PrimaryButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(theme.font.bold(ofSize: AppTextStyleSize.headline))
+            .font(theme.font.bold(ofSize: TextSize.headline))
             .padding(.bottom, 4)
             .background(isEnabled ? Color(hex: "#0D00FF") : Color.gray)
             .foregroundColor(.white)
@@ -33,7 +33,7 @@ struct PrimaryButtonStyleThin: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(theme.font.bold(ofSize: AppTextStyleSize.callout))
+            .font(theme.font.bold(ofSize: TextSize.callout))
             .background(isEnabled ? Color(hex: "#0D00FF") : Color.gray)
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .circular))
@@ -63,7 +63,7 @@ struct SecondaryButtonStyle: ButtonStyle {
     @Environment(\.theme) var theme: any ThemeProtocol
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(theme.font.bold(ofSize: AppTextStyleSize.caption1))
+            .font(theme.font.bold(ofSize: TextSize.caption1))
             .background(Color.clear)
             .foregroundColor(isEnabled ? theme.color.textColor : .gray)
             .overlay(
@@ -82,7 +82,7 @@ struct SecondaryButtonBlackStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(theme.font.bold(ofSize: AppTextStyleSize.caption1))
+            .font(theme.font.bold(ofSize: TextSize.caption1))
             .background(Color.clear)
             .foregroundColor(isEnabled ? Color(hex: "#333333") : .gray)
             .overlay(

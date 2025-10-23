@@ -41,7 +41,7 @@
 		DA47259D2EA6655E000D596A /* View+Themed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47259B2EA6655E000D596A /* View+Themed.swift */; };
 		DA4726272EA79355000D596A /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4726262EA79355000D596A /* AccountViewModel.swift */; };
 		DA4726402EA7A1FA000D596A /* ThemeFontColorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47263F2EA7A1FA000D596A /* ThemeFontColorModifier.swift */; };
-		DA4726632EA7C3C2000D596A /* AppTextStyleSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4726622EA7C3C2000D596A /* AppTextStyleSize.swift */; };
+		DA4726632EA7C3C2000D596A /* TextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4726622EA7C3C2000D596A /* TextSize.swift */; };
 		DA4726CA2EA7E016000D596A /* HButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4726C92EA7E016000D596A /* HButtonStyle.swift */; };
 		DA4726CF2EA7E2D7000D596A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4726CE2EA7E2D7000D596A /* Colors.xcassets */; };
 		DA58DDC12E9E8DD20042D1AD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = DA58DDC02E9E8DD20042D1AD /* KeychainAccess */; };
@@ -168,6 +168,7 @@
 		DA89104F2E263FFF0005D9DB /* lang_vi.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89104E2E263FFF0005D9DB /* lang_vi.json */; };
 		DA983F5A2E2BA0DF0030EEA2 /* BlurBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */; };
 		DA983F602E2E52D60030EEA2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F5F2E2E52D60030EEA2 /* Logger.swift */; };
+		DAD6C2C32EAA72C80051AB26 /* PaddingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */; };
 		DAFCDF722E647ED300B97C00 /* UserListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */; };
 		DAFCDF742E647EE000B97C00 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF732E647EE000B97C00 /* UserListView.swift */; };
 		DAFCDF772E64812700B97C00 /* GithubUserListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */; };
@@ -216,7 +217,7 @@
 		DA47259B2EA6655E000D596A /* View+Themed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Themed.swift"; sourceTree = "<group>"; };
 		DA4726262EA79355000D596A /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		DA47263F2EA7A1FA000D596A /* ThemeFontColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeFontColorModifier.swift; sourceTree = "<group>"; };
-		DA4726622EA7C3C2000D596A /* AppTextStyleSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextStyleSize.swift; sourceTree = "<group>"; };
+		DA4726622EA7C3C2000D596A /* TextSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSize.swift; sourceTree = "<group>"; };
 		DA4726C92EA7E016000D596A /* HButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HButtonStyle.swift; sourceTree = "<group>"; };
 		DA4726CE2EA7E2D7000D596A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DA5CC2702E22B254000C5F18 /* SwiftUI-BaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-BaseApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,6 +341,7 @@
 		DA89104E2E263FFF0005D9DB /* lang_vi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lang_vi.json; sourceTree = "<group>"; };
 		DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackgroundView.swift; sourceTree = "<group>"; };
 		DA983F5F2E2E52D60030EEA2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingSize.swift; sourceTree = "<group>"; };
 		DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinator.swift; sourceTree = "<group>"; };
 		DAFCDF732E647EE000B97C00 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListVM.swift; sourceTree = "<group>"; };
@@ -744,7 +746,8 @@
 		DA748E1D2E22C66D00B1B226 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				DA4726622EA7C3C2000D596A /* AppTextStyleSize.swift */,
+				DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */,
+				DA4726622EA7C3C2000D596A /* TextSize.swift */,
 				DA748DFD2E22C29B00B1B226 /* Closures.swift */,
 				DA983F5F2E2E52D60030EEA2 /* Logger.swift */,
 			);
@@ -1150,13 +1153,14 @@
 				DAFCDF852E6482FD00B97C00 /* ErrorBanner.swift in Sources */,
 				DA748F972E23A8CC00B1B226 /* MainTabControllerView.swift in Sources */,
 				DA890F8D2E23D7850005D9DB /* ProfileViewCoordinator.swift in Sources */,
+				DAD6C2C32EAA72C80051AB26 /* PaddingSize.swift in Sources */,
 				DA748F922E23A2F600B1B226 /* LoginModel.swift in Sources */,
 				DA748E122E22C5C200B1B226 /* UserMessageState.swift in Sources */,
 				DA748DFE2E22C29B00B1B226 /* Closures.swift in Sources */,
 				DA748DE62E22C10C00B1B226 /* CustomAlertView.swift in Sources */,
 				DA748DE42E22C0FD00B1B226 /* TitleListView.swift in Sources */,
 				DA4726272EA79355000D596A /* AccountViewModel.swift in Sources */,
-				DA4726632EA7C3C2000D596A /* AppTextStyleSize.swift in Sources */,
+				DA4726632EA7C3C2000D596A /* TextSize.swift in Sources */,
 				DA748DD52E22BF8E00B1B226 /* AppCoordinator.swift in Sources */,
 				DA748E112E22C5BE00B1B226 /* UserMessageItem.swift in Sources */,
 				DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseApp.swift in Sources */,

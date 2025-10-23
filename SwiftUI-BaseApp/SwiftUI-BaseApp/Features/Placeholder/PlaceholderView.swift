@@ -25,16 +25,16 @@ struct PlaceholderView: View {
 
             if let newTitle = newTitle {
                 Text("\(newTitle)\n\("in_development".localized())")
-                    .boldStyle(theme, size: AppTextStyleSize.title1, color: theme.color.textColor)
+                    .boldStyle(theme, size: TextSize.title1, color: theme.color.textColor)
                     .multilineTextAlignment(.center)
             } else {
                 Text("in_development".localized())
-                    .boldStyle(theme, size: AppTextStyleSize.title1, color: theme.color.textColor)
+                    .boldStyle(theme, size: TextSize.title1, color: theme.color.textColor)
                     .multilineTextAlignment(.center)
             }
             
             Text("feature_update_soon".localized())
-                .boldStyle(theme, size: AppTextStyleSize.title1, color: theme.color.textColor, alignment: .center)
+                .boldStyle(theme, size: TextSize.title1, color: theme.color.textColor, alignment: .center)
                 .multilineTextAlignment(.center)
             
             Spacer()
@@ -45,7 +45,7 @@ struct PlaceholderView: View {
                 //onClose?()
             } label: {
                 Text("all_right".localized())
-                    .boldStyle(theme, size: AppTextStyleSize.headline, color: theme.color.textColor)
+                    .boldStyle(theme, size: TextSize.headline, color: theme.color.textColor)
                     .multilineTextAlignment(.center)
                     .padding()
                     .frame(height: 50)

@@ -44,11 +44,11 @@ struct UserInformView: View {
                 VStack(spacing: 16) {
                     if let title = message.title {
                         Text(title)
-                            .boldStyle(theme, size: AppTextStyleSize.title2, color: message.type.color)
+                            .boldStyle(theme, size: TextSize.title2, color: message.type.color)
                     }
                     if let message = message.message {
                         Text(message)
-                            .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.primaryText)
+                            .regularStyle(theme, size: TextSize.callout, color: theme.color.primaryText)
                             .fixedSize(horizontal: false, vertical: true)
                     } else if let attributeMessage = message.attributeMessage {
                         Text(attributeMessage)
@@ -63,7 +63,7 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(primaryAction.title)
-                                    .boldStyle(theme, size: AppTextStyleSize.subhead, color: theme.color.textOnSubviewColor)
+                                    .boldStyle(theme, size: TextSize.subhead, color: theme.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                             })
@@ -77,7 +77,7 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(secondaryAction.title)
-                                    .regularStyle(theme, size: AppTextStyleSize.callout, color: theme.color.textOnSubviewColor)
+                                    .regularStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                                 

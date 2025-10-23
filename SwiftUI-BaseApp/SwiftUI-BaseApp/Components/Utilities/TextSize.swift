@@ -1,5 +1,5 @@
 //
-//  AppTextStyleSize.swift
+//  TextStyleSize.swift
 //  SwiftUI-BaseApp
 //
 //  Created by Hao Nguyen on 21/10/25.
@@ -11,15 +11,15 @@ import SwiftUI
 
 // Define default font sizes according to Apple Human Interface Guidelines (iOS)
 // These values ​​are taken from Content Size Category: Large (default)
-struct AppTextStyleSize {
+struct TextSize {
     
     // Sizes for large and prominent titles
+    static let supperTitle: CGFloat = 50.0
     static let largeTitle: CGFloat = 34.0  // Equivalent to .largeTitle
     static let title1: CGFloat = 28.0      // Equivalent to .title
     static let title2: CGFloat = 22.0
     static let title3: CGFloat = 20.0
     
-    // Kích thước cho nội dung cơ bản
     static let headline: CGFloat = 17.0    // Usually Bold/Semibold, used for subtitles/emphasis
     static let body: CGFloat = 17.0        // Usually Regular, used for main content
     
@@ -34,4 +34,7 @@ struct AppTextStyleSize {
     Text("Title")
     .boldStyle(theme, size: AppleTextStyleSize.largeTitle, color: theme.color.textColor)
     */
+    
+    // Button
+    static let buttonTitle1: CGFloat = 20.0
 }
