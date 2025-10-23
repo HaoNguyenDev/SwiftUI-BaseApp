@@ -39,10 +39,10 @@ struct HomeViewCoordinator: View, ScreenCoordinator {
     func getView() -> some View {
         HomeView(onShowProfile: {
             navRouter.push(Router.MainTab.profile, animate: true)
-        }, gotoSubview1: {
-            navRouter.push(Router.MainTab.subview1(info: "data 11111111"), animate: true)
-        }, gotoSubview2: {
-            navRouter.push(Router.MainTab.subview2(info: "data 22222222"), animate: true)
+        }, gotoSubview1: { info in
+            navRouter.push(Router.MainTab.subview1(info: info), animate: true)
+        }, gotoSubview2: { info in
+            navRouter.push(Router.MainTab.subview2(info: info), animate: true)
         }, showSheet: {
             navRouter.showSheet(RouterView.init(routable: Router.PlaceholderView.view(title: "Test title of sheet parameter")))
         }, showFullScreen: {

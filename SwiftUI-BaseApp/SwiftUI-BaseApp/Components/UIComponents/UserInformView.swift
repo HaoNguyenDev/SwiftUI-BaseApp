@@ -44,7 +44,7 @@ struct UserInformView: View {
                 VStack(spacing: 16) {
                     if let title = message.title {
                         Text(title)
-                            .boldStyle(theme, size: TextSize.title2, color: message.type.color)
+                            .boldStyle(theme, size: TextSize.title3, color: message.type.color)
                     }
                     if let message = message.message {
                         Text(message)

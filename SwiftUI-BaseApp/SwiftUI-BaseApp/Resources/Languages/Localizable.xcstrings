@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%@" : {
-
-    },
     "%@\n%@" : {
       "localizations" : {
         "en" : {
@@ -58,6 +55,12 @@
 
     },
     "Secondary" : {
+
+    },
+    "Show FullScreen" : {
+
+    },
+    "Show Sheet" : {
 
     },
     "Tertiary" : {

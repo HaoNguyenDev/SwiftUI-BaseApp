@@ -16,7 +16,7 @@ struct UserMessageItem: Equatable {
         var color: Color {
             switch self {
             case .error:
-                ThemeManager.shared.currentTheme.color.primaryText
+                ThemeManager.shared.currentTheme.color.errorMessage
             case .inform:
                 ThemeManager.shared.currentTheme.color.primaryText
             }
