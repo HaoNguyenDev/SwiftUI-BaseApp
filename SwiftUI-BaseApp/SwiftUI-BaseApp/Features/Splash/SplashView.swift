@@ -11,8 +11,9 @@ import SwiftUI
 struct SplashView: View {
     @Environment(AppState.self) var appState
     @Environment(AppSettings.self) var appSettings
+    @Environment(UserSettings.self) var userSettings
     @Environment(\.theme) var theme: any ThemeProtocol
-    var onSkipUpdate: VoidResult?
+    var finishSplash: VoidResult?
     @State var showLoading: Bool = false
     
     var body: some View {
@@ -34,7 +35,8 @@ extension SplashView {
     var contentView: some View {
         VStack {}
             .onAppear {
-                onSkipUpdate?()
+                userSettings.hasFinishSplash = true
+                finishSplash?()
             }
     }
     
@@ -74,7 +76,7 @@ extension SplashView {
                     .buttonStyle(.primaryHButton)
                     
                     Button("skip".localized()) {
-                        onSkipUpdate?()
+                        finishSplash?()
                     }
                     .buttonStyle(.secondaryHButton)
                     
@@ -99,7 +101,7 @@ extension SplashView {
                 showLoading = false
                 await appState.hideLoading()
                 appState.showToast(item: UserMessageItem(message: "welcome_message_app".localized()))
-                onSkipUpdate?()
+                finishSplash?()
             } catch {
                 // TODO: Handle later
                 showLoading = false

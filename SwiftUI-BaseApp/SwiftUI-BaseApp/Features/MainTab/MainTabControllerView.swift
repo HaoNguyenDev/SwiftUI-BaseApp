@@ -45,6 +45,7 @@ enum TabType: Int, CaseIterable {
 
 extension Router {
     enum MainTab: Routable {
+        case login
         case profile
         case settings
         case subview1(info: String?)
@@ -52,6 +53,7 @@ extension Router {
         case userDetail(user: GithubUserDetail)
         var id: String {
             switch self {
+            case .login: return "login"
             case .profile: return "profile"
             case .settings: return "settings"
             case .subview1: return "subview1"
@@ -65,6 +67,7 @@ extension Router {
 struct MainTabControllerView: View {
     var navRouter: any NavRouterProtocol
     @Environment(\.theme) var theme: any ThemeProtocol
+    @Environment(UserSettings.self) private var userSettings
     @State var selectedTab = TabType.home.rawValue
     
     init(navRouter: any NavRouterProtocol) {
@@ -188,6 +191,8 @@ struct MainTabControllerView: View {
             PlaceholderViewCoordinator(navRouter: navRouter, title: "Subview 2 \(info.orEmpty)")
         case .userDetail(let user):
             UserDetailCoordinator(navRouter: navRouter, user: user)
+        case .login:
+            LoginCoordinator(navRouter: navRouter, userSettings: userSettings)
         }
     }
 }

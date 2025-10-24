@@ -42,13 +42,8 @@ struct SplashCoordinator: View, ScreenCoordinator {
     
     @ViewBuilder
     func getView() -> some View {
-        SplashView(onSkipUpdate: {
-            if hasLoggedIn() {
-                navRouter.push(ScreenRouter.login, animate: false)
-                navRouter.push(ScreenRouter.home, animate: false)
-            } else {
-                navRouter.push(ScreenRouter.login, animate: false)
-            }
+        SplashView(finishSplash: {
+            navRouter.push(ScreenRouter.home, animate: false)
         })
     }
     
@@ -60,12 +55,5 @@ struct SplashCoordinator: View, ScreenCoordinator {
         case .home:
             MainTabControllerView(navRouter: navRouter)
         }
-    }
-}
-
-extension SplashCoordinator {
-    private func hasLoggedIn() -> Bool {
-        Logger.shared.debug("user token: \(userSettings.token ?? "nil")")
-        return userSettings.hasLoggedIn
     }
 }

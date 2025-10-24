@@ -9,14 +9,11 @@ import SwiftUI
 
 extension Router {
     enum ProfileView: Routable {
-        case login
         case settings
         case logoutConfirm
         
         var id: String {
             switch self {
-            case .login:
-                return "login"
             case .settings:
                 return "settings"
             case .logoutConfirm:
@@ -59,16 +56,13 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
             },
             showLogoutConfirmView: {
                 navRouter.push(ScreenRouter.logoutConfirm, animate: false)
-            }
-        )
+            })
     }
     
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
         case .settings:
             SettingsCoordinator(navRouter: navRouter)
-        case .login:
-            LoginCoordinator(navRouter: navRouter, userSettings: userSettings)
         case .logoutConfirm:
             LogoutConfirmView {
                 navRouter.pop(animate: false)
@@ -83,6 +77,6 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
 extension ProfileViewCoordinator {
     private func doLogout() {
         userSettings.logout()
-        navRouter.pop(to: Router.Splash.login, animate: false)
+        navRouter.popToRoot()
     }
 }

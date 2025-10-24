@@ -17,6 +17,7 @@ struct AppCoordinator: View {
     
     @State var rootRouter = NavRouter()
     @State private var isShowBlockingView: Bool = false
+    @State private var hasFinishSplash: Bool = false
     
     var body: some View {
         Group {
@@ -53,9 +54,22 @@ struct AppCoordinator: View {
         ZStack {
             if appSettings.isMaintenance {
                 maintenanceView
-            } else {
+            } else if !userSettings.hasFinishSplash {
                 NavigationStack(path: $rootRouter.path) {
                     SplashCoordinator(navRouter: rootRouter)
+                }
+                .ignoresSafeArea(.all)
+                
+                .sheet(item: $rootRouter.sheet) { sheet in
+                    showSheet(routable: sheet.routable)
+                }
+                
+                .fullScreenCover(item: $rootRouter.fullScreenCover) { cover in
+                    showFullScreen(routable: cover.routable)
+                }
+            } else {
+                NavigationStack(path: $rootRouter.path) {
+                    MainTabControllerView(navRouter: rootRouter)
                 }
                 .ignoresSafeArea(.all)
                 
@@ -107,8 +121,10 @@ extension AppCoordinator {
     @ViewBuilder
     func showSheet(routable: any Routable) -> some View {
         switch routable {
-        case Router.Splash.login:
+        case Router.MainTab.login:
             LoginCoordinator(navRouter: rootRouter, userSettings: userSettings)
+//        case Router.Splash.login:
+//            LoginCoordinator(navRouter: rootRouter, userSettings: userSettings)
         case Router.Splash.home:
             HomeViewCoordinator(navRouter: rootRouter)
         case Router.PlaceholderView.view(let titleParam):

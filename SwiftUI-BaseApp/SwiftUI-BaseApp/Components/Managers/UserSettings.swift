@@ -14,6 +14,7 @@ import KeychainAccess
 extension UserSettings {
     // MARK: - Keys
     private enum UserSettingKeys {
+        static let hasFinishSplash = "hasFinishSplash"
         static let signature = "signature"
         static let referralCode = "referralCode"
         static let languageCode = "languageCode"
@@ -52,9 +53,16 @@ extension UserSettings {
         self.referralCode = defaults.string(forKey: UserSettingKeys.referralCode)
         self.signature = defaults.string(forKey: UserSettingKeys.signature)
         self.languageCode = defaults.string(forKey: UserSettingKeys.languageCode)
+        self.hasFinishSplash = defaults.bool(forKey: UserSettingKeys.hasFinishSplash)
         
         if let languageCode = LanguageCode(rawValue: languageCode ?? LanguageCode.eng.rawValue)?.getLanguage() {
             LanguageManager.shared.setLanguage(language: languageCode)
+        }
+    }
+    
+    var hasFinishSplash: Bool {
+        didSet {
+            defaults.set(hasFinishSplash, forKey: UserSettingKeys.hasFinishSplash)
         }
     }
     

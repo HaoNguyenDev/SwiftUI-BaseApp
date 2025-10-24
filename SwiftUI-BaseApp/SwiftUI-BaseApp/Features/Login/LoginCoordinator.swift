@@ -56,7 +56,8 @@ struct LoginCoordinator: View, ScreenCoordinator {
     var loginView: some View {
         LoginView(loginModel: loginModel, loginSuccess: { loginResult in
             Logger.shared.debug("\(loginResult)")
-            navRouter.push(Router.homeRouter, animate: true)
+            navRouter.dismiss()
+//            navRouter.push(Router.homeRouter, animate: true)
         }, forgotPassword: {
             navRouter.push(ScreenRouter.forgotPassword, animate: true)
         }, register: {

@@ -26,7 +26,7 @@ struct HeaderView: View {
                     .resizable()
                     .frame(width: 32, height: 32)
                 
-                Text("Hi, \(name ?? "buddy".localized())")
+                nameView()
                     .boldStyle(theme, size: TextSize.subhead, color: theme.color.primaryText)
                     .lineLimit(1)
             }
@@ -65,6 +65,14 @@ struct HeaderView: View {
             }
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+    }
+    
+    
+    private func nameView() -> Text {
+        if let name = userSettings.username {
+            return Text("Hi, \(name)")
+        }
+        return Text("Login, please!")
     }
 }
 

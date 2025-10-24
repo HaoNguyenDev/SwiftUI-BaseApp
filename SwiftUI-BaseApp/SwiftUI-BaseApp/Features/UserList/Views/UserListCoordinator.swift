@@ -39,6 +39,8 @@ struct UserListCoordinator: View, ScreenCoordinator {
     func getView() -> some View {
         UserListView(viewModel: viewModel, gotoUserDetail: { user in
             navRouter.push(Router.MainTab.userDetail(user: user), animate: true)
+        }, showLogin: {
+            navRouter.showSheet(RouterView.init(routable: Router.MainTab.login))
         })
         .toolbar(.hidden, for: .navigationBar)
     }

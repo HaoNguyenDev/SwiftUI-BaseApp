@@ -180,6 +180,7 @@
 		DAF5AF372EAB92AB0007A5B7 /* HTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5AF362EAB92AB0007A5B7 /* HTextField.swift */; };
 		DAF5AF9C2EABA4C40007A5B7 /* DismissKeyboardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5AF9B2EABA4C40007A5B7 /* DismissKeyboardModifier.swift */; };
 		DAF5AFA12EABA52B0007A5B7 /* FillMaxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5AFA02EABA52B0007A5B7 /* FillMaxModifier.swift */; };
+		DAF5AFF42EABCCDB0007A5B7 /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5AFF32EABCCDB0007A5B7 /* LoginButtonView.swift */; };
 		DAFCDF722E647ED300B97C00 /* UserListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */; };
 		DAFCDF742E647EE000B97C00 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF732E647EE000B97C00 /* UserListView.swift */; };
 		DAFCDF772E64812700B97C00 /* GithubUserListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */; };
@@ -364,6 +365,7 @@
 		DAF5AF362EAB92AB0007A5B7 /* HTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTextField.swift; sourceTree = "<group>"; };
 		DAF5AF9B2EABA4C40007A5B7 /* DismissKeyboardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboardModifier.swift; sourceTree = "<group>"; };
 		DAF5AFA02EABA52B0007A5B7 /* FillMaxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillMaxModifier.swift; sourceTree = "<group>"; };
+		DAF5AFF32EABCCDB0007A5B7 /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
 		DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinator.swift; sourceTree = "<group>"; };
 		DAFCDF732E647EE000B97C00 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListVM.swift; sourceTree = "<group>"; };
@@ -735,6 +737,7 @@
 				DA748DDA2E22C0C300B1B226 /* BackgroundAnimation.swift */,
 				DA47253A2EA6544B000D596A /* SampleLoadingView.swift */,
 				DAF5AEEA2EAB784E0007A5B7 /* CloseButton.swift */,
+				DAF5AFF32EABCCDB0007A5B7 /* LoginButtonView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -1171,6 +1174,7 @@
 				DA4725612EA65F01000D596A /* LightThemeColors.swift in Sources */,
 				DA4725622EA65F01000D596A /* RswiftResources+FontResource.swift in Sources */,
 				DA4725632EA65F01000D596A /* ThemeManager.swift in Sources */,
+				DAF5AFF42EABCCDB0007A5B7 /* LoginButtonView.swift in Sources */,
 				DA4725642EA65F01000D596A /* DarkThemeFonts.swift in Sources */,
 				DA4725652EA65F01000D596A /* RswiftResources+ImageResource.swift in Sources */,
 				DA4725662EA65F01000D596A /* ThemeProtocol.swift in Sources */,
