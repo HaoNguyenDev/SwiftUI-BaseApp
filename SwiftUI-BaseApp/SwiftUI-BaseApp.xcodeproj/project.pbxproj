@@ -173,6 +173,8 @@
 		DAD6C3372EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */; };
 		DAD6C33B2EAB1BFE0051AB26 /* GradientBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C33A2EAB1BFE0051AB26 /* GradientBackgroundModifier.swift */; };
 		DAD6C33F2EAB1C200051AB26 /* BackgroundImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C33E2EAB1C200051AB26 /* BackgroundImageModifier.swift */; };
+		DAD6C3472EAB24990051AB26 /* RadiusSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C3462EAB24990051AB26 /* RadiusSize.swift */; };
+		DAD6C34F2EAB25160051AB26 /* HeightSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C34E2EAB25160051AB26 /* HeightSize.swift */; };
 		DAFCDF722E647ED300B97C00 /* UserListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */; };
 		DAFCDF742E647EE000B97C00 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF732E647EE000B97C00 /* UserListView.swift */; };
 		DAFCDF772E64812700B97C00 /* GithubUserListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */; };
@@ -350,6 +352,8 @@
 		DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryBackgroundModifier.swift; sourceTree = "<group>"; };
 		DAD6C33A2EAB1BFE0051AB26 /* GradientBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundModifier.swift; sourceTree = "<group>"; };
 		DAD6C33E2EAB1C200051AB26 /* BackgroundImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageModifier.swift; sourceTree = "<group>"; };
+		DAD6C3462EAB24990051AB26 /* RadiusSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusSize.swift; sourceTree = "<group>"; };
+		DAD6C34E2EAB25160051AB26 /* HeightSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightSize.swift; sourceTree = "<group>"; };
 		DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinator.swift; sourceTree = "<group>"; };
 		DAFCDF732E647EE000B97C00 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListVM.swift; sourceTree = "<group>"; };
@@ -760,6 +764,8 @@
 			children = (
 				DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */,
 				DA4726622EA7C3C2000D596A /* TextSize.swift */,
+				DAD6C3462EAB24990051AB26 /* RadiusSize.swift */,
+				DAD6C34E2EAB25160051AB26 /* HeightSize.swift */,
 				DA748DFD2E22C29B00B1B226 /* Closures.swift */,
 				DA983F5F2E2E52D60030EEA2 /* Logger.swift */,
 			);
@@ -1137,6 +1143,7 @@
 				DA4725582EA65F01000D596A /* DarkThemeColors.swift in Sources */,
 				DA4725592EA65F01000D596A /* RswiftResources+ColorResource.swift in Sources */,
 				DA47255A2EA65F01000D596A /* DarkThemeAssets.swift in Sources */,
+				DAD6C3472EAB24990051AB26 /* RadiusSize.swift in Sources */,
 				DA47255B2EA65F01000D596A /* DarkTheme.swift in Sources */,
 				DA47255C2EA65F01000D596A /* ThemeAssetsProtocol.swift in Sources */,
 				DA47255D2EA65F01000D596A /* LightTheme.swift in Sources */,
@@ -1177,6 +1184,7 @@
 				DA4726632EA7C3C2000D596A /* TextSize.swift in Sources */,
 				DA748DD52E22BF8E00B1B226 /* AppCoordinator.swift in Sources */,
 				DA748E112E22C5BE00B1B226 /* UserMessageItem.swift in Sources */,
+				DAD6C34F2EAB25160051AB26 /* HeightSize.swift in Sources */,
 				DA5CC28A2E22B28F000C5F18 /* SwiftUI_BaseApp.swift in Sources */,
 				DAD6C31D2EAA86E90051AB26 /* ImageStylingModifier.swift in Sources */,
 				DAFCE08D2E654B9100B97C00 /* UserDetailViewModel.swift in Sources */,

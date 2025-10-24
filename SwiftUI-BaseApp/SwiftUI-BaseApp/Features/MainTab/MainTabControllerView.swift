@@ -135,11 +135,11 @@ struct MainTabControllerView: View {
                     .frame(maxWidth: .infinity)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: 65)
+        .frame(maxWidth: .infinity, maxHeight: HeightSize.mainTab)
         .background(
-            theme.color.subviewBgColor
-                .clipShape(RoundedRectangle(cornerRadius: 36))
-                .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 4)
+            theme.color.primaryBg
+                .clipShape(RoundedRectangle(cornerRadius: RadiusSize.tab))
+//                .shadow(color: theme.color.primaryShadow, radius: RadiusSize.shadow, x: 0, y: 0)
         )
     }
     
@@ -148,12 +148,12 @@ struct MainTabControllerView: View {
         Button {
             selectedTab = tab.rawValue
         } label: {
-            HStack(spacing: 24) {
+            HStack(spacing: PaddingSize.standard) {
                 VStack {
                     tabIcon(tab: tab, isSelected: isSelected)
                     Text(tab.title)
                         .font(isSelected ? theme.font.bold(ofSize: TextSize.caption2) : theme.font.regular(ofSize: TextSize.caption2))
-                        .foregroundStyle(isSelected ? theme.color.mainTabSelectedTextColor : theme.color.mainTabUnselectedTextColor)
+                        .foregroundStyle(isSelected ? theme.color.primaryText : theme.color.secondaryText)
                 }
             }
         }
@@ -163,15 +163,15 @@ struct MainTabControllerView: View {
     private func tabIcon(tab: TabType, isSelected: Bool) -> some View {
         if isSelected {
             tab.iconSelected
-                .font(theme.font.regular(ofSize: TextSize.title2))
+                .font(theme.font.regular(ofSize: TextSize.title1))
                 .symbolRenderingMode(.monochrome)
             //                .symbolEffect(.wiggle, options: .repeat(.bitWidth))
                 .symbolEffect(.bounce.up.wholeSymbol, options: .nonRepeating)
-                .foregroundColor(theme.color.mainTabSelectedTextColor)
+                .foregroundColor(theme.color.primaryText)
         } else {
             tab.icon
-                .font(theme.font.regular(ofSize: TextSize.title1))
-                .foregroundColor(theme.color.mainTabUnselectedTextColor)
+                .font(theme.font.regular(ofSize: TextSize.title2))
+                .foregroundColor(theme.color.secondaryText)
         }
     }
     

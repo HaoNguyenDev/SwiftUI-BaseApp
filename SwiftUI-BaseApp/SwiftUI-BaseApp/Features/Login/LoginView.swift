@@ -90,7 +90,6 @@ extension LoginView {
         .setPrimaryBackground()
     }
     
-    @ViewBuilder
     private var loadingView: some View {
         VStack {
             LoadingView()

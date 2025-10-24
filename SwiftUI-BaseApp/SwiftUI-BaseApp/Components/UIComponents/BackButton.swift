@@ -10,15 +10,18 @@ import SwiftUI
 struct BackButton: View {
     @Environment(\.theme) var theme: any ThemeProtocol
     var body: some View {
-        HStack {
+        VStack {
             Image(uiImage: theme.assets.iconBack)
-                .renderingMode(.template)
-                .resizable()
-                .frame(width: 25, height: 25)
-                .foregroundStyle(theme.color.textColor)
+                .foregroundStyle(theme.color.primaryText)
+                .iconStyle(
+                    width: 30,
+                    height: 50,
+                    mode: .fit,
+                    radius: 0,
+                    border: 0,
+                    color: .clear
+                )
         }
-        .foregroundColor(theme.color.textColor)
-        .padding(.leading, 0)
     }
 }
 
