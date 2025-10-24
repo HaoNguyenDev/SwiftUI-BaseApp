@@ -19,7 +19,7 @@ struct BackButton: View {
                     mode: .fit,
                     radius: 0,
                     border: 0,
-                    color: .clear
+                            borderColor: .clear
                 )
         }
     }

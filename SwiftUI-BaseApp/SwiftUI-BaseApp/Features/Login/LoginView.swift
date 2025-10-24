@@ -13,7 +13,8 @@ struct LoginView: View {
     @Environment(\.theme) var theme: any ThemeProtocol
     @State var loginModel: LoginModel
     @State private var showLoading: Bool = false
-    
+    @State private var emailInput = ""
+    @State private var passwordInput = ""
     var loginSuccess: SingleResult<LoginResult>?
     var gotoForgotPassword: VoidResult?
     var gotoRegister: VoidResult?
@@ -51,20 +52,42 @@ struct LoginView: View {
                 }
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .fillMax()
         .ignoresSafeArea(.all)
         .setPrimaryBackground()
+        .dismissKeyboardOnTap()
     }
 }
 
 extension LoginView {
     @ViewBuilder
     private var loginContentView: some View {
-        VStack(spacing: PaddingSize.verticalRelaxed) {
-            Text("login_view".localized())
-                .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText)
-            Spacer()
-                .frame(height: PaddingSize.navBarLarge)
+        VStack(spacing: PaddingSize.large) {
+            Spacer().frame(height: 80)
+            Text("login_title".localized())
+                .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(PaddingSize.standard)
+            
+            VStack {
+                HTextField(title: "Email",
+                           placeholder: "Enter your email",
+                           keyboardType: .emailAddress,
+                           leftImage: theme.assets.iconEmail,
+                           text: $emailInput,
+                           errorMessage: .constant(nil))
+                .padding(.horizontal, PaddingSize.standard)
+                .padding(.bottom, PaddingSize.tight)
+                
+                HTextField(title: "Password",
+                           placeholder: "Enter your password",
+                           keyboardType: .default,
+                           leftImage: theme.assets.iconPhone,
+                           text: $passwordInput,
+                           errorMessage: .constant(nil))
+                .padding(.horizontal, PaddingSize.standard)
+                .padding(.top, PaddingSize.tight)
+            }
             
             Button("login".localized()) {
                 Task {
@@ -86,7 +109,10 @@ extension LoginView {
             }
             .padding(.horizontal, PaddingSize.standard)
             .buttonStyle(.tertiaryHButton)
+            Spacer()
         }
+//        .padding(.top, PaddingSize.large)
+        .safeAreaPadding(.top)
         .setPrimaryBackground()
     }
     

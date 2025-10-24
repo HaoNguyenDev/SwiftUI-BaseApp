@@ -24,27 +24,36 @@ extension Router {
 }
 
 struct LoginCoordinator: View, ScreenCoordinator {
+    @Environment(\.theme) var theme
     typealias ScreenRouter = Router.Login
     var navRouter: any NavRouterProtocol
     
-    // Sử dụng @State thay cho @StateObject với @Observable class
     @State var loginModel: LoginModel
     
     init(navRouter: any NavRouterProtocol, userSettings: UserSettings) {
         self.navRouter = navRouter
-        // Bây giờ userSettings đã có giá trị, nên không còn lỗi nữa.
         self._loginModel = State(initialValue: LoginModel(userSettings: userSettings))
     }
     
     var body: some View {
-        getView()
+        loginView
             .navigationDestination(for: ScreenRouter.self) { router in
                 viewForRouter(router: router)
             }
+            .toolbar(content: {
+                ToolbarItem(placement: .topBarTrailing) {
+                    CloseButton(action: {
+                        navRouter.dismiss()
+                    })
+                }
+            })
+            .navigationBarBackButtonHidden(true)
+//            .navigationTitle("login_title".localized())
+//            .customNavigationTitleColor(theme.color.primaryText)
     }
     
-    @ViewBuilder
-    func getView() -> some View {
+    
+    var loginView: some View {
         LoginView(loginModel: loginModel, loginSuccess: { loginResult in
             Logger.shared.debug("\(loginResult)")
             navRouter.push(Router.homeRouter, animate: true)
@@ -53,17 +62,23 @@ struct LoginCoordinator: View, ScreenCoordinator {
         }, register: {
             navRouter.push(ScreenRouter.register, animate: true)
         })
-        .toolbar(.hidden, for: .navigationBar)
     }
     
     @ViewBuilder
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
         case .forgotPassword:
-//            AccountViewCoordinator(navRouter: navRouter)
+            //            AccountViewCoordinator(navRouter: navRouter)
             PlaceholderViewCoordinator(navRouter: navRouter, title: "Forgot Password")
         case .register:
             PlaceholderViewCoordinator(navRouter: navRouter, title: "Register")
         }
+    }
+}
+
+#Preview {
+    NavigationView {
+        LoginCoordinator(navRouter: NavRouter(), userSettings: UserSettings())
+            .environment(AppState())
     }
 }

@@ -21,7 +21,7 @@ struct ThemeChangeView: View {
             VStack(spacing: 15) {
                 Text("choose_theme".localized())
                     .boldStyle(theme, size: TextSize.title1, color: theme.color.textOnSubviewColor)
-                Image(systemName: ThemeManager.shared.currentTheme.assets.currentThemeIcon)
+                Image(systemName: ThemeManager.shared.currentTheme.assets.currentThemeIconSf)
                     .resizable()
                     .frame(width: 80, height: 80)
                     .foregroundColor(theme.color.bgColor)
