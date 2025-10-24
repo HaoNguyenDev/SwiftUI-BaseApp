@@ -20,7 +20,7 @@ struct TestLoadingView: View {
             LoadingView(hideText: false)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .setDefaultBackground()
+        .setPrimaryBackground()
     }
 }
 

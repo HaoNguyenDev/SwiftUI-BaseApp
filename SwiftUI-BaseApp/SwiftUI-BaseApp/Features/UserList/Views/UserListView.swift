@@ -15,7 +15,7 @@ struct UserListView: View {
     var body: some View {
         contentView()
             .padding([.top, .bottom])
-            .setDefaultBackground()
+            .setPrimaryBackground()
     }
 }
 
