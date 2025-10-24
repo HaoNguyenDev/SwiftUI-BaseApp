@@ -32,9 +32,5 @@ extension Color {
             opacity: Double(a) / 255
         )
     }
-    
-    static var primaryText: Color {
-        Color(hex: "#333333")
-    }
 }
 

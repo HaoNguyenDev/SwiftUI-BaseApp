@@ -29,6 +29,23 @@ struct ImageStylingModifier: ViewModifier {
 }
 
 extension View {
+    func iconStyle(
+        width: CGFloat = 64,
+        height: CGFloat = 64,
+        mode: ContentMode = .fill,
+        radius: CGFloat = 8,
+        border: CGFloat = 0,
+        color: Color = .clear
+    ) -> some View {
+        self.modifier(ImageStylingModifier(
+            size: CGSize(width: width, height: height),
+            contentMode: mode,
+            cornerRadius: radius,
+            borderWidth: border,
+            borderColor: color
+        ))
+    }
+    
     func imageStyle(
         width: CGFloat = 64,
         height: CGFloat = 64,
