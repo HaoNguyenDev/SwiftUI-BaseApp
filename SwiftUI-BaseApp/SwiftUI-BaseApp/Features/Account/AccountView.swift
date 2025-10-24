@@ -10,14 +10,17 @@ import SwiftUI
 
 struct AccountView: View {
     @Environment(\.theme) var theme: any ThemeProtocol
+    @Environment(UserSettings.self) var userSettings
     @State private var viewModel: AccountViewModelProtocol
     var gotoSettings: VoidResult?
     var gotoProfile: VoidResult?
+    var showLogin: VoidResult?
     
-    init(vm: AccountViewModelProtocol, gotoSettings: VoidResult?, gotoProfile: VoidResult?) {
+    init(vm: AccountViewModelProtocol, gotoSettings: VoidResult?, gotoProfile: VoidResult?, showLogin: VoidResult?) {
         viewModel = vm
         self.gotoProfile = gotoProfile
         self.gotoSettings = gotoSettings
+        self.showLogin = showLogin
     }
     
     var body: some View {
@@ -33,17 +36,22 @@ struct AccountView: View {
 extension AccountView {
     @ViewBuilder
     private func contentView(for viewState: AccountViewState) -> some View {
-        settingsContent()
-            .overlay {
-                switch viewState {
-                case .initial:
-                    EmptyView()
-                case .loading:
-                    loadingView
-                case .loaded:
-                    EmptyView()
+        if userSettings.hasLoggedIn {
+            settingsContent()
+                .overlay {
+                    switch viewState {
+                    case .initial:
+                        EmptyView()
+                    case .loading:
+                        loadingView
+                    case .loaded:
+                        EmptyView()
+                    }
                 }
-            }
+        } else {
+            loginButton
+        }
+        
     }
     
     @ViewBuilder
@@ -76,7 +84,12 @@ extension AccountView {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
-    @ViewBuilder
+    private var loginButton: some View {
+        LoginButtonView {
+            showLogin?()
+        }
+    }
+    
     private var loadingView: some View {
         VStack {
             LoadingView(hideText: true)
@@ -103,6 +116,6 @@ extension AccountView {
 }
 
 #Preview {
-    AccountView(vm: AccountViewModel(), gotoSettings: nil, gotoProfile: nil)
+    AccountView(vm: AccountViewModel(), gotoSettings: nil, gotoProfile: nil, showLogin: nil)
         .environment(UserSettings())
 }

@@ -10,6 +10,8 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.theme) var theme: any ThemeProtocol
+    @Environment(UserSettings.self) var userSettings
+    var showLogin: VoidResult?
     var onShowProfile: VoidResult?
     var gotoSubview1: SingleResult<String?>?
     var gotoSubview2: SingleResult<String?>?
@@ -39,6 +41,20 @@ extension HomeView {
     
     @ViewBuilder
     private var content: some View {
+        if userSettings.hasLoggedIn {
+            homeContent
+        } else {
+            loginContent
+        }
+    }
+    
+    private var loginContent: some View {
+        LoginButtonView {
+            showLogin?()
+        }
+    }
+    
+    private var homeContent: some View {
         VStack(spacing: PaddingSize.wide) {
             Text("home_view".localized())
                 .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.textColor)

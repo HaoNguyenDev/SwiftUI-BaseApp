@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct UserListView: View {
+    @Environment(UserSettings.self) var userSettings
     @ObservedObject private(set) var viewModel: GithubUserListVM
     var gotoUserDetail: SingleResult<GithubUserDetail>?
     @State private var navigate = false
+    var showLogin: VoidResult?
     
     var body: some View {
-        contentView()
-            .padding([.top, .bottom])
-            .setPrimaryBackground()
+        if userSettings.hasLoggedIn {
+            contentView()
+                .padding([.top, .bottom])
+                .setPrimaryBackground()
+        } else {
+            loginButton
+        }
     }
 }
 
@@ -73,6 +79,12 @@ extension UserListView {
                 .padding()
                 .background(Color.white)
                 .cornerRadius(10)
+        }
+    }
+    
+    private var loginButton: some View {
+        LoginButtonView {
+            showLogin?()
         }
     }
 }

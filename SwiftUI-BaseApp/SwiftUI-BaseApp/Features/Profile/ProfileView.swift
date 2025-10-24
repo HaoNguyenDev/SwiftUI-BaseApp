@@ -12,8 +12,13 @@ struct ProfileView: View {
     @Environment(\.theme) var theme: any ThemeProtocol
     let showSettingsView: VoidResult?
     let showLogoutConfirmView: VoidResult?
-
+    
     var body: some View {
+        contentView
+    }
+    
+    @ViewBuilder
+    private var contentView: some View {
         ScrollView {
             VStack {
                 Group {
