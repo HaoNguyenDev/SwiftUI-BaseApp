@@ -53,7 +53,7 @@ struct LoginView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.all)
-        .setDefaultBackground()
+        .setPrimaryBackground()
     }
 }
 
@@ -87,7 +87,7 @@ extension LoginView {
             .padding(.horizontal, PaddingSize.standard)
             .buttonStyle(.tertiaryHButton)
         }
-        .setDefaultBackground()
+        .setPrimaryBackground()
     }
     
     @ViewBuilder

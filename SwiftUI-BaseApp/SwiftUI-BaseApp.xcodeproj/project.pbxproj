@@ -170,6 +170,9 @@
 		DA983F602E2E52D60030EEA2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F5F2E2E52D60030EEA2 /* Logger.swift */; };
 		DAD6C2C32EAA72C80051AB26 /* PaddingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */; };
 		DAD6C31D2EAA86E90051AB26 /* ImageStylingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */; };
+		DAD6C3372EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */; };
+		DAD6C33B2EAB1BFE0051AB26 /* GradientBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C33A2EAB1BFE0051AB26 /* GradientBackgroundModifier.swift */; };
+		DAD6C33F2EAB1C200051AB26 /* BackgroundImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C33E2EAB1C200051AB26 /* BackgroundImageModifier.swift */; };
 		DAFCDF722E647ED300B97C00 /* UserListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */; };
 		DAFCDF742E647EE000B97C00 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF732E647EE000B97C00 /* UserListView.swift */; };
 		DAFCDF772E64812700B97C00 /* GithubUserListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */; };
@@ -344,6 +347,9 @@
 		DA983F5F2E2E52D60030EEA2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingSize.swift; sourceTree = "<group>"; };
 		DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStylingModifier.swift; sourceTree = "<group>"; };
+		DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryBackgroundModifier.swift; sourceTree = "<group>"; };
+		DAD6C33A2EAB1BFE0051AB26 /* GradientBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundModifier.swift; sourceTree = "<group>"; };
+		DAD6C33E2EAB1C200051AB26 /* BackgroundImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageModifier.swift; sourceTree = "<group>"; };
 		DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinator.swift; sourceTree = "<group>"; };
 		DAFCDF732E647EE000B97C00 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListVM.swift; sourceTree = "<group>"; };
@@ -472,6 +478,9 @@
 		DA47263D2EA7A1D1000D596A /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				DAD6C33E2EAB1C200051AB26 /* BackgroundImageModifier.swift */,
+				DAD6C33A2EAB1BFE0051AB26 /* GradientBackgroundModifier.swift */,
+				DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */,
 				DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */,
 				DA47263F2EA7A1FA000D596A /* ThemeFontColorModifier.swift */,
 			);
@@ -1098,6 +1107,7 @@
 				DA748E182E22C5E500B1B226 /* SampleViewCoordinator.swift in Sources */,
 				DA748E0C2E22C59100B1B226 /* UserSettings.swift in Sources */,
 				DA748E152E22C5D800B1B226 /* PlaceholderView.swift in Sources */,
+				DAD6C33B2EAB1BFE0051AB26 /* GradientBackgroundModifier.swift in Sources */,
 				DA748DEC2E22C15100B1B226 /* BackButton.swift in Sources */,
 				DA748E0F2E22C5A100B1B226 /* Env.swift in Sources */,
 				DA748E0E2E22C59C00B1B226 /* AppState.swift in Sources */,
@@ -1147,6 +1157,7 @@
 				DA890F732E23B3080005D9DB /* HomeViewCoordinator.swift in Sources */,
 				DA5D71772E3FA3B900C78E40 /* NetworkError.swift in Sources */,
 				DAFCDF742E647EE000B97C00 /* UserListView.swift in Sources */,
+				DAD6C3372EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift in Sources */,
 				DAFCDF7A2E64814600B97C00 /* GithubUser.swift in Sources */,
 				DA748DFC2E22C28F00B1B226 /* LottieHelperView.swift in Sources */,
 				DA47253B2EA6544B000D596A /* SampleLoadingView.swift in Sources */,
@@ -1170,6 +1181,7 @@
 				DAD6C31D2EAA86E90051AB26 /* ImageStylingModifier.swift in Sources */,
 				DAFCE08D2E654B9100B97C00 /* UserDetailViewModel.swift in Sources */,
 				DA47259C2EA6655E000D596A /* Environment+ThemeKeys.swift in Sources */,
+				DAD6C33F2EAB1C200051AB26 /* BackgroundImageModifier.swift in Sources */,
 				DA4726CA2EA7E016000D596A /* HButtonStyle.swift in Sources */,
 				DA47259D2EA6655E000D596A /* View+Themed.swift in Sources */,
 				DAFCDF822E6481FE00B97C00 /* GithubUserDetail.swift in Sources */,

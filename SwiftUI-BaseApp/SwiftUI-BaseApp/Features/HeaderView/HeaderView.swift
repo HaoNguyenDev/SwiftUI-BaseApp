@@ -70,7 +70,7 @@ struct HeaderView: View {
 
 #Preview {
     HeaderView(onShowProfile: nil)
-        .setDefaultBackground()
+        .setPrimaryBackground()
         .environmentTheme(manager: ThemeManager.shared)
         .environment(UserSettings())
 }

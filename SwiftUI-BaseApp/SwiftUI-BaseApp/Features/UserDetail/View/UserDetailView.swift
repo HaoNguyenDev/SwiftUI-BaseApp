@@ -30,7 +30,7 @@ extension UserDetailView {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .setDefaultBackground()
+        .setPrimaryBackground()
     }
 }
 

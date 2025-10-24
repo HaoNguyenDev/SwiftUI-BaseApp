@@ -65,7 +65,7 @@ extension SettingsView {
             .frame(maxWidth: .infinity)
         })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .setDefaultBackground()
+        .setPrimaryBackground()
     }
     
     private var changeThemeModeRow: some View {
