@@ -19,6 +19,7 @@ struct HButtonStyle: ButtonStyle {
     let customTitleColor: Color?
     let customBackgroundColor: Color?
     let customSelectedBackgroundColor: Color?
+    let leftIcon: UIImage?
     
     init(size: ButtonSize,
          type: ButtonType,
@@ -26,7 +27,8 @@ struct HButtonStyle: ButtonStyle {
          customTitleFont: Font? = nil,
          customTitleColor: Color? = nil,
          customBackgroundColor: Color? = nil,
-         customSelectedBackgroundColor: Color? = nil) {
+         customSelectedBackgroundColor: Color? = nil,
+         leftIcon: UIImage? = nil) {
         self.size = size
         self.type = type
         self.customTitleHorizontalPadding = customTitleHorizontalPadding
@@ -34,6 +36,7 @@ struct HButtonStyle: ButtonStyle {
         self.customTitleColor = customTitleColor
         self.customBackgroundColor = customBackgroundColor
         self.customSelectedBackgroundColor = customSelectedBackgroundColor
+        self.leftIcon = leftIcon
     }
     
     func makeBody(configuration: Configuration) -> some View {
@@ -56,6 +59,7 @@ struct HButtonStyle: ButtonStyle {
                 borderColor: borderColor
             )
     }
+    
 }
 
 // MARK: - Enums
@@ -75,10 +79,10 @@ extension HButtonStyle {
 
 //MARK: - Getters
 extension HButtonStyle {
-    var strokeWeight: CGFloat { type == .secondary || type == .tertiary ? 1 : 0 }
+    var strokeWeight: CGFloat { type == .secondary || type == .tertiary ? 0.5 : 0 }
     var maxWidth: CGFloat? { size == .large ? .infinity : nil }
     var minHeight: CGFloat? { size == .small ? 0 : 44 }
-    var maxHeight: CGFloat? { size == .large ? 56 : 44 }
+    var maxHeight: CGFloat? { size == .large ? HeightSize.dfButton : 44 }
     
     func backgroundColor(isPressed: Bool) -> Color {
         
@@ -156,7 +160,7 @@ extension HButtonStyle {
             case .secondary:
                 return Color.clear
             case .tertiary:
-                return theme.color.buttonPrimaryTitle.opacity(0.5)
+                return theme.color.secondaryText.opacity(0.5)
             }
         }
         
@@ -166,7 +170,20 @@ extension HButtonStyle {
         case .secondary:
             return theme.color.buttonSecondaryBoder
         case .tertiary:
-            return theme.color.buttonTertiaryBoder
+            return theme.color.secondaryText.opacity(0.5)
+        }
+    }
+    
+    @ViewBuilder
+    func leftImageView(iconWidth: CGFloat) -> some View {
+        if let leftIcon {
+            let image = leftIcon.withRenderingMode(.alwaysOriginal)
+            Image(uiImage: image)
+                .frame(width: iconWidth, height: iconWidth)
+                .iconStyle()
+            //                .foregroundColor(titleColor(isPressed: false))
+        } else {
+            EmptyView()
         }
     }
 }
@@ -217,14 +234,16 @@ extension ButtonStyle where Self == HButtonStyle {
                                      titleFont:Font? = nil,
                                      titleColor: Color? = nil,
                                      backgroundColor: Color? = nil,
-                                     selectedBackgroundColor: Color? = nil) -> HButtonStyle {
+                                     selectedBackgroundColor: Color? = nil,
+                                     leftIcon: UIImage? = nil) -> HButtonStyle {
         HButtonStyle(size: size,
                      type: .tertiary,
                      customTitleHorizontalPadding: titlePadding,
                      customTitleFont: titleFont,
                      customTitleColor: titleColor,
                      customBackgroundColor: backgroundColor,
-                     customSelectedBackgroundColor: selectedBackgroundColor)
+                     customSelectedBackgroundColor: selectedBackgroundColor,
+                     leftIcon: leftIcon)
     }
 }
 
@@ -288,7 +307,7 @@ extension ButtonStyle where Self == HButtonStyle {
     @Previewable @Environment(\.theme) var theme: any ThemeProtocol
     VStack(spacing: 20) {
         Button("Large") {}
-            .buttonStyle(.tertiaryHButtonStyle(size: .large))
+            .buttonStyle(.tertiaryHButtonStyle(size: .large, leftIcon: theme.assets.iconGoogle))
         
         Button("Large") {}
             .buttonStyle(.tertiaryHButtonStyle(size: .large))

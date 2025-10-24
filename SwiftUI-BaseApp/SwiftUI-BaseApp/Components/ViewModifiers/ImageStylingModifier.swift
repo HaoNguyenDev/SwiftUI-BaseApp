@@ -14,7 +14,7 @@ struct ImageStylingModifier: ViewModifier {
     let cornerRadius: CGFloat
     let borderWidth: CGFloat
     let borderColor: Color
-
+    
     func body(content: Content) -> some View {
         
         content
@@ -35,14 +35,14 @@ extension View {
         mode: ContentMode = .fill,
         radius: CGFloat = 8,
         border: CGFloat = 0,
-        color: Color = .clear
+        borderColor: Color = .clear
     ) -> some View {
         self.modifier(ImageStylingModifier(
             size: CGSize(width: width, height: height),
             contentMode: mode,
             cornerRadius: radius,
             borderWidth: border,
-            borderColor: color
+            borderColor:         borderColor
         ))
     }
     
@@ -83,7 +83,7 @@ struct ImageStylingDemoView: View {
             Text("Image Styling Modifier Demo (Must call .resizable() first)")
                 .textStyle(font: theme.font.medium(ofSize: 20), color: theme.color.primaryText)
             
-     
+            
             VStack {
                 Text("Thumbnail Rounded Corners")
                     .font(.headline)
