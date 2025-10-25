@@ -192,7 +192,7 @@ struct MainTabControllerView: View {
         case .userDetail(let user):
             UserDetailCoordinator(navRouter: navRouter, user: user)
         case .login:
-            LoginCoordinator(navRouter: navRouter, userSettings: userSettings)
+            LoginCoordinator(userSettings: userSettings)
         }
     }
 }

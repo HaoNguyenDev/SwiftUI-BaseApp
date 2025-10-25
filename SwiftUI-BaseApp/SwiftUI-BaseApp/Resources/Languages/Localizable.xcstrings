@@ -60,6 +60,12 @@
     "OOPS!\nThis route is not implemented at AppCoordinator showFullScreen function yet." : {
 
     },
+    "OOPS!\nThis route is not implemented at LoginCoordinator showFullScreen function yet." : {
+
+    },
+    "OOPS!\nThis route is not implemented LoginCoordinator showSheet function yet." : {
+
+    },
     "Primary" : {
 
     },

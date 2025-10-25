@@ -76,4 +76,5 @@ struct LogoutConfirmView: View {
 #Preview {
     LogoutConfirmView(onLogout: nil, onDismiss: nil)
         .environment(UserSettings())
+        .background(Color.clear)
 }
