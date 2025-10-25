@@ -65,11 +65,10 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
             SettingsCoordinator(navRouter: navRouter)
         case .logoutConfirm:
             LogoutConfirmView {
-                navRouter.pop(animate: false)
-            } onLogout: {
                 doLogout()
+            } onDismiss: {
+                navRouter.pop(animate: false)
             }
-            
         }
     }
 }

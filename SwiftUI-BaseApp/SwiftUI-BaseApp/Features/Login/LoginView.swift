@@ -15,6 +15,7 @@ struct LoginView: View {
     @State private var showLoading: Bool = false
     @State private var emailInput = ""
     @State private var passwordInput = ""
+    @Environment(\.dismiss) private var dismiss
     var loginSuccess: SingleResult<LoginResult>?
     var gotoForgotPassword: VoidResult?
     var gotoRegister: VoidResult?
@@ -63,7 +64,13 @@ extension LoginView {
     @ViewBuilder
     private var loginContentView: some View {
         VStack(spacing: PaddingSize.large) {
-            Spacer().frame(height: 80)
+            HStack(alignment: .center) {
+                closeButton
+            }
+            .frame(maxWidth: .infinity, maxHeight: HeightSize.headerIcon, alignment: .trailing)
+            
+            Spacer().frame(height: PaddingSize.navBarLarge)
+            
             Text("login_title".localized())
                 .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText, alignment: .leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -114,6 +121,12 @@ extension LoginView {
 //        .padding(.top, PaddingSize.large)
         .safeAreaPadding(.top)
         .setPrimaryBackground()
+    }
+    
+    private var closeButton: some View {
+        CloseButton(action: {
+            dismiss()
+        })
     }
     
     private var loadingView: some View {
