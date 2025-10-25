@@ -51,7 +51,7 @@ struct SplashCoordinator: View, ScreenCoordinator {
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router { 
         case .login:
-            LoginCoordinator(navRouter: navRouter, userSettings: userSettings)
+            LoginCoordinator(userSettings: userSettings)
         case .home:
             MainTabControllerView(navRouter: navRouter)
         }

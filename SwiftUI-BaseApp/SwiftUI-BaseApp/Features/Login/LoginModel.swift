@@ -46,7 +46,7 @@ enum LoginState {
         Task {
             try? await Task.sleep(for: .seconds(2))
             let username: String = ["haonguyen", "minhhoang", "tuananh", "tuananh123", "tuananh456"].randomElement() ?? "Unknown"
-            if Int.random(in: 1...2) == 1 {
+//            if Int.random(in: 1...2) == 1 {
                 let loginResult: LoginResult = .init(token: "token 1234",
                                                      refreshToken: "refresh token 1234",
                                                      username: username,
@@ -58,9 +58,9 @@ enum LoginState {
                 }
                 
                 viewState = .success(loginResult)
-            } else {
-                viewState = .failure(LoginError.failed)
-            }
+//            } else {
+//                viewState = .failure(LoginError.failed)
+//            }
         }
     }
 }

@@ -63,7 +63,6 @@ struct AppCoordinator: View {
                 .sheet(item: $rootRouter.sheet) { sheet in
                     showSheet(routable: sheet.routable)
                 }
-                
                 .fullScreenCover(item: $rootRouter.fullScreenCover) { cover in
                     showFullScreen(routable: cover.routable)
                 }
@@ -76,7 +75,6 @@ struct AppCoordinator: View {
                 .sheet(item: $rootRouter.sheet) { sheet in
                     showSheet(routable: sheet.routable)
                 }
-                
                 .fullScreenCover(item: $rootRouter.fullScreenCover) { cover in
                     showFullScreen(routable: cover.routable)
                 }
@@ -122,9 +120,7 @@ extension AppCoordinator {
     func showSheet(routable: any Routable) -> some View {
         switch routable {
         case Router.MainTab.login:
-            LoginCoordinator(navRouter: rootRouter, userSettings: userSettings)
-//        case Router.Splash.login:
-//            LoginCoordinator(navRouter: rootRouter, userSettings: userSettings)
+            LoginCoordinator(userSettings: userSettings)
         case Router.Splash.home:
             HomeViewCoordinator(navRouter: rootRouter)
         case Router.PlaceholderView.view(let titleParam):
@@ -136,8 +132,8 @@ extension AppCoordinator {
     @ViewBuilder
     func showFullScreen(routable: any Routable) -> some View {
         switch routable {
-        case Router.Splash.login:
-            LoginCoordinator(navRouter: rootRouter, userSettings: userSettings)
+        case Router.MainTab.login:
+            LoginCoordinator(userSettings: userSettings)
         case Router.Splash.home:
             HomeViewCoordinator(navRouter: rootRouter)
         case Router.PlaceholderView.view(let titleParam):

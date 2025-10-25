@@ -24,44 +24,46 @@ extension Router {
 }
 
 struct LoginCoordinator: View, ScreenCoordinator {
+    @Environment(\.dismiss) var dismiss
     @Environment(\.theme) var theme
     typealias ScreenRouter = Router.Login
-    var navRouter: any NavRouterProtocol
-    
+    var navRouter: any NavRouterProtocol // No need for Login and Register flow
+    @State private var rootRouter = NavRouter() // Create NavRouter for it self
     @State var loginModel: LoginModel
     
-    init(navRouter: any NavRouterProtocol, userSettings: UserSettings) {
-        self.navRouter = navRouter
+    init(userSettings: UserSettings) {
+        self.navRouter = NavRouter()
         self._loginModel = State(initialValue: LoginModel(userSettings: userSettings))
     }
     
     var body: some View {
-        loginView
-            .navigationDestination(for: ScreenRouter.self) { router in
-                viewForRouter(router: router)
-            }
-//            .toolbar(content: {
-//                ToolbarItem(placement: .topBarTrailing) {
-//                    CloseButton(action: {
-//                        navRouter.dismiss()
-//                    })
-//                }
-//            })
-//            .navigationBarBackButtonHidden(true)
-//            .navigationTitle("login_title".localized())
-//            .customNavigationTitleColor(theme.color.primaryText)
+        NavigationStack(path: $rootRouter.path) {
+            loginView
+                .navigationDestination(for: ScreenRouter.self) { route in
+                    viewForRouter(router: route)
+                }
+        }
+        .ignoresSafeArea(.all)
+        
+        .sheet(item: $rootRouter.sheet) { sheet in
+            showSheet(routable: sheet.routable)
+        }
+        
+        .fullScreenCover(item: $rootRouter.fullScreenCover) { cover in
+            showFullScreen(routable: cover.routable)
+        }
     }
     
     
     var loginView: some View {
         LoginView(loginModel: loginModel, loginSuccess: { loginResult in
             Logger.shared.debug("\(loginResult)")
-            navRouter.dismiss()
-//            navRouter.push(Router.homeRouter, animate: true)
+            dismiss()
+            //            navRouter.push(Router.homeRouter, animate: true)
         }, forgotPassword: {
-            navRouter.push(ScreenRouter.forgotPassword, animate: true)
+            rootRouter.push(ScreenRouter.forgotPassword, animate: true)
         }, register: {
-            navRouter.push(ScreenRouter.register, animate: true)
+            rootRouter.push(ScreenRouter.register, animate: true)
         })
     }
     
@@ -70,16 +72,36 @@ struct LoginCoordinator: View, ScreenCoordinator {
         switch router {
         case .forgotPassword:
             //            AccountViewCoordinator(navRouter: navRouter)
-            PlaceholderViewCoordinator(navRouter: navRouter, title: "Forgot Password")
+            PlaceholderViewCoordinator(navRouter: rootRouter, title: "Forgot Password")
         case .register:
-            PlaceholderViewCoordinator(navRouter: navRouter, title: "Register")
+            PlaceholderViewCoordinator(navRouter: rootRouter, title: "Register")
+        }
+    }
+}
+
+extension LoginCoordinator {
+    @ViewBuilder
+    func showSheet(routable: any Routable) -> some View {
+        switch routable {
+        case Router.PlaceholderView.view(let titleParam):
+            PlaceholderViewCoordinator(navRouter: rootRouter, title: titleParam)
+        default: Text("OOPS!\nThis route is not implemented LoginCoordinator showSheet function yet.")
+        }
+    }
+    
+    @ViewBuilder
+    func showFullScreen(routable: any Routable) -> some View {
+        switch routable {
+        case Router.PlaceholderView.view(let titleParam):
+            PlaceholderViewCoordinator(navRouter: rootRouter, title: titleParam)
+        default: Text("OOPS!\nThis route is not implemented at LoginCoordinator showFullScreen function yet.")
         }
     }
 }
 
 #Preview {
-    NavigationView {
-        LoginCoordinator(navRouter: NavRouter(), userSettings: UserSettings())
+    NavigationStack {
+        LoginCoordinator(userSettings: UserSettings())
             .environment(AppState())
     }
 }

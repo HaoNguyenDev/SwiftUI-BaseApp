@@ -69,6 +69,7 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
             } onDismiss: {
                 navRouter.pop(animate: false)
             }
+            .clearBackground()
         }
     }
 }
