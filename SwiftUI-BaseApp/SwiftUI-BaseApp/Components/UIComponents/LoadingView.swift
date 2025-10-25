@@ -34,7 +34,7 @@ struct LoadingView: View {
 
     var body: some View {
         ZStack {
-            theme.color.primaryBg.ignoresSafeArea()
+            theme.color.loadingBg.ignoresSafeArea()
             ForEach(0..<dotCount, id: \.self) { index in
                 Circle()
                     .fill(theme.color.primaryText)

@@ -34,6 +34,7 @@ struct LightThemeColors: ThemeColorProtocol {
     // Background
     var primaryBg: Color = Color(hex: "#feffff")
     var secondaryBg: Color = Color(hex: "#f9f9f9")
+    var loadingBg: Color = Color(hex: "#feffff").opacity(0.5)
     
     // Shadow
     var primaryShadow: Color = Color(hex: "#171a1f").opacity(0.25)

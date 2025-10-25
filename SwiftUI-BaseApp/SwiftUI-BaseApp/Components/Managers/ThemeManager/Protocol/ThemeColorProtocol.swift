@@ -33,6 +33,7 @@ protocol ThemeColorProtocol {
     // Background
     var primaryBg: Color { get }
     var secondaryBg: Color { get }
+    var loadingBg: Color { get }
     
     // Shadow
     var primaryShadow: Color { get }

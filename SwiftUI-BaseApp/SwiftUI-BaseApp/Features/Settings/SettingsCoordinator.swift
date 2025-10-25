@@ -8,11 +8,11 @@
 import SwiftUI
 extension Router {
     enum SettingsView: Routable {
-        case view
+        case none
         var id: String {
             switch self {
-            case .view:
-                return "view"
+            case .none:
+                return "none"
             }
         }
     }
@@ -44,14 +44,12 @@ struct SettingsCoordinator: View, ScreenCoordinator {
 
     @ViewBuilder
     private func settingsView() -> some View {
-        SettingsView(gotoChangeLanguageView: {
-            navRouter.push(ScreenRouter.view, animate: true)
-        })
+        SettingsView()
     }
 
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
-        case .view:
+        case .none:
             PlaceholderViewCoordinator(navRouter: navRouter)
         }
     }

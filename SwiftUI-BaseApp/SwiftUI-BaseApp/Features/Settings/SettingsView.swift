@@ -13,7 +13,6 @@ struct SettingsView: View {
     @Environment(\.theme) var theme: any ThemeProtocol
     @State private var showChangeThemeModeView: Bool = false
     @State private var showChangeLanguageView: Bool = false
-    var gotoChangeLanguageView: VoidResult?
     
     var body: some View {
         contentView()
@@ -138,6 +137,7 @@ extension SettingsView {
     }
 }
 #Preview {
-    SettingsView(gotoChangeLanguageView: nil)
+    SettingsView()
         .environment(UserSettings())
+        .environmentTheme(manager: ThemeManager.shared)
 }

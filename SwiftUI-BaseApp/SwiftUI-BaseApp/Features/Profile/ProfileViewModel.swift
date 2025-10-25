@@ -8,7 +8,7 @@
 import SwiftUI
 
 protocol ProfileViewModelProtocol: ViewStateable {
-    
+    func doLogout()
 }
 
 @Observable class ProfileViewModel: ProfileViewModelProtocol {
@@ -31,5 +31,9 @@ protocol ProfileViewModelProtocol: ViewStateable {
     
     func changeState(_ newState: ViewState) {
         viewState = newState
+    }
+    
+    func doLogout() {
+        userSettings.logout()
     }
 }
