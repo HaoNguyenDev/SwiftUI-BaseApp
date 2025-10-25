@@ -10,14 +10,14 @@ import SwiftUI
 extension Router {
     enum ProfileView: Routable {
         case settings
-        case logoutConfirm
+        case logoutView
         
         var id: String {
             switch self {
             case .settings:
                 return "settings"
-            case .logoutConfirm:
-                return "logoutConfirm"
+            case .logoutView:
+                return "logoutView"
             }
         }
     }
@@ -51,11 +51,10 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
     @ViewBuilder
     private func profileView() -> some View {
         ProfileView(
-            showSettingsView: {
+            userSettings: userSettings, showSettingsView: {
                 navRouter.push(ScreenRouter.settings, animate: true)
-            },
-            showLogoutConfirmView: {
-                navRouter.push(ScreenRouter.logoutConfirm, animate: false)
+            }, showLogoutView: {
+                navRouter.push(ScreenRouter.logoutView, animate: false)
             })
     }
     
@@ -63,13 +62,13 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
         switch router {
         case .settings:
             SettingsCoordinator(navRouter: navRouter)
-        case .logoutConfirm:
+        case .logoutView:
             LogoutConfirmView {
                 doLogout()
             } onDismiss: {
                 navRouter.pop(animate: false)
             }
-            .clearBackground()
+
         }
     }
 }

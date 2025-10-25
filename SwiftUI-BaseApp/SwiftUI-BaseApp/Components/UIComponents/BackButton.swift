@@ -11,7 +11,7 @@ struct BackButton: View {
     @Environment(\.theme) var theme: any ThemeProtocol
     var body: some View {
         VStack {
-            Image(uiImage: theme.assets.iconBack)
+            Image(uiImage: theme.assets.iconBack.withRenderingMode(.alwaysTemplate))
                 .foregroundStyle(theme.color.primaryText)
                 .iconStyle(
                     width: 30,
@@ -19,7 +19,7 @@ struct BackButton: View {
                     mode: .fit,
                     radius: 0,
                     border: 0,
-                            borderColor: .clear
+                    borderColor: .clear
                 )
         }
     }

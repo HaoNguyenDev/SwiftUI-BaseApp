@@ -8,27 +8,36 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @Environment(UserSettings.self) var userSettings
     @Environment(\.theme) var theme: any ThemeProtocol
-    let showSettingsView: VoidResult?
-    let showLogoutConfirmView: VoidResult?
+    @State private var viewModel: ProfileViewModel
+    
+    var showSettingsView: VoidResult?
+    var showLogoutView: VoidResult?
+    
+    init(userSettings: UserSettings,
+         showSettingsView: VoidResult?,
+         showLogoutView: VoidResult?) {
+        self._viewModel = State(initialValue: ProfileViewModel(userSettings: userSettings))
+        self.showSettingsView = showSettingsView
+        self.showLogoutView = showLogoutView
+    }
     
     var body: some View {
-        contentView
+        mainContent
     }
     
     @ViewBuilder
-    private var contentView: some View {
+    private var mainContent: some View {
         ScrollView {
             VStack {
                 Group {
                     Image(uiImage: .appLogo)
-                            .resizable()
+                        .resizable()
                 }
                 .frame(width: 128, height: 128)
                 .padding(.top, 32)
                 
-                Text(userSettings.username ?? "anonymous".localized())
+                Text(viewModel.username ?? "anonymous".localized())
                     .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.textColor)
                     .lineLimit(1)
                 settingsView
@@ -47,7 +56,7 @@ struct ProfileView: View {
                 Image(systemName: "gear")
                 Text("settings".localized())
                     .boldStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
-                    
+                
                 Text("settings_description".localized())
                     .regularStyle(theme, size: TextSize.footnote, color: theme.color.textOnSubviewColor)
             }
@@ -90,12 +99,12 @@ struct ProfileView: View {
         .cornerRadius(32)
         .padding(.horizontal, 32)
         .onTapGesture {
-            showLogoutConfirmView?()
+            showLogoutView?()
         }
     }
 }
 
 #Preview {
-    ProfileView(showSettingsView: nil, showLogoutConfirmView: nil)
+    ProfileView(userSettings: UserSettings(), showSettingsView: nil, showLogoutView: nil)
         .environment(UserSettings())
 }

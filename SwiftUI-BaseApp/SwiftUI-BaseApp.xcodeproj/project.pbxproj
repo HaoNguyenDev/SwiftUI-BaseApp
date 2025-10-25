@@ -183,6 +183,8 @@
 		DAF5AFF42EABCCDB0007A5B7 /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5AFF32EABCCDB0007A5B7 /* LoginButtonView.swift */; };
 		DAF5B03A2EAC93390007A5B7 /* Button+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B0392EAC93390007A5B7 /* Button+Additional.swift */; };
 		DAF5B0622EAD04640007A5B7 /* ClearBackgroundViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B0612EAD04640007A5B7 /* ClearBackgroundViewModifier.swift */; };
+		DAF5B06B2EAD062A0007A5B7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B06A2EAD062A0007A5B7 /* ProfileViewModel.swift */; };
+		DAF5B08E2EAD16980007A5B7 /* ViewStateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B08D2EAD16980007A5B7 /* ViewStateable.swift */; };
 		DAFCDF722E647ED300B97C00 /* UserListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */; };
 		DAFCDF742E647EE000B97C00 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF732E647EE000B97C00 /* UserListView.swift */; };
 		DAFCDF772E64812700B97C00 /* GithubUserListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */; };
@@ -370,6 +372,8 @@
 		DAF5AFF32EABCCDB0007A5B7 /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
 		DAF5B0392EAC93390007A5B7 /* Button+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Additional.swift"; sourceTree = "<group>"; };
 		DAF5B0612EAD04640007A5B7 /* ClearBackgroundViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBackgroundViewModifier.swift; sourceTree = "<group>"; };
+		DAF5B06A2EAD062A0007A5B7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		DAF5B08D2EAD16980007A5B7 /* ViewStateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStateable.swift; sourceTree = "<group>"; };
 		DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinator.swift; sourceTree = "<group>"; };
 		DAFCDF732E647EE000B97C00 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListVM.swift; sourceTree = "<group>"; };
@@ -762,6 +766,7 @@
 		DA748DFA2E22C27C00B1B226 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DAF5B08A2EAD168E0007A5B7 /* Base */,
 				DA748DD62E22C00800B1B226 /* Managers */,
 				DA5D71752E3FA27D00C78E40 /* Networking */,
 				DA5CC28C2E22B458000C5F18 /* Router */,
@@ -863,6 +868,7 @@
 			children = (
 				DA890F8C2E23D7850005D9DB /* ProfileViewCoordinator.swift */,
 				DA890F8A2E23D73C0005D9DB /* ProfileView.swift */,
+				DAF5B06A2EAD062A0007A5B7 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -885,6 +891,14 @@
 				DA748D6B2E22B8B900B1B226 /* Localizable.xcstrings */,
 			);
 			path = Languages;
+			sourceTree = "<group>";
+		};
+		DAF5B08A2EAD168E0007A5B7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DAF5B08D2EAD16980007A5B7 /* ViewStateable.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		DAFCDF702E647EAF00B97C00 /* UserList */ = {
@@ -1116,6 +1130,7 @@
 				DAFCDF802E6481DF00B97C00 /* GithubAPIEndpoint.swift in Sources */,
 				DA748E172E22C5E100B1B226 /* SampleView.swift in Sources */,
 				DA748DBF2E22BBF500B1B226 /* Color+Additional.swift in Sources */,
+				DAF5B08E2EAD16980007A5B7 /* ViewStateable.swift in Sources */,
 				DA890F712E23B2FF0005D9DB /* HomeView.swift in Sources */,
 				DA8910462E263A9C0005D9DB /* FileManager+Additional.swift in Sources */,
 				DA5CC2892E22B28F000C5F18 /* ContentView.swift in Sources */,
@@ -1209,6 +1224,7 @@
 				DA748DFE2E22C29B00B1B226 /* Closures.swift in Sources */,
 				DA748DE62E22C10C00B1B226 /* CustomAlertView.swift in Sources */,
 				DA748DE42E22C0FD00B1B226 /* TitleListView.swift in Sources */,
+				DAF5B06B2EAD062A0007A5B7 /* ProfileViewModel.swift in Sources */,
 				DA4726272EA79355000D596A /* AccountViewModel.swift in Sources */,
 				DA4726632EA7C3C2000D596A /* TextSize.swift in Sources */,
 				DAF5B03A2EAC93390007A5B7 /* Button+Additional.swift in Sources */,
