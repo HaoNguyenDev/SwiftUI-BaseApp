@@ -74,6 +74,17 @@ extension NavRouter {
         }
     }
     
+//    func popToRoot() {
+//        let countToRemove = path.count - 1
+//        
+//        guard countToRemove > 0 else {
+//            // Root here
+//            return
+//        }
+//        children.removeLast(countToRemove)
+//        path.removeLast(countToRemove)
+//    }
+    
     func replaceLast(with view: AnyHashable) {
         guard !children.isEmpty else {
             path.append(view)

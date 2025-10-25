@@ -10,20 +10,39 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(\.theme) var theme: any ThemeProtocol
     @State private var viewModel: ProfileViewModel
-    
+    @State private var showLogoutView = false
+    @State private var shouldPopToRoot = false
     var showSettingsView: VoidResult?
-    var showLogoutView: VoidResult?
+    var popToRoot: VoidResult?
     
     init(userSettings: UserSettings,
          showSettingsView: VoidResult?,
-         showLogoutView: VoidResult?) {
+         popToRoot: VoidResult?) {
         self._viewModel = State(initialValue: ProfileViewModel(userSettings: userSettings))
         self.showSettingsView = showSettingsView
-        self.showLogoutView = showLogoutView
+        self.popToRoot = popToRoot
     }
     
     var body: some View {
         mainContent
+            .sheet(isPresented: $showLogoutView) {
+                LogoutConfirmView(onLogout: {
+                    viewModel.doLogout()
+                    shouldPopToRoot = true
+                    showLogoutView = false
+                }, onDismiss: {
+                    showLogoutView = false
+                })
+                .presentationDetents([.height(450)])
+                .presentationBackground(.clear)
+                .onDisappear {
+                    if shouldPopToRoot {
+                        popToRoot?()
+                        shouldPopToRoot = false
+                        NotificationCenter.default.post(name: .showHomeScreen, object: nil)
+                    }
+                }
+            }
     }
     
     @ViewBuilder
@@ -99,12 +118,12 @@ struct ProfileView: View {
         .cornerRadius(32)
         .padding(.horizontal, 32)
         .onTapGesture {
-            showLogoutView?()
+            showLogoutView = true
         }
     }
 }
 
 #Preview {
-    ProfileView(userSettings: UserSettings(), showSettingsView: nil, showLogoutView: nil)
+    ProfileView(userSettings: UserSettings(), showSettingsView: nil, popToRoot: nil)
         .environment(UserSettings())
 }

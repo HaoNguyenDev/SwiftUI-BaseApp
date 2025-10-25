@@ -121,8 +121,8 @@ struct MainTabControllerView: View {
         .onReceive(NotificationCenter.default.publisher(for: .showProfileScreen)) { _ in
             navRouter.push(Router.MainTab.profile, animate: true)
         }
-        .onReceive(NotificationCenter.default.publisher(for: .showPromotionScreen)) { _ in
-            selectedTab = 1
+        .onReceive(NotificationCenter.default.publisher(for: .showHomeScreen)) { _ in
+            selectedTab = 0
         }
         
         .toolbar(.hidden, for: .navigationBar)

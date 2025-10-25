@@ -56,7 +56,7 @@ struct LogoutConfirmView: View {
         .multilineTextAlignment(.center)
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-        .background(theme.color.primaryBg)
+        .background(Color.clear)
         .animation(.easeOut(duration: 0.2), value: offset)
         .animation(.easeOut(duration: 0.2), value: opacity)
         .onChange(of: isShow) { _, newValue in

@@ -12,7 +12,6 @@ struct LoginView: View {
     @Environment(AppState.self) var appState
     @Environment(\.theme) var theme: any ThemeProtocol
     @State var loginModel: LoginModel
-    @State private var showLoading: Bool = false
     @State private var emailInput = ""
     @State private var passwordInput = ""
     @Environment(\.dismiss) private var dismiss
@@ -32,26 +31,30 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                switch loginModel.viewState {
-                case .content:
-                    loginContentView
-                case .loading:
-                    loadingView
-                case .success(let result):
-                    Color.clear
-                        .onAppear {
-                            handleLoginSuccess(result)
-                            loginModel.viewState = .content
+            loginContentView
+                .overlay {
+                    VStack {
+                        switch loginModel.viewState {
+                        case .content:
+                            Color.clear
+                        case .loading:
+                            loadingView
+                        case .success(let result):
+                            Color.clear
+                                .onAppear {
+                                    handleLoginSuccess(result)
+                                    loginModel.viewState = .content
+                                }
+                        case .failure(let error):
+                            Color.clear
+                                .onAppear {
+                                    handleLoginFailure(error)
+                                    loginModel.viewState = .content
+                                }
                         }
-                case .failure(let error):
-                    Color.clear
-                        .onAppear {
-                            handleLoginFailure(error)
-                            loginModel.viewState = .content
-                        }
+                    }
                 }
-            }
+            
         }
         .fillMax()
         .ignoresSafeArea(.all)
