@@ -18,8 +18,8 @@ struct LogoutConfirmView: View {
     @State private var offset: CGFloat = 400
     @State private var opacity: CGFloat = 0
     
-    let onDismiss: VoidResult?
     let onLogout: VoidResult?
+    let onDismiss: VoidResult?
     
     var body: some View {
         VStack {
@@ -29,45 +29,26 @@ struct LogoutConfirmView: View {
                     .frame(width: 120, height: 120)
                 
                 Text("logout_prompt".localized())
-                    .boldStyle(theme, size: TextSize.title2, color: theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: TextSize.title2, color: theme.color.primaryText)
                 
                 Text("logout_message".localized())
-                    .regularStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
-                Button {
+                    .regularStyle(theme, size: TextSize.callout, color: theme.color.primaryText)
+                
+                Button("logout".localized()) {
                     onLogout?()
-                } label: {
-                    Text("logout".localized())
-                        .boldStyle(theme, size: TextSize.headline, color: theme.color.textOnSubviewColor)
-                        .frame(height: 48)
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            RoundedRectangle(cornerRadius: 24)
-                                .stroke(lineWidth: 1)
-                                .foregroundStyle(theme.color.textOnSubviewColor)
-                        )
                 }
+                .primaryHButton()
                 
-                
-                Button {
+                Button("cancel".localized()) {
                     onDismiss?()
-                } label: {
-                    Text("cancel".localized())
-                        .boldStyle(theme, size: TextSize.headline, color: theme.color.textOnSubviewColor)
-                        .frame(height: 48)
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            RoundedRectangle(cornerRadius: 24)
-                                .stroke(lineWidth: 1)
-                                .foregroundStyle(theme.color.textOnSubviewColor)
-                        )
-                }
-               
+                }.secondaryHButton()
+                
             }
             .padding(EdgeInsets(top: 40, leading: 32, bottom: 40, trailing: 32))
             .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(theme.color.subviewBgColor)
+                    .fill(theme.color.secondaryBg)
             )
             .offset(y: offset)
             .opacity(opacity)
@@ -75,7 +56,7 @@ struct LogoutConfirmView: View {
         .multilineTextAlignment(.center)
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-        .setPrimaryBackground()
+        .background(Color.clear)
         .animation(.easeOut(duration: 0.2), value: offset)
         .animation(.easeOut(duration: 0.2), value: opacity)
         .onChange(of: isShow) { _, newValue in
@@ -93,6 +74,6 @@ struct LogoutConfirmView: View {
 }
 
 #Preview {
-    LogoutConfirmView(onDismiss: nil, onLogout: nil)
+    LogoutConfirmView(onLogout: nil, onDismiss: nil)
         .environment(UserSettings())
 }

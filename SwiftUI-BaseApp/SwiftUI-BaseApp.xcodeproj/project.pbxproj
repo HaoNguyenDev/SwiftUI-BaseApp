@@ -181,6 +181,7 @@
 		DAF5AF9C2EABA4C40007A5B7 /* DismissKeyboardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5AF9B2EABA4C40007A5B7 /* DismissKeyboardModifier.swift */; };
 		DAF5AFA12EABA52B0007A5B7 /* FillMaxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5AFA02EABA52B0007A5B7 /* FillMaxModifier.swift */; };
 		DAF5AFF42EABCCDB0007A5B7 /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5AFF32EABCCDB0007A5B7 /* LoginButtonView.swift */; };
+		DAF5B03A2EAC93390007A5B7 /* Button+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B0392EAC93390007A5B7 /* Button+Additional.swift */; };
 		DAFCDF722E647ED300B97C00 /* UserListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */; };
 		DAFCDF742E647EE000B97C00 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF732E647EE000B97C00 /* UserListView.swift */; };
 		DAFCDF772E64812700B97C00 /* GithubUserListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */; };
@@ -366,6 +367,7 @@
 		DAF5AF9B2EABA4C40007A5B7 /* DismissKeyboardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboardModifier.swift; sourceTree = "<group>"; };
 		DAF5AFA02EABA52B0007A5B7 /* FillMaxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillMaxModifier.swift; sourceTree = "<group>"; };
 		DAF5AFF32EABCCDB0007A5B7 /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
+		DAF5B0392EAC93390007A5B7 /* Button+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Additional.swift"; sourceTree = "<group>"; };
 		DAFCDF712E647ED300B97C00 /* UserListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinator.swift; sourceTree = "<group>"; };
 		DAFCDF732E647EE000B97C00 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		DAFCDF762E64812700B97C00 /* GithubUserListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListVM.swift; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 				DA748DBC2E22BA4C00B1B226 /* Text+Additional.swift */,
 				DA748DBE2E22BBF500B1B226 /* Color+Additional.swift */,
 				DAF5AF262EAB802A0007A5B7 /* CustomNavigationTitleColor.swift */,
+				DAF5B0392EAC93390007A5B7 /* Button+Additional.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1205,6 +1208,7 @@
 				DA748DE42E22C0FD00B1B226 /* TitleListView.swift in Sources */,
 				DA4726272EA79355000D596A /* AccountViewModel.swift in Sources */,
 				DA4726632EA7C3C2000D596A /* TextSize.swift in Sources */,
+				DAF5B03A2EAC93390007A5B7 /* Button+Additional.swift in Sources */,
 				DA748DD52E22BF8E00B1B226 /* AppCoordinator.swift in Sources */,
 				DA748E112E22C5BE00B1B226 /* UserMessageItem.swift in Sources */,
 				DAD6C34F2EAB25160051AB26 /* HeightSize.swift in Sources */,

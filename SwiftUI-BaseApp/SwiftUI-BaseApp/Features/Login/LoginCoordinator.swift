@@ -40,14 +40,14 @@ struct LoginCoordinator: View, ScreenCoordinator {
             .navigationDestination(for: ScreenRouter.self) { router in
                 viewForRouter(router: router)
             }
-            .toolbar(content: {
-                ToolbarItem(placement: .topBarTrailing) {
-                    CloseButton(action: {
-                        navRouter.dismiss()
-                    })
-                }
-            })
-            .navigationBarBackButtonHidden(true)
+//            .toolbar(content: {
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    CloseButton(action: {
+//                        navRouter.dismiss()
+//                    })
+//                }
+//            })
+//            .navigationBarBackButtonHidden(true)
 //            .navigationTitle("login_title".localized())
 //            .customNavigationTitleColor(theme.color.primaryText)
     }

@@ -11,4 +11,5 @@ struct HeightSize {
     static let mainTab: CGFloat = 60.0
     static let dfTextField: CGFloat = 55.0
     static let dfButton: CGFloat = 50.0
+    static let headerIcon: CGFloat = 30.0
 }
