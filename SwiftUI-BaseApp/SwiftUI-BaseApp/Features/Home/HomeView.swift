@@ -44,12 +44,12 @@ extension HomeView {
         if userSettings.hasLoggedIn {
             homeContent
         } else {
-            loginContent
+            loginButton
         }
     }
     
-    private var loginContent: some View {
-        LoginButtonView {
+    private var loginButton: some View {
+        LoginButtonView(size: .medium) {
             showLogin?()
         }
     }

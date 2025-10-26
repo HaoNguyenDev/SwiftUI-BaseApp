@@ -24,9 +24,9 @@ struct ThemeChangeView: View {
                 Image(systemName: ThemeManager.shared.currentTheme.assets.currentThemeIconSf)
                     .resizable()
                     .frame(width: 80, height: 80)
-                    .foregroundColor(theme.color.bgColor)
+                    .foregroundColor(theme.color.primaryText)
                 
-                Text("\("current_theme".localized()) -> \(userSettings.colorSchemeOption.title)")
+                Text("\("current_theme".localized()) - \(userSettings.colorSchemeOption.title)")
                     .regularStyle(theme, size: TextSize.callout, color: theme.color.primaryText)
                 Text("choose_theme".localized())
                     .regularStyle(theme, size: TextSize.callout, color: theme.color.primaryText)
