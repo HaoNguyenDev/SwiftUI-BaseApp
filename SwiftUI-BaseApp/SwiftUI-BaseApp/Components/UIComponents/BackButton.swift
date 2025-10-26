@@ -9,6 +9,11 @@ import SwiftUI
 
 struct BackButton: View {
     @Environment(\.theme) var theme: any ThemeProtocol
+    let action: VoidResult?
+    
+    init(action: VoidResult? = nil) {
+        self.action = action
+    }
     var body: some View {
         VStack {
             Image(uiImage: theme.assets.iconBack.withRenderingMode(.alwaysTemplate))
@@ -22,11 +27,16 @@ struct BackButton: View {
                     borderColor: .clear
                 )
         }
+        .onTapGesture {
+            action?()
+        }
     }
 }
 
 #Preview {
-    BackButton()
+    BackButton(action: {
+        
+    })
         .environment(UserSettings())
         .environmentTheme(manager: ThemeManager.shared)
         .preferredColorScheme(.light)

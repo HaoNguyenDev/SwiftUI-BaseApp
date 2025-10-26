@@ -38,11 +38,14 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
             .toolbar(.hidden, for: .bottomBar)
             .toolbar(.hidden, for: .tabBar)
             .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: Button(action: {
-                navRouter.pop(animate: true)
-            }) {
-                BackButton()
-            })
+            .toolbar {
+                // (Leading)
+                ToolbarItem(placement: .navigationBarLeading) {
+                    BackButton(action: {
+                        navRouter.pop(animate: true)
+                    })
+                }
+            }
     }
     
     @ViewBuilder

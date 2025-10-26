@@ -74,7 +74,7 @@ struct LoginCoordinator: View, ScreenCoordinator {
             //            AccountViewCoordinator(navRouter: navRouter)
             PlaceholderViewCoordinator(navRouter: rootRouter, title: "Forgot Password")
         case .register:
-            PlaceholderViewCoordinator(navRouter: rootRouter, title: "Register")
+            RegisterCoordinator(navRouter: rootRouter)
         }
     }
 }
