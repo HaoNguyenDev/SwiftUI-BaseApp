@@ -31,7 +31,7 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            loginContentView
+            contentViewUI
                 .overlay {
                     VStack {
                         switch loginModel.viewState {
@@ -43,13 +43,13 @@ struct LoginView: View {
                             Color.clear
                                 .onAppear {
                                     handleLoginSuccess(result)
-                                    loginModel.viewState = .content
+                                    loginModel.changeState(.content)
                                 }
                         case .failure(let error):
                             Color.clear
                                 .onAppear {
                                     handleLoginFailure(error)
-                                    loginModel.viewState = .content
+                                    loginModel.changeState(.content)
                                 }
                         }
                     }
@@ -65,107 +65,148 @@ struct LoginView: View {
 
 extension LoginView {
     @ViewBuilder
-    private var loginContentView: some View {
+    private var contentViewUI: some View {
         ScrollView {
-            VStack(spacing: PaddingSize.large) {
-                HStack(alignment: .center) {
-                    closeButton
+            VStack(spacing: PaddingSize.standard) {
+                closeButton
+                loginTitle
+                inputFields
+                VStack(spacing: PaddingSize.standard){
+                    loginButton
+                    registerButton
+                    forgotPasswordButton
                 }
-                .frame(maxWidth: .infinity, maxHeight: HeightSize.headerIcon, alignment: .trailing)
-                
-                Spacer().frame(height: PaddingSize.navBarLarge)
-                
-                Text("login_title".localized())
-                    .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText, alignment: .leading)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(PaddingSize.standard)
-                
-                VStack {
-                    HTextField(title: "Email",
-                               placeholder: "Enter your email",
-                               keyboardType: .emailAddress,
-                               leftImage: theme.assets.iconEmail,
-                               text: $emailInput,
-                               errorMessage: .constant(nil))
-                    .padding(.horizontal, PaddingSize.standard)
-                    .padding(.bottom, PaddingSize.tight)
-                    
-                    HTextField(title: "Password",
-                               placeholder: "Enter your password",
-                               keyboardType: .default,
-                               leftImage: theme.assets.iconPhone,
-                               text: $passwordInput,
-                               errorMessage: .constant(nil))
-                    .padding(.horizontal, PaddingSize.standard)
-                    .padding(.top, PaddingSize.tight)
-                }
-                
-                Button("login".localized()) {
-                    Task {
-                        await processLogin()
-                    }
-                }
-                .padding(.horizontal, PaddingSize.standard)
-                .buttonStyle(.primaryHButton)
-                
-                
-                Button("register".localized()) {
-                    gotoRegister?()
-                }
-                .padding(.horizontal, PaddingSize.standard)
-                .buttonStyle(.secondaryHButton)
-                
-                Button("forgot_password".localized()){
-                    gotoForgotPassword?()
-                }
-                .padding(.horizontal, PaddingSize.standard)
-                .buttonStyle(.tertiaryHButton)
-                
-                HStack {
-                    Rectangle()
-                        .fill(theme.color.secondaryText2)
-                        .frame(height: HeightSize.line05px)
-                        .padding(.leading, PaddingSize.standard)
-                    
-                    Text("or")
-                        .regularStyle(theme, size: TextSize.footnote, color: theme.color.secondaryText2)
-                    
-                    Rectangle()
-                        .fill(theme.color.secondaryText2)
-                        .frame(height: HeightSize.line05px)
-                        .padding(.trailing, PaddingSize.standard)
-                }
-                
-                
-                Button("Login with Apple".localized()){
-                    gotoForgotPassword?()
-                }
-                .padding(.horizontal, PaddingSize.standard)
-                .buttonStyle(.tertiaryHButtonStyle(size: .large, leftSideIcon: theme.assets.iconApple))
+                dividerLine
+                socialLoginButtons
                 Spacer()
             }
         }
-        //        .padding(.top, PaddingSize.large)
         .safeAreaPadding(.top)
         .setPrimaryBackground()
     }
-    
-    private var closeButton: some View {
-        CloseButton(action: {
-            dismiss()
-        })
-    }
-    
+}
+
+//MARK: UI
+extension LoginView {
     private var loadingView: some View {
         VStack {
             LoadingView()
         }
     }
     
+    private var closeButton: some View {
+        HStack(alignment: .center) {
+            CloseButton(action: {
+                dismiss()
+            })
+        }
+        .frame(maxWidth: .infinity, maxHeight: HeightSize.headerIcon, alignment: .trailing)
+    }
+    
+    private var loginTitle: some View {
+        Text("login_title".localized())
+            .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(PaddingSize.standard)
+    }
+    
+    private var inputFields: some View {
+        VStack(spacing: PaddingSize.standard) {
+            HTextField(title: "Email",
+                       placeholder: "Enter your email",
+                       keyboardType: .emailAddress,
+                       leftImage: theme.assets.iconEmail,
+                       text: $emailInput,
+                       errorMessage: .constant(nil))
+            .padding(.horizontal, PaddingSize.standard)
+            .padding(.bottom, PaddingSize.tight)
+            
+            HTextField(title: "Password",
+                       placeholder: "Enter your password",
+                       keyboardType: .default,
+                       leftImage: theme.assets.iconPhone,
+                       text: $passwordInput,
+                       errorMessage: .constant(nil))
+            .padding(.horizontal, PaddingSize.standard)
+            .padding(.top, PaddingSize.tight)
+        }
+    }
+    
+    private var loginButton: some View {
+        Button("login".localized()) {
+            Task {
+                await processLogin()
+            }
+        }
+        .padding(.horizontal, PaddingSize.standard)
+        .buttonStyle(.primaryHButton)
+    }
+    
+    private var registerButton: some View {
+        Button("register".localized()) {
+            gotoRegister?()
+        }
+        .padding(.horizontal, PaddingSize.standard)
+        .buttonStyle(.secondaryHButton)
+    }
+    
+    private var forgotPasswordButton: some View {
+        Button("forgot_password".localized()){
+            gotoForgotPassword?()
+        }
+        .padding(.horizontal, PaddingSize.standard)
+        .buttonStyle(.tertiaryHButton)
+    }
+    
+    private var dividerLine: some View {
+        HStack {
+            Rectangle()
+                .fill(theme.color.secondaryText2)
+                .frame(height: HeightSize.line05px)
+                .padding(.leading, PaddingSize.standard)
+            
+            Text("or")
+                .regularStyle(theme, size: TextSize.footnote, color: theme.color.secondaryText2)
+            
+            Rectangle()
+                .fill(theme.color.secondaryText2)
+                .frame(height: HeightSize.line05px)
+                .padding(.trailing, PaddingSize.standard)
+        }
+    }
+    
+    private var socialLoginButtons: some View {
+        VStack {
+            Button("Login with Apple".localized()){
+                // TODO: Apple login
+            }
+            .padding(.horizontal, PaddingSize.standard)
+            .buttonStyle(.tertiaryHButtonStyle(size: .large, leftSideIcon: theme.assets.iconApple))
+            
+            Button("Login with Google".localized()){
+                // TODO: Google login
+            }
+            .padding(.horizontal, PaddingSize.standard)
+            .buttonStyle(.tertiaryHButtonStyle(size: .large, leftSideIcon: theme.assets.iconGoogle))
+            
+            Button("Login with Telegram".localized()){
+                // TODO: Telegram login
+            }
+            .padding(.horizontal, PaddingSize.standard)
+            .buttonStyle(.tertiaryHButtonStyle(size: .large, leftSideIcon: theme.assets.iconTelegram))
+        }
+    }
+}
+
+//MARK: Actions
+extension LoginView {
     private func processLogin() async {
         loginModel.doLogin()
     }
-    
+}
+
+//MARK: Handler
+extension LoginView {
     private func handleLoginSuccess(_ result: LoginResult) {
         Logger.shared.debug("Login Success: \(result)")
         loginSuccess?(result)

@@ -25,20 +25,28 @@ enum LoginError: Error {
     }
 }
 
-enum LoginState {
-    case content
-    case loading
-    case success(LoginResult)
-    case failure(Error)
+protocol LoginViewModelProtocol: ViewStateable {
+    
 }
 
-@Observable class LoginModel {
+@Observable class LoginModel: LoginViewModelProtocol {
+   
+    enum ViewState {
+        case content
+        case loading
+        case success(LoginResult)
+        case failure(Error)
+    }
     
-    var viewState: LoginState = .content
+    private(set) var viewState: ViewState = .content
 
     private var userSettings: UserSettings
     init (userSettings: UserSettings) {
         self.userSettings = userSettings
+    }
+    
+    func changeState(_ newState: ViewState) {
+        viewState = newState
     }
     
     func doLogin() {
