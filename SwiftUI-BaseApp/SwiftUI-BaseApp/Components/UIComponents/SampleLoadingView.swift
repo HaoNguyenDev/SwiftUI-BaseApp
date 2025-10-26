@@ -16,14 +16,14 @@ struct SampleLoadingView: View {
     
     var body: some View {
         ZStack {
-            R.color.backgroundView.color.ignoresSafeArea()
+            R.color.launchScreenBg.color.ignoresSafeArea()
             ProgressView(){
                 Text(title ?? "loading".localized())
                     .font(R.font.ttHovesProTrialRg.font(size: 20))
-                    .foregroundStyle(R.color.textPrimary.color)
+                    .foregroundStyle(R.color.primaryText.color)
             }
             .padding()
-            .background(R.color.backgroundView.color)
+            .background(R.color.secondaryBg.color)
             .cornerRadius(10)
         }
     }

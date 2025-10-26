@@ -63,7 +63,7 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(primaryAction.title)
-                                    .boldStyle(theme, size: TextSize.subhead, color: theme.color.textOnSubviewColor)
+                                    .boldStyle(theme, size: TextSize.subhead, color: theme.color.primaryText)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                             })
@@ -77,7 +77,7 @@ struct UserInformView: View {
                             },
                                    label: {
                                 Text(secondaryAction.title)
-                                    .regularStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
+                                    .regularStyle(theme, size: TextSize.callout, color: theme.color.primaryText)
                                     .frame(height: 48)
                                     .frame(maxWidth: .infinity)
                                 
