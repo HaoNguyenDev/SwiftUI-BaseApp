@@ -36,7 +36,7 @@ extension HomeView {
     
     @ViewBuilder
     private var headerView: some View {
-        HeaderView(onShowProfile: onShowProfile, hasNewNotification: true)
+        HeaderView(onShowProfile: onShowProfile, onShowLogin: showLogin, hasNewNotification: true)
     }
     
     @ViewBuilder
