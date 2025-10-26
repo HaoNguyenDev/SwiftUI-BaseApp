@@ -10,13 +10,10 @@ import SwiftUI
 
 extension Router {
     enum Splash: Routable  {
-        case login
         case home
         
         var id: String {
             switch self {
-            case .login:
-                return "login"
             case .home:
                 return "home"
             }
@@ -49,9 +46,7 @@ struct SplashCoordinator: View, ScreenCoordinator {
     
     @ViewBuilder
     func viewForRouter(router: ScreenRouter) -> some View {
-        switch router { 
-        case .login:
-            LoginCoordinator(userSettings: userSettings)
+        switch router {
         case .home:
             MainTabControllerView(navRouter: navRouter)
         }

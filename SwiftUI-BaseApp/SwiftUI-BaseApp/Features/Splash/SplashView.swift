@@ -33,11 +33,22 @@ struct SplashView: View {
 extension SplashView {
     @ViewBuilder
     var contentView: some View {
-        VStack {}
-            .onAppear {
+        VStack {
+            Text("splas_screen_title".localized())
+                .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText, alignment: .center)
+            
+            Button("Finish Splash".localized()) {
                 userSettings.hasFinishSplash = true
                 finishSplash?()
             }
+            .primaryHButton()
+            .padding(.horizontal, PaddingSize.standard)
+        }
+        .onAppear {
+            if userSettings.hasFinishSplash {
+                finishSplash?()
+            }
+        }
     }
     
     @ViewBuilder
@@ -47,8 +58,6 @@ extension SplashView {
                 VStack(spacing: 32) {
                    
                     VStack(spacing: 12) {
-                        Text("splas_screen_title".localized())
-                            .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText, alignment: .center)
                         Text("please_update".localized())
                             .regularStyle(theme, size: TextSize.title1, color: theme.color.primaryText)
                         Text("update_the_app_now".localized())
@@ -57,19 +66,6 @@ extension SplashView {
                 }
                 Spacer()
                 VStack(spacing: 16) {
-                    /// Old style
-//                    Button(action: {
-//                        updateAppProcess()
-//                    }, label: {
-//                        Text("update".localized())
-//                            .regularStyle(theme, size: TextSize.body, color: theme.color.textColor)
-//                            .frame(height: 48)
-//                            .frame(maxWidth: .infinity)
-//                    })
-//                    .buttonStyle(.primaryHButtonStyle(size: .large))
-////                    .buttonStyle(SecondaryButtonStyle())
-                    
-                    /// New style
                     Button("update".localized()) {
                         updateAppProcess()
                     }
@@ -124,6 +120,6 @@ extension SplashView {
     SplashView()
         .environment(AppState())
         .environment(AppSettings())
+        .environment(UserSettings())
         .environmentTheme(manager: ThemeManager.shared)
-        .preferredColorScheme(.dark)
 }

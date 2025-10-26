@@ -8,6 +8,19 @@
 
 import SwiftUI
 
+extension Router {
+    enum AppCoordinator: Routable {
+        case login
+        case home
+        var id: String {
+            switch self {
+            case .login: return "AppCoordinator.login"
+            case .home: return "AppCoordinator.home"
+            }
+        }
+    }
+}
+
 struct AppCoordinator: View {
     @Environment(AppSettings.self) var appSettings
     @Environment(AppState.self) var appState
@@ -54,21 +67,9 @@ struct AppCoordinator: View {
         ZStack {
             if appSettings.isMaintenance {
                 maintenanceView
-            } else if !userSettings.hasFinishSplash {
-                NavigationStack(path: $rootRouter.path) {
-                    SplashCoordinator(navRouter: rootRouter)
-                }
-                .ignoresSafeArea(.all)
-                
-                .sheet(item: $rootRouter.sheet) { sheet in
-                    showSheet(routable: sheet.routable)
-                }
-                .fullScreenCover(item: $rootRouter.fullScreenCover) { cover in
-                    showFullScreen(routable: cover.routable)
-                }
             } else {
                 NavigationStack(path: $rootRouter.path) {
-                    MainTabControllerView(navRouter: rootRouter)
+                    SplashCoordinator(navRouter: rootRouter)
                 }
                 .ignoresSafeArea(.all)
                 
@@ -119,7 +120,7 @@ extension AppCoordinator {
     @ViewBuilder
     func showSheet(routable: any Routable) -> some View {
         switch routable {
-        case Router.MainTab.login:
+        case Router.AppCoordinator.login:
             LoginCoordinator(userSettings: userSettings)
         case Router.Splash.home:
             HomeViewCoordinator(navRouter: rootRouter)
@@ -132,7 +133,7 @@ extension AppCoordinator {
     @ViewBuilder
     func showFullScreen(routable: any Routable) -> some View {
         switch routable {
-        case Router.MainTab.login:
+        case Router.AppCoordinator.login:
             LoginCoordinator(userSettings: userSettings)
         case Router.Splash.home:
             HomeViewCoordinator(navRouter: rootRouter)
@@ -159,7 +160,7 @@ extension AppCoordinator {
                 UserMessageView(message: message) { msg in
                     appState.userMessageState.hide()
                     if msg.code == .sectionExpired {
-                        rootRouter.pop(to:Router.Splash.login)
+                        rootRouter.pop(to:Router.Splash.home)
                     }
                 }
             }
@@ -184,7 +185,7 @@ extension AppCoordinator {
                     appState.userMessageState.hideAlert()
                     if message.code == .sectionExpired {
                         rootRouter.popToRoot()
-                        rootRouter.push(Router.Splash.login, animate: false)
+                        rootRouter.push(Router.Splash.home, animate: false)
                     }
                 })
                 

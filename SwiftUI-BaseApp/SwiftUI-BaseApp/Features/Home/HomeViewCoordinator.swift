@@ -38,7 +38,7 @@ struct HomeViewCoordinator: View, ScreenCoordinator {
     @ViewBuilder
     func getView() -> some View {
         HomeView(showLogin: {
-            navRouter.showSheet(RouterView.init(routable: Router.MainTab.login))
+            navRouter.showSheet(RouterView.init(routable: Router.AppCoordinator.login))
         }, onShowProfile: {
             navRouter.push(Router.MainTab.profile, animate: true)
         }, gotoSubview1: { info in
