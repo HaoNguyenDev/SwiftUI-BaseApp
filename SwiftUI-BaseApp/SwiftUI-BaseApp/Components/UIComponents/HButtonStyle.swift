@@ -19,7 +19,8 @@ struct HButtonStyle: ButtonStyle {
     let customTitleColor: Color?
     let customBackgroundColor: Color?
     let customSelectedBackgroundColor: Color?
-    let leftIcon: UIImage?
+    let leftSideIcon: UIImage?
+    let rightSideIcon: UIImage?
     
     init(size: ButtonSize,
          type: ButtonType,
@@ -28,7 +29,8 @@ struct HButtonStyle: ButtonStyle {
          customTitleColor: Color? = nil,
          customBackgroundColor: Color? = nil,
          customSelectedBackgroundColor: Color? = nil,
-         leftIcon: UIImage? = nil) {
+         leftSideIcon: UIImage? = nil,
+         rightSideIcon: UIImage? = nil) {
         self.size = size
         self.type = type
         self.customTitleHorizontalPadding = customTitleHorizontalPadding
@@ -36,7 +38,8 @@ struct HButtonStyle: ButtonStyle {
         self.customTitleColor = customTitleColor
         self.customBackgroundColor = customBackgroundColor
         self.customSelectedBackgroundColor = customSelectedBackgroundColor
-        self.leftIcon = leftIcon
+        self.leftSideIcon = leftSideIcon
+        self.rightSideIcon = rightSideIcon
     }
     
     func makeBody(configuration: Configuration) -> some View {
@@ -44,20 +47,28 @@ struct HButtonStyle: ButtonStyle {
         let titleColor = titleColor(isPressed: isPressed)
         let borderColor = borderColor(isPressed: isPressed)
         let backgroundColor = backgroundColor(isPressed: isPressed)
-        
-        configuration.label
-            .font(titleFont)
-            .foregroundColor(titleColor)
-            .padding(.horizontal, customTitleHorizontalPadding ?? 10)
-            .padding(.vertical, 8)
-            .frame(maxWidth: .infinity, minHeight: minHeight, maxHeight: maxHeight)
-            .background(backgroundColor.roundCorners(8))
-            .fixedSize(horizontal: size != .large, vertical: size != .large)
-            .roundedBorder(
-                cornerRadius: 8,
-                lineWidth: strokeWeight,
-                borderColor: borderColor
-            )
+    
+        ZStack {
+            HStack {
+                leftSideIcon(iconSize: 60)
+                Spacer()
+                configuration.label
+                    .font(titleFont)
+                    .foregroundColor(titleColor)
+                    .padding(.horizontal, customTitleHorizontalPadding ?? 10)
+                    .padding(.vertical, 8)
+                Spacer()
+                rightSideIcon(iconSize: 60)
+            }
+        }
+        .frame(maxWidth: .infinity, minHeight: minHeight, maxHeight: maxHeight, alignment: .leading)
+        .background(backgroundColor.roundCorners(8))
+        .fixedSize(horizontal: size != .large, vertical: size != .large)
+        .roundedBorder(
+            cornerRadius: 8,
+            lineWidth: strokeWeight,
+            borderColor: borderColor
+        )
     }
     
 }
@@ -175,15 +186,30 @@ extension HButtonStyle {
     }
     
     @ViewBuilder
-    func leftImageView(iconWidth: CGFloat) -> some View {
-        if let leftIcon {
-            let image = leftIcon.withRenderingMode(.alwaysOriginal)
+    func leftSideIcon(iconSize: CGFloat) -> some View {
+        if let leftSideIcon {
+            let image = leftSideIcon.withRenderingMode(.alwaysOriginal)
             Image(uiImage: image)
-                .frame(width: iconWidth, height: iconWidth)
+                .frame(width: iconSize, height: iconSize)
                 .iconStyle()
-            //                .foregroundColor(titleColor(isPressed: false))
         } else {
-            EmptyView()
+            Rectangle()
+                .foregroundStyle(Color.clear)
+                .frame(width: iconSize, height: iconSize)
+        }
+    }
+    
+    @ViewBuilder
+    func rightSideIcon(iconSize: CGFloat) -> some View {
+        if let rightSideIcon {
+            let image = rightSideIcon.withRenderingMode(.alwaysOriginal)
+            Image(uiImage: image)
+                .frame(width: iconSize, height: iconSize)
+                .iconStyle()
+        } else {
+            Rectangle()
+                .foregroundStyle(Color.clear)
+                .frame(width: iconSize, height: iconSize)
         }
     }
 }
@@ -235,7 +261,8 @@ extension ButtonStyle where Self == HButtonStyle {
                                      titleColor: Color? = nil,
                                      backgroundColor: Color? = nil,
                                      selectedBackgroundColor: Color? = nil,
-                                     leftIcon: UIImage? = nil) -> HButtonStyle {
+                                     leftSideIcon: UIImage? = nil,
+                                     rightSideIcon: UIImage? = nil) -> HButtonStyle {
         HButtonStyle(size: size,
                      type: .tertiary,
                      customTitleHorizontalPadding: titlePadding,
@@ -243,7 +270,8 @@ extension ButtonStyle where Self == HButtonStyle {
                      customTitleColor: titleColor,
                      customBackgroundColor: backgroundColor,
                      customSelectedBackgroundColor: selectedBackgroundColor,
-                     leftIcon: leftIcon)
+                     leftSideIcon: leftSideIcon,
+                     rightSideIcon: rightSideIcon)
     }
 }
 
@@ -307,10 +335,10 @@ extension ButtonStyle where Self == HButtonStyle {
     @Previewable @Environment(\.theme) var theme: any ThemeProtocol
     VStack(spacing: 20) {
         Button("Large") {}
-            .buttonStyle(.tertiaryHButtonStyle(size: .large, leftIcon: theme.assets.iconGoogle))
+            .buttonStyle(.tertiaryHButtonStyle(size: .large, leftSideIcon: theme.assets.iconGoogle, rightSideIcon: theme.assets.iconApple))
         
         Button("Large") {}
-            .buttonStyle(.tertiaryHButtonStyle(size: .large))
+            .buttonStyle(.tertiaryHButtonStyle(size: .large, leftSideIcon: theme.assets.iconGoogle, rightSideIcon: theme.assets.iconApple))
             .disabled(true)
         
         Button("Medium") {}
@@ -331,7 +359,7 @@ extension ButtonStyle where Self == HButtonStyle {
     .environmentTheme(manager: ThemeManager.shared)
 }
 
-#Preview("Custom Buttons") {
+#Preview("Test Custom Buttons") {
     @Previewable @Environment(\.theme) var theme
     VStack(spacing: 20) {
         
@@ -349,6 +377,9 @@ extension ButtonStyle where Self == HButtonStyle {
         
         Button("Tertiary") {}
             .buttonStyle(.tertiaryHButtonStyle(size: .medium, titleColor: Color.blue))
+        
+        Button("Login with Apple Account") {}
+            .buttonStyle(.tertiaryHButtonStyle(size: .medium, titleColor: Color.blue, leftSideIcon: theme.assets.iconApple))
     }
     .padding(.horizontal, 50)
     .environmentTheme(manager: ThemeManager.shared)

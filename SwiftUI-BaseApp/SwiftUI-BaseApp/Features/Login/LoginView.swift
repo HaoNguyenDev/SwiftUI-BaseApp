@@ -66,62 +66,86 @@ struct LoginView: View {
 extension LoginView {
     @ViewBuilder
     private var loginContentView: some View {
-        VStack(spacing: PaddingSize.large) {
-            HStack(alignment: .center) {
-                closeButton
-            }
-            .frame(maxWidth: .infinity, maxHeight: HeightSize.headerIcon, alignment: .trailing)
-            
-            Spacer().frame(height: PaddingSize.navBarLarge)
-            
-            Text("login_title".localized())
-                .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText, alignment: .leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(PaddingSize.standard)
-            
-            VStack {
-                HTextField(title: "Email",
-                           placeholder: "Enter your email",
-                           keyboardType: .emailAddress,
-                           leftImage: theme.assets.iconEmail,
-                           text: $emailInput,
-                           errorMessage: .constant(nil))
-                .padding(.horizontal, PaddingSize.standard)
-                .padding(.bottom, PaddingSize.tight)
-                
-                HTextField(title: "Password",
-                           placeholder: "Enter your password",
-                           keyboardType: .default,
-                           leftImage: theme.assets.iconPhone,
-                           text: $passwordInput,
-                           errorMessage: .constant(nil))
-                .padding(.horizontal, PaddingSize.standard)
-                .padding(.top, PaddingSize.tight)
-            }
-            
-            Button("login".localized()) {
-                Task {
-                    await processLogin()
+        ScrollView {
+            VStack(spacing: PaddingSize.large) {
+                HStack(alignment: .center) {
+                    closeButton
                 }
+                .frame(maxWidth: .infinity, maxHeight: HeightSize.headerIcon, alignment: .trailing)
+                
+                Spacer().frame(height: PaddingSize.navBarLarge)
+                
+                Text("login_title".localized())
+                    .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText, alignment: .leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(PaddingSize.standard)
+                
+                VStack {
+                    HTextField(title: "Email",
+                               placeholder: "Enter your email",
+                               keyboardType: .emailAddress,
+                               leftImage: theme.assets.iconEmail,
+                               text: $emailInput,
+                               errorMessage: .constant(nil))
+                    .padding(.horizontal, PaddingSize.standard)
+                    .padding(.bottom, PaddingSize.tight)
+                    
+                    HTextField(title: "Password",
+                               placeholder: "Enter your password",
+                               keyboardType: .default,
+                               leftImage: theme.assets.iconPhone,
+                               text: $passwordInput,
+                               errorMessage: .constant(nil))
+                    .padding(.horizontal, PaddingSize.standard)
+                    .padding(.top, PaddingSize.tight)
+                }
+                
+                Button("login".localized()) {
+                    Task {
+                        await processLogin()
+                    }
+                }
+                .padding(.horizontal, PaddingSize.standard)
+                .buttonStyle(.primaryHButton)
+                
+                
+                Button("register".localized()) {
+                    gotoRegister?()
+                }
+                .padding(.horizontal, PaddingSize.standard)
+                .buttonStyle(.secondaryHButton)
+                
+                Button("forgot_password".localized()){
+                    gotoForgotPassword?()
+                }
+                .padding(.horizontal, PaddingSize.standard)
+                .buttonStyle(.tertiaryHButton)
+                
+                HStack {
+                    Rectangle()
+                        .fill(theme.color.secondaryText2)
+                        .frame(height: HeightSize.line05px)
+                        .padding(.leading, PaddingSize.standard)
+                    
+                    Text("or")
+                        .regularStyle(theme, size: TextSize.footnote, color: theme.color.secondaryText2)
+                    
+                    Rectangle()
+                        .fill(theme.color.secondaryText2)
+                        .frame(height: HeightSize.line05px)
+                        .padding(.trailing, PaddingSize.standard)
+                }
+                
+                
+                Button("Login with Apple".localized()){
+                    gotoForgotPassword?()
+                }
+                .padding(.horizontal, PaddingSize.standard)
+                .buttonStyle(.tertiaryHButtonStyle(size: .large, leftSideIcon: theme.assets.iconApple))
+                Spacer()
             }
-            .padding(.horizontal, PaddingSize.standard)
-            .buttonStyle(.primaryHButton)
-            
-            
-            Button("register".localized()) {
-                gotoRegister?()
-            }
-            .padding(.horizontal, PaddingSize.standard)
-            .buttonStyle(.secondaryHButton)
-            
-            Button("forgot_password".localized()){
-                gotoForgotPassword?()
-            }
-            .padding(.horizontal, PaddingSize.standard)
-            .buttonStyle(.tertiaryHButton)
-            Spacer()
         }
-//        .padding(.top, PaddingSize.large)
+        //        .padding(.top, PaddingSize.large)
         .safeAreaPadding(.top)
         .setPrimaryBackground()
     }
