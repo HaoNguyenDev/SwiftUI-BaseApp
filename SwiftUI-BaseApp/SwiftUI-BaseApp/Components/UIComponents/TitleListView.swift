@@ -28,7 +28,7 @@ struct TitleListView: View {
     var body: some View {
         VStack(spacing: 16) {
             Text("swipe_down_to_exit".localized())
-                .regularStyle(theme, size: TextSize.footnote, color: theme.color.textColor)
+                .regularStyle(theme, size: TextSize.footnote, color: theme.color.primaryText)
             listViewContent
                 .offset(y: offset)
                 .opacity(opacity)
@@ -75,14 +75,14 @@ extension TitleListView {
     private var listViewContent: some View {
         VStack(spacing: 16) {
             Text(title)
-                .boldStyle(theme, size: 24, color: theme.color.textOnSubviewColor)
+                .boldStyle(theme, size: 24, color: theme.color.primaryText)
                 
             VStack(spacing: 16) {
                 ForEach(items.indices, id: \.self) { idx in
                     listItemView(for: items[idx], index: idx)
                     if idx < items.count - 1 {
                         Divider()
-                            .background(theme.color.textOnSubviewColor)
+                            .background(theme.color.primaryText)
                     }
                 }
             }
@@ -91,12 +91,12 @@ extension TitleListView {
         }
         .padding(EdgeInsets(top: 40, leading: 32, bottom: 40, trailing: 32))
         .frame(maxWidth: .infinity)
-        .background(theme.color.subviewBgColor, in: .rect(cornerRadius: 40))
+        .background(theme.color.secondaryBg, in: .rect(cornerRadius: 40))
     }
     
     private func listItemView(for item: TitleItem, index idx: Int) -> some View {
         Text(item.title)
-            .regularStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
+            .regularStyle(theme, size: TextSize.callout, color: theme.color.primaryText)
             .frame(maxWidth: .infinity)
             .contentShape(Rectangle())
             .onTapGesture {

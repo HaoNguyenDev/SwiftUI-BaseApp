@@ -17,7 +17,7 @@ struct BackgroundImageModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .background(
-                theme.color.subviewBgColor.opacity(0.8) //Transparent color class
+                theme.color.secondaryBg.opacity(0.8) //Transparent color class
                     .overlay(BlurBackgroundView())
             )
         

@@ -74,10 +74,10 @@ struct ProfileView: View {
             VStack(alignment: .leading) {
                 Image(systemName: "gear")
                 Text("settings".localized())
-                    .boldStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: TextSize.callout, color: theme.color.primaryText)
                 
                 Text("settings_description".localized())
-                    .regularStyle(theme, size: TextSize.footnote, color: theme.color.textOnSubviewColor)
+                    .regularStyle(theme, size: TextSize.footnote, color: theme.color.primaryText)
             }
             
             Spacer()
@@ -85,8 +85,8 @@ struct ProfileView: View {
         }
         .padding(.horizontal, 24)
         .frame(height: 107)
-        .background(theme.color.subviewBgColor)
-        .foregroundStyle(theme.color.textOnSubviewColor)
+        .background(theme.color.secondaryBg)
+        .foregroundStyle(theme.color.primaryText)
         .cornerRadius(32)
         .padding(.horizontal, 32)
         .onTapGesture {
@@ -99,12 +99,12 @@ struct ProfileView: View {
         HStack {
             VStack(alignment: .leading) {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
-                    .tint(theme.color.textOnSubviewColor)
+                    .tint(theme.color.primaryText)
                 Text("logout".localized())
-                    .boldStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: TextSize.callout, color: theme.color.primaryText)
                 
                 Text("logout_description".localized())
-                    .regularStyle(theme, size: TextSize.footnote, color: theme.color.textOnSubviewColor)
+                    .regularStyle(theme, size: TextSize.footnote, color: theme.color.primaryText)
             }
             
             Spacer()
@@ -113,8 +113,8 @@ struct ProfileView: View {
         }
         .padding(.horizontal, 24)
         .frame(height: 107)
-        .background(theme.color.subviewBgColor)
-        .foregroundStyle(theme.color.textOnSubviewColor)
+        .background(theme.color.secondaryBg)
+        .foregroundStyle(theme.color.primaryText)
         .cornerRadius(32)
         .padding(.horizontal, 32)
         .onTapGesture {

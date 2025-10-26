@@ -16,20 +16,20 @@ struct ThemeChangeView: View {
     var body: some View {
         VStack(spacing: 16) {
             Text("swipe_down_to_exit".localized())
-                .regularStyle(theme, size: TextSize.footnote, color: theme.color.textColor)
+                .regularStyle(theme, size: TextSize.footnote, color: theme.color.primaryText)
             
             VStack(spacing: 15) {
                 Text("choose_theme".localized())
-                    .boldStyle(theme, size: TextSize.title1, color: theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: TextSize.title1, color: theme.color.primaryText)
                 Image(systemName: ThemeManager.shared.currentTheme.assets.currentThemeIconSf)
                     .resizable()
                     .frame(width: 80, height: 80)
                     .foregroundColor(theme.color.bgColor)
                 
                 Text("\("current_theme".localized()) -> \(userSettings.colorSchemeOption.title)")
-                    .regularStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
+                    .regularStyle(theme, size: TextSize.callout, color: theme.color.primaryText)
                 Text("choose_theme".localized())
-                    .regularStyle(theme, size: TextSize.callout, color: theme.color.textOnSubviewColor)
+                    .regularStyle(theme, size: TextSize.callout, color: theme.color.primaryText)
                 
                 themeSelection
                 .padding(.top, 20)
@@ -37,7 +37,7 @@ struct ThemeChangeView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .frame(height: 410)
             .background {
-                theme.color.subviewBgColor
+                theme.color.secondaryBg
             }
             .clipShape(RoundedRectangle(cornerRadius: 30))
             .padding(.horizontal, 10)
@@ -49,7 +49,7 @@ struct ThemeChangeView: View {
         HStack(spacing: 0) {
             ForEach(ColorSchemeOption.allCases, id: \.self) { schemeOption in
                 Text(schemeOption.title)
-                    .boldStyle(theme, size: TextSize.headline, color: userSettings.colorSchemeOption == schemeOption ? theme.color.textColor : theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: TextSize.headline, color: userSettings.colorSchemeOption == schemeOption ? theme.color.textColor : theme.color.primaryText)
                     .padding(.vertical, 10)
                     .frame(width: 100)
                     .background {

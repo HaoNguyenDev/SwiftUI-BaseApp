@@ -12,11 +12,9 @@ struct DarkThemeColors: ThemeColorProtocol {
     // Background
     var backgroundView: Color = R.color.backgroundView.color
     var bgColor = Color(hex: "#1C2526")
-    var subviewBgColor = Color(hex: "#495051")
     var gradientBgColors = [Color(hex: "#4c4c4c"), Color(hex: "#000000")]
     
     // Text
-    var textOnSubviewColor = Color(hex: "#ffffff")
     var textColor = Color(hex: "#ffffff")
     var errorMessage = Color(hex: "#cc0000")
     

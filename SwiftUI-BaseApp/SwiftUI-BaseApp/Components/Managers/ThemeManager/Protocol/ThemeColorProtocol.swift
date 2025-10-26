@@ -12,11 +12,9 @@ protocol ThemeColorProtocol {
     // Background
     var backgroundView: Color { get }
     var bgColor: Color { get }
-    var subviewBgColor: Color { get }
     var gradientBgColors: [Color] { get }
     
     // Text
-    var textOnSubviewColor: Color { get }
     var textColor: Color { get }
     var errorMessage: Color { get }
     

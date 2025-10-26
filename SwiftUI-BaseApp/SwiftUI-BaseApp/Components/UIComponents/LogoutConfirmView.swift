@@ -23,6 +23,9 @@ struct LogoutConfirmView: View {
     
     var body: some View {
         VStack {
+            Text("swipe_down_to_exit".localized())
+                .regularStyle(theme, size: TextSize.footnote, color: theme.color.primaryText)
+            
             VStack(spacing: 16) {
                 AnimatedImage(name: "ic_logout_animate.gif")
                     .resizable()
@@ -48,11 +51,11 @@ struct LogoutConfirmView: View {
             .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(theme.color.secondaryBg)
+                    .fill(theme.color.primaryBg)
             )
-            .offset(y: offset)
-            .opacity(opacity)
         }
+        .offset(y: offset)
+        .opacity(opacity)
         .multilineTextAlignment(.center)
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)

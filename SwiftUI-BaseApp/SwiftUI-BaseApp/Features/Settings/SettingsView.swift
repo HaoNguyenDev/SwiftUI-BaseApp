@@ -74,17 +74,17 @@ extension SettingsView {
             HStack {
                 VStack(alignment: .leading) {
                     Text("change_theme_mode".localized())
-                        .boldStyle(theme, size: TextSize.subhead, color: theme.color.textOnSubviewColor)
+                        .boldStyle(theme, size: TextSize.subhead, color: theme.color.primaryText)
                 }
                 Spacer()
                 Text(currentThemeMode)
-                    .boldStyle(theme, size: TextSize.subhead, color: theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: TextSize.subhead, color: theme.color.primaryText)
                 
-                Image(systemName: "chevron.right").tint(theme.color.textOnSubviewColor)
+                Image(systemName: "chevron.right").tint(theme.color.primaryText)
             }
             .padding(.horizontal, 24)
             .frame(height: 75)
-            .background(theme.color.subviewBgColor)
+            .background(theme.color.secondaryBg)
             .clipShape(RoundedRectangle(cornerRadius: 32))
         }
         .padding(.horizontal, 24)
@@ -97,17 +97,17 @@ extension SettingsView {
             HStack {
                 VStack(alignment: .leading) {
                     Text("change_language_title".localized())
-                        .boldStyle(theme, size: TextSize.subhead, color: theme.color.textOnSubviewColor)
+                        .boldStyle(theme, size: TextSize.subhead, color: theme.color.primaryText)
                 }
                 Spacer()
                 Text(currentLanguageTitle)
-                    .boldStyle(theme, size: TextSize.subhead, color: theme.color.textOnSubviewColor)
+                    .boldStyle(theme, size: TextSize.subhead, color: theme.color.primaryText)
                 Image(systemName: "chevron.right")
-                    .tint(theme.color.textOnSubviewColor)
+                    .tint(theme.color.primaryText)
             }
             .padding(.horizontal, 24)
             .frame(height: 75)
-            .background(theme.color.subviewBgColor)
+            .background(theme.color.secondaryBg)
             .clipShape(RoundedRectangle(cornerRadius: 32))
         }
         .padding(.horizontal, 24)

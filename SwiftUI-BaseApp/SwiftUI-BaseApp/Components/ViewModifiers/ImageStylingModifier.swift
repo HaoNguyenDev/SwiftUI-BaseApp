@@ -120,7 +120,7 @@ struct ImageStylingDemoView: View {
                     .font(.headline)
                 // Small sized SF Symbols usually do not need to be resizable.
                 Image(systemName: "star.fill")
-                    .foregroundColor(R.color.blueText.color)
+                    .foregroundColor(R.color.primaryText.color)
                     .imageStyle(
                         width: 30,
                         height: 30,
