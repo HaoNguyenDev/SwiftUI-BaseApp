@@ -12,6 +12,7 @@ struct HeaderView: View {
     @Environment(UserSettings.self) var userSettings
     @Environment(\.theme) var theme: any ThemeProtocol
     let onShowProfile: VoidResult?
+    let onShowLogin: VoidResult?
     var name: String? {
         userSettings.username
     }
@@ -30,7 +31,13 @@ struct HeaderView: View {
                     .boldStyle(theme, size: TextSize.subhead, color: theme.color.primaryText)
                     .lineLimit(1)
             }
-            .onTapGesture { onShowProfile?() }
+            .onTapGesture {
+                guard userSettings.hasLoggedIn else {
+                    onShowLogin?()
+                    return
+                }
+                onShowProfile?()
+            }
             
             Spacer(minLength: 1)
             
@@ -77,7 +84,7 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView(onShowProfile: nil)
+    HeaderView(onShowProfile: nil, onShowLogin: nil)
         .setPrimaryBackground()
         .environmentTheme(manager: ThemeManager.shared)
         .environment(UserSettings())
