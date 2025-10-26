@@ -44,7 +44,7 @@ struct AccountViewCoordinator: View, ScreenCoordinator {
         }, gotoProfile: {
             navRouter.push(Router.MainTab.profile, animate: true)
         }, showLogin: {
-            navRouter.showSheet(RouterView.init(routable: Router.MainTab.login))
+            navRouter.showSheet(RouterView.init(routable: Router.AppCoordinator.login))
         })
         .toolbar(.hidden, for: .navigationBar)
     }

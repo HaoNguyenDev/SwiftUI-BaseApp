@@ -40,7 +40,7 @@ struct UserListCoordinator: View, ScreenCoordinator {
         UserListView(viewModel: viewModel, gotoUserDetail: { user in
             navRouter.push(Router.MainTab.userDetail(user: user), animate: true)
         }, showLogin: {
-            navRouter.showSheet(RouterView.init(routable: Router.MainTab.login))
+            navRouter.showSheet(RouterView.init(routable: Router.AppCoordinator.login))
         })
         .toolbar(.hidden, for: .navigationBar)
     }
