@@ -25,30 +25,14 @@ enum LoginError: Error {
     }
 }
 
-protocol LoginViewModelProtocol: ViewStateable {
-    
-}
-
-@Observable class LoginModel: LoginViewModelProtocol {
-   
-    enum ViewState {
-        case content
-        case loading
-        case success(LoginResult)
-        case failure(Error)
-    }
-    
-    private(set) var viewState: ViewState = .content
-
+@Observable class LoginViewModel {
     private var userSettings: UserSettings
+    var viewState: ViewState = .mainView /// ViewStateable
+    
     init (userSettings: UserSettings) {
         self.userSettings = userSettings
     }
-    
-    func changeState(_ newState: ViewState) {
-        viewState = newState
-    }
-    
+
     func doLogin() {
         viewState = .loading
         Task {
@@ -70,5 +54,18 @@ protocol LoginViewModelProtocol: ViewStateable {
 //                viewState = .failure(LoginError.failed)
 //            }
         }
+    }
+}
+
+extension LoginViewModel: ViewStateable {
+    enum ViewState {
+        case mainView
+        case loading
+        case success(LoginResult)
+        case failure(Error)
+    }
+    
+    func changeState(_ newState: ViewState) {
+        viewState = newState
     }
 }

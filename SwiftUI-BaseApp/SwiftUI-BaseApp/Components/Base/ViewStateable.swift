@@ -8,5 +8,6 @@
 
 protocol ViewStateable {
     associatedtype ViewState
+    var viewState: ViewState { get set }
     func changeState(_ newState: ViewState)
 }

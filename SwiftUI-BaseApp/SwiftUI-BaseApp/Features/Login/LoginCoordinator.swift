@@ -29,11 +29,11 @@ struct LoginCoordinator: View, ScreenCoordinator {
     typealias ScreenRouter = Router.Login
     var navRouter: any NavRouterProtocol // No need for Login and Register flow
     @State private var rootRouter = NavRouter() // Create NavRouter for it self
-    @State var loginModel: LoginModel
+    @State var loginModel: LoginViewModel
     
     init(userSettings: UserSettings) {
         self.navRouter = NavRouter()
-        self._loginModel = State(initialValue: LoginModel(userSettings: userSettings))
+        self._loginModel = State(initialValue: LoginViewModel(userSettings: userSettings))
     }
     
     var body: some View {

@@ -7,20 +7,9 @@
 
 import SwiftUI
 
-protocol ProfileViewModelProtocol: ViewStateable {
-    func doLogout()
-}
-
-@Observable class ProfileViewModel: ProfileViewModelProtocol {
-    
+@Observable class ProfileViewModel {
+    var viewState: ViewState
     var username: String?
-    
-    enum ViewState {
-        case mainContent
-        case logoutView
-    }
-    private(set) var viewState: ViewState
-    
     private var userSettings: UserSettings
     
     init(userSettings: UserSettings) {
@@ -28,12 +17,20 @@ protocol ProfileViewModelProtocol: ViewStateable {
         viewState = .mainContent
         username = userSettings.username
     }
+
+    func doLogout() {
+        userSettings.logout()
+    }
+}
+
+//MARK: - ViewStateable
+extension ProfileViewModel: ViewStateable {
+    enum ViewState {
+        case mainContent
+        case logoutView
+    }
     
     func changeState(_ newState: ViewState) {
         viewState = newState
-    }
-    
-    func doLogout() {
-        userSettings.logout()
     }
 }
