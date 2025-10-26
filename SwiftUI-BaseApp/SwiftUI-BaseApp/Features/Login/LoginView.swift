@@ -11,7 +11,7 @@ import SwiftUI
 struct LoginView: View {
     @Environment(AppState.self) var appState
     @Environment(\.theme) var theme: any ThemeProtocol
-    @State var loginModel: LoginModel
+    @State var loginModel: LoginViewModel
     @State private var emailInput = ""
     @State private var passwordInput = ""
     @Environment(\.dismiss) private var dismiss
@@ -19,7 +19,7 @@ struct LoginView: View {
     var gotoForgotPassword: VoidResult?
     var gotoRegister: VoidResult?
     
-    init(loginModel: LoginModel,
+    init(loginModel: LoginViewModel,
          loginSuccess: SingleResult<LoginResult>?,
          forgotPassword: VoidResult?,
          register: VoidResult?) {
@@ -35,7 +35,7 @@ struct LoginView: View {
                 .overlay {
                     VStack {
                         switch loginModel.viewState {
-                        case .content:
+                        case .mainView:
                             Color.clear
                         case .loading:
                             loadingView
@@ -43,13 +43,13 @@ struct LoginView: View {
                             Color.clear
                                 .onAppear {
                                     handleLoginSuccess(result)
-                                    loginModel.changeState(.content)
+                                    loginModel.changeState(.mainView)
                                 }
                         case .failure(let error):
                             Color.clear
                                 .onAppear {
                                     handleLoginFailure(error)
-                                    loginModel.changeState(.content)
+                                    loginModel.changeState(.mainView)
                                 }
                         }
                     }
@@ -230,7 +230,7 @@ extension LoginView {
 }
 
 #Preview {
-    LoginView(loginModel: LoginModel(userSettings: UserSettings()),
+    LoginView(loginModel: LoginViewModel(userSettings: UserSettings()),
               loginSuccess: nil,
               forgotPassword: nil,
               register: nil)

@@ -147,7 +147,7 @@
 		DA748E1C2E22C65400B1B226 /* AppErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748E1B2E22C65400B1B226 /* AppErrorCode.swift */; };
 		DA748E242E22C75500B1B226 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748E232E22C75100B1B226 /* ErrorHandler.swift */; };
 		DA748F902E23A2EC00B1B226 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F8F2E23A2EC00B1B226 /* LoginView.swift */; };
-		DA748F922E23A2F600B1B226 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F912E23A2F600B1B226 /* LoginModel.swift */; };
+		DA748F922E23A2F600B1B226 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F912E23A2F600B1B226 /* LoginViewModel.swift */; };
 		DA748F942E23A30100B1B226 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F932E23A30100B1B226 /* LoginCoordinator.swift */; };
 		DA748F972E23A8CC00B1B226 /* MainTabControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748F962E23A8C500B1B226 /* MainTabControllerView.swift */; };
 		DA890F712E23B2FF0005D9DB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA890F702E23B2FF0005D9DB /* HomeView.swift */; };
@@ -336,7 +336,7 @@
 		DA748E1B2E22C65400B1B226 /* AppErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorCode.swift; sourceTree = "<group>"; };
 		DA748E232E22C75100B1B226 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		DA748F8F2E23A2EC00B1B226 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		DA748F912E23A2F600B1B226 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		DA748F912E23A2F600B1B226 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		DA748F932E23A30100B1B226 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		DA748F962E23A8C500B1B226 /* MainTabControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabControllerView.swift; sourceTree = "<group>"; };
 		DA890F702E23B2FF0005D9DB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -805,7 +805,7 @@
 			isa = PBXGroup;
 			children = (
 				DA748F932E23A30100B1B226 /* LoginCoordinator.swift */,
-				DA748F912E23A2F600B1B226 /* LoginModel.swift */,
+				DA748F912E23A2F600B1B226 /* LoginViewModel.swift */,
 				DA748F8F2E23A2EC00B1B226 /* LoginView.swift */,
 			);
 			path = Login;
@@ -1219,7 +1219,7 @@
 				DA748F972E23A8CC00B1B226 /* MainTabControllerView.swift in Sources */,
 				DA890F8D2E23D7850005D9DB /* ProfileViewCoordinator.swift in Sources */,
 				DAD6C2C32EAA72C80051AB26 /* PaddingSize.swift in Sources */,
-				DA748F922E23A2F600B1B226 /* LoginModel.swift in Sources */,
+				DA748F922E23A2F600B1B226 /* LoginViewModel.swift in Sources */,
 				DA748E122E22C5C200B1B226 /* UserMessageState.swift in Sources */,
 				DA748DFE2E22C29B00B1B226 /* Closures.swift in Sources */,
 				DA748DE62E22C10C00B1B226 /* CustomAlertView.swift in Sources */,

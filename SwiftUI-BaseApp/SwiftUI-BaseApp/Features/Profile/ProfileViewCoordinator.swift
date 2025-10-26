@@ -48,7 +48,8 @@ struct ProfileViewCoordinator: View, ScreenCoordinator {
     @ViewBuilder
     private func profileView() -> some View {
         ProfileView(
-            userSettings: userSettings, showSettingsView: {
+            viewModel: ProfileViewModel(userSettings: userSettings),
+            showSettingsView: {
                 navRouter.push(ScreenRouter.settings, animate: true)
             }, popToRoot: {
                 navRouter.pop(animate: false)

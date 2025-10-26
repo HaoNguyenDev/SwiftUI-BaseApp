@@ -15,10 +15,10 @@ struct ProfileView: View {
     var showSettingsView: VoidResult?
     var popToRoot: VoidResult?
     
-    init(userSettings: UserSettings,
+    init(viewModel: ProfileViewModel,
          showSettingsView: VoidResult?,
          popToRoot: VoidResult?) {
-        self._viewModel = State(initialValue: ProfileViewModel(userSettings: userSettings))
+        self.viewModel = viewModel
         self.showSettingsView = showSettingsView
         self.popToRoot = popToRoot
     }
@@ -124,6 +124,6 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(userSettings: UserSettings(), showSettingsView: nil, popToRoot: nil)
+    ProfileView(viewModel: ProfileViewModel(userSettings: UserSettings()), showSettingsView: nil, popToRoot: nil)
         .environment(UserSettings())
 }
