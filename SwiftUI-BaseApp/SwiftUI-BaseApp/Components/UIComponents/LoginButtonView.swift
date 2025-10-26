@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginButtonView: View {
+    var size: HButtonStyle.ButtonSize = .medium
     var onTap: VoidResult?
     
     var body: some View {
@@ -15,7 +16,7 @@ struct LoginButtonView: View {
             Button("login".localized()) {
                 onTap?()
             }
-            .buttonStyle(.primaryHButton)
+            .buttonStyle(.primaryHButtonStyle(size: size))
             .padding(PaddingSize.standard)
         }
         .fillMax()
