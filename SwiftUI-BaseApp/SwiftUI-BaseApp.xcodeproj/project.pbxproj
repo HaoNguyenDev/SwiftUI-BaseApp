@@ -171,6 +171,7 @@
 		DAB392E82EAF176900357628 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB392E72EAF176900357628 /* RegisterView.swift */; };
 		DAB393052EAF7D0100357628 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB393042EAF7D0100357628 /* Notification+Name.swift */; };
 		DAB3931E2EAF885A00357628 /* SafeAreaInsetsViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB3931D2EAF885A00357628 /* SafeAreaInsetsViewModifier.swift */; };
+		DAB393412EAFB3F400357628 /* LoginErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB393402EAFB3F400357628 /* LoginErrors.swift */; };
 		DAD6C2C32EAA72C80051AB26 /* PaddingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */; };
 		DAD6C31D2EAA86E90051AB26 /* ImageStylingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */; };
 		DAD6C3372EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */; };
@@ -363,6 +364,7 @@
 		DAB392E72EAF176900357628 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DAB393042EAF7D0100357628 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		DAB3931D2EAF885A00357628 /* SafeAreaInsetsViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaInsetsViewModifier.swift; sourceTree = "<group>"; };
+		DAB393402EAFB3F400357628 /* LoginErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrors.swift; sourceTree = "<group>"; };
 		DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingSize.swift; sourceTree = "<group>"; };
 		DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStylingModifier.swift; sourceTree = "<group>"; };
 		DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryBackgroundModifier.swift; sourceTree = "<group>"; };
@@ -815,6 +817,7 @@
 				DA748F932E23A30100B1B226 /* LoginCoordinator.swift */,
 				DA748F912E23A2F600B1B226 /* LoginViewModel.swift */,
 				DA748F8F2E23A2EC00B1B226 /* LoginView.swift */,
+				DAB393402EAFB3F400357628 /* LoginErrors.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1206,6 +1209,7 @@
 				DA47255B2EA65F01000D596A /* DarkTheme.swift in Sources */,
 				DA47255C2EA65F01000D596A /* ThemeAssetsProtocol.swift in Sources */,
 				DA47255D2EA65F01000D596A /* LightTheme.swift in Sources */,
+				DAB393412EAFB3F400357628 /* LoginErrors.swift in Sources */,
 				DA47255E2EA65F01000D596A /* LightThemeAssets.swift in Sources */,
 				DA47255F2EA65F01000D596A /* ThemeColorProtocol.swift in Sources */,
 				DA4725602EA65F01000D596A /* LightThemeFonts.swift in Sources */,

@@ -1,0 +1,56 @@
+//
+//  LoginErrors.swift
+//  SwiftUI-BaseApp
+//
+//  Created by Hao Nguyen on 27/10/25.
+//
+
+import Foundation
+
+enum PasswordFieldError: Error, LocalizedError {
+    case incorrect
+    case empty
+    case wrongLength
+    
+    var errorDescription: String? {
+        switch self {
+        case .incorrect:
+            return "Incorrect password format"
+        case .empty:
+            return "Password can't be empty"
+        case .wrongLength:
+            return "Password must be at least 6 characters long"
+        }
+    }
+}
+
+enum EmailFieldError: Error, LocalizedError {
+    case incorrectFormat
+    case empty
+    
+    var errorDescription: String? {
+        switch self {
+        case .incorrectFormat:
+            return "Invalid email format"
+        case .empty:
+            return "Email can't be empty"
+        }
+    }
+}
+
+enum LoginError: Error, LocalizedError {
+    case failed
+    case success
+    case custom(String)
+    
+    var errorDescription: String? {
+        switch self {
+        case .failed:
+            return "Login failed"
+        case .success:
+            return "Login success"
+        case .custom(let message):
+            return message
+        }
+    }
+}

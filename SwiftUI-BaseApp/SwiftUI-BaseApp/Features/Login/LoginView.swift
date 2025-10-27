@@ -14,8 +14,6 @@ struct LoginView: View {
     @Environment(\.dismiss) private var dismiss
     
     @State var viewModel: LoginViewModel
-    @State private var emailInput = ""
-    @State private var passwordInput = ""
     
     var loginSuccess: SingleResult<LoginResult>?
     var gotoForgotPassword: VoidResult?
@@ -37,7 +35,7 @@ struct LoginView: View {
                 .overlay {
                     VStack {
                         switch viewModel.viewState {
-                        case .mainView:
+                        case .contentView:
                             Color.clear
                         case .loading:
                             loadingView
@@ -45,13 +43,13 @@ struct LoginView: View {
                             Color.clear
                                 .onAppear {
                                     handleLoginSuccess(result)
-                                    viewModel.changeState(.mainView)
+                                    viewModel.changeState(.contentView)
                                 }
                         case .failure(let error):
                             Color.clear
                                 .onAppear {
                                     handleLoginFailure(error)
-                                    viewModel.changeState(.mainView)
+                                    viewModel.changeState(.contentView)
                                 }
                         }
                     }
@@ -118,8 +116,8 @@ extension LoginView {
                        placeholder: "Enter your email",
                        keyboardType: .emailAddress,
                        leftImage: theme.assets.iconEmail,
-                       text: $emailInput,
-                       errorMessage: .constant(nil))
+                       text: $viewModel.email,
+                       errorMessage: $viewModel.emailErrorMessage)
             .padding(.horizontal, PaddingSize.standard)
             .padding(.bottom, PaddingSize.tight)
             
@@ -127,8 +125,8 @@ extension LoginView {
                        placeholder: "Enter your password",
                        keyboardType: .default,
                        leftImage: theme.assets.iconPassword,
-                       text: $passwordInput,
-                       errorMessage: .constant(nil))
+                       text: $viewModel.password,
+                       errorMessage: $viewModel.passwordErrorMessage)
             .padding(.horizontal, PaddingSize.standard)
             .padding(.top, PaddingSize.tight)
         }
@@ -142,6 +140,7 @@ extension LoginView {
         }
         .padding(.horizontal, PaddingSize.standard)
         .buttonStyle(.primaryHButton)
+        .disabled(!viewModel.isLoginButtonEnabled)
     }
     
     private var registerButton: some View {
@@ -203,7 +202,7 @@ extension LoginView {
 //MARK: Actions
 extension LoginView {
     private func processLogin() async {
-        viewModel.doLogin()
+        await viewModel.doLogin()
     }
 }
 
@@ -222,8 +221,8 @@ extension LoginView {
     
     private func handleLoginFailure(_ error: Error) {
         if let loginError = error as? LoginError {
-            Logger.shared.error(loginError.errorMessage)
-            appState.handleError(error: loginError.errorMessage, action: .toast)
+            Logger.shared.error(loginError.errorDescription.orEmpty)
+            appState.handleError(error: loginError.errorDescription.orEmpty, action: .toast)
         } else {
             Logger.shared.error(error.localizedDescription)
             appState.handleError(error: error.localizedDescription, action: .toast)
