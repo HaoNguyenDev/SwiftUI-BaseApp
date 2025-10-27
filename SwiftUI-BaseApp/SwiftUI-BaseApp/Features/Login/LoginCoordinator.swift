@@ -27,12 +27,12 @@ struct LoginCoordinator: View, ScreenCoordinator {
     @Environment(\.dismiss) var dismiss
     @Environment(\.theme) var theme
     typealias ScreenRouter = Router.Login
-    var navRouter: any NavRouterProtocol // No need for Login and Register flow
-    @State private var rootRouter = NavRouter() // Create NavRouter for it self
+    var navRouter: any NavRouterProtocol /// MainTabRouter
+    @State private var rootRouter = NavRouter() /// Create NavRouter for it self
     @State var loginModel: LoginViewModel
     
-    init(userSettings: UserSettings) {
-        self.navRouter = NavRouter()
+    init(mainTabNavRouter: any NavRouterProtocol, userSettings: UserSettings) {
+        self.navRouter = mainTabNavRouter
         self._loginModel = State(initialValue: LoginViewModel(userSettings: userSettings))
     }
     
@@ -41,6 +41,13 @@ struct LoginCoordinator: View, ScreenCoordinator {
             loginView
                 .navigationDestination(for: ScreenRouter.self) { route in
                     viewForRouter(router: route)
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        CloseButton {
+                            navRouter.dismiss()
+                        }
+                    }
                 }
         }
         .ignoresSafeArea(.all)
@@ -59,19 +66,20 @@ struct LoginCoordinator: View, ScreenCoordinator {
         LoginView(loginModel: loginModel, loginSuccess: { loginResult in
             Logger.shared.debug("\(loginResult)")
             dismiss()
-            //            navRouter.push(Router.homeRouter, animate: true)
         }, forgotPassword: {
             rootRouter.push(ScreenRouter.forgotPassword, animate: true)
         }, register: {
             rootRouter.push(ScreenRouter.register, animate: true)
         })
+        .onReceive(NotificationCenter.default.publisher(for: .closeLoginFlow)) { _ in
+            navRouter.dismiss()
+        }
     }
     
     @ViewBuilder
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
         case .forgotPassword:
-            //            AccountViewCoordinator(navRouter: navRouter)
             PlaceholderViewCoordinator(navRouter: rootRouter, title: "Forgot Password")
         case .register:
             RegisterCoordinator(navRouter: rootRouter)
@@ -101,7 +109,7 @@ extension LoginCoordinator {
 
 #Preview {
     NavigationStack {
-        LoginCoordinator(userSettings: UserSettings())
+        LoginCoordinator(mainTabNavRouter: NavRouter(), userSettings: UserSettings())
             .environment(AppState())
     }
 }

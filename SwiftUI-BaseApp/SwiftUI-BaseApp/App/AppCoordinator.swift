@@ -121,7 +121,7 @@ extension AppCoordinator {
     func showSheet(routable: any Routable) -> some View {
         switch routable {
         case Router.AppCoordinator.login:
-            LoginCoordinator(userSettings: userSettings)
+            LoginCoordinator(mainTabNavRouter: rootRouter, userSettings: userSettings)
         case Router.Splash.home:
             HomeViewCoordinator(navRouter: rootRouter)
         case Router.PlaceholderView.view(let titleParam):
@@ -134,7 +134,7 @@ extension AppCoordinator {
     func showFullScreen(routable: any Routable) -> some View {
         switch routable {
         case Router.AppCoordinator.login:
-            LoginCoordinator(userSettings: userSettings)
+            LoginCoordinator(mainTabNavRouter: rootRouter, userSettings: userSettings)
         case Router.Splash.home:
             HomeViewCoordinator(navRouter: rootRouter)
         case Router.PlaceholderView.view(let titleParam):

@@ -11,10 +11,12 @@ import SwiftUI
 struct LoginView: View {
     @Environment(AppState.self) var appState
     @Environment(\.theme) var theme: any ThemeProtocol
-    @State var loginModel: LoginViewModel
+    @Environment(\.dismiss) private var dismiss
+    
+    @State var viewModel: LoginViewModel
     @State private var emailInput = ""
     @State private var passwordInput = ""
-    @Environment(\.dismiss) private var dismiss
+    
     var loginSuccess: SingleResult<LoginResult>?
     var gotoForgotPassword: VoidResult?
     var gotoRegister: VoidResult?
@@ -23,7 +25,7 @@ struct LoginView: View {
          loginSuccess: SingleResult<LoginResult>?,
          forgotPassword: VoidResult?,
          register: VoidResult?) {
-        self.loginModel = loginModel
+        self.viewModel = loginModel
         self.loginSuccess = loginSuccess
         self.gotoForgotPassword = forgotPassword
         self.gotoRegister = register
@@ -31,10 +33,10 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            contentViewUI
+            contentView
                 .overlay {
                     VStack {
-                        switch loginModel.viewState {
+                        switch viewModel.viewState {
                         case .mainView:
                             Color.clear
                         case .loading:
@@ -43,13 +45,13 @@ struct LoginView: View {
                             Color.clear
                                 .onAppear {
                                     handleLoginSuccess(result)
-                                    loginModel.changeState(.mainView)
+                                    viewModel.changeState(.mainView)
                                 }
                         case .failure(let error):
                             Color.clear
                                 .onAppear {
                                     handleLoginFailure(error)
-                                    loginModel.changeState(.mainView)
+                                    viewModel.changeState(.mainView)
                                 }
                         }
                     }
@@ -65,10 +67,10 @@ struct LoginView: View {
 
 extension LoginView {
     @ViewBuilder
-    private var contentViewUI: some View {
+    private var contentView: some View {
         ScrollView {
             VStack(spacing: PaddingSize.standard) {
-                closeButton
+//                closeButton
                 loginTitle
                 inputFields
                 VStack(spacing: PaddingSize.standard){
@@ -94,14 +96,14 @@ extension LoginView {
         }
     }
     
-    private var closeButton: some View {
-        HStack(alignment: .center) {
-            CloseButton(action: {
-                dismiss()
-            })
-        }
-        .frame(maxWidth: .infinity, maxHeight: HeightSize.headerIcon, alignment: .trailing)
-    }
+//    private var closeButton: some View {
+//        HStack(alignment: .center) {
+//            CloseButton(action: {
+//                dismiss()
+//            })
+//        }
+//        .frame(maxWidth: .infinity, maxHeight: HeightSize.headerIcon, alignment: .trailing)
+//    }
     
     private var loginTitle: some View {
         Text("login_title".localized())
@@ -124,7 +126,7 @@ extension LoginView {
             HTextField(title: "Password",
                        placeholder: "Enter your password",
                        keyboardType: .default,
-                       leftImage: theme.assets.iconPhone,
+                       leftImage: theme.assets.iconPassword,
                        text: $passwordInput,
                        errorMessage: .constant(nil))
             .padding(.horizontal, PaddingSize.standard)
@@ -201,7 +203,7 @@ extension LoginView {
 //MARK: Actions
 extension LoginView {
     private func processLogin() async {
-        loginModel.doLogin()
+        viewModel.doLogin()
     }
 }
 
