@@ -64,7 +64,7 @@ extension UserMessageState {
 
 // MARK: - UserMessageState for informing
 extension UserMessageState {
-    func showInform(model: UserMessageItem?, autoDissmissAfter: TimeInterval? = 2) {
+    func showInform(model: UserMessageItem?, autoDissmissAfter: TimeInterval? = 1.5) {
         guard informMessage == nil || model == nil else { return }
         informMessage = model
         

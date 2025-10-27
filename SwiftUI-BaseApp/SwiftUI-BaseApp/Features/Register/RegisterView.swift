@@ -51,11 +51,13 @@ struct RegisterView: View {
     }
     
     var body: some View {
-        VStack {
+        ScrollView {
             contentView
         }
         .fillMax()
+        .safeAreaInsetsViewModifier(verticalEdge: .bottom)
         .setPrimaryBackground()
+        .dismissKeyboardOnTap()
     }
     
     
@@ -65,7 +67,7 @@ struct RegisterView: View {
 // MARK: - UI
 extension RegisterView {
     private var contentView: some View {
-        ScrollView {
+        VStack {
             VStack(spacing: PaddingSize.standard) {
                 loginTitle
                 inputFields
@@ -114,7 +116,11 @@ extension RegisterView {
     private var registerButton: some View {
         Button("register".localized()) {
             registerSuccess?()
-            appState.showInform(message: UserMessageItem(title: "Successfully".localized(), message: "Register successfully"), autoDissmissAfter: 1.5)
+            appState.showToast(item: UserMessageItem(
+                animationName: "SuccessCircle",
+                loopMode: .playOnce,
+                title: "register_successfully".localized(),
+                message: "please_login".localized()))
         }
         .padding(.horizontal, PaddingSize.standard)
         .buttonStyle(.primaryHButton)

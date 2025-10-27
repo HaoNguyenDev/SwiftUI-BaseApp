@@ -48,7 +48,8 @@ struct RegisterCoordinator: View, ScreenCoordinator {
     @ViewBuilder
     private func registerView() -> some View {
         RegisterView(viewModel: viewModel, registerSuccess: {
-            NotificationCenter.default.post(name: .closeLoginFlow, object: nil)
+//            NotificationCenter.default.post(name: .closeLoginFlow, object: nil)
+            navRouter.pop(animate: true)
         })
     }
     
