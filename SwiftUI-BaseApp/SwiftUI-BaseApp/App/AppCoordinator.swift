@@ -46,10 +46,12 @@ struct AppCoordinator: View {
         .onChange(of: systemColorScheme) { _, newValue in
             userSettings.setColorScheme(userSettings.colorSchemeOption, systemColorScheme: newValue)
         }
-        .task { startCheckingApp() }
+        .task {
+            validateApp()
+        }
     }
     
-    private func startCheckingApp() {
+    private func validateApp() {
         let isMatchBundleId = Bundle.main.bundleIdentifier == "haonguyen.SwiftUI-BaseApp"
         isShowBlockingView = !isMatchBundleId
     }
