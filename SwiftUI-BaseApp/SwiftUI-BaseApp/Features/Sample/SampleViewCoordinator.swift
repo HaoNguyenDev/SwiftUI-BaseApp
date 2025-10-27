@@ -32,14 +32,31 @@ struct SampleViewCoordinator: View, ScreenCoordinator {
     }
     
     var body: some View {
-        getView()
+        sampleView()
             .navigationDestination(for: ScreenRouter.self) { route in
                 viewForRouter(router: route)
+            }
+            .toolbar {
+                // (Leading)
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        // Action
+                    } label: {
+                        Image(systemName: "arrow.backward")
+                    }
+                }
+                
+                // (Trailing)
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Save") {
+                        // Action
+                    }
+                }
             }
     }
     
     @ViewBuilder
-    func getView() -> some View {
+    func sampleView() -> some View {
         SampleView(gotoSubview1: {
             navRouter.push(ScreenRouter.subview1, animate: true)
         }, gotoSubview2: {

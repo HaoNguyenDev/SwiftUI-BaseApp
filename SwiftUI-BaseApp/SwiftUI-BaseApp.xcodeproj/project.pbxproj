@@ -168,6 +168,7 @@
 		DA89104F2E263FFF0005D9DB /* lang_vi.json in Resources */ = {isa = PBXBuildFile; fileRef = DA89104E2E263FFF0005D9DB /* lang_vi.json */; };
 		DA983F5A2E2BA0DF0030EEA2 /* BlurBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */; };
 		DA983F602E2E52D60030EEA2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA983F5F2E2E52D60030EEA2 /* Logger.swift */; };
+		DAB392C52EAE7FA600357628 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB392C42EAE7FA600357628 /* RegisterCoordinator.swift */; };
 		DAD6C2C32EAA72C80051AB26 /* PaddingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */; };
 		DAD6C31D2EAA86E90051AB26 /* ImageStylingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */; };
 		DAD6C3372EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */; };
@@ -357,6 +358,7 @@
 		DA89104E2E263FFF0005D9DB /* lang_vi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lang_vi.json; sourceTree = "<group>"; };
 		DA983F592E2BA0DF0030EEA2 /* BlurBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackgroundView.swift; sourceTree = "<group>"; };
 		DA983F5F2E2E52D60030EEA2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		DAB392C42EAE7FA600357628 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
 		DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingSize.swift; sourceTree = "<group>"; };
 		DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStylingModifier.swift; sourceTree = "<group>"; };
 		DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryBackgroundModifier.swift; sourceTree = "<group>"; };
@@ -680,6 +682,7 @@
 		DA748DCB2E22BE5800B1B226 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				DAB392C22EAE7F6700357628 /* Register */,
 				DAFCE0862E653FAF00B97C00 /* UserDetail */,
 				DAFCDF702E647EAF00B97C00 /* UserList */,
 				DA890F892E23D7240005D9DB /* Profile */,
@@ -891,6 +894,14 @@
 				DA748D6B2E22B8B900B1B226 /* Localizable.xcstrings */,
 			);
 			path = Languages;
+			sourceTree = "<group>";
+		};
+		DAB392C22EAE7F6700357628 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				DAB392C42EAE7FA600357628 /* RegisterCoordinator.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		DAF5B08A2EAD168E0007A5B7 /* Base */ = {
@@ -1216,6 +1227,7 @@
 				DA5CC2922E22B490000C5F18 /* Router.swift in Sources */,
 				DA748E162E22C5DC00B1B226 /* PlaceholderViewCoordinator.swift in Sources */,
 				DAFCDF852E6482FD00B97C00 /* ErrorBanner.swift in Sources */,
+				DAB392C52EAE7FA600357628 /* RegisterCoordinator.swift in Sources */,
 				DA748F972E23A8CC00B1B226 /* MainTabControllerView.swift in Sources */,
 				DA890F8D2E23D7850005D9DB /* ProfileViewCoordinator.swift in Sources */,
 				DAD6C2C32EAA72C80051AB26 /* PaddingSize.swift in Sources */,

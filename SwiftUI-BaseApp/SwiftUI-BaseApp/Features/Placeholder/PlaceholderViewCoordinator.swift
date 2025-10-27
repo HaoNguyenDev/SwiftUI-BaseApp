@@ -39,11 +39,14 @@ struct PlaceholderViewCoordinator: View, ScreenCoordinator {
         //        .toolbar(.hidden, for: .tabBar)
         //        .toolbar(.hidden, for: .navigationBar)
             .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: Button(action: {
-                navRouter.pop(animate: true)
-            }) {
-                BackButton()
-            })
+            .toolbar {
+                // (Leading)
+                ToolbarItem(placement: .navigationBarLeading) {
+                    BackButton(action: {
+                        navRouter.pop(animate: true)
+                    })
+                }
+            }
     }
     
     @ViewBuilder
