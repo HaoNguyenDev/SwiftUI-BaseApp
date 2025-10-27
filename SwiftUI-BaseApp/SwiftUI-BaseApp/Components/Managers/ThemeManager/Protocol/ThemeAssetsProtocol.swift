@@ -13,6 +13,7 @@ protocol ThemeAssetsProtocol {
     var iconClose: UIImage { get }
     var iconPhone: UIImage { get }
     var iconEmail: UIImage { get }
+    var iconPassword: UIImage { get }
     var iconGoogle: UIImage { get }
     var iconApple: UIImage { get }
     var iconTelegram: UIImage { get }

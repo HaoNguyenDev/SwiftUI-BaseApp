@@ -36,6 +36,7 @@ struct SampleViewCoordinator: View, ScreenCoordinator {
             .navigationDestination(for: ScreenRouter.self) { route in
                 viewForRouter(router: route)
             }
+            .toolbar(.hidden, for: .navigationBar)
             .toolbar {
                 // (Leading)
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -62,7 +63,6 @@ struct SampleViewCoordinator: View, ScreenCoordinator {
         }, gotoSubview2: {
             navRouter.push(ScreenRouter.subview2, animate: true)
         })
-        .toolbar(.hidden, for: .navigationBar)
     }
     
     @ViewBuilder

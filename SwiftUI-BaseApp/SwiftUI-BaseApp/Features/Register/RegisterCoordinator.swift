@@ -21,8 +21,10 @@ extension Router {
 struct RegisterCoordinator: View, ScreenCoordinator {
     typealias ScreenRouter = Router.Register
     var navRouter: any NavRouterProtocol
+    @State private var viewModel: RegisterViewModel
     
     init(navRouter: any NavRouterProtocol) {
+        self._viewModel = State(initialValue: RegisterViewModel())
         self.navRouter = navRouter
     }
     
@@ -45,7 +47,9 @@ struct RegisterCoordinator: View, ScreenCoordinator {
     
     @ViewBuilder
     private func registerView() -> some View {
-        RegisterView()
+        RegisterView(viewModel: viewModel, registerSuccess: {
+            NotificationCenter.default.post(name: .closeLoginFlow, object: nil)
+        })
     }
     
     @ViewBuilder
@@ -54,11 +58,5 @@ struct RegisterCoordinator: View, ScreenCoordinator {
         case .none:
             EmptyView()
         }
-    }
-}
-
-struct RegisterView: View {
-    var body: some View {
-        Text("RegisterView")
     }
 }

@@ -16,6 +16,7 @@ struct DarkThemeAssets: ThemeAssetsProtocol {
     var iconClose: UIImage { R.image.ic_close() ?? UIImage() }
     var iconPhone: UIImage { R.image.ic_phone() ?? UIImage() }
     var iconEmail: UIImage { R.image.ic_email() ?? UIImage() }
+    var iconPassword: UIImage { R.image.ic_password() ?? UIImage() }
     var iconGoogle: UIImage { R.image.ic_google() ?? UIImage() }
     var iconApple: UIImage { R.image.ic_apple() ?? UIImage() }
     var iconTelegram: UIImage { R.image.ic_telegram() ?? UIImage() }
