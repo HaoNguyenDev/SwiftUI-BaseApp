@@ -76,7 +76,7 @@ struct LoginResult {
     func doLogin() async {
         viewState = .loading
         try? await Task.sleep(for: .seconds(2))
-        let username: String = ["haonguyen", "minhhoang", "tuananh", "tuananh123", "tuananh456"].randomElement() ?? "Unknown"
+        let username: String = ["haonguyen", "minhhoang", "tuananh"].randomElement() ?? "Unknown"
         
         let loginResult: LoginResult = .init(token: "token 1234",
                                              refreshToken: "refresh token 1234",
@@ -85,6 +85,7 @@ struct LoginResult {
         Task { @MainActor in
             userSettings.username = loginResult.username
             userSettings.token = loginResult.token
+            userSettings.refreshToken = loginResult.refreshToken
         }
         viewState = .success(loginResult)
     }
@@ -123,27 +124,5 @@ extension LoginViewModel {
             return PasswordFieldError.incorrect
         }
         return nil
-    }
-    
-    private func setupValidation<T: Error>(
-        for publisher: Published<String>.Publisher,
-        validation: @escaping (String) -> Error?,
-        isValid: ReferenceWritableKeyPath<LoginViewModel, Bool>,
-        errorMessage: ReferenceWritableKeyPath<LoginViewModel, String?>,
-        errorType: T.Type
-    ) {
-        publisher
-            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
-            .sink { [weak self] input in
-                guard let self = self else { return }
-                let error = validation(input)
-                self[keyPath: isValid] = (error == nil)
-                if let specificError = error as? T {
-                    self[keyPath: errorMessage] = specificError.localizedDescription
-                } else {
-                    self[keyPath: errorMessage] = nil
-                }
-            }
-            .store(in: &cancellables)
     }
 }

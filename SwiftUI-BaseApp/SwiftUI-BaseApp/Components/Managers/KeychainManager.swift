@@ -40,6 +40,7 @@ extension KeychainManager {
         case username = "haonguyen.SwiftUI-BaseApp.key.username"
         case password = "haonguyen.SwiftUI-BaseApp.key.password"
         case token = "haonguyen.SwiftUI-BaseApp.key.token"
+        case refreshToken = "haonguyen.SwiftUI-BaseApp.key.refreshToken"
         case userId = "haonguyen.SwiftUI-BaseApp.key.userId"
     }
 }

@@ -37,6 +37,7 @@ extension UserSettings {
     }
     
     private var _token: String? = nil
+    private var _refreshToken: String? = nil
     private var _username: String? = nil
     private var _password: String? = nil
     private var _userId: String? = nil
@@ -88,6 +89,18 @@ extension UserSettings {
             _token = newValue
             Task {
                 await saveValueToKeychain(newValue, for: .token)
+            }
+        }
+    }
+    
+    var refreshToken: String? {
+        get {
+            return _refreshToken
+        }
+        set {
+            _refreshToken = newValue
+            Task {
+                await saveValueToKeychain(newValue, for: .refreshToken)
             }
         }
     }
@@ -154,6 +167,7 @@ extension UserSettings {
     static func loadSettings() async -> UserSettings {
         let settings = UserSettings()
         settings._token = await settings.loadValueFromKeychain(for: .token)
+        settings._refreshToken = await settings.loadValueFromKeychain(for: .refreshToken)
         settings._username = await settings.loadValueFromKeychain(for: .username)
         settings._password = await settings.loadValueFromKeychain(for: .password)
         settings._userId = await settings.loadValueFromKeychain(for: .userId)
