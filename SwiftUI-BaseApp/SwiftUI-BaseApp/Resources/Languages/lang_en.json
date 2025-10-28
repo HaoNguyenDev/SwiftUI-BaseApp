@@ -65,6 +65,7 @@
         "show_fullscreen": "Show FullScreen",
         "greeting_with_name": "Hi, %@",
         "name_age_sex": "Hi, my name is %1$@, i'm %2$@ and i'm are %3$@",
-        "login_please": "Login, please!"
+        "login_please": "Login, please!",
+        "invalid_url": "Invalid URL"
     }
 }

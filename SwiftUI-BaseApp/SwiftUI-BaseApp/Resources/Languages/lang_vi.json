@@ -65,6 +65,7 @@
         "show_fullscreen": "Hiện toàn màn hình",
         "greeting_with_name": "Chào, %@",
         "name_age_sex": "Chào tôi tên là %1$@, tôi %2$@ tuổi và tôi là %3$@",
-        "login_please": "Vui lòng đăng nhập!"
+        "login_please": "Vui lòng đăng nhập!",
+        "invalid_url": "URL không hợp lệ"
     }
 }
