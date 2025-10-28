@@ -50,6 +50,20 @@
         "users": "Users",
         "system": "System",
         "light": "Light",
-        "dark": "Dark"
+        "dark": "Dark",
+        "email": "Email",
+        "enter_your_email": "Enter your email",
+        "password": "Password",
+        "enter_your_password": "Enter your password",
+        "register_successfully": "Register succesfully",
+        "please_login": "Please login",
+        "login_with_apple": "Login with Apple",
+        "login_with_google": "Login with Google",
+        "login_with_telegram": "Login with Telegram",
+        "save": "Save",
+        "show_sheet": "Show Sheet",
+        "show_fullscreen": "Show FullScreen",
+        "greeting_with_name": "Hi, %@", // Use %1$@ for the first parameter, %2$@ for the second, and so on.
+        "login_please": "Login, please!"
     }
 }

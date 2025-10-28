@@ -77,9 +77,9 @@ struct HeaderView: View {
     
     private func nameView() -> Text {
         if let name = userSettings.username {
-            return Text("Hi, \(name)")
+            return Text("greeting_with_name".localized(withArgs: name))
         }
-        return Text("Login, please!")
+        return Text("login_please".localized())
     }
 }
 

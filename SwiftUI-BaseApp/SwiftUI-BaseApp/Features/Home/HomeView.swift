@@ -74,13 +74,13 @@ extension HomeView {
             .padding(.horizontal, PaddingSize.standard)
             .buttonStyle(.primaryHButton)
             
-            Button("Show Sheet") {
+            Button("show_sheet".localized()) {
                 showSheet?()
             }
             .padding(.horizontal, PaddingSize.standard)
             .buttonStyle(.primaryHButton)
             
-            Button("Show FullScreen") {
+            Button("show_fullscreen".localized()) {
                 showFullScreen?()
             }
             .padding(.horizontal, PaddingSize.standard)

@@ -94,15 +94,6 @@ extension LoginView {
         }
     }
     
-//    private var closeButton: some View {
-//        HStack(alignment: .center) {
-//            CloseButton(action: {
-//                dismiss()
-//            })
-//        }
-//        .frame(maxWidth: .infinity, maxHeight: HeightSize.headerIcon, alignment: .trailing)
-//    }
-    
     private var loginTitle: some View {
         Text("login_title".localized())
             .boldStyle(theme, size: TextSize.largeTitle, color: theme.color.primaryText, alignment: .leading)
@@ -112,8 +103,8 @@ extension LoginView {
     
     private var inputFields: some View {
         VStack(spacing: PaddingSize.standard) {
-            HTextField(title: "Email",
-                       placeholder: "Enter your email",
+            HTextField(title: "email".localized(),
+                       placeholder: "enter_your_email".localized(),
                        keyboardType: .emailAddress,
                        leftImage: theme.assets.iconEmail,
                        text: $viewModel.email,
@@ -121,8 +112,8 @@ extension LoginView {
             .padding(.horizontal, PaddingSize.standard)
             .padding(.bottom, PaddingSize.tight)
             
-            HTextField(title: "Password",
-                       placeholder: "Enter your password",
+            HTextField(title: "password".localized(),
+                       placeholder: "enter_your_password".localized(),
                        keyboardType: .default,
                        leftImage: theme.assets.iconPassword,
                        text: $viewModel.password,
@@ -178,19 +169,19 @@ extension LoginView {
     
     private var socialLoginButtons: some View {
         VStack {
-            Button("Login with Apple".localized()){
+            Button("login_with_apple".localized()){
                 // TODO: Apple login
             }
             .padding(.horizontal, PaddingSize.standard)
             .buttonStyle(.tertiaryHButtonStyle(size: .large, leftSideIcon: theme.assets.iconApple))
             
-            Button("Login with Google".localized()){
+            Button("login_with_google".localized()){
                 // TODO: Google login
             }
             .padding(.horizontal, PaddingSize.standard)
             .buttonStyle(.tertiaryHButtonStyle(size: .large, leftSideIcon: theme.assets.iconGoogle))
             
-            Button("Login with Telegram".localized()){
+            Button("login_with_telegram".localized()){
                 // TODO: Telegram login
             }
             .padding(.horizontal, PaddingSize.standard)

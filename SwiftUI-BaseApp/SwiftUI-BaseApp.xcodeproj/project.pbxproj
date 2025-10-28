@@ -172,6 +172,7 @@
 		DAB393052EAF7D0100357628 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB393042EAF7D0100357628 /* Notification+Name.swift */; };
 		DAB3931E2EAF885A00357628 /* SafeAreaInsetsViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB3931D2EAF885A00357628 /* SafeAreaInsetsViewModifier.swift */; };
 		DAB393412EAFB3F400357628 /* LoginErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB393402EAFB3F400357628 /* LoginErrors.swift */; };
+		DAB3935D2EB08A4200357628 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB3935C2EB08A4200357628 /* RegisterViewModel.swift */; };
 		DAD6C2C32EAA72C80051AB26 /* PaddingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */; };
 		DAD6C31D2EAA86E90051AB26 /* ImageStylingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */; };
 		DAD6C3372EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */; };
@@ -365,6 +366,7 @@
 		DAB393042EAF7D0100357628 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		DAB3931D2EAF885A00357628 /* SafeAreaInsetsViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaInsetsViewModifier.swift; sourceTree = "<group>"; };
 		DAB393402EAFB3F400357628 /* LoginErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrors.swift; sourceTree = "<group>"; };
+		DAB3935C2EB08A4200357628 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingSize.swift; sourceTree = "<group>"; };
 		DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStylingModifier.swift; sourceTree = "<group>"; };
 		DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryBackgroundModifier.swift; sourceTree = "<group>"; };
@@ -907,6 +909,7 @@
 		DAB392C22EAE7F6700357628 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				DAB3935C2EB08A4200357628 /* RegisterViewModel.swift */,
 				DAB392C42EAE7FA600357628 /* RegisterCoordinator.swift */,
 				DAB392E72EAF176900357628 /* RegisterView.swift */,
 			);
@@ -1238,6 +1241,7 @@
 				DA748E162E22C5DC00B1B226 /* PlaceholderViewCoordinator.swift in Sources */,
 				DAFCDF852E6482FD00B97C00 /* ErrorBanner.swift in Sources */,
 				DAB392C52EAE7FA600357628 /* RegisterCoordinator.swift in Sources */,
+				DAB3935D2EB08A4200357628 /* RegisterViewModel.swift in Sources */,
 				DA748F972E23A8CC00B1B226 /* MainTabControllerView.swift in Sources */,
 				DA890F8D2E23D7850005D9DB /* ProfileViewCoordinator.swift in Sources */,
 				DAD6C2C32EAA72C80051AB26 /* PaddingSize.swift in Sources */,

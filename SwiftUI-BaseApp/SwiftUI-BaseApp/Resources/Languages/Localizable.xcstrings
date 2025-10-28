@@ -39,9 +39,6 @@
     "Fixed Icon (No need to resizable if using small size SF Symbol)" : {
 
     },
-    "Hi, %@" : {
-
-    },
     "Image Styling Modifier Demo (Must call .resizable() first)" : {
 
     },
@@ -51,19 +48,16 @@
     "Loading..." : {
 
     },
-    "Login, please!" : {
-
-    },
     "OOPS!\nThis route is not implemented AppCoordinator showSheet function yet." : {
 
     },
     "OOPS!\nThis route is not implemented at AppCoordinator showFullScreen function yet." : {
 
     },
-    "OOPS!\nThis route is not implemented at LoginCoordinator showFullScreen function yet." : {
+    "OOPS!\nThis route is not implemented in LoginCoordinator showFullScreen function yet." : {
 
     },
-    "OOPS!\nThis route is not implemented LoginCoordinator showSheet function yet." : {
+    "OOPS!\nThis route is not implemented in LoginCoordinator showSheet function yet." : {
 
     },
     "or" : {
@@ -78,16 +72,7 @@
     "Round Avatar" : {
 
     },
-    "Save" : {
-
-    },
     "Secondary" : {
-
-    },
-    "Show FullScreen" : {
-
-    },
-    "Show Sheet" : {
 
     },
     "Tertiary" : {

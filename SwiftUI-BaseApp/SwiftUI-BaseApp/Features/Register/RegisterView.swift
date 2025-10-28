@@ -7,41 +7,12 @@
 
 import SwiftUI
 
-@Observable class RegisterViewModel: ViewStateable {
-   
-    var viewState: ViewState
-    
-    init() {
-        self.viewState = .initial
-    }
-    
-}
-
-// MARK: ViewStateable
-extension RegisterViewModel {
-    enum ViewState {
-        case initial
-        case content
-        case loading
-        case failed(Error)
-        case success
-    }
-    
-    func changeState(_ newState: ViewState) {
-        viewState = newState
-    }
-}
-
-
 struct RegisterView: View {
     @Environment(AppState.self) var appState
     @Environment(\.theme) var theme: any ThemeProtocol
     @Environment(\.dismiss) private var dismiss
     
     @State var viewModel: RegisterViewModel
-    @State private var emailInput = ""
-    @State private var passwordInput = ""
-    
     private let registerSuccess: VoidResult?
     
     init(viewModel: RegisterViewModel,
@@ -59,9 +30,6 @@ struct RegisterView: View {
         .setPrimaryBackground()
         .dismissKeyboardOnTap()
     }
-    
-    
-    
 }
 
 // MARK: - UI
@@ -93,21 +61,21 @@ extension RegisterView {
     
     private var inputFields: some View {
         VStack(spacing: PaddingSize.standard) {
-            HTextField(title: "Email",
-                       placeholder: "Enter your email",
+            HTextField(title: "email".localized(),
+                       placeholder: "enter_your_email".localized(),
                        keyboardType: .emailAddress,
                        leftImage: theme.assets.iconEmail,
-                       text: $emailInput,
-                       errorMessage: .constant(nil))
+                       text: $viewModel.email,
+                       errorMessage: $viewModel.emailErrorMessage)
             .padding(.horizontal, PaddingSize.standard)
             .padding(.bottom, PaddingSize.tight)
             
-            HTextField(title: "Password",
-                       placeholder: "Enter your password",
+            HTextField(title: "password".localized(),
+                       placeholder: "enter_your_password".localized(),
                        keyboardType: .default,
                        leftImage: theme.assets.iconPassword,
-                       text: $passwordInput,
-                       errorMessage: .constant(nil))
+                       text: $viewModel.password,
+                       errorMessage: $viewModel.passwordErrorMessage)
             .padding(.horizontal, PaddingSize.standard)
             .padding(.top, PaddingSize.tight)
         }
@@ -124,6 +92,7 @@ extension RegisterView {
         }
         .padding(.horizontal, PaddingSize.standard)
         .buttonStyle(.primaryHButton)
+        .disabled(!viewModel.isLoginButtonEnabled)
     }
 }
 

@@ -49,7 +49,7 @@ struct SampleViewCoordinator: View, ScreenCoordinator {
                 
                 // (Trailing)
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
+                    Button("save".localized()) {
                         // Action
                     }
                 }

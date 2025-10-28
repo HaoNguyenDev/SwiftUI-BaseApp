@@ -1,22 +1,15 @@
 //
-//  LoginModel.swift
+//  RegisterViewModel.swift
 //  SwiftUI-BaseApp
 //
-//  Created by Hao Nguyen on 13/7/25.
+//  Created by Hao Nguyen on 28/10/25.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 
-struct LoginResult {
-    let token: String
-    let refreshToken: String?
-    let username: String
-    let referralCode: String?
-}
-
-@Observable class LoginViewModel {
-    private var userSettings: UserSettings
+@Observable class RegisterViewModel: ViewStateable {
+   
     var viewState: ViewState = .contentView /// ViewStateable
     private var cancellables = Set<AnyCancellable>()
     
@@ -47,34 +40,19 @@ struct LoginResult {
         return isEmailValid && isPasswordValid
     }
     
-    init (userSettings: UserSettings) {
-        self.userSettings = userSettings
+    init() {
+        viewState = .contentView
     }
     
-    func doLogin() async {
-        viewState = .loading
-        try? await Task.sleep(for: .seconds(2))
-        let username: String = ["haonguyen", "minhhoang", "tuananh"].randomElement() ?? "Unknown"
-        
-        let loginResult: LoginResult = .init(token: "token 1234",
-                                             refreshToken: "refresh token 1234",
-                                             username: username,
-                                             referralCode: "1234")
-        Task { @MainActor in
-            userSettings.username = loginResult.username
-            userSettings.token = loginResult.token
-            userSettings.refreshToken = loginResult.refreshToken
-        }
-        viewState = .success(loginResult)
-    }
 }
 
-extension LoginViewModel: ViewStateable {
+// MARK: ViewStateable
+extension RegisterViewModel {
     enum ViewState {
         case contentView
         case loading
-        case success(LoginResult)
-        case failure(Error)
+        case failed(Error)
+        case success
     }
     
     func changeState(_ newState: ViewState) {
@@ -83,7 +61,7 @@ extension LoginViewModel: ViewStateable {
 }
 
 // MARK: - Validation
-extension LoginViewModel {
+extension RegisterViewModel {
     
     private func handleIputEmailChanged(to email: String) {
         Task {
@@ -134,3 +112,4 @@ extension LoginViewModel {
         return nil
     }
 }
+
