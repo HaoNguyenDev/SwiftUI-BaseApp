@@ -87,8 +87,15 @@ struct UserAvatar: View {
     var body: some View {
         KFImage.url(url)
             .resizable()
-            .onSuccess { r in
-                print("Success: \(r.cacheType)")
+            .onSuccess { result in
+                switch result.cacheType {
+                case .none:
+                    print("➡️ Source: Downloaded from **Network**.")
+                case .memory:
+                    print("➡️ Source: Retrieved from **RAM (Memory Cache)**.")
+                case .disk:
+                    print("➡️ Source: Retrieved from **Disk (Disk Cache)**.")
+                }
             }
             .onFailure { e in
                 print("Error \(e)")
@@ -108,7 +115,7 @@ struct UserAvatar: View {
             }
             .fade(duration: 1)
             .cancelOnDisappear(true)
-            .cacheMemoryOnly(true)
+            .cacheMemoryOnly()
             .aspectRatio(contentMode: .fit)
             .cornerRadius(RadiusSize.imageList)
     }

@@ -49,9 +49,9 @@ extension SwiftUI_BaseApp {
     
     private func setupKingfisherCache() {
         let cache = ImageCache.default
-        /// Limit the Memory Cache to 100 MB
-        cache.memoryStorage.config.totalCostLimit = 1024 * 1024 * 100
-        /// Limit the number of images in RAM to 50
+        /// Limit the Memory Cache to 200 MB
+        cache.memoryStorage.config.totalCostLimit = 1024 * 1024 * 200
+        /// Limit the number of images in RAM to 100
         cache.memoryStorage.config.countLimit = 100
         /// Set the expiration time in RAM to 5 minutes (images will be released from RAM after 5 minutes of disuse)
         cache.memoryStorage.config.expiration = .seconds(300)
