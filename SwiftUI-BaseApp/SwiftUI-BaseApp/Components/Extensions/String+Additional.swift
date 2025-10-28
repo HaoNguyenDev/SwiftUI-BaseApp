@@ -60,4 +60,10 @@ extension String {
     func localized() -> String {
         return LanguageManager.shared.valueForKey(self)
     }
+    
+    /// "greeting_with_name".localized(withArgs: name, age, sex)
+    func localized(withArgs arguments: CVarArg...) -> String {
+        let formatString = self.localized()
+        return String(format: formatString, arguments)
+    }
 }

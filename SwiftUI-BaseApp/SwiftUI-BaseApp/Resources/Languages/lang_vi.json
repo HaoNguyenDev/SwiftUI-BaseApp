@@ -50,6 +50,21 @@
         "users": "Người dùng",
         "system": "Hệ thống",
         "light": "Sáng",
-        "dark": "Tối"
+        "dark": "Tối",
+        "email": "Email",
+        "enter_your_email": "Nhập email của bạn",
+        "password": "Mật khẩu",
+        "enter_your_password": "Nhập mật khẩu của bạn",
+        "register_successfully": "Đăng ký thành công",
+        "please_login": "Vui lòng đăng nhập",
+        "login_with_apple": "Đăng nhập bằng Apple",
+        "login_with_google": "Đăng nhập bằng Google",
+        "login_with_telegram": "Đăng nhập bằng Telegram",
+        "save": "Lưu",
+        "show_sheet": "Hiện cửa sổ",
+        "show_fullscreen": "Hiện toàn màn hình",
+        "greeting_with_name": "Chào, %@",
+        "name_age_sex": "Chào tôi tên là %1$@, tôi %2$@ tuổi và tôi là %3$@",
+        "login_please": "Vui lòng đăng nhập!"
     }
 }

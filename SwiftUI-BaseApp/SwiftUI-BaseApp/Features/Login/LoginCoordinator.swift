@@ -80,7 +80,7 @@ struct LoginCoordinator: View, ScreenCoordinator {
     func viewForRouter(router: ScreenRouter) -> some View {
         switch router {
         case .forgotPassword:
-            PlaceholderViewCoordinator(navRouter: rootRouter, title: "Forgot Password")
+            PlaceholderViewCoordinator(navRouter: rootRouter, title: "forgot_password".localized())
         case .register:
             RegisterCoordinator(navRouter: rootRouter)
         }
@@ -93,7 +93,7 @@ extension LoginCoordinator {
         switch routable {
         case Router.PlaceholderView.view(let titleParam):
             PlaceholderViewCoordinator(navRouter: rootRouter, title: titleParam)
-        default: Text("OOPS!\nThis route is not implemented LoginCoordinator showSheet function yet.")
+        default: Text("OOPS!\nThis route is not implemented in LoginCoordinator showSheet function yet.")
         }
     }
     
@@ -102,14 +102,12 @@ extension LoginCoordinator {
         switch routable {
         case Router.PlaceholderView.view(let titleParam):
             PlaceholderViewCoordinator(navRouter: rootRouter, title: titleParam)
-        default: Text("OOPS!\nThis route is not implemented at LoginCoordinator showFullScreen function yet.")
+        default: Text("OOPS!\nThis route is not implemented in LoginCoordinator showFullScreen function yet.")
         }
     }
 }
 
 #Preview {
-    NavigationStack {
-        LoginCoordinator(mainTabNavRouter: NavRouter(), userSettings: UserSettings())
-            .environment(AppState())
-    }
+    LoginCoordinator(mainTabNavRouter: NavRouter(), userSettings: UserSettings())
+        .environment(AppState())
 }

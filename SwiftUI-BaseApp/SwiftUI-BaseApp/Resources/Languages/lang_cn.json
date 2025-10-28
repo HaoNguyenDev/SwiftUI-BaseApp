@@ -50,6 +50,21 @@
         "users": "使用者",
         "system": "系统",
         "light": "浅色",
-        "dark": "深色"
+        "dark": "深色",
+        "email": "电子邮件",
+        "enter_your_email": "输入您的电子邮件",
+        "password": "密码",
+        "enter_your_password": "输入您的密码",
+        "register_successfully": "注册成功",
+        "please_login": "请登录",
+        "login_with_apple": "使用 Apple 登录",
+        "login_with_google": "使用 Google 登录",
+        "login_with_telegram": "使用 Telegram 登录",
+        "save": "保存",
+        "show_sheet": "显示浮层",
+        "show_fullscreen": "显示全屏",
+        "greeting_with_name": "您好, %@",
+        "name_age_sex": "Hi, my name is %1$@, i'm %2$@ and i'm are %3$@",
+        "login_please": "请登录！"
     }
 }
