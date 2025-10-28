@@ -84,7 +84,7 @@ extension UserRowView {
                 Link(urlString, destination: url)
                     .font(.system(size: 12))
             } else {
-                Text("Invalid URL")
+                Text("invalid_url".localized())
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.blue)
                     .font(.system(size: 12))
