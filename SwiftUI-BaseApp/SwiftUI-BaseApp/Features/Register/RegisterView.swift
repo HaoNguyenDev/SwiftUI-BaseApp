@@ -24,6 +24,19 @@ struct RegisterView: View {
     var body: some View {
         ScrollView {
             contentView
+                .overlay {
+                    switch viewModel.viewState {
+                    case .loading:
+                        loadingView
+                    case .contentView:
+                        Color.clear
+                    case .failed(_):
+                        Color.clear
+                    case .success:
+                        Color.clear
+                    }
+                }
+            
         }
         .fillMax()
         .safeAreaInsetsViewModifier(verticalEdge: .bottom)

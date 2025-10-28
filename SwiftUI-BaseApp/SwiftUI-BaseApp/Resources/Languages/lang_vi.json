@@ -63,7 +63,8 @@
         "save": "Lưu",
         "show_sheet": "Hiện cửa sổ",
         "show_fullscreen": "Hiện toàn màn hình",
-        "greeting_with_name": "Chào, %@", // Use %1$@ for the first parameter, %2$@ for the second, and so on.
+        "greeting_with_name": "Chào, %@",
+        "name_age_sex": "Chào tôi tên là %1$@, tôi %2$@ tuổi và tôi là %3$@",
         "login_please": "Vui lòng đăng nhập!"
     }
 }
