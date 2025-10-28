@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImage
-import SDWebImageSwiftUI
+import Kingfisher
 
 struct UserRowView: View {
     @Environment(\.theme) var theme
@@ -16,8 +15,9 @@ struct UserRowView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack (alignment: .top){
+                idView
                 // avatar part
-                avatarView
+                UserAvatar(urlString: user.avatarUrl)
                 // info part
                 infoView
                 Spacer()
@@ -27,47 +27,19 @@ struct UserRowView: View {
         .background(Color.white)
         .cornerRadius(10)
         .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 5)
-        .padding(.horizontal, 20)
     }
 }
 
 extension UserRowView {
-    private var avatarView: some View {
-        HStack(spacing: 10) {
-            
-            if let id = user.id {
-                Text("\(id)")
-                    .foregroundStyle(.black)
-                    .font(.headline)
-                    .fontWeight(.bold)
-            }
-            
-            AsyncImage(url: URL(string: user.avatarUrl ?? "")) { phase in
-                switch phase {
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFit()
-                case .failure, .empty:
-                    Image(uiImage: theme.assets.userAvatar)
-                        .resizable()
-                        .scaledToFit()
-                @unknown default:
-                    Image(uiImage: theme.assets.userAvatar)
-                        .resizable()
-                        .scaledToFit()
-                }
-            }
-            .cornerRadius(10)
-            
-            //            WebImage(url: URL(string: user.avatarUrl ?? ""))
-            //                .resizable()
-            //                .scaledToFit()
-            //                .cornerRadius(10)
+    @ViewBuilder
+    private var idView: some View {
+        if let id = user.id {
+            Text("\(id)")
+                .regularStyle(theme, size: TextSize.caption1, color: theme.color.primaryText)
+        } else {
+            Text("id")
+                .regularStyle(theme, size: TextSize.caption1, color: theme.color.primaryText)
         }
-        .frame(maxWidth: 100, maxHeight: 100)
-        
-        .padding([.leading, .top, .bottom], 10)
     }
 }
 
@@ -95,6 +67,49 @@ extension UserRowView {
     }
 }
 
+
 #Preview {
     UserRowView(user: GithubUser(id: 1, login: "Hao", avatarUrl: "avatarUrl", url: "url" ))
+}
+
+struct UserAvatar: View {
+    private var url: URL?
+    
+    init(urlString: String?) {
+        url = URL(string: urlString.orEmpty) ?? nil
+    }
+    
+    var alreadyCached: Bool {
+        guard let url else { return false }
+        return ImageCache.default.isCached(forKey: url.absoluteString)
+    }
+    
+    var body: some View {
+        KFImage.url(url)
+            .resizable()
+            .onSuccess { r in
+                print("Success: \(r.cacheType)")
+            }
+            .onFailure { e in
+                print("Error \(e)")
+            }
+            .onProgress { downloaded, total in
+                print("\(downloaded) / \(total))")
+            }
+            .placeholder {
+                HStack {
+                    Image(systemName: "arrow.2.circlepath.circle")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .padding(10)
+                    Text("Loading...").font(.title)
+                }
+                .foregroundColor(.gray)
+            }
+            .fade(duration: 1)
+            .cancelOnDisappear(true)
+            .cacheMemoryOnly(true)
+            .aspectRatio(contentMode: .fit)
+            .cornerRadius(RadiusSize.imageList)
+    }
 }

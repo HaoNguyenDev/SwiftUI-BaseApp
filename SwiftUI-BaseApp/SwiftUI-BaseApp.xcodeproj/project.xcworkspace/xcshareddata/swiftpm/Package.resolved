@@ -1,5 +1,5 @@
 {
-  "originHash" : "df4ef6e4051d2c9c48893a6cfaf4a04fcc82d0b4ed1a02709bc63daaa9873735",
+  "originHash" : "3e308903ad81abf9c73750b3cf812bc32797130a5202e292c5a9e585d262c6de",
   "pins" : [
     {
       "identity" : "keychainaccess",
@@ -8,6 +8,15 @@
       "state" : {
         "branch" : "master",
         "revision" : "e0c7eebc5a4465a3c4680764f26b7a61f567cdaf"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "4d75de347da985a70c63af4d799ed482021f6733",
+        "version" : "8.6.1"
       }
     },
     {
@@ -33,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "b62cb63bf4ed1f04c961a56c9c6c9d5ab8524ec6",
-        "version" : "5.21.1"
+        "revision" : "2053b120767c42a70bcba21095f34e4cfb54a75d",
+        "version" : "5.21.3"
       }
     },
     {

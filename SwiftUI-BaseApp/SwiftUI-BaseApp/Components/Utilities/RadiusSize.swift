@@ -10,5 +10,6 @@ import Foundation
 struct RadiusSize {
     static let tab: CGFloat = 30.0
     static let shadow: CGFloat = 8.0
+    static let imageList: CGFloat = 8.0
     static let textField: CGFloat = 10.0
 }

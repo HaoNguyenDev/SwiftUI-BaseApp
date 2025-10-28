@@ -10,6 +10,7 @@ import UIKit
 import SwiftUI
 import Observation
 import KeychainAccess
+import Kingfisher
 
 extension UserSettings {
     // MARK: - Keys
@@ -197,6 +198,13 @@ extension UserSettings {
         referralCode = nil
         userId = nil
         signature = nil
+    }
+    
+    func clearCache() {
+        let cache = ImageCache.default
+        cache.clearMemoryCache()
+        cache.clearDiskCache()
+        cache.cleanExpiredDiskCache()
     }
 }
 
