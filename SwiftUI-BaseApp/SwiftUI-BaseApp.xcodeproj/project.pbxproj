@@ -123,9 +123,6 @@
 		DA748DEA2E22C14200B1B226 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DE92E22C14100B1B226 /* ButtonStyle.swift */; };
 		DA748DEC2E22C15100B1B226 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DEB2E22C15000B1B226 /* BackButton.swift */; };
 		DA748DEF2E22C16400B1B226 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DA748DEE2E22C16400B1B226 /* Lottie */; };
-		DA748DF22E22C17200B1B226 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DA748DF12E22C17200B1B226 /* SDWebImageSwiftUI */; };
-		DA748DF52E22C17B00B1B226 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DA748DF42E22C17B00B1B226 /* SDWebImage */; };
-		DA748DF72E22C17B00B1B226 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DA748DF62E22C17B00B1B226 /* SDWebImageMapKit */; };
 		DA748DFC2E22C28F00B1B226 /* LottieHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DFB2E22C28F00B1B226 /* LottieHelperView.swift */; };
 		DA748DFE2E22C29B00B1B226 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DFD2E22C29B00B1B226 /* Closures.swift */; };
 		DA748E002E22C2DA00B1B226 /* View+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA748DFF2E22C2D900B1B226 /* View+Additional.swift */; };
@@ -173,6 +170,8 @@
 		DAB3931E2EAF885A00357628 /* SafeAreaInsetsViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB3931D2EAF885A00357628 /* SafeAreaInsetsViewModifier.swift */; };
 		DAB393412EAFB3F400357628 /* LoginErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB393402EAFB3F400357628 /* LoginErrors.swift */; };
 		DAB3935D2EB08A4200357628 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB3935C2EB08A4200357628 /* RegisterViewModel.swift */; };
+		DAB393742EB0DBBB00357628 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DAB393732EB0DBBB00357628 /* Kingfisher */; };
+		DAB3937B2EB0E48900357628 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DAB3937A2EB0E48900357628 /* SDWebImageSwiftUI */; };
 		DAD6C2C32EAA72C80051AB26 /* PaddingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C2C22EAA72C80051AB26 /* PaddingSize.swift */; };
 		DAD6C31D2EAA86E90051AB26 /* ImageStylingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C31C2EAA86E90051AB26 /* ImageStylingModifier.swift */; };
 		DAD6C3372EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6C3362EAB1BA00051AB26 /* PrimaryBackgroundModifier.swift */; };
@@ -403,9 +402,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA748DF52E22C17B00B1B226 /* SDWebImage in Frameworks */,
-				DA748DF22E22C17200B1B226 /* SDWebImageSwiftUI in Frameworks */,
-				DA748DF72E22C17B00B1B226 /* SDWebImageMapKit in Frameworks */,
+				DAB3937B2EB0E48900357628 /* SDWebImageSwiftUI in Frameworks */,
+				DAB393742EB0DBBB00357628 /* Kingfisher in Frameworks */,
 				DA748DEF2E22C16400B1B226 /* Lottie in Frameworks */,
 				DA58DDC12E9E8DD20042D1AD /* KeychainAccess in Frameworks */,
 				DA47253E2EA65E7E000D596A /* RswiftLibrary in Frameworks */,
@@ -1015,11 +1013,12 @@
 			name = "SwiftUI-BaseApp";
 			packageProductDependencies = (
 				DA748DEE2E22C16400B1B226 /* Lottie */,
-				DA748DF12E22C17200B1B226 /* SDWebImageSwiftUI */,
 				DA748DF42E22C17B00B1B226 /* SDWebImage */,
 				DA748DF62E22C17B00B1B226 /* SDWebImageMapKit */,
 				DA58DDC02E9E8DD20042D1AD /* KeychainAccess */,
 				DA47253D2EA65E7E000D596A /* RswiftLibrary */,
+				DAB393732EB0DBBB00357628 /* Kingfisher */,
+				DAB3937A2EB0E48900357628 /* SDWebImageSwiftUI */,
 			);
 			productName = "SwiftUI-BaseApp";
 			productReference = DA5CC2702E22B254000C5F18 /* SwiftUI-BaseApp.app */;
@@ -1051,10 +1050,11 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				DA748DED2E22C16400B1B226 /* XCRemoteSwiftPackageReference "lottie-spm" */,
-				DA748DF02E22C17200B1B226 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				DA748DF32E22C17B00B1B226 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				DA58DDBF2E9E8DD20042D1AD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				DA47253C2EA65E7E000D596A /* XCRemoteSwiftPackageReference "R.swift" */,
+				DAB393722EB0DBBB00357628 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DAB393792EB0E48900357628 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DA5CC2712E22B254000C5F18 /* Products */;
@@ -1506,20 +1506,28 @@
 				minimumVersion = 4.5.2;
 			};
 		};
-		DA748DF02E22C17200B1B226 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.3;
-			};
-		};
 		DA748DF32E22C17B00B1B226 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.21.1;
+			};
+		};
+		DAB393722EB0DBBB00357628 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.6.1;
+			};
+		};
+		DAB393792EB0E48900357628 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1545,11 +1553,6 @@
 			package = DA748DED2E22C16400B1B226 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
 		};
-		DA748DF12E22C17200B1B226 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DA748DF02E22C17200B1B226 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
-		};
 		DA748DF42E22C17B00B1B226 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA748DF32E22C17B00B1B226 /* XCRemoteSwiftPackageReference "SDWebImage" */;
@@ -1559,6 +1562,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DA748DF32E22C17B00B1B226 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		DAB393732EB0DBBB00357628 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DAB393722EB0DBBB00357628 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		DAB3937A2EB0E48900357628 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DAB393792EB0E48900357628 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

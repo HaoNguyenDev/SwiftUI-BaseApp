@@ -39,10 +39,10 @@
     "Fixed Icon (No need to resizable if using small size SF Symbol)" : {
 
     },
-    "Image Styling Modifier Demo (Must call .resizable() first)" : {
+    "id" : {
 
     },
-    "Invalid URL" : {
+    "Image Styling Modifier Demo (Must call .resizable() first)" : {
 
     },
     "Loading..." : {
