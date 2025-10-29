@@ -32,9 +32,6 @@ struct AccountViewCoordinator: View, ScreenCoordinator {
     
     var body: some View {
         accountView()
-            .navigationDestination(for: ScreenRouter.self) { router in
-                viewForRouter(router: router)
-            }
     }
     
     @ViewBuilder
@@ -47,14 +44,6 @@ struct AccountViewCoordinator: View, ScreenCoordinator {
             navRouter.showSheet(RouterView.init(routable: Router.AppCoordinator.login))
         })
         .toolbar(.hidden, for: .navigationBar)
-    }
-    
-    @ViewBuilder
-    func viewForRouter(router: ScreenRouter) -> some View {
-        switch router {
-        case .none:
-            PlaceholderViewCoordinator(navRouter: navRouter)
-        }
     }
 }
 

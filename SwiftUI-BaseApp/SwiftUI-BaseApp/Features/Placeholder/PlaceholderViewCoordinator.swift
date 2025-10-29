@@ -32,9 +32,9 @@ struct PlaceholderViewCoordinator: View, ScreenCoordinator {
     
     var body: some View {
         getView()
-            .navigationDestination(for: ScreenRouter.self) { route in
-                viewForRouter(router: route)
-            }
+//            .navigationDestination(for: ScreenRouter.self) { route in
+//                viewForRouter(router: route)
+//            }
         //        .toolbar(.hidden, for: .bottomBar)
         //        .toolbar(.hidden, for: .tabBar)
         //        .toolbar(.hidden, for: .navigationBar)

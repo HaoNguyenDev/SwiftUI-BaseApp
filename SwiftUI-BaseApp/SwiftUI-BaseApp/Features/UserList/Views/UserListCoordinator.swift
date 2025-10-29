@@ -30,9 +30,6 @@ struct UserListCoordinator: View, ScreenCoordinator {
     
     var body: some View {
         getView()
-            .navigationDestination(for: ScreenRouter.self) { route in
-                viewForRouter(router: route)
-            }
     }
     
     @ViewBuilder
@@ -43,14 +40,6 @@ struct UserListCoordinator: View, ScreenCoordinator {
             navRouter.showSheet(RouterView.init(routable: Router.AppCoordinator.login))
         })
         .toolbar(.hidden, for: .navigationBar)
-    }
-    
-    @ViewBuilder
-    func viewForRouter(router: ScreenRouter) -> some View {
-        switch router {
-        case .userDetail(_):
-            EmptyView()
-        }
     }
 }
 

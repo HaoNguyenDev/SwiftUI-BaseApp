@@ -30,9 +30,6 @@ struct HomeViewCoordinator: View, ScreenCoordinator {
     
     var body: some View {
         getView()
-            .navigationDestination(for: ScreenRouter.self) { router in
-                viewForRouter(router: router)
-            }
     }
     
     @ViewBuilder
@@ -53,12 +50,5 @@ struct HomeViewCoordinator: View, ScreenCoordinator {
         .toolbar(.hidden, for: .navigationBar)
     }
     
-    @ViewBuilder
-    func viewForRouter(router: ScreenRouter) -> some View {
-        switch router {
-        case .subview:
-            EmptyView()
-        }
-    }
 }
 
