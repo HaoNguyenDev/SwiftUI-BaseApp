@@ -19,5 +19,5 @@ protocol Routable: Identifiable, Hashable {
 enum Router {}
 
 extension Router {
-    static let homeRouter = Router.Splash.home
+    static let homeRouter = Router.Splash.maintab
 }

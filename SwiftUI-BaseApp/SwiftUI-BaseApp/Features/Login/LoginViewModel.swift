@@ -20,13 +20,13 @@ struct LoginResult {
     var viewState: ViewState = .contentView /// ViewStateable
     private var cancellables = Set<AnyCancellable>()
     
-    var email: String = "" {
+    var email: String = "haonguyen@gmail.con" {
         didSet {
             handleIputEmailChanged(to: email)
         }
     }
     
-    var password: String = "" {
+    var password: String = "A123123" {
         didSet {
             handleInputPasswordChanged(to: password)
         }
