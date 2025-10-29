@@ -124,8 +124,6 @@ extension AppCoordinator {
         switch routable {
         case Router.AppCoordinator.login:
             LoginCoordinator(mainTabNavRouter: rootRouter, userSettings: userSettings)
-        case Router.Splash.home:
-            HomeViewCoordinator(navRouter: rootRouter)
         case Router.PlaceholderView.view(let titleParam):
             PlaceholderViewCoordinator(navRouter: rootRouter, title: titleParam)
         default: Text("OOPS!\nThis route is not implemented AppCoordinator showSheet function yet.")
@@ -137,8 +135,6 @@ extension AppCoordinator {
         switch routable {
         case Router.AppCoordinator.login:
             LoginCoordinator(mainTabNavRouter: rootRouter, userSettings: userSettings)
-        case Router.Splash.home:
-            HomeViewCoordinator(navRouter: rootRouter)
         case Router.PlaceholderView.view(let titleParam):
             PlaceholderViewCoordinator(navRouter: rootRouter, title: titleParam)
         default: Text("OOPS!\nThis route is not implemented at AppCoordinator showFullScreen function yet.")
@@ -162,7 +158,7 @@ extension AppCoordinator {
                 UserMessageView(message: message) { msg in
                     appState.userMessageState.hide()
                     if msg.code == .sectionExpired {
-                        rootRouter.pop(to:Router.Splash.home)
+                        rootRouter.pop(to:Router.Splash.maintab)
                     }
                 }
             }
@@ -187,7 +183,7 @@ extension AppCoordinator {
                     appState.userMessageState.hideAlert()
                     if message.code == .sectionExpired {
                         rootRouter.popToRoot()
-                        rootRouter.push(Router.Splash.home, animate: false)
+                        rootRouter.push(Router.Splash.maintab, animate: false)
                     }
                 })
                 
