@@ -416,9 +416,10 @@
 		DA4725342EA62F12000D596A /* App */ = {
 			isa = PBXGroup;
 			children = (
-				DA748DD82E22C04C00B1B226 /* AppState.swift */,
-				DA748DD42E22BF8E00B1B226 /* AppCoordinator.swift */,
 				DA5CC2852E22B28F000C5F18 /* SwiftUI_BaseApp.swift */,
+				DA748DD82E22C04C00B1B226 /* AppState.swift */,
+				DA748DD72E22C01B00B1B226 /* AppSettings.swift */,
+				DA748DD42E22BF8E00B1B226 /* AppCoordinator.swift */,
 				DA4725352EA6309E000D596A /* Configuration */,
 			);
 			path = App;
@@ -729,7 +730,6 @@
 			children = (
 				DA4725362EA635E4000D596A /* KeychainManager.swift */,
 				DA748E072E22C49500B1B226 /* UserSettings.swift */,
-				DA748DD72E22C01B00B1B226 /* AppSettings.swift */,
 				DA8910422E2639A10005D9DB /* Localization */,
 				DA4725552EA65F01000D596A /* ThemeManager */,
 			);
