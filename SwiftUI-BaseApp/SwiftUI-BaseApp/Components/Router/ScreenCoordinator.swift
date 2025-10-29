@@ -15,3 +15,11 @@ protocol ScreenCoordinator {
     @ViewBuilder
     func viewForRouter(router: ScreenRouter) -> Screen
 }
+
+extension ScreenCoordinator {
+    @ViewBuilder
+    func viewForRouter(router: ScreenRouter) -> some View {
+        EmptyView()
+        fatalError("ViewForRouter not implemented for \(type(of: self)) and router \(router).")
+    }
+}

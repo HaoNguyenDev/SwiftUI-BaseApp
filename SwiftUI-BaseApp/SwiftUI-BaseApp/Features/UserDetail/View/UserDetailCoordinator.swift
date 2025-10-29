@@ -33,9 +33,6 @@ struct UserDetailCoordinator: View, ScreenCoordinator {
     
     var body: some View {
         getView()
-            .navigationDestination(for: ScreenRouter.self) { route in
-                viewForRouter(router: route)
-            }
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 // (Leading)
@@ -52,14 +49,6 @@ struct UserDetailCoordinator: View, ScreenCoordinator {
         UserDetailView(vm: viewModel, gotoSubview: {
             navRouter.push(ScreenRouter.subview, animate: true)
         })
-    }
-    
-    @ViewBuilder
-    func viewForRouter(router: ScreenRouter) -> some View {
-        switch router {
-        case .subview:
-           EmptyView()
-        }
     }
 }
 

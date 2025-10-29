@@ -30,9 +30,6 @@ struct RegisterCoordinator: View, ScreenCoordinator {
     
     var body: some View {
         registerView()
-            .navigationDestination(for: ScreenRouter.self) { router in
-                viewForRouter(router: router)
-            }
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 // (Leading)
@@ -51,13 +48,5 @@ struct RegisterCoordinator: View, ScreenCoordinator {
 //            NotificationCenter.default.post(name: .closeLoginFlow, object: nil)
             navRouter.pop(animate: true)
         })
-    }
-    
-    @ViewBuilder
-    func viewForRouter(router: Router.Register) -> some View {
-        switch router {
-        case .none:
-            EmptyView()
-        }
     }
 }
