@@ -105,18 +105,15 @@ struct UserAvatar: View {
             }
             .placeholder {
                 HStack {
-                    Image(systemName: "arrow.2.circlepath.circle")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .padding(10)
-                    Text("Loading...").font(.title)
+                    ProgressView()
                 }
-                .foregroundColor(.gray)
+                .foregroundStyle(.gray)
             }
-            .fade(duration: 1)
+            .fade(duration: 0.5)
             .cancelOnDisappear(true)
             .cacheMemoryOnly()
             .aspectRatio(contentMode: .fit)
             .cornerRadius(RadiusSize.imageList)
+            .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 0))
     }
 }
