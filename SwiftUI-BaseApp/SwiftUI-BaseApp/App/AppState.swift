@@ -23,6 +23,11 @@ actor LoadingCounter {
     }
 }
 
+enum AppPhase {
+    case splashView
+    case appView
+}
+
 @Observable class AppState: ErrorHandler {
     // MARK: - Loading
     var isShowLoading = false
@@ -77,4 +82,6 @@ actor LoadingCounter {
         }
     }
     
+    //MARK: - AppPhase
+    var appPhase: AppPhase = .splashView
 }

@@ -71,7 +71,11 @@ struct AppCoordinator: View {
                 maintenanceView
             } else {
                 NavigationStack(path: $rootRouter.path) {
-                    SplashCoordinator(navRouter: rootRouter)
+                    if appState.appPhase == .splashView {
+                        SplashCoordinator(navRouter: rootRouter)
+                    } else {
+                        MainTabControllerView(navRouter: rootRouter)
+                    }
                 }
                 .ignoresSafeArea(.all)
                 

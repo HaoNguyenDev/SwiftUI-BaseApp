@@ -44,6 +44,8 @@
 		DA4726632EA7C3C2000D596A /* TextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4726622EA7C3C2000D596A /* TextSize.swift */; };
 		DA4726CA2EA7E016000D596A /* HButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4726C92EA7E016000D596A /* HButtonStyle.swift */; };
 		DA4726CF2EA7E2D7000D596A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4726CE2EA7E2D7000D596A /* Colors.xcassets */; };
+		DA5476492EB20B6D005C8868 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DA748DF42E22C17B00B1B226 /* SDWebImage */; };
+		DA54764A2EB20B6D005C8868 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DA748DF62E22C17B00B1B226 /* SDWebImageMapKit */; };
 		DA58DDC12E9E8DD20042D1AD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = DA58DDC02E9E8DD20042D1AD /* KeychainAccess */; };
 		DA5CC2872E22B28F000C5F18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2812E22B28F000C5F18 /* Preview Assets.xcassets */; };
 		DA5CC2882E22B28F000C5F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5CC2832E22B28F000C5F18 /* Assets.xcassets */; };
@@ -402,6 +404,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA54764A2EB20B6D005C8868 /* SDWebImageMapKit in Frameworks */,
+				DA5476492EB20B6D005C8868 /* SDWebImage in Frameworks */,
 				DAB3937B2EB0E48900357628 /* SDWebImageSwiftUI in Frameworks */,
 				DAB393742EB0DBBB00357628 /* Kingfisher in Frameworks */,
 				DA748DEF2E22C16400B1B226 /* Lottie in Frameworks */,
@@ -1417,6 +1421,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1445,6 +1450,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
