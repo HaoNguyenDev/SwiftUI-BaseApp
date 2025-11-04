@@ -13,7 +13,6 @@ struct SplashView: View {
     @Environment(AppSettings.self) var appSettings
     @Environment(UserSettings.self) var userSettings
     @Environment(\.theme) var theme: any ThemeProtocol
-    var finishSplash: VoidResult?
     @State var showLoading: Bool = false
     
     var body: some View {
@@ -26,7 +25,6 @@ struct SplashView: View {
         } else {
             contentView
         }
-        
     }
 }
 
@@ -39,14 +37,14 @@ extension SplashView {
             
             Button("Finish Splash".localized()) {
                 userSettings.hasFinishSplash = true
-                finishSplash?()
+                appState.appPhase = .appView
             }
             .primaryHButton()
             .padding(.horizontal, PaddingSize.standard)
         }
         .onAppear {
             if userSettings.hasFinishSplash {
-                finishSplash?()
+                appState.appPhase = .appView
             }
         }
     }
@@ -72,7 +70,7 @@ extension SplashView {
                     .buttonStyle(.primaryHButton)
                     
                     Button("skip".localized()) {
-                        finishSplash?()
+                        appState.appPhase = .appView
                     }
                     .buttonStyle(.secondaryHButton)
                     
@@ -97,7 +95,7 @@ extension SplashView {
                 showLoading = false
                 await appState.hideLoading()
                 appState.showToast(item: UserMessageItem(message: "welcome_message_app".localized()))
-                finishSplash?()
+                appState.appPhase = .appView
             } catch {
                 // TODO: Handle later
                 showLoading = false

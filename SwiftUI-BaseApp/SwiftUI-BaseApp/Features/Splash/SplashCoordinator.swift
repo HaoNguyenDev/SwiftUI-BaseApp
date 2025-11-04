@@ -39,16 +39,6 @@ struct SplashCoordinator: View, ScreenCoordinator {
     
     @ViewBuilder
     func getView() -> some View {
-        SplashView(finishSplash: {
-            navRouter.push(ScreenRouter.maintab, animate: false)
-        })
-    }
-    
-    @ViewBuilder
-    func viewForRouter(router: ScreenRouter) -> some View {
-        switch router {
-        case .maintab:
-            MainTabControllerView(navRouter: navRouter)
-        }
+        SplashView()
     }
 }
